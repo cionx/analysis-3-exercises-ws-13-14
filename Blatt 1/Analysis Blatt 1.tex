@@ -19,7 +19,7 @@
 \newtheorem*{is}{Induktionsschritt}
 
 \renewcommand{\thesection}{Aufgabe \arabic{section}.}
-\renewcommand{\thesubsection}{\alph{subsection}.}
+\renewcommand{\thesubsection}{\alph{subsection})}
 \renewcommand{\thesubsubsection}{(\roman{subsubsection})}
 
 \newcommand{\N}{\mathbb{N}}
@@ -32,6 +32,7 @@
 \newcommand{\dy}{\,\text{d}y}
 \newcommand{\dt}{\,\text{d}t}
 \newcommand{\du}{\,\text{d}u}
+\newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\Real}{\operatorname{Re}}
 \newcommand{\Imag}{\operatorname{Im}}
 \newcommand{\sgn}{\operatorname{sgn}}
@@ -62,6 +63,25 @@
 \maketitle
 
 
+
+
+
+
+\section{ (Push-Forward und Pull-Back von $\sigma$-Algebren) }
+
+\subsection{}
+Es gilt, die Axiome einer $\sigma$-Algebra für $f^*[\mc{A}]$ zu überprüfen.
+
+Da $\mc{A}$ eine $\sigma$-Algebra auf $X$ ist, ist $X \in \mc{A}$, also $f^{-1}(Y) = X \in \mc{A}$ und somit $Y \in f^*[A]$. Für $B \in f^*[\mc{A}]$ ist $f^{-1}(B) \in \mc{A}$, und da $\mc{A}$ eine $\sigma$-Algebra ist somit auch $f^{-1}(B^c) = \left( f^{-1}(B) \right)^c \in \mc{A}$, also $B^c \in f^*[\mc{A}]$. Für eine Folge $(B_n)_{n \in \N}$ auf $f^*[\mc{A}]$ ist $f^{-1}(B_n) \in \mc{A}$ für alle $n \in \N$, da $\mc{A}$ unter abzählbaren Vereinigungen abgeschlossen ist, und daher $f^{-1}\left(\bigcup_{n \in \N} B_n\right) = \bigcup_{n \in \N} f^{-1}(B_n) \in \mc{A}$, und daher auch $\bigcup_{n \in \N} B_n \in f^*[\mc{A}]$.
+
+Damit sind alle Axiome einer $\sigma$-Algebra für $f^*[\mc{A}]$ erfüllt.
+
+\subsection{}
+Es gilt, die Axiome einer $\sigma$-Algebra für $f_*[\mc{B}]$ zu überprüfen.
+
+Da $\mc{B}$ eine $\sigma$-Algebra auf $Y$ ist, ist $Y \in \mc{B}$, und somit $X = f^{-1}(Y) \in f_*[\mc{B}]$. Für $A \in f_*[\mc{B}]$ gibt es $B \in \mc{B}$ mit $f^{-1}(B) = A$; da $\mc{B}$ eine $\sigma$-Algebra ist, ist damit auch $B^c \in \mc{B}$ und somit $A^c = \left(f^{-1}(B)\right)^c = f^{-1}(B^c) \in f_*[\mc{B}]$. Ist $(A_n)_{n \in N}$ eine Folge auf $f_*[\mc{B}]$, so gibt es für alle $n \in \N$ ein $B_n \in \mc{B}$ mit $A_n = f^{-1}(B_n)$; da $\mc{B}$ als $\sigma$-Algebra ist, gilt damit auch $\bigcup_{n \in \N} B_n \in \mc{B}$, und somit $\bigcup_{n \in \N} A_n = \bigcup_{n \in N} f^{-1}(B_n) = f^{-1} \left(\bigcup_{n \in \N} B_n\right) \in f_*[\mc{B}]$.
+
+$f_*[\mc{B}]$ erfüllt also alle Axiome einer $\sigma$-Algebra.
 
 
 
