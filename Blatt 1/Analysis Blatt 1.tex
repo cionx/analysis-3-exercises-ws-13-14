@@ -87,4 +87,31 @@ $f_*[\mc{B}]$ erfüllt also alle Axiome einer $\sigma$-Algebra.
 
 
 
+\section{(Gegenbeispiele)}
+
+
+
+
+
+\section{(Die $\sigma$-Algebren auf einer dreielementigen Menge)}
+
+\subsection{}
+Es ist \[\mc{P}(\{1,2,3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1\}^c, \{2\}^c, \{3\}^c, \{1,2,3\}\},\] wobei $\{1\}, \{2\}, \{3\}$ alle einelementigen, und $\{1\}^c, \{2\}^c, \{3\}^c$ alle zweielementigen Teilmengen von $\{1,2,3\}$ sind.
+Die verschiedenen $\sigma$-Algebren auf $\{1,2,3\}$ lassen sich durch die jeweilige Anzahl der einelementigen Mengen klassifizieren. Sei $\mc{A}$ eine $\sigma$-Algebra auf $\{1,2,3\}$. Wir bemerken, dass aufgrund der Abgeschlossenheit von $\mc{A}$ unter Komplementbildung für alle $x \in \{1,2,3\} :\{x\} \in \mc{A} \Leftrightarrow \{x\}^c \in \mc{A}$.
+
+Enthält $\mc{A}$ keine einelementige Menge, so enthält $\mc{A}$ nach der Bemerkung auch keine zweielementige Menge, es ist also $\mc{A} = \{\emptyset, \{1,2,3\}\}$.
+
+Für alle $y \in \{1,2,3\}$ gibt es offenbar die $\sigma$-Algebra $\{\emptyset, \{y\}, \{y\}^c, \{1,2,3\}\}$ auf $\{1,2,3\}$. Dies sind die einzigen $\sigma$-Algebren, die genau eine einelementige Menge enthalten: Ist $\{x\} \in \mc{A}$ für genau ein $x \in \{1,2,3\}$, so ist auch $\{x\}^c \in \mc{A}$. Für jede zweielementige Menge $\{y\}^c \in \mc{A}$, muss auch $\{y\} \in \mc{A}$, und damit $y = x$ und $\{y\}^c = \{x\}^c$.
+
+Gilt $\{x\}, \{y\} \in \mc{A}$ für zwei verschiedene $x,y \in \{1,2,3\}$, so ist auch $\{x,y\}^c = (\{x\} \cup \{y\})^c \in \mc{A}$, also ist $\{z\} \in \mc{A}$ für alle $z \in \{1,2,3\}$. Es gibt also keine $\sigma$-Algebra auf $\{1,2,3\}$ die genau zwei einelementige Mengen beinhaltet.
+
+Ist $\{x\} \in \mc{A}$ für alle $x \in \{1,2,3\}$, so ist wegen \[\mc{P}(\{1,2,3\}) = \sigma(\{\{1\},\{2\},\{3\}\}) \subseteq \mc{A} \subseteq \mc{P}(\{1,2,3\})\] bereits $\mc\{A\} = \mc{P}(\{1,2,3\})$.
+
+Die einzigen $\sigma$-Algebren auf $\{1,2,3\}$ sind somit $\{\emptyset,\{1,2,3\}\}, \mc{P}(\{1,2,3\})$ sowie $\{\emptyset, \{x,\}, \{x\}^c, \{1,2,3\}\}$ für die verschiedenen $x \in \{1,2,3\}$.
+
+
+
+
+
+
 \end{document}
