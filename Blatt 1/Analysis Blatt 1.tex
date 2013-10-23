@@ -69,12 +69,14 @@
 
 \section{ (Push-Forward und Pull-Back von $\sigma$-Algebren) }
 
+
 \subsection{}
 Es gilt, die Axiome einer $\sigma$-Algebra für $f^*[\mc{A}]$ zu überprüfen.
 
 Da $\mc{A}$ eine $\sigma$-Algebra auf $X$ ist, ist $X \in \mc{A}$, also $f^{-1}(Y) = X \in \mc{A}$ und somit $Y \in f^*[A]$. Für $B \in f^*[\mc{A}]$ ist $f^{-1}(B) \in \mc{A}$, und da $\mc{A}$ eine $\sigma$-Algebra ist somit auch $f^{-1}(B^c) = \left( f^{-1}(B) \right)^c \in \mc{A}$, also $B^c \in f^*[\mc{A}]$. Für eine Folge $(B_n)_{n \in \N}$ auf $f^*[\mc{A}]$ ist $f^{-1}(B_n) \in \mc{A}$ für alle $n \in \N$, da $\mc{A}$ unter abzählbaren Vereinigungen abgeschlossen ist, und daher $f^{-1}\left(\bigcup_{n \in \N} B_n\right) = \bigcup_{n \in \N} f^{-1}(B_n) \in \mc{A}$, und daher auch $\bigcup_{n \in \N} B_n \in f^*[\mc{A}]$.
 
 Damit sind alle Axiome einer $\sigma$-Algebra für $f^*[\mc{A}]$ erfüllt.
+
 
 \subsection{}
 Es gilt, die Axiome einer $\sigma$-Algebra für $f_*[\mc{B}]$ zu überprüfen.
@@ -90,10 +92,44 @@ $f_*[\mc{B}]$ erfüllt also alle Axiome einer $\sigma$-Algebra.
 \section{(Gegenbeispiele)}
 
 
+\subsection{}
+Wie in \textbf{Aufgabe 3} gezeigt handelt es sich bei $\mc{A}_1 = \{\emptyset, \{1\}, \{2,3\}, \{1,2,3\}\}$ und $\mc{A}_2 = \{\emptyset, \{2\}, \{1,3\}, \{1,2,3\}\}$ um $\sigma$-Algebren auf $\{1,2,3\}$, für die $\mc{A}_2 \cup \mc{A}_2$ keine $\sigma$-Algebra auf $\{1,2,3\}$ ist.
+
+
+\subsection{}
+Man betrachte
+\[\mc{R} = \{A \subseteq \N : A \text{ ist endlich oder } A^c \text{ ist endlich}\}.\]
+$\mc{R}$ ist eine Algebra auf $\N$ ist: Offenbar ist $\emptyset \in \mc{R}$. Auch folgt aus der Definition direkt, dass $A \in \mc{R} \Leftrightarrow A^c \in \mc{R}$ für alle $A \subseteq \N$. Seien $A_1, A_2 \in \mc{R}$; per Fallunterscheidung ergibt sich, dass auch $A_1 \cup A_2 \in \mc{R}$: Sind $A_1$ und $A_2$ beide endlich, so ist es auch $A_1 \cup A_2$, also $A_1 \cup A_2 \in \mc{R}$. Ansonsten gibt es ein $i \in \{1,2\}$, so dass $A_i^c$ endlich ist, wobei durch passende Nummerierung o.B.d.A. davon ausgangen werden kann, dass $i = 1$. Es ist dann auch $(A_1 \cup A_2)^c = A_1^c \cap A_2^c \subseteq A_1^c$ endlich, also $A_1 \cup A_2 \in \mc{R}$. Dies zeigt, dass $\R$ eine Algebra ist.
+
+$\mc{R}$ ist aber keine $\sigma$-Algebra, da $2\N = \{n \in \N : n \text{ ist gerade}\} = \bigcup_{n \in \N} \{2n\} \not\in \mc{R}$, denn $2\N$ und $(2\N)^c = 2\N+1 = \{n \in \N : n \text{ ist ungerade}\}$ sind beide unendlich.
+
+
+\subsection{}
+Aus der Aufgabenstellung geht nicht klar hervor, ob $\mc{B}$ eine $\sigma$-Algebra auf $X$ sein soll, oder ob es auch ausreicht, dass $\mc{B}$ eine $\sigma$-Algebra auf $Y \subseteq X$ ist.
+
+Ist eine $\sigma$-Algebra auf $X$ gemeint, so sei $X = \{1\}$ und $\mc{B} = \{\emptyset\} \subseteq \mc{P}(X)$. Offensichtlich ist $\mc{B}$ unter abzählbaren Schnitten und Vereinigungen abgeschlossen (offenbar sogar unter beliebigen), da aber $X \not \in \mc{B}$ ist $\mc{B}$ keine $\sigma$-Algebra auf $X$.
+
+Sofern es genügt, dass $\mc{B}$ eine $\sigma$-Algebra auf einer Teilmenge $Y \subseteq X$ ist, so betrachte man $X = \{1,2\}$ und $\mc{B} = \{\emptyset, \{1\}, \{1,2\}\}$. Da $X \not \in \mc{B}$ ist $\mc{B}$ keine $\sigma$-Algebra auf $X$. Für alle $Y \subset X$ ist allerdings $\{1,2\} \not \in Y$, also $\mc{B}$ kein Mengensystem auf $\mc{P}(Y)$, und damit keine $\sigma$-Algebra auf $Y$.
+
+
+\subsection{}
+
+Man betrachte $f : \{1,2,3\} \longrightarrow \{4,5\}$ mit $f(1) = f(2) = 4$ und $f(3) = 5$.
+Wie in \textbf{Aufgabe 3} gezeigt ist $\mc{A} = \{\emptyset, \{1\}, \{2,3\}, \{1,2,3\}\}$ eine $\sigma$-Algebra auf $\{1,2,3\}$. Es ist aber
+\begin{equation*}
+ \mc{B}
+ := \{f(A) : A \in \mc{A}\}
+ = \{\emptyset, \{4\}, \{4,5\}\}
+\end{equation*}
+keine $\sigma$-Algebra auf $\{4,5\}$, da $\{4\} \in \mc{B}$ aber $\{4\}^c = \{5\} \not \in \mc{B}$.
+
+
+
 
 
 
 \section{(Die $\sigma$-Algebren auf einer dreielementigen Menge)}
+
 
 \subsection{}
 Es ist \[\mc{P}(\{1,2,3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1\}^c, \{2\}^c, \{3\}^c, \{1,2,3\}\},\] wobei $\{1\}, \{2\}, \{3\}$ alle einelementigen, und $\{1\}^c, \{2\}^c, \{3\}^c$ alle zweielementigen Teilmengen von $\{1,2,3\}$ sind.
@@ -101,7 +137,7 @@ Die verschiedenen $\sigma$-Algebren auf $\{1,2,3\}$ lassen sich durch die jeweil
 
 Enthält $\mc{A}$ keine einelementige Menge, so enthält $\mc{A}$ nach der Bemerkung auch keine zweielementige Menge, es ist also $\mc{A} = \{\emptyset, \{1,2,3\}\}$.
 
-Für alle $y \in \{1,2,3\}$ gibt es offenbar die $\sigma$-Algebra $\{\emptyset, \{y\}, \{y\}^c, \{1,2,3\}\}$ auf $\{1,2,3\}$. Dies sind die einzigen $\sigma$-Algebren, die genau eine einelementige Menge enthalten: Ist $\{x\} \in \mc{A}$ für genau ein $x \in \{1,2,3\}$, so ist auch $\{x\}^c \in \mc{A}$. Für jede zweielementige Menge $\{y\}^c \in \mc{A}$, muss auch $\{y\} \in \mc{A}$, und damit $y = x$ und $\{y\}^c = \{x\}^c$.
+Für alle $y \in \{1,2,3\}$ gibt es offenbar die $\sigma$-Algebra $\{\emptyset, \{y\}, \{y\}^c, \{1,2,3\}\}$ auf $\{1,2,3\}$ (bekannt aus der Vorlesung). Dies sind die einzigen $\sigma$-Algebren, die genau eine einelementige Menge enthalten: Ist $\{x\} \in \mc{A}$ für genau ein $x \in \{1,2,3\}$, so ist auch $\{x\}^c \in \mc{A}$. Für jede zweielementige Menge $\{y\}^c \in \mc{A}$, muss auch $\{y\} \in \mc{A}$, und damit $y = x$ und $\{y\}^c = \{x\}^c$.
 
 Gilt $\{x\}, \{y\} \in \mc{A}$ für zwei verschiedene $x,y \in \{1,2,3\}$, so ist auch $\{x,y\}^c = (\{x\} \cup \{y\})^c \in \mc{A}$, also ist $\{z\} \in \mc{A}$ für alle $z \in \{1,2,3\}$. Es gibt also keine $\sigma$-Algebra auf $\{1,2,3\}$ die genau zwei einelementige Mengen beinhaltet.
 
