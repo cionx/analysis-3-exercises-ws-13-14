@@ -33,6 +33,7 @@
 \newcommand{\dt}{\,\text{d}t}
 \newcommand{\du}{\,\text{d}u}
 \newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\Img}{\operatorname{Im}}
 \newcommand{\Real}{\operatorname{Re}}
 \newcommand{\Imag}{\operatorname{Im}}
 \newcommand{\sgn}{\operatorname{sgn}}
@@ -73,7 +74,7 @@
 \subsection{}
 Es gilt, die Axiome einer $\sigma$-Algebra für $f^*[\mc{A}]$ zu überprüfen.
 
-Da $\mc{A}$ eine $\sigma$-Algebra auf $X$ ist, ist $X \in \mc{A}$, also $f^{-1}(Y) = X \in \mc{A}$ und somit $Y \in f^*[A]$. Für $B \in f^*[\mc{A}]$ ist $f^{-1}(B) \in \mc{A}$, und da $\mc{A}$ eine $\sigma$-Algebra ist somit auch $f^{-1}(B^c) = \left( f^{-1}(B) \right)^c \in \mc{A}$, also $B^c \in f^*[\mc{A}]$. Für eine Folge $(B_n)_{n \in \N}$ auf $f^*[\mc{A}]$ ist $f^{-1}(B_n) \in \mc{A}$ für alle $n \in \N$, da $\mc{A}$ unter abzählbaren Vereinigungen abgeschlossen ist, und daher $f^{-1}\left(\bigcup_{n \in \N} B_n\right) = \bigcup_{n \in \N} f^{-1}(B_n) \in \mc{A}$, und daher auch $\bigcup_{n \in \N} B_n \in f^*[\mc{A}]$.
+Da $\mc{A}$ eine $\sigma$-Algebra auf $X$ ist, ist $X \in \mc{A}$, also $f^{-1}(Y) = X \in \mc{A}$ und somit $Y \in f^*[A]$. Für $B \in f^*[\mc{A}]$ ist $f^{-1}(B) \in \mc{A}$, und da $\mc{A}$ eine $\sigma$-Algebra ist somit auch $f^{-1}(B^c) = \left( f^{-1}(B) \right)^c \in \mc{A}$, also $B^c \in f^*[\mc{A}]$. Für eine Folge $(B_n)_{n \in \N}$ auf $f^*[\mc{A}]$ ist $f^{-1}(B_n) \in \mc{A}$ für alle $n \in \N$, und da $\mc{A}$ unter abzählbaren Vereinigungen abgeschlossen ist, ist daher auch $f^{-1}\left(\bigcup_{n \in \N} B_n\right) = \bigcup_{n \in \N} f^{-1}(B_n) \in \mc{A}$, und somit auch $\bigcup_{n \in \N} B_n \in f^*[\mc{A}]$.
 
 Damit sind alle Axiome einer $\sigma$-Algebra für $f^*[\mc{A}]$ erfüllt.
 
@@ -81,7 +82,7 @@ Damit sind alle Axiome einer $\sigma$-Algebra für $f^*[\mc{A}]$ erfüllt.
 \subsection{}
 Es gilt, die Axiome einer $\sigma$-Algebra für $f_*[\mc{B}]$ zu überprüfen.
 
-Da $\mc{B}$ eine $\sigma$-Algebra auf $Y$ ist, ist $Y \in \mc{B}$, und somit $X = f^{-1}(Y) \in f_*[\mc{B}]$. Für $A \in f_*[\mc{B}]$ gibt es $B \in \mc{B}$ mit $f^{-1}(B) = A$; da $\mc{B}$ eine $\sigma$-Algebra ist, ist damit auch $B^c \in \mc{B}$ und somit $A^c = \left(f^{-1}(B)\right)^c = f^{-1}(B^c) \in f_*[\mc{B}]$. Ist $(A_n)_{n \in N}$ eine Folge auf $f_*[\mc{B}]$, so gibt es für alle $n \in \N$ ein $B_n \in \mc{B}$ mit $A_n = f^{-1}(B_n)$; da $\mc{B}$ als $\sigma$-Algebra ist, gilt damit auch $\bigcup_{n \in \N} B_n \in \mc{B}$, und somit $\bigcup_{n \in \N} A_n = \bigcup_{n \in N} f^{-1}(B_n) = f^{-1} \left(\bigcup_{n \in \N} B_n\right) \in f_*[\mc{B}]$.
+Da $\mc{B}$ eine $\sigma$-Algebra auf $Y$ ist, ist $Y \in \mc{B}$, und somit $X = f^{-1}(Y) \in f_*[\mc{B}]$. Für $A \in f_*[\mc{B}]$ gibt es ein $B \in \mc{B}$ mit $f^{-1}(B) = A$; da $\mc{B}$ eine $\sigma$-Algebra ist, ist auch $B^c \in \mc{B}$ und somit $A^c = \left(f^{-1}(B)\right)^c = f^{-1}(B^c) \in f_*[\mc{B}]$. Ist $(A_n)_{n \in \N}$ eine Folge auf $f_*[\mc{B}]$, so gibt es für alle $n \in \N$ ein $B_n \in \mc{B}$ mit $A_n = f^{-1}(B_n)$; da $\mc{B}$ eine $\sigma$-Algebra ist, ist auch $\bigcup_{n \in \N} B_n \in \mc{B}$, und somit $\bigcup_{n \in \N} A_n = \bigcup_{n \in \N} f^{-1}(B_n) = f^{-1} \left(\bigcup_{n \in \N} B_n\right) \in f_*[\mc{B}]$.
 
 $f_*[\mc{B}]$ erfüllt also alle Axiome einer $\sigma$-Algebra.
 
@@ -93,23 +94,28 @@ $f_*[\mc{B}]$ erfüllt also alle Axiome einer $\sigma$-Algebra.
 
 
 \subsection{}
-Wie in \textbf{Aufgabe 3} gezeigt handelt es sich bei $\mc{A}_1 = \{\emptyset, \{1\}, \{2,3\}, \{1,2,3\}\}$ und $\mc{A}_2 = \{\emptyset, \{2\}, \{1,3\}, \{1,2,3\}\}$ um $\sigma$-Algebren auf $\{1,2,3\}$, für die $\mc{A}_2 \cup \mc{A}_2$ keine $\sigma$-Algebra auf $\{1,2,3\}$ ist.
+Wie in \textbf{Aufgabe 3} gezeigt handelt es sich bei $\mc{A}_1 = \{\emptyset, \{1\}, \{2,3\}, \{1,2,3\}\}$ und $\mc{A}_2 = \{\emptyset, \{2\}, \{1,3\}, \{1,2,3\}\}$ um $\sigma$-Algebren auf $\{1,2,3\}$, während $\mc{A}_2 \cup \mc{A}_2$ keine $\sigma$-Algebra auf $\{1,2,3\}$ ist.
 
 
 \subsection{}
 Man betrachte
 \[\mc{R} = \{A \subseteq \N : A \text{ ist endlich oder } A^c \text{ ist endlich}\}.\]
-$\mc{R}$ ist eine Algebra auf $\N$ ist: Offenbar ist $\emptyset \in \mc{R}$. Auch folgt aus der Definition direkt, dass $A \in \mc{R} \Leftrightarrow A^c \in \mc{R}$ für alle $A \subseteq \N$. Seien $A_1, A_2 \in \mc{R}$; per Fallunterscheidung ergibt sich, dass auch $A_1 \cup A_2 \in \mc{R}$: Sind $A_1$ und $A_2$ beide endlich, so ist es auch $A_1 \cup A_2$, also $A_1 \cup A_2 \in \mc{R}$. Ansonsten gibt es ein $i \in \{1,2\}$, so dass $A_i^c$ endlich ist, wobei durch passende Nummerierung o.B.d.A. davon ausgangen werden kann, dass $i = 1$. Es ist dann auch $(A_1 \cup A_2)^c = A_1^c \cap A_2^c \subseteq A_1^c$ endlich, also $A_1 \cup A_2 \in \mc{R}$. Dies zeigt, dass $\R$ eine Algebra ist.
 
-$\mc{R}$ ist aber keine $\sigma$-Algebra, da $2\N = \{n \in \N : n \text{ ist gerade}\} = \bigcup_{n \in \N} \{2n\} \not\in \mc{R}$, denn $2\N$ und $(2\N)^c = 2\N+1 = \{n \in \N : n \text{ ist ungerade}\}$ sind beide unendlich.
+$\mc{R}$ ist eine Algebra auf $\N$: Offenbar ist $\emptyset \in \mc{R}$. Auch folgt aus der Definition direkt, dass $A \in \mc{R} \Leftrightarrow A^c \in \mc{R}$ für alle $A \subseteq \N$. Seien $A_1, A_2 \in \mc{R}$; per Fallunterscheidung ergibt sich, dass auch $A_1 \cup A_2 \in \mc{R}$: Sind $A_1$ und $A_2$ beide endlich, so ist es auch $A_1 \cup A_2$, weshalb $A_1 \cup A_2 \in \mc{R}$. Ansonsten gibt es ein $i \in \{1,2\}$, so dass $A_i^c$ endlich ist, wobei durch passende Nummerierung o.B.d.A. davon ausgangen werden kann, dass $i = 1$. Es ist dann auch $(A_1 \cup A_2)^c = A_1^c \cap A_2^c \subseteq A_1^c$ endlich, also $A_1 \cup A_2 \in \mc{R}$. Dies zeigt, dass $\mc{R}$ eine Algebra ist.
+
+$\mc{R}$ ist jedoch keine $\sigma$-Algebra, denn für
+\[
+ 2\N = \{n \in \N : n \text{ ist gerade}\} = \bigcup_{n \in \N} \underbrace{\{2n\}}_{\in \mc{R}},
+\]
+sind $2\N$ und $(2\N)^c = 2\N+1 = \{n \in \N : n \text{ ist ungerade}\}$ beide unendlich, und daher $2\N \not \in \mc{R}$, was der $\sigma$-Additivität einer $\sigma$-Algebra widerspricht.
 
 
 \subsection{}
-Aus der Aufgabenstellung geht nicht klar hervor, ob $\mc{B}$ eine $\sigma$-Algebra auf $X$ sein soll, oder ob es auch ausreicht, dass $\mc{B}$ eine $\sigma$-Algebra auf $Y \subseteq X$ ist.
+Aus der Aufgabenstellung geht nicht klar hervor, ob $\mc{B}$ eine $\sigma$-Algebra auf $X$ sein sollte, oder ob es auch ausreicht, dass es ein $Y \subseteq X$ gibt, so dass $\mc{B}$ eine $\sigma$-Algebra auf $Y$ ist.
 
-Ist eine $\sigma$-Algebra auf $X$ gemeint, so sei $X = \{1\}$ und $\mc{B} = \{\emptyset\} \subseteq \mc{P}(X)$. Offensichtlich ist $\mc{B}$ unter abzählbaren Schnitten und Vereinigungen abgeschlossen (offenbar sogar unter beliebigen), da aber $X \not \in \mc{B}$ ist $\mc{B}$ keine $\sigma$-Algebra auf $X$.
+Ist eine $\sigma$-Algebra auf $X$ gemeint, so betrachte man $X = \{1\}$ und $\mc{B} = \{\emptyset\} \subseteq \mc{P}(X)$. Offensichtlich ist $\mc{B}$ unter abzählbaren Schnitten und Vereinigungen abgeschlossen (sogar unter beliebigen), da aber $X \not \in \mc{B}$ ist $\mc{B}$ keine $\sigma$-Algebra auf $X$.
 
-Sofern es genügt, dass $\mc{B}$ eine $\sigma$-Algebra auf einer Teilmenge $Y \subseteq X$ ist, so betrachte man $X = \{1,2\}$ und $\mc{B} = \{\emptyset, \{1\}, \{1,2\}\}$. Da $X \not \in \mc{B}$ ist $\mc{B}$ keine $\sigma$-Algebra auf $X$. Für alle $Y \subset X$ ist allerdings $\{1,2\} \not \in Y$, also $\mc{B}$ kein Mengensystem auf $\mc{P}(Y)$, und damit keine $\sigma$-Algebra auf $Y$.
+Sofern es genügt, dass $\mc{B}$ eine $\sigma$-Algebra auf einer Teilmenge $Y \subseteq X$ ist, so betrachte man $X = \{1,2\}$ und $\mc{B} = \{\emptyset, \{1\}, \{1,2\}\}$. Da zwar $\{1\} \in \mc{B}$, aber $\{1\}^c = \{2\} \not \in \mc{B}$ ist $\mc{B}$ keine $\sigma$-Algebra auf $X$. Für alle $Y \subset X$ ist allerdings $\{1,2\} \not \in Y$, also $\mc{B} \not \subseteq \mc{P}(Y)$ und $\mc{B}$ somit auch keine $\sigma$-Algebra auf $Y$.
 
 
 \subsection{}
@@ -127,23 +133,133 @@ keine $\sigma$-Algebra auf $\{4,5\}$, da $\{4\} \in \mc{B}$ aber $\{4\}^c = \{5\
 
 
 
-
 \section{(Die $\sigma$-Algebren auf einer dreielementigen Menge)}
 
 
 \subsection{}
 Es ist \[\mc{P}(\{1,2,3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1\}^c, \{2\}^c, \{3\}^c, \{1,2,3\}\},\] wobei $\{1\}, \{2\}, \{3\}$ alle einelementigen, und $\{1\}^c, \{2\}^c, \{3\}^c$ alle zweielementigen Teilmengen von $\{1,2,3\}$ sind.
-Die verschiedenen $\sigma$-Algebren auf $\{1,2,3\}$ lassen sich durch die jeweilige Anzahl der einelementigen Mengen klassifizieren. Sei $\mc{A}$ eine $\sigma$-Algebra auf $\{1,2,3\}$. Wir bemerken, dass aufgrund der Abgeschlossenheit von $\mc{A}$ unter Komplementbildung für alle $x \in \{1,2,3\} :\{x\} \in \mc{A} \Leftrightarrow \{x\}^c \in \mc{A}$.
+Die verschiedenen $\sigma$-Algebren auf $\{1,2,3\}$ lassen sich durch die jeweilige Anzahl der beinhalteten einelementigen Mengen klassifizieren. Sei im Folgenden $\mc{A}$ eine $\sigma$-Algebra auf $\{1,2,3\}$. Man bemerke, dass aufgrund der Abgeschlossenheit von $\mc{A}$ unter Komplementbildung für alle $x \in \{1,2,3\} :\{x\} \in \mc{A} \Leftrightarrow \{x\}^c \in \mc{A}$.
 
 Enthält $\mc{A}$ keine einelementige Menge, so enthält $\mc{A}$ nach der Bemerkung auch keine zweielementige Menge, es ist also $\mc{A} = \{\emptyset, \{1,2,3\}\}$.
 
-Für alle $y \in \{1,2,3\}$ gibt es offenbar die $\sigma$-Algebra $\{\emptyset, \{y\}, \{y\}^c, \{1,2,3\}\}$ auf $\{1,2,3\}$ (bekannt aus der Vorlesung). Dies sind die einzigen $\sigma$-Algebren, die genau eine einelementige Menge enthalten: Ist $\{x\} \in \mc{A}$ für genau ein $x \in \{1,2,3\}$, so ist auch $\{x\}^c \in \mc{A}$. Für jede zweielementige Menge $\{y\}^c \in \mc{A}$, muss auch $\{y\} \in \mc{A}$, und damit $y = x$ und $\{y\}^c = \{x\}^c$.
+Für alle $x \in \{1,2,3\}$ gibt es die $\sigma$-Algebra $\{\emptyset, \{x\}, \{x\}^c, \{1,2,3\}\}$ auf $\{1,2,3\}$ (bekannt aus der Vorlesung). Dies sind die einzigen $\sigma$-Algebren, die genau eine einelementige Menge enthalten: Ist $\{x\} \in \mc{A}$ für genau ein $x \in \{1,2,3\}$, so ist auch $\{x\}^c \in \mc{A}$. Für jede zweielementige Menge $\{y\}^c \in \mc{A}$ muss auch $\{y\} \in \mc{A}$, also $y = x$ und damit $\{y\}^c = \{x\}^c$. Also enthält $\mc{A}$ neben $\{x\}^c$ keine weiteren zweielmentigen Mengen und es ist $\mc{A} = \{\emptyset, \{x\}, \{x\}^c, \{1,2,3\}\}$.
 
 Gilt $\{x\}, \{y\} \in \mc{A}$ für zwei verschiedene $x,y \in \{1,2,3\}$, so ist auch $\{x,y\}^c = (\{x\} \cup \{y\})^c \in \mc{A}$, also ist $\{z\} \in \mc{A}$ für alle $z \in \{1,2,3\}$. Es gibt also keine $\sigma$-Algebra auf $\{1,2,3\}$ die genau zwei einelementige Mengen beinhaltet.
 
-Ist $\{x\} \in \mc{A}$ für alle $x \in \{1,2,3\}$, so ist wegen \[\mc{P}(\{1,2,3\}) = \sigma(\{\{1\},\{2\},\{3\}\}) \subseteq \mc{A} \subseteq \mc{P}(\{1,2,3\})\] bereits $\mc\{A\} = \mc{P}(\{1,2,3\})$.
+Ist $\{x\} \in \mc{A}$ für alle $x \in \{1,2,3\}$, so ist wegen \[\mc{P}(\{1,2,3\}) = \sigma(\{\{1\},\{2\},\{3\}\}) \subseteq \mc{A} \subseteq \mc{P}(\{1,2,3\})\] bereits $\mc{A} = \mc{P}(\{1,2,3\})$.
 
-Die einzigen $\sigma$-Algebren auf $\{1,2,3\}$ sind somit $\{\emptyset,\{1,2,3\}\}, \mc{P}(\{1,2,3\})$ sowie $\{\emptyset, \{x,\}, \{x\}^c, \{1,2,3\}\}$ für die verschiedenen $x \in \{1,2,3\}$.
+Die einzigen $\sigma$-Algebren auf $\{1,2,3\}$ sind somit $\{\emptyset,\{1,2,3\}\}, \mc{P}(\{1,2,3\})$ sowie $\{\emptyset, \{x\}, \{x\}^c, \{1,2,3\}\}$ für $x \in \{1,2,3\}$.
+
+
+
+
+
+\section{(Ein Gegenbeispiel von Vitali in zwei Dimensionen)}
+
+
+\subsection{}
+Die Abbildung
+\[
+ A: \Q \rightarrow SO(2), q \mapsto \vect{\cos q & -\sin q \\ \sin q & \cos q}
+\]
+ist ein Gruppenmonomorphismus von $(\Q, +)$ nach $(SO(2), \cdot)$: Für $p,q \in \Q$ ist
+\begin{align*}
+ A(p) A(q)
+ &=
+ \begin{pmatrix}
+  \cos p & -\sin p \\
+  \sin p & \cos p
+ \end{pmatrix}
+ \begin{pmatrix}
+  \cos q & -\sin q \\
+  \sin q & \cos q
+ \end{pmatrix} \\
+ &=
+ \begin{pmatrix}
+  \cos p \cos q - \sin p \sin q & -\cos p \sin q - \sin p \cos q \\
+  \sin p \cos q + \cos p \sin q & - \sin p \sin q + \cos p \cos q
+ \end{pmatrix} \\
+ &=
+ \begin{pmatrix}
+  \cos(p+q) & -\sin(p+q) \\
+  \sin(p+q) &  \cos(p+q)
+ \end{pmatrix}
+ =
+ A(p+q),
+\end{align*}
+also ist $A$ ein Gruppenhomomorphismus. $A$ ist injektiv, denn für $p,q \in \Q$ mit $A(p) = A(q)$ muss $\cos p = \cos q$ und $\sin p = \sin q$ gelten, also
+\[
+ e^{ip} = \cos p + i \sin p = \cos q + i \sin q = e^{iq}.
+\]
+Da die Abbildung $[0,2\pi) \rightarrow \C, \varphi \mapsto e^{i\varphi}$ bijektiv ist, und erweitert auf $\R$ $(2\pi)$-periodisch ist, muss $p-q = 2n\pi$ für ein $n \in \Z$; wäre $n \neq 0$, so wäre $\pi = \frac{p-q}{2n} \in \Q$, was bekanntermaßen nicht gilt. Also muss $n = 0$ und damit $p = q$.
+
+Da $A$ ein Gruppenmonomorphismus ist, ist
+\[
+ G := \Img A =
+ \left\{
+ \begin{pmatrix}
+  \cos q & -\sin q \\
+  \sin q & \cos q
+ \end{pmatrix}
+ : q \in \Q
+ \right\}
+\]
+eine abzählbar unendliche Untergruppe von $SO(2)$.
+
+
+\subsection{}
+Die Relation ist reflexiv, da $A(0) = I \in G$ und $\frac{x}{|x|} = I\frac{x}{|x|}$ für alle $x \in \R^2 \setminus \{0\}$.
+
+Die Relation ist symmetrisch, denn ist $x \sim y$, so gibt es ein $R \in G$ mit $\frac{x}{|x|} = R\frac{y}{|y|}$. Da $G$ eine Gruppe ist, ist auch $R^{-1} \in G$, und da $R^{-1} \frac{x}{|x|} = R^{-1} R \frac{y}{|y|} = I \frac{y}{|y|} = \frac{y}{|y|}$, gilt daher auch $y \sim x$. 
+
+Die Relation ist transitiv, denn ist $x \sim y$ und $y \sim z$, so gibt es $R, S \in G$ mit $\frac{x}{|x|} = R \frac{y}{|y|}$ und $\frac{y}{|y|} = S \frac{z}{|z|}$. Da $G$ eine Gruppe ist, ist auch $RS \in G$, und da $\frac{x}{|x|} = R\frac{y}{|y|} = (RS)\frac{z}{|z|}$ folgt daher auch $x \sim z$.
+
+
+\subsection{}
+Da ich die bisher definierte Äquivalenzrelation $\sim$ nicht mag, betrachte ich eine leicht abgeänderte Version; ich nenne diese ebenfalls $\sim$, da ich die Äquivalenzrelation aus \textbf{Aufgabenteil b)} nicht mehr nutzen werde, und $\sim$ der praktischste Name ist:
+
+Durch $x \sim y :\Leftrightarrow \text{ es existiert } R \in G : x = Ry$ wird auf $B_1(0) \setminus \{0\}$ eine Äquivalenzrelation definiert. Der Beweis hierfür verläuft komplett analog zu \textbf{Aufgabenteil b)}. Dabei ist $Rx \in B_{1}(0)\setminus\{0\}$ für alle $R \in SO(2)$ und $x \in B_{1}(0)$, denn es ist $0 < \op{B} \leq \|B\| = 1$ für alle $B \in G$, und damit $\|Rx\| \leq \|x\| \leq 1$ für alle $x \in B_1(0)\setminus\{0\}$, also $R (B_1(0)\setminus\{0\}) \subseteq B_1(0)\setminus\{0\}$. Insbesondere ist daher $\bigcup_{R \in G} RA \subset B_1(0)\setminus\{0\}$ für alle $A \subseteq B_1(0)\setminus\{0\}$.
+
+Sei nun $M \subset B_1(0)\setminus\{0\}$ ein Repräsentantensystem der Äquivalenzklassen von $\sim$, d.h. es gibt für jedes $y \in B_1(0)\setminus\{0\}$ genau ein $x \in M$ mit $x \sim y$ (um die Existenz einer solchen Menge zu garantieren wird das Auswahlaxiom genutzt). Für alle $R \in G$ sei $M_R = RM = \{Rx : x \in M\}$. Es ist dann $B_1(0)\setminus\{0\} = \dot{\bigcup}_{R \in G} M_R$:
+
+Es ist $M_R \cap M_S = \emptyset$ für $R,S \in G$ mit $R \neq S$, denn gibt es ein $y \in B_1(0)\setminus\{0\}$ mit $y \in M_R \cap M_S$, so ist $y = Rx$ und $y = Sx'$ mit $x,x' \in M$. Dann ist aber $Rx = Sx'$, also $x' = S^{-1} R x$ und somit $x' \sim x$. Nach der Konstruktion von $M$ ist daher $x = x'$, und damit $x = S^{-1} R x$, also $S^{-1} R = I$ und somit auch $R = S$, im Widerspruch zu $R \neq S$.
+Andererseits gibt es für jedes $y \in B_1(0)\setminus\{0\}$ nach der Konstruktion von $M$ ein $x \in M$ mit $y \sim x$, so dass also $y = Sx \in M_S \subseteq \bigcup_{R \in G} M_R$ für ein $S \in G$.
+
+Angenommen, es gibt eine Abbildung $\mu$ mit den geforderten Eigenschaften. Es ist dann insbesondere $\mu(M_R) = \mu(RM) = \mu(M)$ für alle $R \in G$. Es folgt, dass
+\begin{align*}
+ 1
+ &= \mu(B_1(0)\setminus\{0\})
+ = \mu\left( \dot{\bigcup_{R \in G}} M_R \right) \\
+ &= \sum_{R \in G} \mu(M_R)
+ = \sum_{R \in G} \mu(M)
+ =
+ \begin{cases}
+  0      & \text{falls } \mu(M) = 0\\
+  \infty & \text{sonst}
+ \end{cases},
+\end{align*}
+was in jedem Fall ein Widerspruch ist. Es kann also keine solche Funktion $\mu$ geben.
+
+
+\subsection{}
+Es sei für alle $B \in B_1(0)$
+\[
+ \mu(B) =
+ \begin{cases}
+  1 & \text{falls } 0 \in B\\
+  0 & \text{sonst}
+ \end{cases}.
+\]
+Es sind dann alle geforderten Eigenschaften erfüllt:
+
+Es ist $\mu(B_1(0)) = 1$, da $0 \in B_1(0)$.
+
+Für jede Folge disjunkter Mengen $(A_n)_{n \in \N}$ auf $B_1(0)$ gilt: Ist $0 \not \in A_n$ für alle $n \in \N$, so ist $\mu(A_n) = 0$ für alle $n \in \N$ sowie auch $0 \not \in \bigcup_{n \in \N} A_n$, also \[\mu\left(\bigcup_{n \in \N} A_n\right) = 0 = \sum_{n \in \N} \mu(A_n).\]
+Gibt es hingegen ein $m \in \N$ mit $0 \in A_m$, so folgt aus der Disjunktheit der $A_n$, dass $0 \not \in A_n$ für alle $n \in \N, n \neq m$; es ist jedoch $0 \in \bigcup_{n \in \N} A_n$, und damit \[\mu\left(\bigcup_{n \in \N} A_n\right) = 1 = \sum_{n \in \N} \mu(A_n).\]
+$\mu$ erfüllt also die geforderte $\sigma$-Additivität.
+
+Da für alle $R \in SO(2)$ die Matrix $R$ einen Vektorraumautomorphismus $\R^2 \rightarrow \R^2$ beschreibt, ist $\operatorname{Ker} R = \{0\}$, also $0 \in RA \Leftrightarrow 0 \in A$ für alle $A \subseteq \R^2$. Es ist daher $\mu(RA) = 1 \Leftrightarrow 0 \in RA \Leftrightarrow 0 \in A \Leftrightarrow \mu(A) = 1$, also $\mu(RA) = \mu(A)$ für alle $R \in SO(2)$ und $A \subseteq \R^2$ (man bemerke, dass die Äquivalenz eine Gleichheit in allen Fällen impliziert, da $\mu$ nur zwei mögliche Werte annehmen kann).
+
 
 
 
