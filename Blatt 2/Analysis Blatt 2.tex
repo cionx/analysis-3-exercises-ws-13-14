@@ -27,6 +27,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\A}{\mathcal{A}}
 \newcommand{\La}{\mathcal{L}}
 \newcommand{\dx}{\,\text{d}x}
 \newcommand{\dy}{\,\text{d}y}
@@ -62,6 +63,75 @@
 
 \begin{document}
 \maketitle
+
+
+
+
+
+\section{(Monotone Klassen und $\sigma$-Algebren)}
+
+
+\subsection{}
+Angenommen, $\A$ ist eine Algebra. Nach der Definition einer Algebra ist damit $X \in \A$ und für alle $A \in \A$ auch $A^c \in \A$; es muss also nur noch die $\sigma$-Additivität gezeigt werden.
+
+Sei hierfür $(A_n)_{n \in \N}$ eine Folge auf $\A$. Für alle $n \in N$ sei $B_n := \bigcup_{k=0}^n A_k$. Es ist offenbar $\bigcup_{n \in \N} A_n = \bigcup_{n \in \N} B_n$. Da $(B_n)_{n \in \N}$ eine wachsende Folge auf $\A$ ist, und $\A$ eine monotone Klasse, gilt
+\[
+ \bigcup_{n \in \N} A_n = \bigcup_{n \in \N} B_n \in \A.
+\]
+Dies zeigt die $\sigma$-Additivität.
+
+Ist andererseits $\A$ eine $\sigma$-Algebra, so ist $\A$ auch eine Algebra, da jede $\sigma$-Algebra auf $X$ eine Algebra auf $X$ ist (bekannt aus der Vorlesung).
+
+
+\subsection{}
+Wie aus der Vorlesung bekannt ist jede $\sigma$-Algebra eine monotone Klasse. Damit ist $\sigma(\A)$ eine monotone Klasse, die $\A$ enthält. Da $m(\A)$ die kleinste monotone Klasse ist, die $\A$ enthält, ist daher $m(\A) \subseteq \sigma(\A)$.
+
+Um zu zeigen, dass auch $m(\A) \subseteq \sigma(\A)$, genügt es zu zeigen, dass $m(\A)$ eine $\sigma$-Algebra ist: Da $\sigma(\A)$ die kleinste $\sigma$-Algebra ist, die $\A$ enthält, ist dann $m(\A) \subseteq \sigma(\A)$. Da $m(\A)$ eine monotone Klasse ist, genügt es nach \textbf{Aufgabenteil a)} zu zeigen, dass $m(\A)$ eine Algebra ist.
+
+Es ist $\Omega \in \A \subseteq m(\A)$, da $\A$ eine Algebra ist. Es muss noch die Abgeschlossenheit von $\A$ unter Komplementbildung und endlichen Vereinigungen gezeigt werden.
+
+Es sei $\mc{K} := \{M \in \mc{P}(X) : M^c \in m(\A)\}$. $\mc{K}$ ist eine monotone Klasse: Ist $(K_n)_{n \in \N}$ ein wachsende Folge in $\mc{K}$, so ist $(K_n^c)_{n \in \N}$ eine fallende Folge in $m(\A)$, und somit
+\[
+ \left( \bigcup_{n \in \N} K_n \right)^c
+ = \bigcap_{n \in \N} K_n^c \in m(\A),
+\]
+da $m(\A)$ eine monotone Klasse ist, also $\bigcup_{n \in \N} K_n \in \mc{K}$.
+Ist $(L_n)_{n \in \N}$ eine fallende Folge in $\mc{K}$, so ist $(L_n^c)_{n \in \N}$ eine wachsende Folge in $m(\A)$, und somit
+\[
+ \left( \bigcap_{n \in \N} L_n \right)^c = \bigcup_{n \in \N} L_n^c \in m(\A),
+\]
+da $m(\A)$ eine monotone Klasse ist, also $\bigcap_{n \in \N} L_n \in \mc{K}$. Dies zeigt, dass $\mc{K}$ eine monotone Klasse ist.
+
+Da $\A$ eine Algebra ist, ist $A^c \in \A \subseteq m(\A)$ für alle $A \in \A$, also $\A \subseteq \mc{K}$. Da $\mc{K}$ eine monotone Klasse ist, die $\A$ enthält, ist daher $m(\A) \subseteq \mc{K}$. Also ist $A^c \in m(\A)$ für alle $A \in m(\A)$. Dies zeigt die Abgeschlossenheit von $\mc{A}$ unter Komplementbildung.
+
+Für $D \in m(\A)$ sei $\mc{V}_D := \{M \in P(X) : D \cup M \in m(\A)\}$. Auch $\mc{V}_D$ ist eine monotone Klasse: Ist $(V_n)_{n \in \N}$ eine wachsende Folge auf $\mc{V}_D$, so ist $(V_n \cup D)_{n \in \N}$ ein wachsende Folge auf $m(\A)$, und somit
+\[
+ \left( \bigcup_{n \in \N} V_n \right) \cup D
+ = \bigcup_{n \in \N} (V_n \cup D)
+ \in m(\A),
+\]
+da $m(\A)$ eine monotone Klasse ist, und daher $\bigcup_{n \in \N} V_n \in \mc{V}_D$.
+Ist $(W_n)_{n \in \N}$ eine fallende Folge auf $\mc{V}_D$, so $(W_n \cup D)$ eine fallende Folge auf $m(\A)$, und somit
+\[
+ \left( \bigcap_{n \in \N} W_n \right) \cup D
+ = \bigcap_{n \in \N} (W_n \cup D)
+ \in m(\A),
+\]
+da $m(\A)$ eine monotone Klasse ist, und daher $\bigcap_{n \in \N} W_n \in \mc{V}_D$. Dies zeigt, dass $\mc{V}_D$ eine monotone Klasse ist.
+
+Sei $A \in \A$. Für $B \in \A$ ist $A \cup B \in \A \subseteq m(\A)$, da $\A$ eine Algebra ist, und daher $B \in \mc{V}_A$, wegen der Beliebigkeit von $B$ also $\A \subseteq \mc{V}_A$. Da $m(\A)$ die kleinste monotone Klasse ist, die $\A$ enthält, ist daher $m(\A) \subseteq \mc{V}_A$. Also ist $A \cup B \in m(\A)$ für alle $B \in m(\A)$ und $A \in \A$. Dies bedeutet auch, dass $\A \subseteq \mc{V}_B$ für alle $B \in m(\A)$. Da $m(\A)$ die kleinste monotone Klasse ist, die $\A$ enthält, ist daher $m(\A) \subseteq \mc{V}_B$ für alle $B \in m(\A)$. Das bedeutet gerade, dass $A \cup B \in m(\A)$ für alle $A, B \in m(\A)$. Dies zeigt die Abgeschlossenheit bezüglich endlicher Schnitte.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
