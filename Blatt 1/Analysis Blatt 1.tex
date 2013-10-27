@@ -187,7 +187,7 @@ ist ein Gruppenmonomorphismus von $(\Q, +)$ nach $(SO(2), \cdot)$: Für $p,q \in
  =
  A(p+q),
 \end{align*}
-also ist $A$ ein Gruppenhomomorphismus. $A$ ist injektiv, denn für $p,q \in \Q$ mit $A(p) = A(q)$ muss $\cos p = \cos q$ und $\sin p = \sin q$ gelten, also
+also ist $A$ ein Gruppenhomomorphismus. $A$ ist injektiv, denn für $p,q \in \Q$ mit $A(p) = A(q)$ muss $\cos p = \cos q$ und $\sin p = \sin q$ gelten, also auch
 \[
  e^{ip} = \cos p + i \sin p = \cos q + i \sin q = e^{iq}.
 \]
@@ -203,6 +203,7 @@ Da $A$ ein Gruppenmonomorphismus ist, ist
  \end{pmatrix}
  : q \in \Q
  \right\}
+ \subseteq SO(2)
 \]
 eine abzählbar unendliche Untergruppe von $SO(2)$.
 
@@ -218,14 +219,14 @@ Die Relation ist transitiv, denn ist $x \sim y$ und $y \sim z$, so gibt es $R, S
 \subsection{}
 Da ich die bisher definierte Äquivalenzrelation $\sim$ nicht mag, betrachte ich eine leicht abgeänderte Version; ich nenne diese ebenfalls $\sim$, da ich die Äquivalenzrelation aus \textbf{Aufgabenteil b)} nicht mehr nutzen werde, und $\sim$ der praktischste Name ist:
 
-Durch $x \sim y :\Leftrightarrow \text{ es existiert } R \in G : x = Ry$ wird auf $B_1(0) \setminus \{0\}$ eine Äquivalenzrelation definiert. Der Beweis hierfür verläuft komplett analog zu \textbf{Aufgabenteil b)}. Dabei ist $Rx \in B_{1}(0)\setminus\{0\}$ für alle $R \in SO(2)$ und $x \in B_{1}(0)$, denn es ist $0 < \op{B} \leq \|B\| = 1$ für alle $B \in G$, und damit $\|Rx\| \leq \|x\| \leq 1$ für alle $x \in B_1(0)\setminus\{0\}$, also $R (B_1(0)\setminus\{0\}) \subseteq B_1(0)\setminus\{0\}$. Insbesondere ist daher $\bigcup_{R \in G} RA \subset B_1(0)\setminus\{0\}$ für alle $A \subseteq B_1(0)\setminus\{0\}$.
+Durch $x \sim y :\Leftrightarrow \text{ es existiert } R \in G : x = Ry$ wird auf $B_1(0) \setminus \{0\}$ eine Äquivalenzrelation definiert. Der Beweis hierfür verläuft komplett analog zu \textbf{Aufgabenteil b)}. Dabei ist $Rx \in B_{1}(0)\setminus\{0\}$ für alle $R \in SO(2)$ und $x \in B_{1}(0)$, denn es ist $\op{R} \leq \|R\| = 1$ für alle $R \in G$ und damit $\|Rx\| \leq \|x\| \leq 1$ für alle $x \in B_1(0)\setminus\{0\}$, sowie $Ry = 0 \Leftrightarrow y=0$ für alle $R \in G$ und $y \in B_1(0)\setminus\{0\}$, da $R$ einen Vektorraumautomorphismus beschreibt, also $R (B_1(0)\setminus\{0\}) \subseteq B_1(0)\setminus\{0\}$. Insbesondere ist daher $\bigcup_{R \in G} RA \subset B_1(0)\setminus\{0\}$ für alle $A \subseteq B_1(0)\setminus\{0\}$.
 
-Sei nun $M \subset B_1(0)\setminus\{0\}$ ein Repräsentantensystem der Äquivalenzklassen von $\sim$, d.h. es gibt für jedes $y \in B_1(0)\setminus\{0\}$ genau ein $x \in M$ mit $x \sim y$ (um die Existenz einer solchen Menge zu garantieren wird das Auswahlaxiom genutzt). Für alle $R \in G$ sei $M_R = RM = \{Rx : x \in M\}$. Es ist dann $B_1(0)\setminus\{0\} = \dot{\bigcup}_{R \in G} M_R$:
+Sei nun $M \subseteq B_1(0)\setminus\{0\}$ ein Repräsentantensystem der Äquivalenzklassen von $\sim$, d.h. es gibt für jedes $y \in B_1(0)\setminus\{0\}$ genau ein $x \in M$ mit $x \sim y$ (um die Existenz einer solchen Menge zu garantieren wird das Auswahlaxiom genutzt). Für alle $R \in G$ sei $M_R = RM = \{Rx : x \in M\}$. Es ist dann $B_1(0)\setminus\{0\} = \dot{\bigcup}_{R \in G} M_R$:
 
 Es ist $M_R \cap M_S = \emptyset$ für $R,S \in G$ mit $R \neq S$, denn gibt es ein $y \in B_1(0)\setminus\{0\}$ mit $y \in M_R \cap M_S$, so ist $y = Rx$ und $y = Sx'$ mit $x,x' \in M$. Dann ist aber $Rx = Sx'$, also $x' = S^{-1} R x$ und somit $x' \sim x$. Nach der Konstruktion von $M$ ist daher $x = x'$, und damit $x = S^{-1} R x$, also $S^{-1} R = I$ und somit auch $R = S$, im Widerspruch zu $R \neq S$.
 Andererseits gibt es für jedes $y \in B_1(0)\setminus\{0\}$ nach der Konstruktion von $M$ ein $x \in M$ mit $y \sim x$, so dass also $y = Sx \in M_S \subseteq \bigcup_{R \in G} M_R$ für ein $S \in G$.
 
-Angenommen, es gibt eine Abbildung $\mu$ mit den geforderten Eigenschaften. Es ist dann insbesondere $\mu(M_R) = \mu(RM) = \mu(M)$ für alle $R \in G$. Es folgt, dass
+Angenommen es gibt eine Abbildung $\mu$ mit den geforderten Eigenschaften. Es ist dann insbesondere $\mu(M_R) = \mu(RM) = \mu(M)$ für alle $R \in G \subseteq SO(2)$. Es folgt, dass
 \begin{align*}
  1
  &= \mu(B_1(0)\setminus\{0\})
@@ -258,7 +259,7 @@ Für jede Folge disjunkter Mengen $(A_n)_{n \in \N}$ auf $B_1(0)$ gilt: Ist $0 \
 Gibt es hingegen ein $m \in \N$ mit $0 \in A_m$, so folgt aus der Disjunktheit der $A_n$, dass $0 \not \in A_n$ für alle $n \in \N, n \neq m$; es ist jedoch $0 \in \bigcup_{n \in \N} A_n$, und damit \[\mu\left(\bigcup_{n \in \N} A_n\right) = 1 = \sum_{n \in \N} \mu(A_n).\]
 $\mu$ erfüllt also die geforderte $\sigma$-Additivität.
 
-Da für alle $R \in SO(2)$ die Matrix $R$ einen Vektorraumautomorphismus $\R^2 \rightarrow \R^2$ beschreibt, ist $\operatorname{Ker} R = \{0\}$, also $0 \in RA \Leftrightarrow 0 \in A$ für alle $A \subseteq \R^2$. Es ist daher $\mu(RA) = 1 \Leftrightarrow 0 \in RA \Leftrightarrow 0 \in A \Leftrightarrow \mu(A) = 1$, also $\mu(RA) = \mu(A)$ für alle $R \in SO(2)$ und $A \subseteq \R^2$ (man bemerke, dass die Äquivalenz eine Gleichheit in allen Fällen impliziert, da $\mu$ nur zwei mögliche Werte annehmen kann).
+Da für alle $R \in SO(2)$ die Matrix $R$ einen Vektorraumautomorphismus $\R^2 \rightarrow \R^2$ beschreibt, ist $\operatorname{Ker} R = \{0\}$, also $0 \in RA \Leftrightarrow 0 \in A$ für alle $A \subseteq \R^2$. Es ist daher $\mu(RA) = 1 \Leftrightarrow 0 \in RA \Leftrightarrow 0 \in A \Leftrightarrow \mu(A) = 1$, also $\mu(RA) = \mu(A)$ für alle $R \in SO(2)$ und $A \subseteq \R^2$ (man bemerke, dass diese Äquivalenz bereits eine Gleichheit impliziert, da $\mu$ nur zwei mögliche Werte annehmen kann).
 
 
 
