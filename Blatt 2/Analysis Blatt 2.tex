@@ -202,7 +202,8 @@ Dass $\mc{G}_n \subseteq F_\sigma \cap G_\delta$ folgt daraus, dass für alle $U
 
 
 
-\section{}
+\section{(Gegenbeispiele)}
+
 
 \subsection{}
 Sei $X = (0,1)$. Wie aus der Vorlesung bekannt ist
@@ -233,7 +234,7 @@ ein Maß auf $(X,\mc{P}(X))$. Für die fallende Folge $(A_n)_{n \geq 1}$ mit $A_
  \]
  ein Maß auf $(X,\A)$.
 \end{bem}
-\begin{proof}
+\begin{proof}[Beweis der Bemerkung]
  Es ist $\mu(\emptyset) = c \cdot 0 = 0$. Für eine Folge $(A_n)_{n \in \N}$ disjunkter Mengen auf $\A$ ist
  \[
   \mu'\left( \bigcup_{n \in \N} A_n \right)
@@ -285,6 +286,78 @@ $|\mu|$ also nicht endlich additiv ist.
 
 
 
+
+\section{(Monotone Folgen von Maßen)}
+
+
+\subsection{}
+$\mu$ ist wohldefiniert:
+Für alle $A \in \A$ ist die Folge $(\mu_n(A))_{n \in \N}$ monoton steigend, und wie aus Analysis I bekannt ist eine monoton steigend Folge entweder beschränkt, und damit konvergent, oder divergent gegen $\infty$.
+
+Für paarweise dijunkte $A_1, \ldots, A_N \in \A$ ist
+\begin{align*}
+ \mu\left( \bigcup_{k=1}^N A_k \right)
+ &= \limes{n}{\infty} \mu_n\left( \bigcup_{k=1}^N A_k \right)
+ = \limes{n}{\infty} \sum_{k=1}^N \mu_n(A_k) \\
+ &= \sum_{k=1}^N \limes{n}{\infty} \mu_n(A_k)
+ = \sum_{k=1}^N \mu(A_k),
+\end{align*}
+da jedes der $\mu_n$ als Maß endlich additiv ist und die einzelnen Grenzwerte alle existieren. $\mu$ ist also endlich additiv. Wie aus der Vorlesung bekannt ist $\mu$ daher genau dann ein Maß, wenn $\limes{n}{\infty} \mu(A_n) = \mu\left( \bigcup_{n \in \N} A_n \right)$ für jede wachsende Folge $(A_n)_{n \in \N}$ auf $\A$. Sei also $(A_n)_{n \in \N}$ ein wachsende Folge.
+
+Die Monotonie von $\mu$ folgt bereits aus der endlichen Additivität, denn für $A, B \in \A$ mit $A \subseteq B$ ist $B = A\ \dot\cup\ (B \setminus A)$, also $\mu(B) = \mu(A) + \mu(B \setminus A)$, also $\mu(A) \leq \mu(B)$. Aufgrund der Monotonie von $\mu$ ist nun $\mu(A_m) \leq \mu\left(\bigcup_{n \in \N} A_n\right)$ für alle $m \in \N$, also auch $\limes{n}{\infty} \mu(A_n) \leq \mu\left(\bigcup_{n \in \N} A_n\right)$.
+
+Da die Folge von Maßen $(\mu_m)_{m \in \N}$ monoton steigend im Sinne der Aufgabenstellung ist, ist $\mu_m(A_n) \leq \mu(A_n)$ für alle $m,n \in \N$, also auch $\limes{n}{\infty} \mu_m(A_n) \leq \limes{n}{\infty} \mu(A_n)$ für alle $m \in \N$. Da $\mu_m$ für alle $m \in \N$ ein Maß ist, ist dabei für alle $m \in \N$
+\[
+ \mu_m \left(\bigcup_{n \in \N} A_n\right) = \limes{n}{\infty} \mu_m(A_n) \leq \limes{n}{\infty} \mu(A_n),
+\]
+also auch
+\[
+ \mu \left(\bigcup_{n \in \N} A_n\right)
+ = \limes{m}{\infty} \mu_m \left(\bigcup_{n \in \N} A_n\right)
+ \leq \limes{n}{\infty} \mu(A_n).
+\]
+
+Dies zeigt die Gleichheit.
+
+
+\subsection{}
+\begin{bem}
+ Sei $(\mu_m)_{m \in \N}$ eine Folge von Maßen auf $(X,\A)$. Dann ist auch $\mu := \sum_{m \in \N} \mu_m$ ein Maß auf $(X,\A)$.
+\end{bem}
+\begin{proof}[Beweis der Bemerkung]
+ Es ist
+ \[
+  \mu(\emptyset) = \sum_{m \in \N} \mu_m(\emptyset) = \sum_{m \in \N} 0 = 0.
+ \]
+ Sei $(A_n)_{n \in \N}$ ein Folge disjunkter Mengen auf $\A$. Dann ist
+ \begin{align*}
+  \mu\left( \bigcup_{n \in \N} A_n \right)
+  &= \sum_{m \in \N} \mu_m\left( \bigcup_{n \in \N} A_n \right)
+  = \sum_{m \in \N} \sum_{n \in \N} \mu_m(A_n) \\
+  &= \sum_{n \in \N} \sum_{m \in \N} \mu_m(A_n)
+  = \sum_{n \in \N} \mu(A_n),
+ \end{align*}
+ wobei die entsprechenden Umordnungen wegen der Nichtnegativität aller Summanden gültig sind.
+\end{proof}
+
+Aus der Bemerkung folgt nun direkt, dass $\mu = \sum_{n \in \N} \delta_{x_n}$ ein Maß auf $(\R,\mc{P}(\R))$ definiert.
+
+Ist die Folge $(x_n)_{n \in \N}$ eine Folge auf $\R$ so, dass $\mu$ auf beschränkten Mengen endlich ist, so ist insbesondere $\mu( [-r,r] ) < \infty$ für alle $r > 0$, d.h. für alle $r > 0$ gibt es nur endlich viele $n \in \N$ mit $x_n \in [-r, r]$. Für alle $r > 0$ ist daher $|x_n| > r$ für fast alle $n \in \N$, was genau dann der Fall ist, wenn $\limes{n}{\infty} |x_n| = \infty$.
+
+Dies Bedingung ist nicht nur notwendig, sondern auch hinreichend: Ist $(x_n)_{n \in \N}$ ein Folge auf $\R$ mit $\limes{n}{\infty} |x_n| = \infty$, und $A \subseteq \R$ eine beschränkte Menge, so gibt es ein $r > 0$ mit $A \subseteq [-r,r]$. Da $\limes{n}{\infty} |x_n| = \infty$ gibt es ein $n_0 \in \N$ mit $|x_n| > r$, also $x_n \not\in [-r,r]$, für alle $n > n_0$. Es ist daher $\mu(A) \leq \mu([-r,r]) \leq n_0+1$ endlich.
+
+$\mu$ ist genau dann nicht $\sigma$-endlich, wenn es ein $x \in \R$ gibt mit $x_n = x$ für unendlich viele $n \in \N$:
+
+Gibt es ein solches $x$, so ist $\mu(A) = \infty$ für alle $A \subseteq \R$ mit $x \in A$. Notwendige Bedingung für $\sigma$-Endlichkeit ist aber, dass es ein $B \subseteq \R$ mit $x \in B$ und $\mu(B) < \infty$ gibt.
+
+Gibt es kein solches $x$, so sei $X := \{x_n\}_{n \in \N}$ die Punktmenge der Folge $(x_n)_{n \in \N}$. Für $n \in \N$ sei $A_n := [n,n+1] \setminus X$. Aus der Konstruktion der $A_n$ geht direkt hervor, dass $\mu(A_n) = 0$ für alle $n \in \N$. Auch ist nach Annahme $\mu(\{x_n\}) < \infty$ für alle $n \in \N$. Die Folge $(B_n)_{n \in \N}$ sei nun definiert als $B_{2n} := A_n$ und $B_{2n+1} := x_n$ für je alle $n \in \N$; man bemerke, dass $\mu(B_n) < \infty$ für alle $n \in \N$. Da auch
+\[
+ \R
+ = X \cup (\R \setminus X)
+ = \left(\bigcup_{n \in \N} \{x_n\} \right) \cup \left( \bigcup_{n \in \N} A_n \right)
+ = \bigcup_{n \in \N} B_n
+\]
+ist $\mu$ daher $\sigma$-endlich.
 
 
 
