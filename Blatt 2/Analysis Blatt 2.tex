@@ -125,6 +125,163 @@ Sei $A \in \A$. Für $B \in \A$ ist $A \cup B \in \A \subseteq m(\A)$, da $\A$ e
 
 
 
+\section{(Ein Zugang zur Borelschen $\sigma$-Algebra)}
+
+
+\subsection{}
+Sei $U \subseteq \R^n$ offen beliebig aber fest. Es gilt zu zeigen, dass $U \in F_\sigma$, d.h. dass es eine abzählbar unendliche Familie $(K_n)_{n \in \N}$ gibt, so dass $U = \bigcup_{n \in \N} K_n$.
+
+Sei $x \in U$. Da $U$ offen ist, gibt es ein $\varepsilon > 0$, so dass $B_\varepsilon(x) \subseteq U$. Es sei $r(x) \in \Q$ mit $0 < r(x) < \frac{\varepsilon}{3}$ und $q(x) \in \Q^n$ mit $q(x) \in B_{r(x)}(x)$ (solche $r(x)$ und $q(x)$ existieren, dass $\Q$ dicht in $\R$, bzw. $\Q^n$ dicht in $\R^n$ liegt). Aufgrund der Symmetrie einer Metrik ist nun $x \in \overline{B_{r(x)}(q(x))}$. Auch ist $\overline{B_{r(x)}(q(x))} \subseteq U$, denn für alle $y \in \overline{B_{r(x)}(q(x))}$ ist nach der Dreiecksungleichung
+\[
+ |y - x| \leq |y - q(x)| + |q(x) - x| \leq 2 r(x) < \frac{2}{3}\varepsilon,
+\]
+also $y \in B_\varepsilon(x) \subseteq U$.
+
+Da nun
+\[
+ \{ B_{r(x)}(q(x)) : x \in U \} \subseteq \{B_r(q) : r \in \Q, r > 0, q \in \Q^n\}
+\]
+abzählbar ist, gibt es eine Folge $(x_n)_{n \in \N}$ so dass
+\[
+ V := \bigcup_{n \in \N} \overline{B_{r(x_n)}(q(x_n))} = \bigcup_{x \in U} \overline{B_{r(x)}(q(x))}.
+\]
+
+Es gilt nun, dass $U = V$: Für alle $x \in U$ gilt
+\[
+ x \in \overline{B_{r(x)}(q(x))} \subseteq \bigcup_{x \in U} \overline{B_{r(x)}(q(x))} = V
+\]
+und für alle $x \in V = \bigcup_{n \in \N} B_{r(x_n)}(q(x_n))$ gibt es ein $n \in \N$ mit
+\[
+ x \in \overline{B_{r(x_n)}(q(x_n))} \subseteq U.
+\]
+Das zeigt, dass $U = \bigcup_{n \in \N} \overline{B_{r(x_n)}(q(x_n))} \in F_{\sigma}$.
+
+Sei $K \subseteq \R^n$ abgeschlossen. Da $K$ abgeschlossen ist, ist $K^c$ offen. Wie eben gezeigt gibt es daher eine Folge abgeschlossener Mengen $(K_n)_{n \in \N}$ mit $K^c = \bigcup_{n \in \N} K_n$. Insbesondere ist $K_n^c$ für alle $n \in \N$ offen, und damit
+\[
+ K
+ = (K^c)^c
+ = \left( \bigcup_{n \in \N} K_n \right)^c
+ = \bigcap_{n \in \N} K_n^c
+ \in G_\delta.
+\]
+
+
+\subsection{}
+
+\subsubsection*{$\sigma(\mc{G}_n) = \delta(\mc{G}_n)$}
+Da bekanntermaßen für alle $U, V \in \mc{G}_n$ auch $U \cap V \in \mc{G}_n$, ist, wie aus der Vorlesung bekannt, $\sigma(\mc{G}_n) = \delta(\mc{G}_n)$.
+
+\subsubsection*{$\sigma(\mc{G}_n) \supseteq m(\mc{G}_n)$}
+Da $\mc{G}_n \subseteq \sigma(\mc{G}_n)$ und $\sigma(\mc{G}_n)$ als $\sigma$-Algebra eine monotone Klasse ist, und $m(\mc{G}_n)$ die kleinste monotone Klasse ist, die $\mc{G}_n$ enthält, ist auch $\sigma(\mc{G}_n) \supseteq m(\mc{G}_n)$.
+
+\subsubsection*{$m(\mc{G}_n) \supseteq F_\sigma \cap G_\delta$}
+Für $A \in F_\sigma \cap G_\delta$ ist $A \in G_\delta$, es gibt also eine Folge $(U_n)_{n \in \N}$ auf $\mc{G}_n$ mit $A = \bigcap_{n \in \N} U_n$. Für $n \in \N$ sei $B_n := \bigcap_{k=1}^n U_k$; $(B_n)_{n \in \N}$ ist eine fallende Folge auf $\mc{G}_n$, da endliche Schnitte offener Mengen offen sind, und es gilt $\bigcap_{n \in \N} B_n = \bigcap_{n \in \N} U_n = A$. Da $m(\mc{G}_n)$ ein monotone Klasse mit $\mc{G}_n \subseteq m(\mc{G}_n)$ ist, ist $(B_n)_{n \in \N}$ auch eine fallende Folge auf $\mc{G}_n$. Also ist $A = \bigcap_{n \in \N} B_n \in m(\mc{G}_n)$. Das zeigt, dass $F_\sigma \cap G_\delta \subseteq m(\mc{G}_n)$.
+
+\subsubsection*{$F_\sigma \cap G_\delta \supseteq \sigma(\mc{G}_n)$}
+Wegen der Minimalitätseigenschaft von $\sigma(\mc{G}_n)$ genügt es zu zeigen, dass $F_\sigma \cap G_\delta$ eine $\sigma$-Algebra mit $\mc{G}_n \in F_\sigma \cap G_\delta$ ist.
+
+Wie aus dem Hinweis bekannt ist $F_\sigma \cap G_\delta$ bereits eine Algebra, es genügt also die Abgeschlossenheit bezüglich abzählbarer Vereinigungen zu zeigen. Sei $(A_n)_{n \in \N}$ eine Folge auf $F_\sigma \cap G_\delta$. Da $(A_n)_{n \in \N}$ auch eine Folge auf $F_\sigma$ ist, gibt es für alle $n \in \N$ eine Folge $(K^n_k)_{k \in \N}$ von abgeschlossenen Mengen von $\R^n$ mit $A_n = \bigcup_{k \in \N} K^n_k$. Es ist daher
+\[
+ \bigcup_{n \in \N} A_n
+ = \bigcup_{n \in \N} \bigcup_{k \in \N} K^n_k
+ = \bigcup_{n,k \in \N} K^n_k
+ \in F_\sigma.
+\]
+Da $(A_n)_{n \in \N}$ auch eine Folge auf $G_\delta$ ist, gibt es für alle $n \in \N$ eine Folge $(U^n_k)_{k \in K}$ von offenen Mengen von $\R^n$ mit $A_n = \bigcap_{k \in \N} U^n_k$. Es ist daher auch
+\[
+ \bigcup_{n \in \N} A_n
+ = \bigcup_{n \in \N} \bigcap_{k \in \N} U^n_k
+ \subseteq \bigcap_{k \in \N} \underbrace{\bigcup_{n \in \N} U^n_k}_{\text{offen in }\R^n}
+ \in G_\delta.
+\]
+Also ist $\bigcup_{n \in \N} A_n \in F_\sigma \cap G_\delta$.
+
+Dass $\mc{G}_n \subseteq F_\sigma \cap G_\delta$ folgt daraus, dass für alle $U \in \mc{G}_n$, wie in Aufgabenteil \textbf{a)} gezeigt, $U \in F_\sigma$, und auch $U = U \cap \bigcap_{n \geq 1} \R^n \in G_\delta$.
+
+
+
+
+
+\section{}
+
+\subsection{}
+Sei $X = (0,1)$. Wie aus der Vorlesung bekannt ist
+\[
+ \mu: \mc{P}(X)
+ \mu(A) =
+ \begin{cases}
+  0      & \text{falls } A = \emptyset \\
+  \infty & \text{sonst}
+ \end{cases}
+\]
+ein Maß auf $(X,\mc{P}(X))$. Für die fallende Folge $(A_n)_{n \geq 1}$ mit $A_n := \left(0,\frac{1}{n}\right)$ ist jedoch
+\[
+ 0
+ = \mu(\emptyset)
+ = \mu\left( \bigcap_{n \geq 1} A_n \right)
+ \neq \limes{n}{\infty} \mu(A_n)
+ = \limes{n}{\infty} \infty
+ = \infty.
+\]
+
+
+\subsection{}
+\begin{bem}
+ Sei $\mu$ ein Maß auf $(X,\A)$. Dann ist für alle $c > 0$
+ \[
+  \mu': \A \rightarrow [0,\infty] \text{ mit } \mu'(A) = c\mu(A)
+ \]
+ ein Maß auf $(X,\A)$.
+\end{bem}
+\begin{proof}
+ Es ist $\mu(\emptyset) = c \cdot 0 = 0$. Für eine Folge $(A_n)_{n \in \N}$ disjunkter Mengen auf $\A$ ist
+ \[
+  \mu'\left( \bigcup_{n \in \N} A_n \right)
+  = c \cdot \mu\left( \bigcup_{n \in \N} A_n \right)
+  = c \sum_{n \in \N} \mu(A_n)
+  = \sum_{n \in \N} c\mu(A_n)
+  = \sum_{n \in \N} \mu'(A_n).
+ \]
+\end{proof}
+
+Für alle $n \geq 1$ ist
+\[
+ \mu_n: \mc{P}(\N) \rightarrow [0,\infty] \text{ mit }
+ \mu(A) =
+ \begin{cases}
+  \frac{|A|}{n} & \text{falls $A$ endlich ist} \\
+  \infty        & \text{sonst}
+ \end{cases}
+\]
+als skalares Vielfaches des Zählmaßes ($c = \frac{1}{n}$) ein Maß auf $(\N,\mc{P}(\N))$: Auch existiert für alle $A \in \mc{P}(\N)$
+\[
+ \mu(A)
+ := \limes{n}{\infty} \mu_n(A)
+ =
+ \begin{cases}
+  0      & \text{falls $A$ endlich ist} \\
+  \infty & \text{sonst}
+ \end{cases}.
+\]
+Es ist jedoch $\mu$ kein Maß auf $(\N,\mc{P}(\N))$, da $\mu$ wegen
+\[
+ \mu\left( \bigcup_{n \in \N} \{n\} \right)
+ = \mu(\N)
+ = \infty
+ \neq 0
+ = \sum_{n \in \N} 0
+ = \sum_{n \in \N} \mu(\{n\}).
+\]
+nicht $\sigma$-additiv ist.
+
+
+\subsection{}
+Es sei $X := \{1,2\}$ und $\A := \mc{P}(X) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$. Es sei $\mu : \A \rightarrow (-\infty,\infty)$ definiert als $\mu(\emptyset) := 0$, $\mu(\{1\}) := 1$, $\mu(\{2\}) := -1$ und $\mu(\{1,2\}) := 0$. Offenbar erfüllt $\mu$ die geforderten Eigenschaften auf $(X,\A)$. Es ist aber $|\mu|$ kein Maß auf $(X,\A)$, da
+\[
+ |\mu|(\{1,2\}) = 0 \neq 2 = |\mu(\{1\})|+|\mu(\{2\})| = |\mu|(\{1\}) + |\mu|(\{2\}),
+\]
+$|\mu|$ also nicht endlich additiv ist.
+
 
 
 
