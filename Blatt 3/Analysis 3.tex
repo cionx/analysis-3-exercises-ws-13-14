@@ -72,6 +72,26 @@
 
 
 
+\begin{lem} \label{disjunktprodukt}
+ Sei $(A_n)_{n \in I}$ eine Familie von Mengen über einer Indexmenge $I \subseteq \N$ und $A_n = \dot{\bigcup}_{m \in I_n} B^n_m$ für eine Familie von Mengen $(B^n_m)_{m \in I_n}$ über einer Indexmenge $I_n \subseteq \N$  für alle $n \in \N$. Dann gilt
+ \[
+  \prod_{n \in I} A_n = \dot{\bigcup_{(b_n) \in \prod_{n \in I} I_n}}\ \prod_{n \in I} B^n_{b_n}.
+ \]
+ (Die Indexmengen werden auf Teilmengen von $\N$ eingeschränkt, und nicht etwa beliebig gewählt, um das Auswahlaxiom nicht nutzen zu müssen.)
+\end{lem}
+\begin{proof}[Beweis des Lemmas:]
+ Sei $(a_n)_{n \in I} \in \prod_{n \in I} A_n$. Da $a_n \in A_n$ für alle $n \in I$, gibt es für alle $n \in I$ ein $b_n \in I_n$ mit $a_n \in B^n_{b_n}$. Daher ist \[(a_n)_{n \in I} \in \prod_{n \in I} B^n_{b_n} \subseteq \bigcup_{(b_n) \in \prod_{n \in I} I_n}\ \prod_{n \in I} B^n_{b_n},\]
+ also $\prod_{n \in I} A_n \subseteq \bigcup_{(b_n) \in \prod_{n \in I} I_n} \prod_{n \in I} B^n_{b_n}$.
+ 
+ Ist $(a_n)_{n \in I} \in \bigcup_{(b_n) \in \prod_{n \in I} I_n} \prod_{n \in \N} B^n_{b_n}$, so gibt es $(b_n)_{n \in I} \in \prod_{n \in I}$ so dass $a_n \in B^n_{b_n} \subseteq A_n$ für alle $n \in I$, und somit $(a_n)_{n \in I} \in \prod_{n \in I} A_n$. Also ist $\prod_{n \in I} A_n \supseteq \bigcup_{(b_n) \in \prod_{n \in I} I_n}\ \prod_{n \in I} B^n_{b_n}$.
+ 
+ Die Disjunktheit der Vereinigung ergibt sich aus der paarweisen Disjunktheit der $B^m_n$, $m \in I_n$, für alle $n \in I$: Sind $(b_n)_{n \in I}, (b'_n)_{n \in I} \in \prod_{n \in I} I_n$ so dass ein $(a_n)_{n \in I} \in \prod_{n \in I} B^n_{b_n} \cap \prod_{n \in I} B^n_{b'_n}$ existiert, so muss $a_n \in B^n_{b_n}$ und $a_n \in B^n_{b'_n}$, für alle $n \in I$. Also muss $B^n_{b_n} \cap B^n_{b'_n} \neq \emptyset$, und damit $b_n = b'_n$ für alle $n \in I$.
+\end{proof}
+
+
+
+
+
 \section{(Volumen auf Quadern)}
 Im Folgenden nutze ich für die Familie halboffener Quader in $\R^n$ die Notation
 \[
