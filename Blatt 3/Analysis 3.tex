@@ -36,11 +36,12 @@
 \newcommand{\dy}{\,\text{d}y}
 \newcommand{\dt}{\,\text{d}t}
 \newcommand{\du}{\,\text{d}u}
-\newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\Img}{\operatorname{Im}}
 \newcommand{\Real}{\operatorname{Re}}
 \newcommand{\Imag}{\operatorname{Im}}
 \newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\dcup}{\dot{\cup}}
+\newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\limes}[2]{\lim_{#1 \rightarrow #2}}
 \newcommand{\limessup}[1]{\limsup_{#1 \rightarrow \infty}}
 \newcommand{\limesinf}[1]{\liminf_{#1 \rightarrow \infty}}
@@ -72,6 +73,34 @@
 
 
 \section{(Volumen auf Quadern)}
+Im Folgenden nutze ich für die Familie halboffener Quader in $\R^n$ die Notation
+\[
+ \mc{Q}_n := \left\{\prod_{i=1}^n [a_i, b_i) : a_i \leq b_i \text{ für } i=1,\ldots,n \right\} \subseteq \mc{P}(\R^n)
+\]
+und bezeichne mit $\mu_n$ die entsprechende Abbildung auf $\mc{Q}_n$.
+
+
+\subsection{}
+Für alle $n \in \N, n \geq 1$ gibt es für alle $q, Q \in \mc{Q}_n$ mit $q \subseteq Q$ paarweise disjunkte Quader $q_1, \ldots, q_{2n+1} \in \mc{Q}_n$ mit $q = q_i$ für ein $i \in \{1, \ldots, 2n+1\}$ und $Q = \bigcup_{k=1}^{2n+1} q_k$.
+
+\begin{proof}[Beweis:]
+ Die Aussage lässt sich per Induktion über $n$ zeigen.
+ \begin{ia}
+  Sei $n = 1$. Dann ist $Q = [A,B)$ mit $A \leq B$ und $q = [a,b)$ mit $A \leq a \leq b \leq B$. Es ist dann $Q = [A,a)\ \dcup\ q\ \dcup\ [b,B)$.
+ \end{ia}
+ \begin{is}
+  Sei $n > 2$ und gelte die Aussage für $n-1$. Es ist $Q = \prod_{i=1}^n [A_i,B_i)$ mit $A_i \leq B_i$ für $i=1,\ldots,n$ und $q = \prod_{i=1}^n [a_i,b_i)$ mit $A_i \leq a_i \leq b_i \leq B_i$ für $i=1,\ldots,n$. Es sei $Q' := \prod_{i=1}^{n-1} [A_i, B_i)$ und $q' := \prod_{i=1}^{n-1} [a_i, b_i)$. Da $q \subseteq Q$ ist $q' \subseteq Q'$, nach Induktionsvoraussetzung gibt es daher paarweise disjunkte Quader $q'_1, \ldots, q'_{2n-1} \in \mc{Q}_{n-1}$ mit $Q' = \bigcup_{i=1}^{2n-1} q'_1$ und $q' = q'_j$ für ein $j \in \{1, \ldots, n-1\}$. Für $i=1,\ldots,2n-1$ sei $q_i := q'_i \times [A_n,B_n) \in \mc{Q}_n$. Es ist $Q = \bigcup_{i=1}^{2n-1} q_i$, und aus der Disjunktheit der $q'_i$ folgt die Disjunktheit der $q_i$. Mit $q_{2n} := q'_j \times [A_n, a_n)$ und $q_{2n+1} := q'_j \times [b_n, B_n)$ ist $q_j = q_{2n}\ \dcup\ q\ \dcup\ q_{2n+1}$, also $Q = q \cup \bigcup_{\substack{i=1\\i \neq j}}^{2n+1} q_i$ als disjunkte Vereinigung.\qedhere
+ \end{is}
+\end{proof}
+
+Sei $n \in \N$ beliebig aber fest und seien $Q, q \in \mc{Q}_n$ mit $q \subseteq Q$. Wie oben gezeigt gibt es paarweise disjunkte Quader $q_1, \ldots, q_{2n+1} \in \mc{Q}_n$ mit $Q = \bigcup_{i=1}^{2n+1} q_i$ und $q = q_i$ für ein $i \in \{1, \ldots, 2n+1\}$. Aufgrund der Additivität von $\mu_n$ ist daher
+\[
+ \mu_n(Q)
+ = \mu_n\left(\bigcup_{i=1}^{2n+1} q_i\right)
+ = \sum_{i=1}^{2n+1} \mu_n(q_i)
+ \geq \mu_n(q),
+\]
+d.h. $\mu_n$ ist monoton.
 
 
 
