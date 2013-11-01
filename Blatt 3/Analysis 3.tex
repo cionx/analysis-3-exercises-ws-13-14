@@ -15,9 +15,9 @@
 \g@addto@macro\th@definition{\thm@headpunct{:}}
 \makeatother
 \theoremstyle{definition}
-\newtheorem*{lem}{Lemma}
-\newtheorem*{beh}{Behauptung}
-\newtheorem*{bem}{Bemerkung}
+\newtheorem{lem}{Lemma}
+\newtheorem{beh}{Behauptung}
+\newtheorem{bem}{Bemerkung}
 \newtheorem*{ia}{Induktionsanfang}
 \newtheorem*{is}{Induktionsschritt}
 
@@ -72,10 +72,12 @@
 
 
 
-\begin{lem} \label{disjunktprodukt}
+\begin{lem} \label{produktdisjunkt} 
  Sei $(A_n)_{n \in I}$ eine Familie von Mengen über einer Indexmenge $I \subseteq \N$ und $A_n = \dot{\bigcup}_{m \in I_n} B^n_m$ für eine Familie von Mengen $(B^n_m)_{m \in I_n}$ über einer Indexmenge $I_n \subseteq \N$  für alle $n \in \N$. Dann gilt
  \[
-  \prod_{n \in I} A_n = \dot{\bigcup_{(b_n) \in \prod_{n \in I} I_n}}\ \prod_{n \in I} B^n_{b_n}.
+  \prod_{n \in I} A_n
+  = \prod_{n \in I} \dot{\bigcup_{m \in I_n}} B^n_m
+  = \dot{\bigcup_{(b_n) \in \prod_{n \in I} I_n}}\ \prod_{n \in I} B^n_{b_n}.
  \]
  (Die Indexmengen werden auf Teilmengen von $\N$ eingeschränkt, und nicht etwa beliebig gewählt, um das Auswahlaxiom nicht nutzen zu müssen.)
 \end{lem}
@@ -93,34 +95,24 @@
 
 
 \section{(Volumen auf Quadern)}
-Im Folgenden nutze ich für die Familie halboffener Quader in $\R^n$ die Notation
-\[
- \mc{Q}_n := \left\{\prod_{i=1}^n [a_i, b_i) : a_i \leq b_i \text{ für } i=1,\ldots,n \right\} \subseteq \mc{P}(\R^n)
-\]
-und bezeichne mit $\mu_n$ die entsprechende Abbildung auf $\mc{Q}_n$.
 
 
 \subsection{}
-Für alle $n \in \N, n \geq 1$ gibt es für alle $q, Q \in \mc{Q}_n$ mit $q \subseteq Q$ paarweise disjunkte Quader $q_1, \ldots, q_{2n+1} \in \mc{Q}_n$ mit $q = q_i$ für ein $i \in \{1, \ldots, 2n+1\}$ und $Q = \bigcup_{k=1}^{2n+1} q_k$.
-
-\begin{proof}[Beweis:]
- Die Aussage lässt sich per Induktion über $n$ zeigen.
- \begin{ia}
-  Sei $n = 1$. Dann ist $Q = [A,B)$ mit $A \leq B$ und $q = [a,b)$ mit $A \leq a \leq b \leq B$. Es ist dann $Q = [A,a)\ \dcup\ q\ \dcup\ [b,B)$.
- \end{ia}
- \begin{is}
-  Sei $n > 2$ und gelte die Aussage für $n-1$. Es ist $Q = \prod_{i=1}^n [A_i,B_i)$ mit $A_i \leq B_i$ für $i=1,\ldots,n$ und $q = \prod_{i=1}^n [a_i,b_i)$ mit $A_i \leq a_i \leq b_i \leq B_i$ für $i=1,\ldots,n$. Es sei $Q' := \prod_{i=1}^{n-1} [A_i, B_i)$ und $q' := \prod_{i=1}^{n-1} [a_i, b_i)$. Da $q \subseteq Q$ ist $q' \subseteq Q'$, nach Induktionsvoraussetzung gibt es daher paarweise disjunkte Quader $q'_1, \ldots, q'_{2n-1} \in \mc{Q}_{n-1}$ mit $Q' = \bigcup_{i=1}^{2n-1} q'_1$ und $q' = q'_j$ für ein $j \in \{1, \ldots, n-1\}$. Für $i=1,\ldots,2n-1$ sei $q_i := q'_i \times [A_n,B_n) \in \mc{Q}_n$. Es ist $Q = \bigcup_{i=1}^{2n-1} q_i$, und aus der Disjunktheit der $q'_i$ folgt die Disjunktheit der $q_i$. Mit $q_{2n} := q'_j \times [A_n, a_n)$ und $q_{2n+1} := q'_j \times [b_n, B_n)$ ist $q_j = q_{2n}\ \dcup\ q\ \dcup\ q_{2n+1}$, also $Q = q \cup \bigcup_{\substack{i=1\\i \neq j}}^{2n+1} q_i$ als disjunkte Vereinigung.\qedhere
- \end{is}
-\end{proof}
-
-Sei $n \in \N$ beliebig aber fest und seien $Q, q \in \mc{Q}_n$ mit $q \subseteq Q$. Wie oben gezeigt gibt es paarweise disjunkte Quader $q_1, \ldots, q_{2n+1} \in \mc{Q}_n$ mit $Q = \bigcup_{i=1}^{2n+1} q_i$ und $q = q_i$ für ein $i \in \{1, \ldots, 2n+1\}$. Aufgrund der Additivität von $\mu_n$ ist daher
+Seien $q, Q \in \mc{Q}$ mit $q \subseteq Q$ beliebig aber fest. Es ist $Q = \prod_{i=1}^n [A_i,B_i)$ mit $A_i \leq B_i$ für $i=1,\ldots,n$ und $q = \prod_{i=1}^n [a_i,b_i)$ mit $A_i \leq a_i \leq b_i \leq B_i$ für $i=1,\ldots,n$. Dass $[a_i,b_i) \subseteq [A_i, B_i)$ folgt daher, dass sich wegen $q \subseteq Q$ mithilfe der Projektion $\pi_i : \R^n \rightarrow \R, (x_1, \ldots, x_n) \mapsto x_i$ ergibt, dass $[a_i,b_i) = \pi_i(q) \leq \pi(Q) = [A_i,B_i)$ für je $i=1, \ldots, n$. Mit Lemma \eqref{produktdisjunkt} ergibt sich nun, dass
+\begin{align*}
+ Q
+ &= \prod_{i=1}^n [A_i,B_i)
+ = \prod_{i=1}^n \left( \underbrace{[A_i,a_i)}_{:= C^i_1}\ \dcup\ \underbrace{[a_i,b_i)}_{:= C^i_2}\ \dcup\ \underbrace{[b_i,B_i)}_{:= C^i_3}\ \right) \\
+ &= \dot{\bigcup_{(c_1, \ldots, c_n) \in \{1,2,3\}^n}} \prod_{i=1}^n C^i_{c_i}
+\end{align*}
+die disjunkte Vereinigung von $3^n$ Quadern $q_1, \ldots, q_{3^n}$ aus $\mc{Q}$ ist, wobei $q = \prod_{i=1}^n C^i_2$ einer von diesen ist. Aufgrund der Additivität von $\mu$ ist daher
 \[
- \mu_n(Q)
- = \mu_n\left(\bigcup_{i=1}^{2n+1} q_i\right)
- = \sum_{i=1}^{2n+1} \mu_n(q_i)
- \geq \mu_n(q),
+ \mu(Q)
+ = \mu\left(\bigcup_{i=1}^{3^n} q_i\right)
+ = \sum_{i=1}^{3^n} \mu(q_i)
+ \geq \mu(q),
 \]
-d.h. $\mu_n$ ist monoton.
+weshalb $\mu$ monoton ist.
 
 
 
