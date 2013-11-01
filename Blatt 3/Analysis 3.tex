@@ -194,6 +194,14 @@ Aus der Aufgabenstellung geht meiner Meinung nach nicht klar hervor, ob $A$ als
 definiert wird.
 Für den Beweis diesen Aufgabenteiles genügt es allerdings davon auszugehen, dass $A = \tilde{A}_1$, da $\tilde{A}_2 \subseteq \tilde{A}_1$: Ist $x \in \tilde{A}_2$, so gibt es unendlich viele $M \in \{A_k\}_{k \in \N}$ mit $x \in M$; insbesondere gibt es daher unendlich viele $n \in \N$ mit $x \in A_n$. Man bemerke jedoch, dass im Allgemeinen $\tilde{A}_1 \subsetneq \tilde{A}_2$: Ist etwa $(A_n)_{n \in \N}$ konstant mit $A_1 \neq \emptyset$, so ist $\tilde{A}_1 = A_1 \neq \emptyset$, aber $\tilde{A}_2 = \emptyset$.
 
+Zunächst gilt es zu zeigen, dass $A$ messbar ist, d.h. dass $A \in \A$. Dies ist der Fall, da
+\begin{align*}
+ A = \tilde{A}
+ &= \{x \in X: x \in A_k \text{ für unendlich viele } k \in \N\} \\
+ &= \{x \in X : \text{für alle } n \in \N \text{ gibt es } m \geq n \text{ mit } x \in A_m\} \\
+ &= \bigcap_{n \in \N} \bigcup_{m \geq n} A_m \in \A.
+\end{align*}
+
 Sei $\varepsilon > 0$ beliebig aber fest. Da $\mu(A_k) \geq 0$ für alle $k \in \N$ ist die Folge der Partialsummen $\left(\sum_{k=1}^n \mu(A_k)\right)_{n \in \N}$ monoton steigend. Da sie nach Annahme nach oben beschränkt ist, ist sie konvergent. Es gibt daher ein $N \in \N$ mit $\sum_{k=N}^\infty A_k < \varepsilon$. Da $\mu$ ein Maß ist folgt daraus, dass \[ \mu\left( \bigcup_{k = N}^\infty A_k \right) \leq \sum_{k=N}^\infty \mu(A_k) < \varepsilon. \] Da $A = \tilde{A}_1$ gibt es für alle $x \in A$ ein $n \in \N$ mit $n > N$ und $x \in A_n$. Insbesondere ist daher $A \subseteq \bigcup_{k=N}^\infty A_k$. Aufgrund der Monotonie von $\mu$ folgt, dass
 \[
  0 \leq \mu(A) \leq \mu\left( \bigcup_{k=N}^\infty A_k \right) < \varepsilon.
