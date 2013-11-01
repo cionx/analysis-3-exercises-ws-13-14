@@ -11,6 +11,9 @@
 \usepackage{enumerate}
 \usepackage{leftidx}
 
+\makeatletter
+\g@addto@macro\th@definition{\thm@headpunct{:}}
+\makeatother
 \theoremstyle{definition}
 \newtheorem*{lem}{Lemma}
 \newtheorem*{beh}{Behauptung}
