@@ -68,5 +68,48 @@
 
 
 
+\section{(Volumen auf Quadern)}
+
+
+
+
+
+\section{(Nullmengen)}
+
+
+\subsection{}
+Aus der Aufgabenstellung geht meiner Meinung nach nicht klar hervor, ob $A$ als
+\begin{align*}
+ \tilde{A}_1 := \{x \in X: x \in A_k \text{ für unendlich viele } k \in \N\} \text{ oder als}\\
+ \tilde{A}_2 := \{x \in X: x \in M \text{ für unendlich viele } M \in \{A_k\}_{k \in \N}  \}
+\end{align*}
+definiert wird.
+Für den Beweis diesen Aufgabenteiles genügt es allerdings davon auszugehen, dass $A = \tilde{A}_1$, da $\tilde{A}_2 \subseteq \tilde{A}_1$: Ist $x \in \tilde{A}_2$, so gibt es unendlich viele $M \in \{A_k\}_{k \in \N}$ mit $x \in M$; insbesondere gibt es daher unendlich viele $n \in \N$ mit $x \in A_n$. Man bemerke jedoch, dass im Allgemeinen $\tilde{A}_1 \subsetneq \tilde{A}_2$: Ist etwa $(A_n)_{n \in \N}$ konstant mit $A_1 \neq \emptyset$, so ist $\tilde{A}_1 = A_1 \neq \emptyset$, aber $\tilde{A}_2 = \emptyset$.
+
+Sei $\varepsilon > 0$ beliebig aber fest. Da $\mu(A_k) \geq 0$ für alle $k \in \N$ ist die Folge der Partialsummen $\left(\sum_{k=1}^n \mu(A_k)\right)_{n \in \N}$ monoton steigend. Da sie nach Annahme nach oben beschränkt ist, ist sie konvergent. Es gibt daher ein $N \in \N$ mit $\sum_{k=N}^\infty A_k < \varepsilon$. Da $\mu$ ein Maß ist folgt daraus, dass \[ \mu\left( \bigcup_{k = N}^\infty A_k \right) \leq \sum_{k=N}^\infty \mu(A_k) < \varepsilon. \] Da $A = \tilde{A}_1$ gibt es für alle $x \in A$ ein $n \in \N$ mit $n > N$ und $x \in A_n$. Insbesondere ist daher $A \subseteq \bigcup_{k=N}^\infty A_k$. Aufgrund der Monotonie von $\mu$ folgt, dass
+\[
+ 0 \leq \mu(A) \leq \mu\left( \bigcup_{k=N}^\infty A_k \right) < \varepsilon.
+\]
+Aus der Beliebigkeit von $\varepsilon$ folgt damit, dass $\mu(A) = 0$.
+
+
+\subsection{}
+Es sei $(X,\A) := (\N,\mc{P}(\N))$ und $\mu$ das Zählmaß auf $\mc{P}(\N)$, sowie $A_k := \{1,\ldots,k\}$ für alle $k \in \N$. Es ist dann $\{1\} \subseteq A$, unabhängig davon ob $A = \tilde{A}_1$ oder $A = \tilde{A}_2$. Wegen der Monotonie des Maßes ist daher $\mu(A) \geq \mu(\{1\}) = 1$, also $\mu(A) \neq 0$. (Ist $A = \tilde{A}_1$, so ist sogar $A = \N$ und somit $\mu(A) = \infty$.)
+
+
+
+
+
+\section{(Vom äußeren Maß zum Maß)}
+
+
+
+
+
+\section{(Verschiedene äußere Maße)}
+
+
+
+
 
 \end{document}
