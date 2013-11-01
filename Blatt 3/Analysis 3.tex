@@ -41,6 +41,8 @@
 \newcommand{\Imag}{\operatorname{Im}}
 \newcommand{\sgn}{\operatorname{sgn}}
 \newcommand{\dcup}{\dot{\cup}}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\limes}[2]{\lim_{#1 \rightarrow #2}}
 \newcommand{\limessup}[1]{\limsup_{#1 \rightarrow \infty}}
@@ -113,6 +115,68 @@ die disjunkte Vereinigung von $3^n$ Quadern $q_1, \ldots, q_{3^n}$ aus $\mc{Q}$ 
  \geq \mu(q),
 \]
 weshalb $\mu$ monoton ist.
+
+
+
+
+
+\subsection{}
+Wegen der Invarianz von $\mu$ kann für alle $Q \in \mc{Q}$ o.b.d.A. davon ausgegangen werden, dass $Q = \prod_{i=1}^n [0,a_i)$ mit $a_i \in \R_{\geq 0}$ für $i = 1,\ldots,n$. Auch folgt aus der Invarianz von $\mu$ bezüglich Transposition, der endlichen Additivität von $\mu$ und Lemma \ref{produktdisjunkt}, dass für alle $Q = \prod_{i=1}^n [0,a_i) \in \mc{Q}$ und $m_1, \ldots, m_n \in \N$
+\[
+ \mu\left( \prod_{i=1}^n [0,m_i a_i) \right) = m_1 \cdots m_n\ \mu(Q),
+\]
+da
+\begin{align*}
+ &\, \mu\left( \prod_{i=1}^n [0,m_i a_i) \right)
+ = \mu\left( \prod_{i=1}^n \dot{\bigcup}_{j=1}^{m_i} \underbrace{[(j-1) a_i,j a_i)}_{:=C^i_j} \right) \\
+ &= \mu\left( \dot{\bigcup}_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \prod_{i=1}^n C^i_{c_i} \right) 
+ = \sum_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \mu\left(\prod_{i=1}^n C^i_{c_i}\right) \\
+ &= \sum_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \mu\left(\prod_{i=1}^n [(c_i-1) a_i,c_i a_i)\right)
+ = \sum_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \mu(Q) \\
+ &= m_1 \cdots m_n\ \mu(Q).
+\end{align*}
+Insbesondere folgt daher aus der Normierung, dass $\mu\left(\prod_{i=1}^n [0,m_i)\right) = \prod_{i=1}^n m_i$ für alle $m_1, \ldots, m_n \in \N$. Sei nun $Q = \prod_{i=1}^n [0,a_i) \in \mc{Q}$ beliebig aber fest. Für alle $m \in \N$ gilt
+\[
+ \mu\left(\prod_{i=1}^n [0,ma_i)\right) = m^n \mu\left(\prod_{i=1}^n [0,a_i)\right) = m^n \mu(Q),
+\]
+sowie wegen der Monotonie von $\mu$ auch
+\begin{align*}
+ &\prod_{i=1}^n \floor{ma_i}
+ = \mu\left(\prod_{i=1}^n [0,\floor{ma_i})\right)
+ \leq \mu\left(\prod_{i=1}^n [0,ma_i)\right) \text{ und}\\
+ &\mu\left(\prod_{i=1}^n [0,ma_i)\right)
+ \leq \mu\left(\prod_{i=1}^n [0,\ceil{ma_i})\right)
+ = \prod_{i=1}^n \ceil{ma_i},
+\end{align*}
+also für $m \geq 1$
+\begin{equation}\label{eq:rundungsprodukte}
+ \prod_{i=1}^n \frac{\floor{ma_i}}{m}
+ = \frac{1}{m^n}\prod_{i=1}^n \floor{ma_i}
+ \leq \mu(Q)
+ \leq \frac{1}{m^n}\prod_{i=1}^n \ceil{ma_i}
+ = \prod_{i=1}^n \frac{\ceil{ma_i}}{m}.
+\end{equation}
+Nun ist $\limes{m}{\infty} \frac{\floor{mx}}{m} = m$ für alle $x \in \R$, da
+\[
+ x-\frac{1}{m} = \frac{mx-1}{m} \leq \frac{\floor{mx}}{m} \leq \frac{mx}{m} = x
+\]
+für alle $m \geq 1$ und daher $x \leq \limes{m}{\infty} \frac{\floor{mx}}{m} \leq x$, also $\limes{m}{\infty} \frac{\floor{mx}}{m} = x$. Analog ergibt sich, dass auch $\limes{m}{\infty} \frac{\ceil{mx}}{m} = x$. Aus \eqref{eq:rundungsprodukte} ergibt sich damit, dass
+\begin{align*}
+ &\prod_{i=1}^n a_i
+ = \prod_{i=1}^n \limes{m}{\infty} \frac{\floor{ma_i}}{m}
+ = \limes{m}{\infty} \prod_{i=1}^n \frac{\floor{ma_i}}{m}
+ \leq \mu(Q) \text{ und} \\
+ &\mu(Q)
+ \leq \limes{m}{\infty} \prod_{i=1}^n \frac{\ceil{ma_i}}{m}
+ \leq \prod_{i=1}^n \limes{m}{\infty} \frac{\ceil{ma_i}}{m}
+ = \prod_{i=1}^n a_i,
+\end{align*}
+also $\mu(Q) = \prod_{i=1}^n a_i = \prod_{i=1}^n (a_i-0)$.
+
+
+
+
+
 
 
 
