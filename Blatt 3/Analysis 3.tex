@@ -85,28 +85,31 @@
 
 
 
-Betrachtet man zwei Mengen $A$ und $A'$ mit $A = B_1\ \dotcup\ B_2$ und $A' = B'_1\ \dotcup\ B'_2$, so ist es einfach so sehen, dass
+Betrachtet man zwei Mengen $A$ und $A'$ mit $A = B_1\ \dotcup\ B_2$ und $A' = B'_1\ \dotcup\ B'_2$ für $B_1, B_2 \subseteq A$ und $B'_1, B'_2 \subseteq A'$, so ist es einfach so sehen, dass
 \[
 A \times A' = (B_1 \times B'_1)\ \dotcup\ (B_1 \times B'_2)\ \dotcup\ (B_2 \times B'_1)\ \dotcup\ (B_2 \times B'_2).
 \]
 Diese Beobachtung wird von dem folgenden Lemma verallgemeinert:
 
 \begin{lem} \label{produktdisjunkt} 
- Sei $(A_n)_{n \in I}$ eine Familie von Mengen über einer Indexmenge $I \subseteq \N$ und $A_n = \bigdotcup_{m \in I_n} B^n_m$ für eine Familie von Mengen $(B^n_m)_{m \in I_n}$ über einer Indexmenge $I_n \subseteq \N$  für alle $n \in \N$. Dann gilt
+ Sei $(A_i)_{i \in I}$ eine Familie von Mengen über einer Indexmenge $I$ und $A_i = \bigdotcup_{j \in J_i} B^i_j$ für eine Familie von Mengen $(B^i_j)_{j \in J_i}$ über einer Indexmenge $J_i$ für alle $i \in I$. Dann gilt
  \[
-  \prod_{n \in I} A_n
-  = \prod_{n \in I} \bigdotcup_{m \in I_n} B^n_m
-  = \bigdotcup_{(b_n) \in \prod_{n \in I} I_n}\ \prod_{n \in I} B^n_{b_n}.
+  \prod_{i \in I} A_i
+  = \prod_{i \in I} \bigdotcup_{j \in J_i} B^i_j
+  = \bigdotcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i}.
  \]
- (Die Indexmengen werden auf Teilmengen von $\N$ eingeschränkt, und nicht etwa beliebig gewählt, um das Auswahlaxiom nicht nutzen zu müssen.)
 \end{lem}
 \begin{proof}[Beweis des Lemmas:]
- Sei $(a_n)_{n \in I} \in \prod_{n \in I} A_n$. Da $a_n \in A_n$ für alle $n \in I$, gibt es für alle $n \in I$ ein $b_n \in I_n$ mit $a_n \in B^n_{b_n}$. Daher ist \[(a_n)_{n \in I} \in \prod_{n \in I} B^n_{b_n} \subseteq \bigcup_{(b_n) \in \prod_{n \in I} I_n}\ \prod_{n \in I} B^n_{b_n},\]
- also $\prod_{n \in I} A_n \subseteq \bigcup_{(b_n) \in \prod_{n \in I} I_n} \prod_{n \in I} B^n_{b_n}$.
+ Sei $(a_i)_{i \in I} \in \prod_{i \in I} A_i$. Da $a_i \in A_i$ für alle $i \in I$, gibt es für alle $i \in I$ ein $j_i \in J_i$ mit $a_i \in B^i_{j_i}$. Daher ist
+ \[
+ (a_i)_{i \in I} \in \prod_{i \in I} B^i_{j_i}
+ \subseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i},
+ \]
+ also $\prod_{i \in I} A_i \subseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i} \prod_{i \in I} B^i_{j_i}$.
  
- Ist $(a_n)_{n \in I} \in \bigcup_{(b_n) \in \prod_{n \in I} I_n} \prod_{n \in \N} B^n_{b_n}$, so gibt es $(b_n)_{n \in I} \in \prod_{n \in I}$ so dass $a_n \in B^n_{b_n} \subseteq A_n$ für alle $n \in I$, und somit $(a_n)_{n \in I} \in \prod_{n \in I} A_n$. Also ist $\prod_{n \in I} A_n \supseteq \bigcup_{(b_n) \in \prod_{n \in I} I_n}\ \prod_{n \in I} B^n_{b_n}$.
+ Ist $(a_i)_{i \in I} \in \bigcup_{(j_i) \in \prod_{i \in I} J_i} \prod_{i \in I} B^i_{j_i}$, so gibt es $(j_i)_{i \in I} \in \prod_{i \in I} J_i$ so dass $a_i \in B^i_{j_i} \subseteq A_i$ für alle $i \in I$, und somit $(a_i)_{i \in I} \in \prod_{i \in I} A_i$. Also ist $\prod_{i \in I} A_i \supseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i}$.
  
- Die Disjunktheit der Vereinigung ergibt sich aus der paarweisen Disjunktheit der $B^m_n$, $m \in I_n$, für alle $n \in I$: Sind $(b_n)_{n \in I}, (b'_n)_{n \in I} \in \prod_{n \in I} I_n$ so dass ein $(a_n)_{n \in I} \in \prod_{n \in I} B^n_{b_n} \cap \prod_{n \in I} B^n_{b'_n}$ existiert, so muss $a_n \in B^n_{b_n}$ und $a_n \in B^n_{b'_n}$, für alle $n \in I$. Also muss $B^n_{b_n} \cap B^n_{b'_n} \neq \emptyset$, und damit $b_n = b'_n$ für alle $n \in I$.
+ Die Disjunktheit der Vereinigung ergibt sich aus der paarweisen Disjunktheit der $B^i_j$, $j \in J_i$, für alle $i \in I$: Sind $(j_i)_{i \in I}, (j'_i)_{i \in I} \in \prod_{i \in I} J_i$ so dass ein $(a_i)_{i \in I} \in \prod_{i \in I} B^i_{j_i} \cap \prod_{i \in I} B^i_{j'_i}$ existiert, so muss $a_i \in B^i_{j_i}$ und $a_i \in B^i_{j'_i}$, für alle $i \in I$. Also muss $B^i_{j_i} \cap B^i_{j'_i} \neq \emptyset$, und damit $j_i = j'_i$ für alle $i \in I$.
 \end{proof}
 
 
