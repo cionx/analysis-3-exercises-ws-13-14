@@ -25,6 +25,18 @@
 \renewcommand{\thesubsection}{\alph{subsection})}
 \renewcommand{\thesubsubsection}{(\roman{subsubsection})}
 
+\makeatletter
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+   \baselineskip\z@skip \lineskiplimit-\maxdimen
+   \ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+    #1{\ifx#1\mathop\vphantom{#2}\fi
+        \mathpalette\mov@rlay{#2\cr#3}
+      }
+    \ifx#1\mathop\expandafter\displaylimits\fi}
+\makeatother
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -40,7 +52,8 @@
 \newcommand{\Real}{\operatorname{Re}}
 \newcommand{\Imag}{\operatorname{Im}}
 \newcommand{\sgn}{\operatorname{sgn}}
-\newcommand{\dcup}{\dot{\cup}}
+\newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
+\newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
 \newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
 \newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
 \newcommand{\mc}[1]{\mathcal{#1}}
@@ -72,18 +85,18 @@
 
 
 
-Betrachtet man zwei Mengen $A$ und $A'$ mit $A = B_1\ \dcup\ B_2$ und $A' = B'_1\ \dcup\ B'_2$, so ist es einfach so sehen, dass
+Betrachtet man zwei Mengen $A$ und $A'$ mit $A = B_1\ \dotcup\ B_2$ und $A' = B'_1\ \dotcup\ B'_2$, so ist es einfach so sehen, dass
 \[
-A \times A' = B_1 \times B'_1\ \dcup\ B_1 \times B'_2\ \dcup\ B_2 \times B'_1\ \dcup\ B_2 \times B'_2.
+A \times A' = (B_1 \times B'_1)\ \dotcup\ (B_1 \times B'_2)\ \dotcup\ (B_2 \times B'_1)\ \dotcup\ (B_2 \times B'_2).
 \]
 Diese Beobachtung wird von dem folgenden Lemma verallgemeinert:
 
 \begin{lem} \label{produktdisjunkt} 
- Sei $(A_n)_{n \in I}$ eine Familie von Mengen über einer Indexmenge $I \subseteq \N$ und $A_n = \dot{\bigcup}_{m \in I_n} B^n_m$ für eine Familie von Mengen $(B^n_m)_{m \in I_n}$ über einer Indexmenge $I_n \subseteq \N$  für alle $n \in \N$. Dann gilt
+ Sei $(A_n)_{n \in I}$ eine Familie von Mengen über einer Indexmenge $I \subseteq \N$ und $A_n = \bigdotcup_{m \in I_n} B^n_m$ für eine Familie von Mengen $(B^n_m)_{m \in I_n}$ über einer Indexmenge $I_n \subseteq \N$  für alle $n \in \N$. Dann gilt
  \[
   \prod_{n \in I} A_n
-  = \prod_{n \in I} \dot{\bigcup_{m \in I_n}} B^n_m
-  = \dot{\bigcup_{(b_n) \in \prod_{n \in I} I_n}}\ \prod_{n \in I} B^n_{b_n}.
+  = \prod_{n \in I} \bigdotcup_{m \in I_n} B^n_m
+  = \bigdotcup_{(b_n) \in \prod_{n \in I} I_n}\ \prod_{n \in I} B^n_{b_n}.
  \]
  (Die Indexmengen werden auf Teilmengen von $\N$ eingeschränkt, und nicht etwa beliebig gewählt, um das Auswahlaxiom nicht nutzen zu müssen.)
 \end{lem}
@@ -108,8 +121,8 @@ Seien $q, Q \in \mc{Q}$ mit $q \subseteq Q$ beliebig aber fest. Es ist $Q = \pro
 \begin{align*}
  Q
  &= \prod_{i=1}^n [A_i,B_i)
- = \prod_{i=1}^n \left( \underbrace{[A_i,a_i)}_{:= C^i_1}\ \dcup\ \underbrace{[a_i,b_i)}_{:= C^i_2}\ \dcup\ \underbrace{[b_i,B_i)}_{:= C^i_3}\ \right) \\
- &= \dot{\bigcup_{(c_1, \ldots, c_n) \in \{1,2,3\}^n}} \prod_{i=1}^n C^i_{c_i}
+ = \prod_{i=1}^n \left( \underbrace{[A_i,a_i)}_{:= C^i_1}\ \dotcup\ \underbrace{[a_i,b_i)}_{:= C^i_2}\ \dotcup\ \underbrace{[b_i,B_i)}_{:= C^i_3} \right) \\
+ &= \bigdotcup_{(c_1, \ldots, c_n) \in \{1,2,3\}^n} \prod_{i=1}^n C^i_{c_i}
 \end{align*}
 die disjunkte Vereinigung von $3^n$ Quadern $q_1, \ldots, q_{3^n}$ aus $\mc{Q}$ ist, wobei $q = \prod_{i=1}^n C^i_2$ einer von diesen ist. Aufgrund der Additivität von $\mu$ ist daher
 \[
@@ -129,8 +142,8 @@ Wegen der Invarianz von $\mu$ kann für alle $Q \in \mc{Q}$ o.b.d.A. davon ausge
 da
 \begin{align*}
  &\, \mu\left( \prod_{i=1}^n [0,m_i a_i) \right)
- = \mu\left( \prod_{i=1}^n \dot{\bigcup}_{j=1}^{m_i} \underbrace{[(j-1) a_i,j a_i)}_{:=C^i_j} \right) \\
- &= \mu\left( \dot{\bigcup}_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \prod_{i=1}^n C^i_{c_i} \right) 
+ = \mu\left( \prod_{i=1}^n \bigdotcup_{j=1}^{m_i} \underbrace{[(j-1) a_i,j a_i)}_{:=C^i_j} \right) \\
+ &= \mu\left( \bigdotcup_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \prod_{i=1}^n C^i_{c_i} \right) 
  = \sum_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \mu\left(\prod_{i=1}^n C^i_{c_i}\right) \\
  &= \sum_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \mu\left(\prod_{i=1}^n [(c_i-1) a_i,c_i a_i)\right)
  = \sum_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \mu(Q) \\
