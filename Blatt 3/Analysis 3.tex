@@ -72,7 +72,11 @@
 
 
 
-
+Betrachtet man zwei Mengen $A$ und $A'$ mit $A = B_1\ \dcup\ B_2$ und $A' = B'_1\ \dcup\ B'_2$, so ist es einfach so sehen, dass
+\[
+A \times A' = B_1 \times B'_1\ \dcup\ B_1 \times B'_2\ \dcup\ B_2 \times B'_1\ \dcup\ B_2 \times B'_2.
+\]
+Diese Beobachtung wird von dem folgenden Lemma verallgemeinert:
 
 \begin{lem} \label{produktdisjunkt} 
  Sei $(A_n)_{n \in I}$ eine Familie von Mengen über einer Indexmenge $I \subseteq \N$ und $A_n = \dot{\bigcup}_{m \in I_n} B^n_m$ für eine Familie von Mengen $(B^n_m)_{m \in I_n}$ über einer Indexmenge $I_n \subseteq \N$  für alle $n \in \N$. Dann gilt
@@ -115,9 +119,6 @@ die disjunkte Vereinigung von $3^n$ Quadern $q_1, \ldots, q_{3^n}$ aus $\mc{Q}$ 
  \geq \mu(q),
 \]
 weshalb $\mu$ monoton ist.
-
-
-
 
 
 \subsection{}
@@ -172,11 +173,6 @@ für alle $m \geq 1$ und daher $x \leq \limes{m}{\infty} \frac{\floor{mx}}{m} \l
  = \prod_{i=1}^n a_i,
 \end{align*}
 also $\mu(Q) = \prod_{i=1}^n a_i = \prod_{i=1}^n (a_i-0)$.
-
-
-
-
-
 
 
 
