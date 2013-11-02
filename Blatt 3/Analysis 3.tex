@@ -87,12 +87,16 @@
 
 Betrachtet man zwei Mengen $A$ und $A'$ mit $A = B_1\ \dotcup\ B_2$ und $A' = B'_1\ \dotcup\ B'_2$ für $B_1, B_2 \subseteq A$ und $B'_1, B'_2 \subseteq A'$, so ist es einfach so sehen, dass
 \[
-A \times A' = (B_1 \times B'_1)\ \dotcup\ (B_1 \times B'_2)\ \dotcup\ (B_2 \times B'_1)\ \dotcup\ (B_2 \times B'_2).
+ A \times A' = (B_1 \times B'_1)\ \dotcup\ (B_1 \times B'_2)\ \dotcup\ (B_2 \times B'_1)\ \dotcup\ (B_2 \times B'_2).
 \]
 Diese Beobachtung wird von dem folgenden Lemma verallgemeinert:
 
 \begin{lem} \label{produktdisjunkt} 
- Sei $(A_i)_{i \in I}$ eine Familie von Mengen über einer Indexmenge $I$ und $A_i = \bigdotcup_{j \in J_i} B^i_j$ für eine Familie von Mengen $(B^i_j)_{j \in J_i}$ über einer Indexmenge $J_i$ für alle $i \in I$. Dann gilt
+ Sei $(A_i)_{i \in I}$ eine Familie von Mengen über einer Indexmenge $I$ und
+ \[
+  A_i = \bigdotcup_{j \in J_i} B^i_j
+ \]
+für eine Familie von Mengen $(B^i_j)_{j \in J_i}$ über einer Indexmenge $J_i$ für alle $i \in I$. Dann gilt
  \[
   \prod_{i \in I} A_i
   = \prod_{i \in I} \bigdotcup_{j \in J_i} B^i_j
@@ -102,14 +106,28 @@ Diese Beobachtung wird von dem folgenden Lemma verallgemeinert:
 \begin{proof}[Beweis des Lemmas:]
  Sei $(a_i)_{i \in I} \in \prod_{i \in I} A_i$. Da $a_i \in A_i$ für alle $i \in I$, gibt es für alle $i \in I$ ein $j_i \in J_i$ mit $a_i \in B^i_{j_i}$. Daher ist
  \[
- (a_i)_{i \in I} \in \prod_{i \in I} B^i_{j_i}
- \subseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i},
+  (a_i)_{i \in I} \in \prod_{i \in I} B^i_{j_i}
+  \subseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i},
  \]
- also $\prod_{i \in I} A_i \subseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i} \prod_{i \in I} B^i_{j_i}$.
+ also ist
+ \[
+  \prod_{i \in I} A_i \subseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i} \prod_{i \in I} B^i_{j_i}.
+ \]
  
- Ist $(a_i)_{i \in I} \in \bigcup_{(j_i) \in \prod_{i \in I} J_i} \prod_{i \in I} B^i_{j_i}$, so gibt es $(j_i)_{i \in I} \in \prod_{i \in I} J_i$ so dass $a_i \in B^i_{j_i} \subseteq A_i$ für alle $i \in I$, und somit $(a_i)_{i \in I} \in \prod_{i \in I} A_i$. Also ist $\prod_{i \in I} A_i \supseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i}$.
+ Ist
+ \[
+  (a_i)_{i \in I} \in \bigcup_{(j_i) \in \prod_{i \in I} J_i} \prod_{i \in I} B^i_{j_i},
+ \]
+ so gibt es $(j_i)_{i \in I} \in \prod_{i \in I} J_i$ mit $a_i \in B^i_{j_i} \subseteq A_i$ für alle $i \in I$, also $(a_i)_{i \in I} \in \prod_{i \in I} A_i$. Daher ist
+ \[
+  \prod_{i \in I} A_i \supseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i}.
+ \]
  
- Die Disjunktheit der Vereinigung ergibt sich aus der paarweisen Disjunktheit der $B^i_j$, $j \in J_i$, für alle $i \in I$: Sind $(j_i)_{i \in I}, (j'_i)_{i \in I} \in \prod_{i \in I} J_i$ so dass ein $(a_i)_{i \in I} \in \prod_{i \in I} B^i_{j_i} \cap \prod_{i \in I} B^i_{j'_i}$ existiert, so muss $a_i \in B^i_{j_i}$ und $a_i \in B^i_{j'_i}$, für alle $i \in I$. Also muss $B^i_{j_i} \cap B^i_{j'_i} \neq \emptyset$, und damit $j_i = j'_i$ für alle $i \in I$.
+ Die Disjunktheit der Vereinigung ergibt sich aus der paarweisen Disjunktheit der $B^i_j$, $j \in J_i$, für alle $i \in I$: Sind $(j_i)_{i \in I}, (j'_i)_{i \in I} \in \prod_{i \in I} J_i$ so dass
+ \[
+  (a_i)_{i \in I} \in \prod_{i \in I} B^i_{j_i} \cap\ \prod_{i \in I} B^i_{j'_i}
+ \]
+ existiert, so muss $a_i \in B^i_{j_i}$ und $a_i \in B^i_{j'_i}$ für alle $i \in I$. Also muss $B^i_{j_i} \cap B^i_{j'_i} \neq \emptyset$, und damit $j_i = j'_i$ für alle $i \in I$.
 \end{proof}
 
 
@@ -120,14 +138,18 @@ Diese Beobachtung wird von dem folgenden Lemma verallgemeinert:
 
 
 \subsection{}
-Seien $q, Q \in \mc{Q}$ mit $q \subseteq Q$ beliebig aber fest. Es ist $Q = \prod_{i=1}^n [A_i,B_i)$ mit $A_i \leq B_i$ für $i=1,\ldots,n$ und $q = \prod_{i=1}^n [a_i,b_i)$ mit $A_i \leq a_i \leq b_i \leq B_i$ für $i=1,\ldots,n$. Dass $[a_i,b_i) \subseteq [A_i, B_i)$ folgt daher, dass sich wegen $q \subseteq Q$ mithilfe der Projektion $\pi_i : \R^n \rightarrow \R, (x_1, \ldots, x_n) \mapsto x_i$ ergibt, dass $[a_i,b_i) = \pi_i(q) \leq \pi(Q) = [A_i,B_i)$ für je $i=1, \ldots, n$. Mit Lemma \eqref{produktdisjunkt} ergibt sich nun, dass
+Seien $q, Q \in \mc{Q}$ mit $q \subseteq Q$ beliebig aber fest. Es ist $Q = \prod_{i=1}^n [A_i,B_i)$ mit $A_i \leq B_i$ für $i=1,\ldots,n$, und $q = \prod_{i=1}^n [a_i,b_i)$ mit $A_i \leq a_i \leq b_i \leq B_i$ für $i=1,\ldots,n$. Dass $[a_i,b_i) \subseteq [A_i, B_i)$ folgt daher, dass sich aus $q \subseteq Q$ für die Projektion
+\[
+ \pi_i : \R^n \rightarrow \R, (x_1, \ldots, x_n) \mapsto x_i
+\]
+ergibt, dass $[a_i,b_i) = \pi_i(q) \subseteq \pi(Q) = [A_i,B_i)$ für je $i=1, \ldots, n$. Mit Lemma \ref{produktdisjunkt} ergibt sich nun, dass
 \begin{align*}
  Q
  &= \prod_{i=1}^n [A_i,B_i)
  = \prod_{i=1}^n \left( \underbrace{[A_i,a_i)}_{:= C^i_1}\ \dotcup\ \underbrace{[a_i,b_i)}_{:= C^i_2}\ \dotcup\ \underbrace{[b_i,B_i)}_{:= C^i_3} \right) \\
  &= \bigdotcup_{(c_1, \ldots, c_n) \in \{1,2,3\}^n} \prod_{i=1}^n C^i_{c_i}
 \end{align*}
-die disjunkte Vereinigung von $3^n$ Quadern $q_1, \ldots, q_{3^n}$ aus $\mc{Q}$ ist, wobei $q = \prod_{i=1}^n C^i_2$ einer von diesen ist. Aufgrund der Additivität von $\mu$ ist daher
+die disjunkte Vereinigung von $3^n$ Quadern $q_1, \ldots, q_{3^n} \in \mc{Q}$ ist, wobei $q = \prod_{i=1}^n C^i_2$ einer von diesen ist. Aufgrund der Additivität von $\mu$ ist daher
 \[
  \mu(Q)
  = \mu\left(\bigcup_{i=1}^{3^n} q_i\right)
@@ -152,7 +174,11 @@ da
  = \sum_{(c_1, \ldots, c_n) \in \prod_{i=1}^n \{1,\ldots,m_i\}} \mu(Q) \\
  &= m_1 \cdots m_n\ \mu(Q).
 \end{align*}
-Insbesondere folgt daher aus der Normierung, dass $\mu\left(\prod_{i=1}^n [0,m_i)\right) = \prod_{i=1}^n m_i$ für alle $m_1, \ldots, m_n \in \N$. Sei nun $Q = \prod_{i=1}^n [0,a_i) \in \mc{Q}$ beliebig aber fest. Für alle $m \in \N$ gilt
+Insbesondere folgt daher aus der Normierung, dass
+\[
+\mu\left(\prod_{i=1}^n [0,m_i)\right) = \prod_{i=1}^n m_i \text{ für alle } m_1, \ldots, m_n \in \N.
+\]
+Sei nun $Q = \prod_{i=1}^n [0,a_i) \in \mc{Q}$ beliebig aber fest. Für alle $m \in \N$ gilt
 \[
  \mu\left(\prod_{i=1}^n [0,ma_i)\right) = m^n \mu\left(\prod_{i=1}^n [0,a_i)\right) = m^n \mu(Q),
 \]
@@ -177,7 +203,11 @@ Nun ist $\limes{m}{\infty} \frac{\floor{mx}}{m} = m$ für alle $x \in \R$, da
 \[
  x-\frac{1}{m} = \frac{mx-1}{m} \leq \frac{\floor{mx}}{m} \leq \frac{mx}{m} = x
 \]
-für alle $m \geq 1$ und daher $x \leq \limes{m}{\infty} \frac{\floor{mx}}{m} \leq x$, also $\limes{m}{\infty} \frac{\floor{mx}}{m} = x$. Analog ergibt sich, dass auch $\limes{m}{\infty} \frac{\ceil{mx}}{m} = x$. Aus \eqref{eq:rundungsprodukte} ergibt sich damit, dass
+für alle $m \geq 1$ und daher
+\[
+x \leq \limes{m}{\infty} \frac{\floor{mx}}{m} \leq x,
+\]
+also $\limes{m}{\infty} \frac{\floor{mx}}{m} = x$. Analog ergibt sich, dass auch $\limes{m}{\infty} \frac{\ceil{mx}}{m} = x$. Aus \eqref{eq:rundungsprodukte} ergibt sich damit, dass
 \begin{align*}
  &\prod_{i=1}^n a_i
  = \prod_{i=1}^n \limes{m}{\infty} \frac{\floor{ma_i}}{m}
@@ -201,7 +231,7 @@ also $\mu(Q) = \prod_{i=1}^n a_i = \prod_{i=1}^n (a_i-0)$.
 Aus der Aufgabenstellung geht meiner Meinung nach nicht klar hervor, ob $A$ als
 \begin{align*}
  \tilde{A}_1 := \{x \in X: x \in A_k \text{ für unendlich viele } k \in \N\} \text{ oder als}\\
- \tilde{A}_2 := \{x \in X: x \in M \text{ für unendlich viele } M \in \{A_k\}_{k \in \N}  \}
+ \tilde{A}_2 := \left\{x \in X: x \in M \text{ für unendlich viele } M \in \{A_k\}_{k \in \N} \right\}
 \end{align*}
 definiert wird.
 Für den Beweis diesen Aufgabenteiles genügt es allerdings davon auszugehen, dass $A = \tilde{A}_1$, da $\tilde{A}_2 \subseteq \tilde{A}_1$: Ist $x \in \tilde{A}_2$, so gibt es unendlich viele $M \in \{A_k\}_{k \in \N}$ mit $x \in M$; insbesondere gibt es daher unendlich viele $n \in \N$ mit $x \in A_n$. Man bemerke jedoch, dass im Allgemeinen $\tilde{A}_1 \subsetneq \tilde{A}_2$: Ist etwa $(A_n)_{n \in \N}$ konstant mit $A_1 \neq \emptyset$, so ist $\tilde{A}_1 = A_1 \neq \emptyset$, aber $\tilde{A}_2 = \emptyset$.
@@ -222,7 +252,10 @@ Aus der Beliebigkeit von $\varepsilon$ folgt damit, dass $\mu(A) = 0$.
 
 
 \subsection{}
-Es sei $(X,\A) := (\N,\mc{P}(\N))$ und $\mu$ das Zählmaß auf $\mc{P}(\N)$, sowie $A_k := \{1,\ldots,k\}$ für alle $k \in \N$. Es ist dann $\{1\} \subseteq A$, unabhängig davon ob $A = \tilde{A}_1$ oder $A = \tilde{A}_2$. Wegen der Monotonie des Maßes ist daher $\mu(A) \geq \mu(\{1\}) = 1$, also $\mu(A) \neq 0$. (Ist $A = \tilde{A}_1$, so ist sogar $A = \N$ und somit $\mu(A) = \infty$.)
+Es sei $(X,\A) := (\N,\mc{P}(\N))$ und $\mu$ das Zählmaß auf $\mc{P}(\N)$, sowie $A_k := \{1,\ldots,k\}$ für alle $k \in \N$. Es ist dann $\{1\} \subseteq A$, unabhängig davon ob $A = \tilde{A}_1$ oder $A = \tilde{A}_2$. Wegen der Monotonie des Maßes ist daher
+\[
+\mu(A) \geq \mu(\{1\}) = 1 \neq 0.
+\]
 
 
 
