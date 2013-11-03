@@ -268,6 +268,123 @@ Es sei $(X,\A) := (\N,\mc{P}(\N))$ und $\mu$ das Zählmaß auf $\mc{P}(\N)$, sow
 \section{(Vom äußeren Maß zum Maß)}
 
 
+\subsection{}
+Es ist $\mu^*(\emptyset) = 0$, da für die Folge $(A_k)_{k \in \N}$ definiert als $A_k := \emptyset \in \A$ für alle $k \in \N$ offenbar $\emptyset = \bigcup_{k \in \N} A_k$, und daher
+\[
+ \mu^*(\emptyset) \leq \sum_{k \in \N} \mu(A_k) = \sum_{k \in \N} 0 = 0.
+\]
+Dass $\mu^*(0) \geq 0$ folgt direkt daraus, dass $\mu$ nur nicht-negative Werte annimmt, und die Menge
+\[
+ \left\{ (A_k)_{k \in \N} \in \A^\N : \emptyset \subseteq \bigcup_{k \in \N} A_k \right\}
+ = \A^\N
+\]
+nichtleer ist, da $\A$ als Algebra nicht leer ist.
+
+Seien $A,B \in \mc{P}(X)$ mit $A \subseteq B$. Die Monotonie von $\mu^*$, dass also $\mu^*(A) \leq \mu^*(B)$, ergibt sich daraus, dass für alle $(B_k)_{k \in \N}$ mit $B_k \in \A$ für alle $k \in \N$ und $B \subseteq \bigcup_{k \in \N} B_k$ auch $A \subseteq B \subseteq \bigcup_{k \in \N} B_k$. Also ist
+\begin{align*}
+ S_B := &\left\{ (B_k)_{k \in \N} \in \A^\N : B \subseteq \bigcup_{k \in \N} B_k \right\} \\
+ \subseteq &\left\{ (A_k)_{k \in \N} \in \A^\N : A \subseteq \bigcup_{k \in \N} A_k \right\} =: S_A,
+\end{align*}
+und daher
+\[
+ \mu^*(A)
+ = \inf_{(A_k) \in S_A} \sum_{k \in \N} \mu(A_k)
+ \leq \inf_{(B_k) \in S_B} \sum_{k \in \N} \mu(B_k)
+ = \mu^*(B).
+\]
+
+Die abzählbare Subadditivität von $\mu^*$ ergibt sich wie folgt: Sei $\varepsilon > 0$ beliebig aber fest und $(A_k)_{k \in \N}$ eine Folge auf $\mc{P}(X)$. Es gibt nach der Definition von $\mu^*$ für alle $k \in \N$ eine Folge $(B^k_n)_{n \in \N}$ auf $\A$ mit $A_k \subseteq \bigcup_{n \in \N} B^k_n$ und
+\[
+ \sum_{n \in \N} \mu\left(B^k_n\right) \leq \mu^*(A)+\frac{\varepsilon}{2^{k+1}}.
+\]
+Da daher
+\[
+ \bigcup_{k \in \N} A_k \subseteq \bigcup_{k,n \in \N} B^k_n
+\]
+ist nach der Definition von $\mu^*$
+\[
+ \mu^*\left( \bigcup_{k \in \N} A_k \right)
+ \leq \sum_{k,n \in \N} \mu\left( B^n_k \right)
+ \leq \sum_{k,n \in \N} \left( \mu^*(A_k) + \frac{\varepsilon}{2^{k+1}} \right)
+ = \left( \sum_{k \in \N} \mu^*(A_k) \right) + \varepsilon.
+\]
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass
+\[
+ \mu^*\left( \bigcup_{k \in \N} A_k \right)
+ \leq \sum_{k \in \N} \mu^*(A_k).
+\]
+
+
+\subsection{}
+Es gilt zu zeigen, dass für alle $A \subseteq X$ und $B \in \A$
+\[
+ \mu^*(A) \geq \mu^*(A \cap B) + \mu^*(A \cap B^c).
+\]
+Sei $\varepsilon > 0$ beliebig aber fest, $A \subseteq X$ und $B \in \A$. Nach der Definition von $\mu^*$ gibt es eine Folge $(A_k)_{k \in \N}$ auf $\A$ mit $A \subseteq \bigcup_{k \in \N} A_k$ und
+\begin{equation} \label{eq:algebramessbarepsilon}
+ \mu^*(A) + \varepsilon \geq \sum_{k \in \N} \mu(A_k).
+\end{equation}
+Da $A \subseteq \bigcup_{k \in \N} A_k$ ist
+\[
+ A \cap B \subseteq \left( \bigcup_{k \in \N} A_k \right) \cap B = \bigcup_{k \in \N} (A_k \cap B),
+\]
+wobei $A_k \cap B \in \A$ für alle $k \in \N$, sowie analog auch $A \cap B^c \subseteq \bigcup_{k \in \N} (A_k \cap B^c)$ mit $A_k \cap B^c \in \A$ für alle $k \in \N$. Aufgrund der endlichen Additivität von $\mu$ und der Definition sowie Monotonie von $\mu^*$ ist daher
+\begin{align*}
+ \sum_{k \in \N} \mu(A_k)
+ &= \sum_{k \in \N} \mu\left( (A_k \cap B)\ \dotcup\ (A_k \cap B^c) \right) \\
+ &= \sum_{k \in \N} \left( \mu(A_k \cap B) + \mu(A_k \cap B^c) \right) \\
+ &= \left( \sum_{k \in \N} \mu(A_k \cap B) \right) + \left( \sum_{k \in \N} \mu(A_k \cap B^c) \right) \\
+ &\geq \mu^*\left( \bigcup_{k \in \N} (A_k \cap B) \right) + \mu^*\left( \bigcup_{k \in \N} (A_k \cap B^c) \right) \\
+ &\geq \mu^*(A \cap B) + \mu^*(A \cap B^c).
+\end{align*}
+Zusammen mit \eqref{eq:algebramessbarepsilon} ergibt sich damit, dass
+\[
+ \mu^*(A) + \varepsilon \geq \mu^*(A \cap B) + \mu^*(A \cap B^c).
+\]
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass
+\[
+ \mu^*(A) \geq \mu^*(A \cap B) + \mu^*(A \cap B^c).
+\]
+
+
+\subsection{}
+sei $\varepsilon > 0$ beliebig aber fest und $A \in \A$. Sei $(A_k)_{k \in \N}$ eine Folge auf $\A$ mit $A \subseteq \bigcup_{k \in \N} A_k$ und
+\[
+ \mu^*(A) + \varepsilon \geq \sum_{k \in \N} \mu(A_k).
+\]
+Für $k \in \N$ sei $B_k := A \cap A_k \in \A$. Es ist
+\[
+ A = A \cap \bigcup_{k \in \N} A_k = \bigcup_{k \in \N} (A \cap A_k) = \bigcup_{k \in \N} B_k,
+\]
+wegen der $\sigma$-Additivität und Monotonie von $\mu$ auf $\A$ also
+\[
+ \mu(A)
+ = \mu\left( \bigcup_{k \in \N} B_k \right)
+ \leq \sum_{k \in \N} \mu(B_k)
+ \leq \sum_{k \in \N} \mu(A_k)
+ \leq \mu^*(A) + \varepsilon.
+\]
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt, dass $\mu(A) \leq \mu^*(A)$.
+
+Dass andererseits $\mu(A) \geq \mu^*(A)$ folgt direkt aus der Definition von $\mu^*$ unter Betrachtung der Folge $(A_k)_{k \in \N}$ mit $A_0 := A$ und $A_k := \emptyset$ für alle $k \geq 1$, für die $A = \bigcup_{k \in \N} A_k$ und $\mu(A) = \sum_{k \in \N} \mu(A_k)$.
+
+
+\subsection{}
+Es bezeichne $\mc{M}_{\mu^*}$, wie in der Vorlesung, die Menge aller $\mu^*$-messbaren Mengen. Nach Aufgabenteil \textbf{b)} ist $\A \in \mc{M}_{\mu^*}$, und wie aus der Vorlesung bekannt ist $\mc{M}_{\mu^*}$ ein $\sigma$-Algebra. Folglich ist $\sigma(\A) \subseteq \mc{M}_{\mu^*}$. Wie aus der Vorlesung bekannt ist die Einschränkung von $\mu^*$ auf $\mc{M}_{\mu^*}$ ein Maß auf $\mc{M}_{\mu^*}$, also die Einschränkung von $\mu^*$ auf $\sigma(\A) \subseteq \mc{M}_{\mu^*}$ ein Maß auf $\sigma(\A)$. Dass dieses auf $\A$ mit $\mu$ übereinstimmt wurde in Aufgabenteil \textbf{c)} gezeigt.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
