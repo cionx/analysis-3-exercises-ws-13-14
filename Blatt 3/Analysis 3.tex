@@ -348,7 +348,7 @@ Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass
 
 
 \subsection{}
-sei $\varepsilon > 0$ beliebig aber fest und $A \in \A$. Sei $(A_k)_{k \in \N}$ eine Folge auf $\A$ mit $A \subseteq \bigcup_{k \in \N} A_k$ und
+Sei $\varepsilon > 0$ beliebig aber fest und $A \in \A$. Sei $(A_k)_{k \in \N}$ eine Folge auf $\A$ mit $A \subseteq \bigcup_{k \in \N} A_k$ und
 \[
  \mu^*(A) + \varepsilon \geq \sum_{k \in \N} \mu(A_k).
 \]
@@ -376,19 +376,99 @@ Es bezeichne $\mc{M}_{\mu^*}$, wie in der Vorlesung, die Menge aller $\mu^*$-mes
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 \section{(Verschiedene äußere Maße)}
+
+
+\subsection{}
+$\mu^*_1$ ist ein äußeres Maß auf $\N$:
+
+Nach Definition ist $\mu^*_1(\emptyset) = 0$.
+
+Für $A \subseteq B \subseteq \N$ mit $\mu^*_1(A) > \mu^*_1(B)$ muss $\mu^*_1(A) = 1$, also $A$ nichtleer, und $\mu^*_1(B)=0$, also $B$ leer, sein; dies kann aber offenbar nicht sein. Also ist $\mu^*_1$ monoton.
+
+Ist $(A_k)_{k \in \N}$ ein Folge auf $\N$, so gilt es zum Beweis der abzählbaren Subadditivität zwischen zwei Fällen zu unterscheiden: Ist $\sum_{k \in \N} \mu^*_1(A_k) = 0$, so müssen alle $A_k$ leer sein, also auch $\mu^*_1\left(\bigcup_{k \in \N} A_k\right) = \mu^*_1(\emptyset) = 0$. Ist hingegen $\sum_{k \in \N} \mu^*_1(A_k) \geq 1$, so gibt es ein $k_0 \in \N$ mit $\mu^*_1(A_{k_0}) = 1$, also $A_{k_0}$ nichtleer. Daher ist auch $\bigcup_{k \in \N} A_k$ nichtleer und somit
+\[
+ \mu^*_1 \left( \bigcup_{k \in \N} A_k \right) = 1 = \mu^*_1(A_{k_0}) \leq \sum_{k \in \N} \mu^*_1(A_k).
+\]
+
+
+Es ist $\mc{M}_{\mu^*_1} = \{\emptyset, \N\}$: Wie aus der Vorlesung bekannt sind $\emptyset$ und $\N$, d.h. der ganze Raum und sein Komplement, stets messbar. Für alle $B \subseteq \N$ mit $B \not\in \{\emptyset, \N\}$ sind jedoch $B$ und $B^c$ nichtleer, und somit
+\[
+ \mu^*_1(\N) = 1 \neq 2 = \mu^*_1(B) + \mu^*_1(B^c) = \mu^*(\N \cap B) + \mu^*_1(\N \cap B^c).
+\]
+
+
+\subsection{}
+Wie aus der Vorlesung bekannt, ist $\mu^*_2$ ein Maß auf $(\N,\mc{P}(\N))$. Insbesondere ist $\mu^*_2$ damit ein äußeres Maß auf $\N$, und alle $B \subseteq \N$ sind wegen der endlichen Additivität von $\mu^*_2$ messbar.
+
+
+\subsection{}
+
+
+\subsection{}
+$\mu^*_4$ ist kein äußeres Maß auf $\R$, denn es ist $\R = \bigcup_{k \in \Z} [k,k+1)$, aber
+\[
+ \mu^*_4(\R) = 1 > 0 = \sum_{k \in \Z} 0 = \sum_{k \in \Z} \mu^*_4([k,k+1)),
+\]
+also $\mu^*_4$ nicht abzählbar subadditiv.
+
+
+\subsection{}
+$\mu^*_5$ ist ein äußeres Maß auf $\R$:
+
+Nach Definition von $\mu^*_5$ ist $\mu^*_5(\emptyset) = 0$.
+
+Für $A \subseteq B \subseteq \R$ mit $\mu^*_5(A) > \mu^*_5(B)$, so muss entweder $A$ nichtleer und $B$ leer, oder $A$ unbeschränkt und $B$ beschränkt sein. Beides ist ein offenbarer Widerspruch. Also ist $\mu^*_5$ monoton.
+
+Sei $(A_k)_{k \in \N}$ eine Folge auf $\mc{P}(\R)$. Zum Beweis der Subadditivität wird zwischen drei Fällen unterschieden:
+Ist $\mu\left(\bigcup_{k \in \N} A_k\right) = 0$, so ist $\bigcup_{k \in \N} A_k$ leer, also $A_k \subseteq \bigcup_{k \in \N} A_k$ leer für alle $k \in \N$. In diesem Fall ist also
+\[
+ \mu^*_5\left( \bigcup_{k \in \N} A_k \right)
+ = 0
+ = \sum_{k \in \N} 0
+ = \sum_{k \in \N} \mu^*_5(A_k).
+\]
+Ist $\mu^*_5\left(\bigcup_{k \in \N} A_k\right) = 1$, so ist $\bigcup_{k \in \N} A_k$ nichtleer, es gibt also ein $k_0 \in \N$ mit $A_{k_0}$ nichtleer. Also in diesem Fall
+\[
+ \mu^*_5\left( \bigcup_{k \in \N} A_k \right)
+ = 1
+ \leq \mu^*_5(A_{k_0})
+ \leq \sum_{k \in \N} \mu^*_5(A_k).
+\]
+Ist $\mu^*_5\left( \bigcup_{k \in \N} A_k \right) = \infty$, so ist $\bigcup_{k \in \N} A_k$ unbeschränkt. Es gibt in diesem Fall zwei mögliche Unterfälle: Gibt es ein $k \in \N$ mit $A_{k_0}$ unbeschränkt, so ist
+\[
+ \mu^*_5\left( \bigcup_{k \in \N} A_k \right)
+ = \infty
+ = \mu^*_5(A_{k_0})
+ \leq \sum_{k \in \N} \mu^*_5(A_k).
+\]
+Ansonsten muss es eine Teilfolge $(k_n)_{n \in \N}$ geben, so dass $A_{k_n}$ für alle $n \in \N$ nichtleer und beschränkt ist. Auch in diesem Unterfall ist
+\[
+ \mu^*_5\left( \bigcup_{k \in \N} A_k \right)
+ = \infty
+ = \sum_{n \in \N} \mu^*_5(A_{k_n})
+ \leq \sum_{k \in \N} \mu^*_5(A_k).
+\]
+Dies zeigt die abzählbare Subadditivität von $\mu^*_5$.
+
+Es ist $\mc{M}_{\mu^*_5} = \{\emptyset, \R\}$, denn für alle $B \subseteq \R$ mit $B \not\in \{\emptyset, \R\}$ sind $B$ und $B^c$ nichtleer, und daher für $a \in B$ und $a' \in B^c$
+\begin{align*}
+ \mu^*_5(\{a,a'\})
+ = 1
+ \neq 2
+ &= \mu^*_5(\{a\}) + \mu^*_5(\{a'\}) \\
+ &= \mu^*_5(\{a,a'\} \cap B) + \mu^*_5(\{a,a'\} \cap B^c).
+\end{align*}
+
+
+
+
+
+
+
+
+
+
 
 
 
