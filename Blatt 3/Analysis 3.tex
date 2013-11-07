@@ -104,16 +104,15 @@ für eine Familie von Mengen $(B^i_j)_{j \in J_i}$ über einer Indexmenge $J_i$ 
  \]
 \end{lem}
 \begin{proof}[Beweis des Lemmas:]
- Sei $(a_i)_{i \in I} \in \prod_{i \in I} A_i$. Für alle $i \in I$ gibt es wegen $a_i \in A_i$ ein $j_i \in J_i$ mit $a_i \in B^i_{j_i}$. Daher ist
+ Sei $(a_i)_{i \in I} \in \prod_{i \in I} A_i$. Für alle $i \in I$ gibt es wegen $a_i \in A_i$ ein $j'_i \in J_i$ mit $a_i \in B^i_{j'_i}$. Daher ist
  \[
-  (a_i)_{i \in I} \in \prod_{i \in I} B^i_{j_i}
+  (a_i)_{i \in I} \in \prod_{i \in I} B^i_{j'_i}
   \subseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i},
  \]
- also ist
+ und daher
  \[
   \prod_{i \in I} A_i \subseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i} \prod_{i \in I} B^i_{j_i}.
  \]
- 
  Ist
  \[
   (a_i)_{i \in I} \in \bigcup_{(j_i) \in \prod_{i \in I} J_i} \prod_{i \in I} B^i_{j_i},
@@ -122,7 +121,6 @@ für eine Familie von Mengen $(B^i_j)_{j \in J_i}$ über einer Indexmenge $J_i$ 
  \[
   \prod_{i \in I} A_i \supseteq \bigcup_{(j_i) \in \prod_{i \in I} J_i}\ \prod_{i \in I} B^i_{j_i}.
  \]
- 
  Die Disjunktheit der Vereinigung ergibt sich aus der paarweisen Disjunktheit der $B^i_j$, $j \in J_i$, für alle $i \in I$: Sind $(j_i)_{i \in I}, (j'_i)_{i \in I} \in \prod_{i \in I} J_i$ so dass
  \[
   (a_i)_{i \in I} \in \prod_{i \in I} B^i_{j_i} \cap\ \prod_{i \in I} B^i_{j'_i}
@@ -153,7 +151,7 @@ Mit Lemma \ref{produktdisjunkt} ergibt sich nun, dass
  = \prod_{i=1}^n \left( \underbrace{[A_i,a_i)}_{:= C^i_1}\ \dotcup\ \underbrace{[a_i,b_i)}_{:= C^i_2}\ \dotcup\ \underbrace{[b_i,B_i)}_{:= C^i_3} \right) \\
  &= \bigdotcup_{(c_1, \ldots, c_n) \in \{1,2,3\}^n} \prod_{i=1}^n C^i_{c_i}
 \end{align*}
-die disjunkte Vereinigung von $3^n$ Quadern $q_1, \ldots, q_{3^n} \in \mc{Q}$ ist, wobei $q = \prod_{i=1}^n C^i_2$ einer von diesen ist. Aufgrund der Additivität von $\mu$ ist daher
+die disjunkte Vereinigung von $3^n$ Quadern $q_1, \ldots, q_{3^n} \in \mc{Q}$ ist, wobei $q = \prod_{i=1}^n C^i_2$ einer von diesen ist. Aufgrund der endlichen Additivität von $\mu$ ist daher
 \[
  \mu(Q)
  = \mu\left(\bigdotcup_{i=1}^{3^n} q_i\right)
@@ -164,10 +162,10 @@ was die Monotonie von $\mu$ zeigt.
 
 
 \subsection{}
-Wegen der Invarianz von $\mu$ kann für alle $Q \in \mc{Q}$ o.b.d.A. davon ausgegangen werden, dass $Q = \prod_{i=1}^n [0,a_i)$ mit $a_i \in \R_{\geq 0}$ für $i = 1,\ldots,n$. Auch folgt aus der Invarianz von $\mu$ bezüglich Transposition, der endlichen Additivität von $\mu$ und Lemma \ref{produktdisjunkt}, dass für alle $Q = \prod_{i=1}^n [0,a_i) \in \mc{Q}$ und $m_1, \ldots, m_n \in \N$
-\[
+Wegen der Translationsinvarianz von $\mu$ kann für alle $Q \in \mc{Q}$ o.b.d.A. davon ausgegangen werden, dass $Q = \prod_{i=1}^n [0,a_i)$ mit $a_i \in \R_{\geq 0}$ für $i = 1,\ldots,n$. Auch folgt aus der Invarianz von $\mu$ bezüglich Transposition, der endlichen Additivität von $\mu$ und Lemma \ref{produktdisjunkt}, dass für alle $Q = \prod_{i=1}^n [0,a_i) \in \mc{Q}$ und $m_1, \ldots, m_n \in \N$
+\begin{equation}\label{eq:prodquader}
  \mu\left( \prod_{i=1}^n [0,m_i a_i) \right) = m_1 \cdots m_n\ \mu(Q),
-\]
+\end{equation}
 da
 \begin{align*}
  &\, \mu\left( \prod_{i=1}^n [0,m_i a_i) \right)
@@ -179,10 +177,10 @@ da
  &= m_1 \cdots m_n\ \mu(Q).
 \end{align*}
 Insbesondere folgt daher aus der Normierung, dass
-\[
+\begin{equation}\label{eq:prodeinheitsquader}
 \mu\left(\prod_{i=1}^n [0,m_i)\right) = \prod_{i=1}^n m_i \text{ für alle } m_1, \ldots, m_n \in \N.
-\]
-Sei nun $Q = \prod_{i=1}^n [0,a_i) \in \mc{Q}$ beliebig aber fest. Für alle $m \in \N$ gilt
+\end{equation}
+Sei nun $Q = \prod_{i=1}^n [0,a_i) \in \mc{Q}$ beliebig aber fest. Mithilfe von \eqref{eq:prodquader} und \eqref{eq:prodeinheitsquader} lässt sich nun das Volumen skalierter Versionen von $Q$ durch Quader mit natürlichen Längen geschickt abschätzen: Für alle $m \in \N$ gilt
 \[
  \mu\left(\prod_{i=1}^n [0,ma_i)\right) = m^n \mu\left(\prod_{i=1}^n [0,a_i)\right) = m^n \mu(Q),
 \]
@@ -211,7 +209,7 @@ für alle $m \geq 1$ und daher
 \[
 x \leq \limes{m}{\infty} \frac{\floor{mx}}{m} \leq x,
 \]
-also $\limes{m}{\infty} \frac{\floor{mx}}{m} = x$. Analog ergibt sich, dass auch $\limes{m}{\infty} \frac{\ceil{mx}}{m} = x$. Aus \eqref{eq:rundungsprodukte} ergibt sich damit, dass
+Analog ergibt sich, dass auch $\limes{m}{\infty} \frac{\ceil{mx}}{m} = x$. Aus \eqref{eq:rundungsprodukte} ergibt sich damit, dass
 \begin{align*}
  &\prod_{i=1}^n a_i
  = \prod_{i=1}^n \limes{m}{\infty} \frac{\floor{ma_i}}{m}
@@ -222,7 +220,7 @@ also $\limes{m}{\infty} \frac{\floor{mx}}{m} = x$. Analog ergibt sich, dass auch
  \leq \prod_{i=1}^n \limes{m}{\infty} \frac{\ceil{ma_i}}{m}
  = \prod_{i=1}^n a_i,
 \end{align*}
-also $\mu(Q) = \prod_{i=1}^n a_i = \prod_{i=1}^n (a_i-0)$.
+also $\mu(Q) = \prod_{i=1}^n a_i$.
 
 
 
@@ -248,11 +246,11 @@ Zunächst gilt es zu zeigen, dass $A$ messbar ist, d.h. dass $A \in \A$. Dies is
  &= \bigcap_{n \in \N} \bigcup_{m \geq n} A_m \in \A.
 \end{align*}
 
-Sei $\varepsilon > 0$ beliebig aber fest. Da $\mu(A_k) \geq 0$ für alle $k \in \N$ ist die Folge der Partialsummen $\left(\sum_{k=1}^n \mu(A_k)\right)_{n \in \N}$ monoton steigend. Da sie nach Annahme nach oben beschränkt ist, ist sie konvergent. Es gibt daher ein $N \in \N$ mit $\sum_{k=N}^\infty A_k < \varepsilon$. Da $\mu$ ein Maß ist folgt daraus, dass \[ \mu\left( \bigcup_{k = N}^\infty A_k \right) \leq \sum_{k=N}^\infty \mu(A_k) < \varepsilon. \] Da $A = \tilde{A}_1$ gibt es für alle $x \in A$ ein $n \in \N$ mit $n > N$ und $x \in A_n$. Insbesondere ist daher $A \subseteq \bigcup_{k=N}^\infty A_k$. Aufgrund der Monotonie von $\mu$ folgt, dass
+Sei $\varepsilon > 0$ beliebig aber fest. Da $\mu(A_k) \geq 0$ für alle $k \in \N$ ist die Folge der Partialsummen $\left(\sum_{k=1}^n \mu(A_k)\right)_{n \in \N}$ monoton steigend. Da sie nach Annahme nach oben beschränkt ist, ist sie konvergent. Es gibt daher ein $N \in \N$ mit $\sum_{k=N}^\infty \mu(A_k) < \varepsilon$. Da $\mu$ ein Maß ist, folgt daraus, dass \[ \mu\left( \bigcup_{k = N}^\infty A_k \right) \leq \sum_{k=N}^\infty \mu(A_k) < \varepsilon. \] Da $A = \tilde{A}_1$ gibt es für alle $x \in A$ ein $n \in \N$ mit $n > N$ und $x \in A_n$. Insbesondere ist daher $A \subseteq \bigcup_{k=N}^\infty A_k$. Aufgrund der Monotonie von $\mu$ folgt, dass
 \[
- 0 \leq \mu(A) \leq \mu\left( \bigcup_{k=N}^\infty A_k \right) < \varepsilon.
+ 0 = \mu(\emptyset) \leq \mu(A) \leq \mu\left( \bigcup_{k=N}^\infty A_k \right) < \varepsilon.
 \]
-Aus der Beliebigkeit von $\varepsilon$ folgt damit, dass $\mu(A) = 0$.
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass $\mu(A) = 0$.
 
 
 \subsection{}
@@ -302,12 +300,13 @@ Da daher
  \bigcup_{k \in \N} A_k \subseteq \bigcup_{k,n \in \N} B^k_n
 \]
 ist nach der Definition von $\mu^*$
-\[
+\begin{align*}
  \mu^*\left( \bigcup_{k \in \N} A_k \right)
- \leq \sum_{k,n \in \N} \mu\left( B^n_k \right)
- \leq \sum_{k,n \in \N} \left( \mu^*(A_k) + \frac{\varepsilon}{2^{k+1}} \right)
+ &\leq \mu^*\left( \bigcup_{k,n \in \N} B^n_k \right)
+ \leq \sum_{k,n \in \N} \mu\left( B^n_k \right) \\
+ &\leq \sum_{k,n \in \N} \left( \mu^*(A_k) + \frac{\varepsilon}{2^{k+1}} \right)
  = \left( \sum_{k \in \N} \mu^*(A_k) \right) + \varepsilon.
-\]
+\end{align*}
 Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass
 \[
  \mu^*\left( \bigcup_{k \in \N} A_k \right)
@@ -370,7 +369,7 @@ Dass andererseits $\mu(A) \geq \mu^*(A)$ folgt direkt aus der Definition von $\m
 
 
 \subsection{}
-Es bezeichne $\mc{M}_{\mu^*}$, wie in der Vorlesung, die Menge aller $\mu^*$-messbaren Mengen. Nach Aufgabenteil \textbf{b)} ist $\A \in \mc{M}_{\mu^*}$, und wie aus der Vorlesung bekannt ist $\mc{M}_{\mu^*}$ ein $\sigma$-Algebra. Folglich ist $\sigma(\A) \subseteq \mc{M}_{\mu^*}$. Wie aus der Vorlesung bekannt ist die Einschränkung von $\mu^*$ auf $\mc{M}_{\mu^*}$ ein Maß auf $\mc{M}_{\mu^*}$, also die Einschränkung von $\mu^*$ auf $\sigma(\A) \subseteq \mc{M}_{\mu^*}$ ein Maß auf $\sigma(\A)$. Dass dieses auf $\A$ mit $\mu$ übereinstimmt wurde in Aufgabenteil \textbf{c)} gezeigt.
+Es bezeichne $\mc{M}_{\mu^*}$, wie in der Vorlesung, die Menge aller $\mu^*$-messbaren Mengen. Nach Aufgabenteil \textbf{b)} ist $\A \subseteq \mc{M}_{\mu^*}$, und wie aus der Vorlesung bekannt ist $\mc{M}_{\mu^*}$ ein $\sigma$-Algebra. Folglich ist $\sigma(\A) \subseteq \mc{M}_{\mu^*}$. Wie aus der Vorlesung bekannt ist die Einschränkung von $\mu^*$ auf $\mc{M}_{\mu^*}$ ein Maß auf $\mc{M}_{\mu^*}$, also die Einschränkung von $\mu^*$ auf $\sigma(\A) \subseteq \mc{M}_{\mu^*}$ ein Maß auf $\sigma(\A)$. Dass dieses auf $\A$ mit $\mu$ übereinstimmt wird in Aufgabenteil \textbf{c)} gezeigt.
 
 
 
@@ -403,7 +402,7 @@ Wie aus der Vorlesung bekannt, ist $\mu^*_2$ ein Maß auf $(\N,\mc{P}(\N))$. Ins
 
 
 \subsection{}
-$\mu^*_3$ ist kein äußeres Maß: Es ist zwar $\N = \bigcup_{n \in \N} \{n\}$, aber $\mu^*_3(\N) = 1$ und $\mu^*_3(\{n\}) = 0$ für alle $n \in \N$ und daher
+$\mu^*_3$ ist kein äußeres Maß: Es ist zwar $\N = \bigcup_{n \in \N} \{n\}$, aber $\mu^*_3(\N) = 1$ und $\mu^*_3(\{n\}) = 0$ für alle $n \in \N$, und daher
 \[
  \mu\left( \bigcup_{n \in \N} \{n\} \right)
  = \mu^*_3(\N)
