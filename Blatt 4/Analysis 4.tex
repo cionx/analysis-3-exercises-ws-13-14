@@ -87,5 +87,83 @@
 
 
 
+\section{(Lebesgue-Stieltjes-Maße)}
+
+
+\subsection{}
+Da $\mu$ endlich und monoton ist, ist $\mu$ auch beschränkt, denn für alle $A \in \mc{B}(\R)$ ist
+\[
+ \mu(A) \leq \mu(\R) < \infty.
+\]
+Aus der Beschränktheit von $\mu$ folgt die Beschränktheit von $F_\mu$, da damit für alle $x \in \R$
+\[
+ F_\mu(x) = \mu((-\infty,x]) < \infty.
+\]
+Die Monotonie von $F_\mu$ ergibt sich daraus, dass für $x, y \in \R$ mit $x \leq y$ offenbar $(-\infty, x] \subseteq (-\infty, y]$ und wegen der Monotonie von $\mu$ daher
+\[
+ F_\mu(x) = \mu((-\infty,  x]) \leq \mu((-\infty, y]) = F_\mu(y).
+\]
+
+Zum Nachweis der Rechtsstetigkeit sei $(x_n)_{n \in \N}$ eine motonon fallende Folge auf $\R$ mit $\limes{n}{\infty} x_n = x \in \R$. Es gilt zu zeigen, dass $\limes{n}{\infty} F_\mu(x_n) = F_\mu(x)$. Aus der Monotonie von $F_\mu$ folgt, dass $F_\mu(x) \leq F_\mu(x_n)$ für alle $n \in \N$, also auch
+\[
+ F_\mu(x) \leq \limes{n}{\infty} F_\mu(x_n).
+\]
+Zum Beweis der anderen Ungleichung sei $\varepsilon > 0$ beliebig aber fest. Wir bemerken, dass die Folge $( (x,x+\frac{1}{n}] )_{n \in \N}$ fallend ist, und da $\mu$ ein beschränktes Maß ist daher
+\[
+ \limes{n}{\infty} \mu\left( \left(x,x+\frac{1}{n}\right] \right)
+ = \mu\left( \bigcap_{n \in \N} \left(x,x+\frac{1}{n}\right] \right)
+ = \mu( \emptyset ) = 0.
+\]
+Es gibt also ein $N \in \N$ mit
+\[
+ \mu\left( \left(x,x+\frac{1}{n}\right] \right) < \varepsilon \text{ für alle } n \geq N.
+\]
+Da $\limes{n}{\infty} x_n = x$ gibt es ein $n_0 \in \N$ mit $x \leq x_n \leq x+\frac{1}{N}$ für alle $n \geq n_0$. Aufgrund der endlichen Additivität von $\mu$ ergibt sich daher, dass für $n \geq n_0$
+\begin{align*}
+ F_\mu(x_n)
+ &= \mu( (-\infty, x_n] )
+ = \mu( (-\infty, x]\ \dotcup\ (x,x_n] )
+ = \mu( (-\infty, x] ) + \mu( (x,x_n] ) \\
+ &= F_\mu(x) + \mu( (x,x_n] )
+ \leq F_\mu(x) + \mu\left( \left(x,x+\frac{1}{N}\right] \right)
+ \leq F_\mu(x) + \varepsilon.
+\end{align*}
+Also ist auch
+\[
+ \limes{n}{\infty} F_\mu(x_n) \leq F_\mu(x) + \varepsilon.
+\]
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt, dass
+\[
+ \limes{n}{\infty} F_\mu(x_n) \leq F_\mu(x).
+\]
+
+
+
+
+
+\section{(Mengen)}
+
+
+
+
+
+\section{(Lebesgue-messbare Mengen)}
+
+
+
+
+
+\section{(Projektion des Lebesguemaßes)}
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
