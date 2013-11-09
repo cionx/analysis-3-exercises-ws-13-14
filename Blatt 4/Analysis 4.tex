@@ -142,12 +142,99 @@ Aus der Beliebigkeit von $\varepsilon > 0$ folgt, dass
 
 
 \section{(Mengen)}
+Es sei $0 < \alpha < 1$ beliebig aber fest und es sei $0 < \beta < 1$ definiert als $\beta := 1-\alpha$.
+
+\subsection{}\label{ssec:cantoranders}
+Die Folge $(M_n)_{n \in \N}$ sei wie folgt definiert: Man beginne mit $M_0 := [0,1]$. $M_1$ konstruiert man aus $M_0$ indem man in der Mitte von $M_0$ das offene Intervall $\left(\frac{1}{2}-\frac{\beta}{4},\frac{1}{2}+\frac{\beta}{4}\right)$ mit Länge $\frac{\beta}{2}$ entfernt, d.h.
+\[
+ M_1
+ = [0,1] \setminus \left(\frac{1}{2}-\frac{\beta}{4},\frac{1}{2}+\frac{\beta}{4}\right)
+ = \left[0,\frac{1}{2}-\frac{\beta}{4}\right] \cup \left[\frac{1}{2}+\frac{\beta}{4},1\right].
+\]
+$M_2$ konstruiert man aus $M_1$ indem man aus jedem der beiden Intervalle in $M_1$ das jeweils offene mittige Intervall der Länge $\frac{\beta/4}{2} = \frac{\beta}{8}$ entfernt. $M_3$ ergibt sich aus $M_2$, indem man aus jedem der vier Intervalle in $M_2$ das jeweils mittige offene Intervall der Länge $\frac{\beta/8}{4} = \frac{\beta}{32}$ entfernt. Nach dem gleichen Prinzip konstruiert man rekursiv alle weiteren $M_n$.
+
+Offenbar ist $(M_n)_{n \in \N}$ eine fallende Folge, wobei für alle $n \in \N$ die Menge $M_n$ aus $2^n$ disjunkten, abgeschlossenen, gleichlangen Intervallen besteht; insbesondere ist $M_n$ als endliche Vereinigung abgeschlossener Mengen abgeschlossen. Die Intervalle haben zusammen eine Gesamtlänge von $1-\beta\sum_{k=1}^n 2^{-k}$ also jedes einzelne eine Länge von $\frac{1-\beta\sum_{k=1}^n 2^{-k}}{2^n}$.
+
+Sei $M := \bigcap_{n \in \N} M_n$. Als Schnitt abgeschlossener Mengen ist $M$ auch abgeschlossen. Da $M_n \subseteq [0,1]$ für alle $n \in \N$ ist auch $M \subseteq [0,1]$. $M$ enthält keine nichtleere offene Menge: Für alle $x \in M$ ist $x \in M_n$ für alle $n \in N$, also für alle $n \in \N$ in einem Intervall der Länge $\frac{1-\beta\sum_{k=1}^n 2^{-k}}{2^n}$. Da
+\[
+ \limes{n}{\infty} \frac{1-\beta\sum_{k=1}^n 2^{-k}}{2^n} = 0
+\]
+kann es daher keine $\varepsilon$-Ball um $x$ in $M$ geben. Es ist $\lambda(M) = 0$: Da $(M_n)_{n \in \N}$ ein fallende Folge mit $\lambda(M_n) \leq \lambda([0,1]) = 1$ für alle $n \in \N$ ist, und $\lambda$ ein Maß, ist
+\[
+ \mu(M)
+ = \mu\left( \bigcap_{n \in \N} M_n \right)
+ = \limes{n}{\infty} \mu(M_n)
+ = \limes{n}{\infty} 1-\beta\sum_{k=1}^n 2^{-k}
+ = 1-\beta
+ = \alpha.
+\]
+
+
+\subsection{}
+Wie in Aufgabenteil \textbf{\ref{ssec:cantoranders}} gezeigt enthält $[0,1]$ eine abgeschlossene Teilmenge $A$, die keine nichtleeren offenen Mengen enthält, und für die $\lambda(A) = \beta$. Es sei
+\[
+ B := (0,1) \setminus A = (0,1) \cap A^c.
+\]
+Da $A$ abgeschlossen ist, ist $B$ offen. Wegen der endlichen Additivität von $\mu$ ist daher
+\[
+ \mu(B) = \mu((0,1))-\mu(a) = 1-\beta = \alpha.
+\]
+$B$ liegt dicht in $[0,1]$: Gebe es $x,y \in [0,1]$ mit $x < y$ und $z \not\in B$ für alle $x \leq z \leq y$, so ist $(x,y) \subseteq A$ ein nichtleeres offenes Intervall, im Widerspruch zur Annahme, dass $A$ kein solches enthält.
 
 
 
 
 
 \section{(Lebesgue-messbare Mengen)}
+
+
+\subsection*{$(i) \Rightarrow (ii)$}
+Sei $A \subseteq \R^n$ Lebesgue-messbar. Wie aus der Vorlesung bekannt ist
+\[
+ A = \sup\{\lambda^*_n(K) : K \subseteq A, K \text{ ist kompakt}\}.
+\]
+Für alle $k \in \N, k \geq 1$ gibt es daher eine abgeschlossene Teilmenge $K_k \subseteq A$ mit
+\begin{equation}\label{eq:supgreater}
+ \lambda^*_n(K_k)+\frac{1}{k} \geq \lambda^*_n(A).
+\end{equation}
+Es sei $K := \bigcup_{k \in \N} K_n$. Da alle $K_k$ kompakt und damit auch abgeschlossen sind, ist nach Definition $K \in F_\sigma$, sowie wegen der $\sigma$-Additiv von $\mc{B}(\R^n)$ auch $K \in \mc{B}(\R)$. Es ist $\mu(K) = \mu(A)$: Da $K \subseteq A$ ist $\mu(K) \leq \mu(A)$ wegen der Monotonie von $\mu$. Wegen der Monotonie von $\mu$ folgt aus \textbf{\eqref{eq:supgreater}} auch, dass für alle $k \geq 1$
+\[
+ \mu(K) \geq \mu(K_k) \geq \lambda^*_n(A) - \frac{1}{k}.
+\]
+Für $k \rightarrow \infty$ ergibt sich damit, dass $\mu(K) \geq \mu(A)$.
+
+Sei $N := A \setminus K$. Aus der endlichen Additivität von $\mu$ ergibt sich aus $\lambda^*_n(A) = \lambda^*_n(K)$, dass
+\[
+ \lambda^*_n(N) = \lambda^*_n(A) - \lambda^*_n(K) = 0.
+\]
+Es ist also $K \in F_\sigma$, $N \subseteq \R^n$ mit $\lambda^*_n(N) = 0$ und $A = K \cup N$.
+
+
+\subsection*{$(ii) \Rightarrow (iii)$}
+Es ist $A_1 \in F_\sigma$ sowie
+\begin{align*}
+ \lambda^*_n( (A \setminus A_1) \cup (A_1 \setminus A) )
+ &\leq \lambda^*_n(A \setminus A_1) + \lambda^*_n(A_1 \setminus A) \\
+ &\leq \lambda^*(A_2) + \lambda^*_n(\emptyset) = 0.
+\end{align*}
+
+
+\subsection*{$(iii) \Rightarrow (i)$}
+Da $B \in F_\sigma$ ist $B = \bigcup_{k \in \N} A_k$ für abgeschlossene Mengen $A_k \subseteq \R^n$. Es ist also auch $B \in \mc{B}(\R^n)$, also $B$ messbar. Da
+\[
+ \lambda^*_n( \underbrace{(A \setminus B) \cup (B \setminus A)}_{=: C} ) = 0
+\]
+ist auch $C$ messbar. Da $\mc{M}_{\lambda^*_n}$ eine $\sigma$-Algebra ist, ist damit auch
+\[
+ A = (B \cup C) \setminus (B \cap C) = (B \setminus C) \cup (C \setminus B) \in \mc{M}_{\lambda^*_n},
+\]
+also $A$ messbar.
+
+
+
+
+
+
 
 
 
