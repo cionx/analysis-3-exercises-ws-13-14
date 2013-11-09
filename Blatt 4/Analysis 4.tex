@@ -234,13 +234,28 @@ also $A$ messbar.
 
 
 
-
-
-
-
-
-
 \section{(Projektion des Lebesguemaßes)}
+
+
+\subsection{}
+Es gilt die Axiome eines äußeren Maßes zu überprüfen: Es ist
+\[
+ \mu^*(\emptyset) = \lambda^*_1(\pi(\emptyset)) = \lambda^*_1(\emptyset) = 0.
+\]
+Für $A \subseteq B \subseteq \R^2$ ist $\pi(A) \subseteq \pi(B)$, also wegen der Monotonie von $\lambda^*_1$
+\[
+ \mu^*(A) = \lambda^*_1(\pi(A)) \leq \lambda^*_1(\pi(B)) = \mu^*(B),
+\]
+was die Monotonie von $\mu^*$ zeigt. $\mu^*$ ist subadditiv, denn $\lambda^*_1$ ist als äußeres Maß auf $\R$ subadditiv, weshalb für jede Folge $(A_n)_{n \in \N}$ auf $\R^2$
+\begin{align*}
+ \mu^*\left( \bigcup_{n \in \N} A_n \right)
+ &= \lambda^*_1\left( \pi\left( \bigcup_{n \in \N} A_n\right) \right)
+ = \lambda^*_1\left(  \bigcup_{n \in \N} \pi(A_n) \right) \\
+ &\leq \sum_{n \in \N} \lambda^*_1(\pi(A_n))
+ = \sum_{n \in \N} \mu^*(A_n).
+\end{align*}
+
+
 
 
 
