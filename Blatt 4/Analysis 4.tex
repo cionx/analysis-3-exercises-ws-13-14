@@ -196,7 +196,7 @@ $B$ liegt dicht in $[0,1]$: Gebe es $x,y \in [0,1]$ mit $x < y$ und $z \not\in B
 
 
 
-\section{(Lebesgue-messbare Mengen)}
+\section{(Lebesgue-messbare Mengen)}\label{sec:äuqivalentlebesquemessbar}
 
 
 \subsection*{$(i) \Rightarrow (ii)$}
@@ -265,6 +265,129 @@ was die Monotonie von $\mu^*$ zeigt. $\mu^*$ ist subadditiv, denn $\lambda^*_1$ 
  &\leq \sum_{n \in \N} \lambda^*_1(\pi(A_n))
  = \sum_{n \in \N} \mu^*(A_n).
 \end{align*}
+
+
+\subsection{}
+Sei $B \subseteq \R^2$. Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}[(i)]
+ \item $B$ ist $\mu^*$-messbar.\label{item:B ist mu* messbar}
+ \item $\pi(B)$ ist $\lambda^*_1$-messbar. \label{item:pi(B) lambda messbar}
+ \item Es gibt $\lambda^*_1$-messbare Mengen $B_0, B_1 \subseteq \R$ mit $B_0 \subseteq B_1$, $\lambda^*_1(B_1 \setminus B_0) = 0$ und $B_0 \times \R \subseteq B \subseteq B_1 \times \R$.\label{item:es gibt b0 b1}
+\end{enumerate}
+
+\subsubsection*{$\eqref{item:B ist mu* messbar} \Rightarrow \eqref{item:pi(B) lambda messbar}$}
+Sei $A \subseteq \R$ beliebig aber fest. Es gilt zu zeigen, dass
+\[
+ \lambda^*_1(A)
+ = \lambda^*_1(A \cap \pi(B)) + \lambda(A \cap \pi(B)^c).
+\]
+Aufgrund der Subadditivität von $\lambda^*_1$ genügt es hierfür zu zeigen, dass
+\[
+ \lambda^*_1(A)
+ \geq \lambda^*_1(A \cap \pi(B)) + \lambda^*_1(A \cap \pi(B)^c).
+\]
+
+Wer bemerken zunächst, dass $\mu(B)^c \subseteq \mu(B^c)$: Für $y \in \mu(B)^c$ ist $y \not\in \mu(B)$. Aus der Surjektivität von $\pi$ folgt, dass es $x \in \R^2$ mit $\pi(x) = y$ gibt. Da $y \not\in \pi(B)$ ist $x \not\in B$. Also ist $x \in B^c$ und daher $y \in \mu(B^c)$.
+
+Auch ist für alle $C \in \R^2$
+\begin{equation}\label{eq:schnitt pi vertauschen}
+ A \cap \pi(C) = \pi((A \times \R) \cap C),
+\end{equation}
+da
+\begin{align*}
+ A \cap \pi(C)
+ &= \{x \in \R : x \in A \text{ und } x \in \pi(C)\} \\
+ &= \{x \in \R : x \in A \text{ und } (x,y) \in C \text{ für ein } y \in \R\} \\
+ &= \{x \in \R : (x,y) \in A\times\R \text{ und } (x,y) \in C \text{ für ein } y \in \R\} \\
+ &= \{x \in \R : (x,y) \in (A\times\R) \cap C \text{ für ein } y \in \R\} \\
+ &= \pi((A\times\R) \cap C).
+\end{align*}
+Zusammen ergibt sich damit, dass
+\begin{align*}
+ &\, \lambda_1^*(A \cap \pi(B)) + \lambda_1^*(A \cap \pi(B)^c)
+ \underset{\mu \text{ monoton}}{\leq} \lambda_1^*(A \cap \pi(B)) + \lambda_1^*(A \cap \pi(B^c)) \\
+ =&\, \lambda_1^*( \pi((A\times\R)\cap B) ) + \lambda_1^*( \pi((A\times\R)\cap B^c) ) \\
+ =&\, \mu^*( (A\times\R) \cap B) + \mu^*( (A\times\R) \cap B^c )
+ \underset{B\, \mu^*-\text{messbar}}{=} \mu^*(A \times \R) \\
+ =&\, \lambda_1^*(\pi(A \times \R))
+ = \lambda_1^*(A).
+\end{align*}
+Dies zeigt, dass $\mu(B)$ $\lambda_1^*$-messbar ist.
+
+\subsubsection*{$\eqref{item:pi(B) lambda messbar} \Rightarrow \eqref{item:es gibt b0 b1}$}
+Da $\pi(B)$ $\lambda_1^*$-messbar ist, folgt aus \textbf{Aufgabe 3}, dass es $A_1 \in F_\sigma$ und $A_2 \subseteq \R$ mit $\lambda_1^*(A_2) = 0$ gibt, so dass $\pi(B) = A_1 \cup A_2$. $A_1$ ist messbar: Nach Definition ist $A_1 = \bigcup_{n \in \N} K_n$ für eine Familie $(K_n)_{n \in \N}$ abgeschlossener Mengen auf $\R$. Da alle $K_n$ als abgeschlossene Mengen $\lambda_1^*$-messbar sind, und $\mc{M}_{\lambda_1^*}$ eine $\sigma$-Algebra ist, ist wegen der $\sigma$-Additivität von $\mc{M}_{\lambda_1^*}$ damit auch $A_1$ $\lambda_1^*$-messbar.
+
+Sei nun $B_0 := A_1$ und $B_1 := A_1 \cup A_2 = \pi(B)$. $B_0$ und $B_1$ sind $\lambda_1^*$-messbar, und wegen der Monotonie von $\lambda_1^*$ ist
+\[
+ \lambda_1^*(B_1 \setminus B_0) \leq \lambda_1^*(A_2) = 0.
+\]
+Da $B_0 \subseteq \pi(B) = B_1$ ist auch
+\[
+ B_0 \times \R = \pi^{-1}(B_0) \subseteq B \subseteq \pi^{-1}(B_1) = B_1 \times \R.
+\]
+
+\subsubsection*{$\eqref{item:es gibt b0 b1} \Rightarrow \eqref{item:B ist mu* messbar}$}
+Sei $A \subseteq \R^2$ beliebig aber fest. Es gilt zu zeigen, dass
+\[
+ \mu^*(A) = \mu^*(A \cap B) + \mu^*(A \cap B^c).
+\]
+Wegen der Subadditivität von $\mu^*$ genügt es zu zeigen, dass
+\[
+ \mu^*(A) \geq \mu^*(A \cap B) + \mu^*(A \cap B^c).
+\]
+
+Es ist
+\[
+ A \cap (B_0 \times \R) \subseteq A \cap B \subseteq A \cap (B_1 \times \R).
+\]
+Wegen \eqref{eq:schnitt pi vertauschen} ist daher
+\begin{equation}\label{eq: A cap B nach oben}
+ \pi(A \cap B)
+ \subseteq \pi(A \cap (B_1 \times \R))
+ = \pi(A) \cap B_1,
+\end{equation}
+Analog ergibt sich wegen
+\[
+ (B_0 \times \R)^c
+ = \pi^{-1}(B_0)^c
+ = \pi^{-1}(B_0^c)
+ = (B_0^c \times \R)
+\]
+auch, dass
+\[
+ A \cap B^c
+ \subseteq A \cap (B_0 \times \R)^c
+ = A \cap (B_0^c \times \R),
+\]
+und wegen \eqref{eq:schnitt pi vertauschen} daher
+\begin{equation}\label{eq: A cap B^c nach oben}
+ \pi(A \cap B^c)
+ \subseteq \pi(A \cap (B_0 \times \R)^c)
+ = \pi(A \cap (B_0^c \times \R))
+ = \pi(A) \cap B_0^c.
+\end{equation}
+Zusammengefasst ergibt sich, dass
+\begin{align}
+ &\; \mu^*(A \cap B) + \mu^*(A \cap B^c) \notag \\
+ =&\; \lambda_1^*(\pi(A \cap B)) + \lambda_1^*(\pi(A \cap B^c)) \notag \\
+ \leq&\; \lambda_1^*(\pi(A) \cap B_1) + \lambda_1^*(\pi(A) \cap B_0^c) \label{align: monotonie}\\
+ =&\; \lambda_1^*(\pi(A) \cap B_1) + \lambda_1^*(\pi(A) \cap B_0^c \cap B_1) + \lambda_1^*(\pi(A) \cap B_0^c \cap B_1^c) \label{align: B1 messbar} \\
+ =&\; \lambda_1^*(\pi(A) \cap B_1) + \lambda_1^*(\pi(A) \cap B_1^c) \label{align: umformungen} \\
+ =&\; \lambda_1^*(\pi(A)) = \mu^*(A) \label{align: B1 messbar 2},
+\end{align}
+wobei bei \eqref{align: monotonie} die Monotonie von $\lambda_1^*$ in Kombination mit \eqref{eq: A cap B nach oben} und \eqref{eq: A cap B^c nach oben} genutzt wird, bei \eqref{align: B1 messbar} die $\lambda_1^*$-messbarkeit von $B_1$, bei \eqref{align: umformungen} die Monotonie von $\lambda_1^*$ und dass
+\[
+ B_0^c \cap B_1 = B_1 \setminus B_0
+\]
+eine Nullmenge ist, sowie dass
+\[
+ B_0^c \cap B_1^c = (B_0 \cup B_1)^c = B_1^c,
+\]
+und bei \eqref{align: B1 messbar 2} noch einmal die $\lambda_1^*$-Messbarkeit von $B_1$. Dies zeigt die $\mu^*$-Messbarkeit von $B$.
+
+
+
+
 
 
 
