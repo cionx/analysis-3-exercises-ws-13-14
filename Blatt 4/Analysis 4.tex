@@ -104,21 +104,21 @@ Die Monotonie von $F_\mu$ ergibt sich daraus, dass für $x, y \in \R$ mit $x \le
  F_\mu(x) = \mu((-\infty,  x]) \leq \mu((-\infty, y]) = F_\mu(y).
 \]
 
-Zum Nachweis der Rechtsstetigkeit sei $(x_n)_{n \in \N}$ eine motonon fallende Folge auf $\R$ mit $\limes{n}{\infty} x_n = x \in \R$. Es gilt zu zeigen, dass $\limes{n}{\infty} F_\mu(x_n) = F_\mu(x)$. Aus der Monotonie von $F_\mu$ folgt, dass $F_\mu(x) \leq F_\mu(x_n)$ für alle $n \in \N$, also auch
-\[
+Zum Nachweis der Rechtsstetigkeit sei $(x_n)_{n \in \N}$ eine motonon fallende Folge auf $\R$ mit $\limes{n}{\infty} x_n = x \in \R$. Es gilt zu zeigen, dass $\limes{n}{\infty} F_\mu(x_n) = F_\mu(x)$. Aus der Monotonie von $F_\mu$ folgt direkt, dass $F_\mu(x) \leq F_\mu(x_n)$ für alle $n \in \N$, also auch
+\begin{equation}\label{eq:grenzwertkleiner}
  F_\mu(x) \leq \limes{n}{\infty} F_\mu(x_n).
-\]
-Zum Beweis der anderen Ungleichung sei $\varepsilon > 0$ beliebig aber fest. Wir bemerken, dass die Folge $( (x,x+\frac{1}{n}] )_{n \in \N}$ fallend ist, und da $\mu$ ein beschränktes Maß ist daher
+\end{equation}
+Zum Beweis der anderen Ungleichung sei $\varepsilon > 0$ beliebig aber fest. Wir bemerken, dass die Folge $( (x,x+\frac{1}{n}] )_{n \in \N}$ auf $\mc{B}(\R)$ fallend ist, und daher
 \[
  \limes{n}{\infty} \mu\left( \left(x,x+\frac{1}{n}\right] \right)
  = \mu\left( \bigcap_{n \in \N} \left(x,x+\frac{1}{n}\right] \right)
- = \mu( \emptyset ) = 0.
+ = \mu( \emptyset ) = 0,
 \]
-Es gibt also ein $N \in \N$ mit
+da $\mu$ ein beschränktes Maß ist. Es gibt also ein $N \in \N$ mit
 \[
  \mu\left( \left(x,x+\frac{1}{n}\right] \right) < \varepsilon \text{ für alle } n \geq N.
 \]
-Da $\limes{n}{\infty} x_n = x$ gibt es ein $n_0 \in \N$ mit $x \leq x_n \leq x+\frac{1}{N}$ für alle $n \geq n_0$. Aufgrund der endlichen Additivität von $\mu$ ergibt sich daher, dass für $n \geq n_0$
+Da $\limes{n}{\infty} x_n = x$ gibt es ein $n_0 \in \N$ mit $x \leq x_n \leq x+\frac{1}{N}$ für alle $n \geq n_0$. Aufgrund der Monotonie und endlichen Additivität von $\mu$ ergibt sich daher, dass für alle $n \geq n_0$
 \begin{align*}
  F_\mu(x_n)
  &= \mu( (-\infty, x_n] )
@@ -128,14 +128,25 @@ Da $\limes{n}{\infty} x_n = x$ gibt es ein $n_0 \in \N$ mit $x \leq x_n \leq x+\
  \leq F_\mu(x) + \mu\left( \left(x,x+\frac{1}{N}\right] \right)
  \leq F_\mu(x) + \varepsilon.
 \end{align*}
-Also ist auch
+Also ist
 \[
  \limes{n}{\infty} F_\mu(x_n) \leq F_\mu(x) + \varepsilon.
 \]
-Aus der Beliebigkeit von $\varepsilon > 0$ folgt, dass
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass auch
 \[
  \limes{n}{\infty} F_\mu(x_n) \leq F_\mu(x).
 \]
+Zusammen mit \eqref{eq:grenzwertkleiner} ergibt zeigt dies die Rechtsstetigkeit von $F_\mu$.
+
+Dass $\limes{x}{\infty} F_\mu(x) = 0$ ergibt sich ähnlich: Die Folge $((-\infty,-n])_{n \in \N}$ auf $\mc{B}(\R)$ ist fallend, also gilt
+\[
+ \limes{n}{\infty} F_\mu(-n)
+ = \limes{n}{\infty} \mu((-\infty,-n])
+ = \mu\left( \bigcap_{n \in N} (-\infty,-n] \right)
+ = \mu(\emptyset)
+ = 0.
+\]
+Es gibt daher für alle $\varepsilon > 0$ ein $N \in \N$ mit $F_\mu(-n) < \varepsilon$ für alle $n \geq N$; dabei folgt aus der Monotonie von $F_\mu$, dass $F_\mu(x) < \varepsilon$ für alle $x \geq N$. Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass $\limes{x}{\infty} F_\mu(x) = 0$.
 
 
 
