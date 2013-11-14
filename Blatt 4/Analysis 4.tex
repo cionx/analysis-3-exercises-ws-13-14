@@ -108,17 +108,17 @@ Zum Nachweis der Rechtsstetigkeit sei $(x_n)_{n \in \N}$ eine motonon fallende F
 \begin{equation}\label{eq:grenzwertkleiner}
  F_\mu(x) \leq \limes{n}{\infty} F_\mu(x_n).
 \end{equation}
-Zum Beweis der anderen Ungleichung sei $\varepsilon > 0$ beliebig aber fest. Wir bemerken, dass die Folge $( (x,x+\frac{1}{n}] )_{n \in \N}$ auf $\mc{B}(\R)$ fallend ist, und daher
+Zum Beweis der umgekehrten Ungleichung sei $\varepsilon > 0$ beliebig aber fest. Wir bemerken, dass die Folge $( (x,x+\frac{1}{n}] )_{n \in \N}$ auf $\mc{B}(\R)$ fallend ist, und daher
 \[
  \limes{n}{\infty} \mu\left( \left(x,x+\frac{1}{n}\right] \right)
  = \mu\left( \bigcap_{n \in \N} \left(x,x+\frac{1}{n}\right] \right)
  = \mu( \emptyset ) = 0,
 \]
-da $\mu$ ein beschränktes Maß ist. Es gibt also ein $N \in \N$ mit
+da $\mu$ ein Maß ist. Es gibt also ein $N \in \N$ mit
 \[
  \mu\left( \left(x,x+\frac{1}{n}\right] \right) < \varepsilon \text{ für alle } n \geq N.
 \]
-Da $\limes{n}{\infty} x_n = x$ gibt es ein $n_0 \in \N$ mit $x \leq x_n \leq x+\frac{1}{N}$ für alle $n \geq n_0$. Aufgrund der Monotonie und endlichen Additivität von $\mu$ ergibt sich daher, dass für alle $n \geq n_0$
+Da $\limes{n}{\infty} x_n = x$ gibt es ein $n_0 \in \N$ mit $x \leq x_n \leq x+\frac{1}{N}$ für alle $n \geq n_0$. Aufgrund der Monotonie und endlichen Additivität von $\mu$ ergibt sich, dass für alle $n \geq n_0$
 \begin{align*}
  F_\mu(x_n)
  &= \mu( (-\infty, x_n] )
@@ -126,23 +126,23 @@ Da $\limes{n}{\infty} x_n = x$ gibt es ein $n_0 \in \N$ mit $x \leq x_n \leq x+\
  = \mu( (-\infty, x] ) + \mu( (x,x_n] ) \\
  &= F_\mu(x) + \mu( (x,x_n] )
  \leq F_\mu(x) + \mu\left( \left(x,x+\frac{1}{N}\right] \right)
- \leq F_\mu(x) + \varepsilon.
+ < F_\mu(x) + \varepsilon.
 \end{align*}
-Also ist
+Also ist auch
 \[
  \limes{n}{\infty} F_\mu(x_n) \leq F_\mu(x) + \varepsilon.
 \]
-Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass auch
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt daraus, dass
 \[
  \limes{n}{\infty} F_\mu(x_n) \leq F_\mu(x).
 \]
-Zusammen mit \eqref{eq:grenzwertkleiner} ergibt zeigt dies die Rechtsstetigkeit von $F_\mu$.
+Zusammen mit \eqref{eq:grenzwertkleiner} zeigt dies die Rechtsstetigkeit von $F_\mu$.
 
 Dass $\limes{x}{\infty} F_\mu(x) = 0$ ergibt sich ähnlich: Die Folge $((-\infty,-n])_{n \in \N}$ auf $\mc{B}(\R)$ ist fallend, also gilt
 \[
  \limes{n}{\infty} F_\mu(-n)
  = \limes{n}{\infty} \mu((-\infty,-n])
- = \mu\left( \bigcap_{n \in N} (-\infty,-n] \right)
+ = \mu\left( \bigcap_{n \in \N} (-\infty,-n] \right)
  = \mu(\emptyset)
  = 0.
 \]
@@ -153,7 +153,7 @@ Es gibt daher für alle $\varepsilon > 0$ ein $N \in \N$ mit $F_\mu(-n) < \varep
 
 
 \section{(Mengen)}
-Es sei $0 < \alpha < 1$ beliebig aber fest und es sei $0 < \beta < 1$ definiert als $\beta := 1-\alpha$.
+Es sei $0 < \alpha < 1$ beliebig aber fest und $\beta := 1-\alpha$.
 
 \subsection{}\label{ssec:cantoranders}
 Die Folge $(M_n)_{n \in \N}$ sei wie folgt definiert: Man beginne mit $M_0 := [0,1]$. $M_1$ konstruiert man aus $M_0$ indem man in der Mitte von $M_0$ das offene Intervall $\left(\frac{1}{2}-\frac{\beta}{4},\frac{1}{2}+\frac{\beta}{4}\right)$ mit Länge $\frac{\beta}{2}$ entfernt, d.h.
@@ -162,15 +162,28 @@ Die Folge $(M_n)_{n \in \N}$ sei wie folgt definiert: Man beginne mit $M_0 := [0
  = [0,1] \setminus \left(\frac{1}{2}-\frac{\beta}{4},\frac{1}{2}+\frac{\beta}{4}\right)
  = \left[0,\frac{1}{2}-\frac{\beta}{4}\right] \cup \left[\frac{1}{2}+\frac{\beta}{4},1\right].
 \]
-$M_2$ konstruiert man aus $M_1$ indem man aus jedem der beiden Intervalle in $M_1$ das jeweils offene mittige Intervall der Länge $\frac{\beta/4}{2} = \frac{\beta}{8}$ entfernt. $M_3$ ergibt sich aus $M_2$, indem man aus jedem der vier Intervalle in $M_2$ das jeweils mittige offene Intervall der Länge $\frac{\beta/8}{4} = \frac{\beta}{32}$ entfernt. Nach dem gleichen Prinzip konstruiert man rekursiv alle weiteren $M_n$.
+$M_2$ konstruiert man aus $M_1$ indem man aus jedem der beiden Intervalle in $M_1$ das jeweils mittige offene Intervall der Länge $\frac{\beta/4}{2} = \frac{\beta}{8}$ entfernt. $M_3$ ergibt sich aus $M_2$, indem man aus jedem der vier Intervalle in $M_2$ das jeweils mittige offene Intervall der Länge $\frac{\beta/8}{4} = \frac{\beta}{32}$ entfernt. Nach dem gleichen Prinzip konstruiert man rekursiv alle weiteren $M_n$.
 
-Offenbar ist $(M_n)_{n \in \N}$ eine fallende Folge, wobei für alle $n \in \N$ die Menge $M_n$ aus $2^n$ disjunkten, abgeschlossenen, gleichlangen Intervallen besteht; insbesondere ist $M_n$ als endliche Vereinigung abgeschlossener Mengen abgeschlossen. Die Intervalle haben zusammen eine Gesamtlänge von $1-\beta\sum_{k=1}^n 2^{-k}$ also jedes einzelne eine Länge von $\frac{1-\beta\sum_{k=1}^n 2^{-k}}{2^n}$.
+Offenbar ist $(M_n)_{n \in \N}$ eine fallende Folge, wobei für alle $n \in \N$ die Menge $M_n$ aus $2^n$ disjunkten, abgeschlossenen, gleichlangen Intervallen besteht; insbesondere ist $M_n$ als endliche Vereinigung abgeschlossener Mengen abgeschlossen. Die Intervalle haben zusammen eine Gesamtlänge von $1-\beta\sum_{k=1}^n 2^{-k}$ also jedes einzelne eine Länge von
+\[
+ \frac{1-\beta\sum_{k=1}^n 2^{-k}}{2^n}.
+\]
 
-Sei $M := \bigcap_{n \in \N} M_n$. Als Schnitt abgeschlossener Mengen ist $M$ auch abgeschlossen. Da $M_n \subseteq [0,1]$ für alle $n \in \N$ ist auch $M \subseteq [0,1]$. $M$ enthält keine nichtleere offene Menge: Für alle $x \in M$ ist $x \in M_n$ für alle $n \in N$, also für alle $n \in \N$ in einem Intervall der Länge $\frac{1-\beta\sum_{k=1}^n 2^{-k}}{2^n}$. Da
+Es sei nun
+\[
+ M := \bigcap_{n \in \N} M_n.
+\]
+Als Schnitt abgeschlossener Mengen ist $M$ ebenfalls abgeschlossen. Da $M_n \subseteq [0,1]$ für alle $n \in \N$ ist auch $M \subseteq [0,1]$. $M$ enthält keine nichtleere offene Menge: Für alle $x \in M$ ist $x \in M_n$ für alle $n \in \N$, also $x$ für alle $n \in \N$ in einem Intervall der Länge
+\[
+ \frac{1-\beta\sum_{k=1}^n 2^{-k}}{2^n}
+\]
+enthalten. Da
 \[
  \limes{n}{\infty} \frac{1-\beta\sum_{k=1}^n 2^{-k}}{2^n} = 0
 \]
-kann es daher keine $\varepsilon$-Ball um $x$ in $M$ geben. Es ist $\lambda(M) = 0$: Da $(M_n)_{n \in \N}$ ein fallende Folge mit $\lambda(M_n) \leq \lambda([0,1]) = 1$ für alle $n \in \N$ ist, und $\lambda$ ein Maß, ist
+gibt es in $M$ keinen $\varepsilon$-Ball um $x$ in $M$.
+
+Es ist $\lambda(M) = \alpha$: Da alle $M_n$, sowie auch $M$, als abgeschlossene Mengen $\lambda$-messbar sind, und $(M_n)_{n \in \N}$ ein fallende Folge auf $M_\lambda$ mit $\lambda(M_n) \leq \lambda([0,1]) = 1$ für alle $n \in \N$ ist, folgt daraus, dass $\lambda$ ein Maß ist, dass
 \[
  \mu(M)
  = \mu\left( \bigcap_{n \in \N} M_n \right)
@@ -179,16 +192,17 @@ kann es daher keine $\varepsilon$-Ball um $x$ in $M$ geben. Es ist $\lambda(M) =
  = 1-\beta
  = \alpha.
 \]
+Dabei ergibt sich $\mu(M_n)$ aus der endlichen Additivität von $\lambda$, sowie der Tatsache, dass $M_n$ eine endliche Vereinigung disjunkter, abgeschlossener Intervalle ist, deren Maß genau ihre Länge ist.
 
 
 \subsection{}
-Wie in Aufgabenteil \textbf{\ref{ssec:cantoranders}} gezeigt enthält $[0,1]$ eine abgeschlossene Teilmenge $A$, die keine nichtleeren offenen Mengen enthält, und für die $\lambda(A) = \beta$. Es sei
+Wie in Aufgabenteil \textbf{\ref{ssec:cantoranders}} gezeigt enthält $[0,1]$ eine abgeschlossene Teilmenge $A$, die keine nichtleeren offenen Mengen enthält, und für die $\lambda(A) = \beta$ (da $0 < \alpha < 1$ ist auch $0 < \beta < 1$). Es sei
 \[
  B := (0,1) \setminus A = (0,1) \cap A^c.
 \]
-Da $A$ abgeschlossen ist, ist $B$ offen. Wegen der endlichen Additivität von $\mu$ ist daher
+Da $A$ abgeschlossen ist, ist $B$ als endlicher Schnitt offener Mengen offen. Wegen der endlichen Additivität von $\mu$ ist
 \[
- \mu(B) = \mu((0,1))-\mu(a) = 1-\beta = \alpha.
+ \lambda(B) = \lambda((0,1))-\lambda(A) = 1-\beta = \alpha.
 \]
 $B$ liegt dicht in $[0,1]$: Gebe es $x,y \in [0,1]$ mit $x < y$ und $z \not\in B$ für alle $x \leq z \leq y$, so ist $(x,y) \subseteq A$ ein nichtleeres offenes Intervall, im Widerspruch zur Annahme, dass $A$ kein solches enthält.
 
@@ -208,9 +222,9 @@ Für alle $k \in \N, k \geq 1$ gibt es daher eine abgeschlossene Teilmenge $K_k 
 \begin{equation}\label{eq:supgreater}
  \lambda^*_n(K_k)+\frac{1}{k} \geq \lambda^*_n(A).
 \end{equation}
-Es sei $K := \bigcup_{k \in \N} K_n$. Da alle $K_k$ kompakt und damit auch abgeschlossen sind, ist nach Definition $K \in F_\sigma$, sowie wegen der $\sigma$-Additiv von $\mc{B}(\R^n)$ auch $K \in \mc{B}(\R)$. Es ist $\mu(K) = \mu(A)$: Da $K \subseteq A$ ist $\mu(K) \leq \mu(A)$ wegen der Monotonie von $\mu$. Wegen der Monotonie von $\mu$ folgt aus \textbf{\eqref{eq:supgreater}} auch, dass für alle $k \geq 1$
+Es sei $K := \bigcup_{k \in \N} K_n$. Da alle $K_k$ kompakt und damit auch abgeschlossen sind, ist nach Definition $K \in F_\sigma$. Da alle $K_k$ abgeschlossen sind, also $K_k \in \mc{B}(\R)$ für alle $k \in \N$, ist wegen der Abgeschlossenheit von $\mc{B}(\R^n)$ unter abzählbaren Vereinigungen auch $K \in \mc{B}(\R)$. Es ist $\mu(K) = \mu(A)$: Da $K \subseteq A$ folgt $\mu(K) \leq \mu(A)$ aus der Monotonie von $\mu$. Wegen der Monotonie von $\mu$ folgt aus \textbf{\eqref{eq:supgreater}} auch, dass für alle $k \geq 1$
 \[
- \mu(K) \geq \mu(K_k) \geq \lambda^*_n(A) - \frac{1}{k}.
+ \mu(K) + \frac{1}{k} \geq \mu(K_k) + \frac{1}{k} \geq \lambda^*_n(A)
 \]
 Für $k \rightarrow \infty$ ergibt sich damit, dass $\mu(K) \geq \mu(A)$.
 
