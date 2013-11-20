@@ -97,20 +97,20 @@
 
 
 \subsection{}
-Man bemerke, dass $\R^n \setminus \{0\} \in \mc{B}(\R^n)$ bezüglich $\mu$ eine Nullmenge ist. Da es für jedes $A \subseteq \R^n$ ein $B \subseteq \R^n \setminus \{0\}$ mit $A = \emptyset \cup B$ oder $A = \{0\} \cup \R^n \setminus\{0\}$ gibt, ist $\mc{A}_0 = \mc{P}(\R^n)$, denn $\emptyset, \{0\} \in \mc{B}(\R^n)$.
+Man bemerke, dass $\R^n \setminus \{0\} \in \mc{B}(\R^n)$ bezüglich $\mu$ eine Nullmenge ist. Da es für jedes $A \subseteq \R^n$ ein $B \subseteq \R^n \setminus \{0\}$ mit $A = \emptyset \cup B$ oder $A = \{0\} \cup \R^n \setminus\{0\}$ gibt, ist $\A_0 = \mc{P}(\R^n)$, denn $\emptyset, \{0\} \in \mc{B}(\R^n)$.
 
 
 \subsection{}
 Es sei
 \begin{align*}
- \tilde{\mc{A}}_0
+ \tilde{\A}_0
  :=& \bigcup_{A \subseteq \R^2} \left\{A \cup (0 \times \R), A \setminus (0 \times \R)\right\}.
 \end{align*}
-$\tilde{\mc{A}}_0$ enthält genau die Teilmengen von $\R^2$, die $0 \times \R$ ganz oder gar nicht beinhalten. Es gilt $\tilde{\mc{A}}_0 = \mc{A}$.
+$\tilde{\A}_0$ enthält genau die Teilmengen von $\R^2$, die $0 \times \R$ ganz oder gar nicht beinhalten. Es gilt $\tilde{\A}_0 = \A$.
 
-Sei $A \in \tilde{\mc{A}}_0$. Ist $(0,0) \not\in A$, so ist $A = \emptyset \cup A$, wobei $\emptyset \in \mc{A}$ und $A$ in der Nullmenge $\R^2 \setminus (0 \times \R) = (\R \setminus 0) \times \R \in \mc{A}$ enthalten ist, also $A \in \mc{A}_0$. Ist $(0,0) \in A$, so ist  $A = (0 \times \R) \cup (A \setminus (0 \times \R))$ analog in $\mc{A}_0$ enthalten. Also ist $\tilde{\mc{A}}_0 \subseteq \mc{A}_0$. 
+Sei $A \in \tilde{\A}_0$. Ist $(0,0) \not\in A$, so ist $A = \emptyset \cup A$, wobei $\emptyset \in \A$ und $A$ in der Nullmenge $\R^2 \setminus (0 \times \R) = (\R \setminus 0) \times \R \in \A$ enthalten ist, also $A \in \A_0$. Ist $(0,0) \in A$, so ist  $A = (0 \times \R) \cup (A \setminus (0 \times \R))$ analog in $\A_0$ enthalten. Also ist $\tilde{\A}_0 \subseteq \A_0$. 
 
-Sei $A \in \mc{A}_0$. Es gibt es $B \in \mc{A}$ und $N \subseteq \mc{P}(\R^2)$ mit $N \subseteq M$ für eine Nullmenge $M \in \mc{A}$ sodass $A = B \cup N$. Da $M$ ein Nullmenge ist, ist $(0,0) \not\in M$, also $(0 \times \R) \cap M = \emptyset$. Daher ist $(0,0) \in A$ genau dann wenn $(0,0) \in B$. Dies gilt genau dann, wenn $(0 \times \R) \subseteq B$, und genau dann nicht, wenn $(0 \times \R) \cap B = \emptyset$. Es ist also $(0 \times \R)$ entweder ganz oder gar nicht in $A$, und daher $A \in \tilde{\mc{A}}_0$. Es ist also $\mc{A}_0 \subseteq \tilde{\mc{A}}_0$.
+Sei $A \in \A_0$. Es gibt es $B \in \A$ und $N \subseteq \mc{P}(\R^2)$ mit $N \subseteq M$ für eine Nullmenge $M \in \A$ sodass $A = B \cup N$. Da $M$ ein Nullmenge ist, ist $(0,0) \not\in M$, also $(0 \times \R) \cap M = \emptyset$. Daher ist $(0,0) \in A$ genau dann wenn $(0,0) \in B$. Dies gilt genau dann, wenn $(0 \times \R) \subseteq B$, und genau dann nicht, wenn $(0 \times \R) \cap B = \emptyset$. Es ist also $(0 \times \R)$ entweder ganz oder gar nicht in $A$, und daher $A \in \tilde{\A}_0$. Es ist also $\A_0 \subseteq \tilde{\A}_0$.
 
 
 
@@ -185,6 +185,112 @@ im Widerspuch zu $x \in A_{2 \varepsilon}$. Also muss $\delta \geq \varepsilon$,
 
 
 \section{(Reguläre Maße)}
+
+
+\subsection{}
+Sei $A \in B(\R^n)$ und $\varepsilon > 0$ beliebig aber fest. 
+
+\subsubsection*{(ii) $\Rightarrow$ (iv)}
+Es gibt eine offene Menge $U \subseteq \R^n$ mit $A^c \subseteq U$ und
+\[
+ \mu(U) \leq \mu(A^c) + \varepsilon.
+\]
+Es ergibt sich wegen der Endlichkeit von $\mu$, dass
+\[
+ \mu(U^c) = \mu(\R^n) - \mu(U) \geq \mu(\R^n) - \mu(A^c) - \varepsilon = \mu(A) - \varepsilon.
+\]
+Da $U^c \subseteq A$ abgeschlossen ist, und $\varepsilon > 0$ beliebig, zeigt dies (iv).
+
+\subsection*{(iv) $\Rightarrow$ (ii)}
+Sei $C \subseteq A^c$ abgeschlossen mit
+\[
+ \mu(C) \geq \mu(A^c) - \varepsilon.
+\]
+Es ist dann wegen der Endlichkeit von $\mu$
+\[
+ \mu(C^c) = \mu(\R^n) - \mu(C) \leq \mu(\R^n) - \mu(A^c) + \varepsilon = \mu(A) + \varepsilon.
+\]
+Da $C^c \supseteq A$ offen ist, und $\varepsilon > 0$, zeigt dies (ii).
+
+\subsubsection*{(iii) $\Rightarrow$ (iv)}
+Da jede kompakte Menge $K \subseteq \R^n$ auch abgeschlossen ist, gilt
+\begin{align*}
+ A
+ &= \sup \{ \mu(K) : K \subseteq A, K \text{ kompakt} \} \\
+ &\leq \sup \{ \mu(K) : C \subseteq A, C \text{ abgeschlossen} \}
+ \leq A,
+\end{align*}
+also
+\[
+ A = \sup \{ \mu(K) : K \subseteq A, K \text{ abgeschlossen} \}.
+\]
+
+\subsubsection*{(iv) $\Rightarrow$ (iii)}
+Es gibt ein $C \subseteq A$ abgeschlossen mit $\mu(C) + \frac{\varepsilon}{2} \geq \mu(A)$. Für alle $k \in \N$ sei
+\[
+ C_k := C \cap \overline{B_0(k)}.
+\]
+$C_k$ ist für alle $k$ abgeschlossen und beschränkt, also kompakt. Da $(C_k)_{k \in \N}$ eine wachsende Folge auf $\mc{B}(\R^n)$ ist, gilt
+\[
+ \limes{k}{\infty} \mu(C_k) = \mu\left( \bigcup_{k \in \N} C_k \right) = \mu(C).
+\]
+Es gibt also ein $N \in \N$ mit $\mu(C_N) + \frac{\varepsilon}{2} \geq \mu(C)$. Da daher
+\[
+ \mu(C_N) + \varepsilon \geq \mu(C) + \frac{\varepsilon}{2} \geq \mu(A),
+\]
+und $C_N \subseteq C \subseteq A$ abgeschlossen und beschränkt, also kompakt, ist, folgt (iii) aus der Beliebigkeit von $\varepsilon > 0$.
+
+
+\subsection{}
+Es sei
+\[
+ \A := \{A \in \mc{B}(\R^n): \text{(ii) und (iv) gelten für $A$}\}.
+\]
+$\A$ bildet eine $\sigma$-Algebra.
+
+Es ist klar, dass $\R^n$ (ii) und (iv) erfüllt.
+
+Für $A \in \A$ gilt (ii), d.h. es gibt für beliebiges aber festes $\varepsilon > 0$ eine offene Menge $U \supseteq A$ mit $\mu(U) \leq \mu(A)+\varepsilon$. Für $A^c$ gilt dann, dass $U^c \subseteq A^c$ eine abgeschlossene Menge mit
+\[
+ \mu(U^c) = \mu(\R^n) - \mu(U) \geq \mu(\R^n) - \mu(A) - \varepsilon = \mu(A^c) - \varepsilon.
+\]
+Wegen der Beliebigkeit von $\varepsilon > 0$ zeigt dies, dass (iv) für $A^c$ gilt. Da (ii) und (iv) äquivalent sind, ist daher auch $A^c \in \A$.
+
+Sei $(A_k)_{k \in \N}$ eine Folge von Mengen mit $A_k \in \A$ für alle $k$ und $\varepsilon > 0$ beliebig aber fest. Es gibt für alle $k$ eine abgeschlossene Menge $C_k \subseteq \R^n$ mit $C_k \subseteq A_k$ und
+\[
+ \mu(A_k \setminus C_k) = \mu(A_k) - \mu(C_k) \leq \frac{\varepsilon}{2^{k+1}}
+\]
+Es ist daher
+\[
+ \bigcup_{k \in \N} C_k =: C \subseteq A := \bigcup_{k \in \N} A_k.
+\]
+eine abgeschlossene Teilmenge mit
+\[
+ A \setminus C
+ = \bigcup_{k \in \N} A_k \setminus \bigcup_{k \in \N} C_k
+ \subseteq \bigcup_{k \in \N} (A_k \setminus C_k).
+\]
+Es gilt
+\begin{align*}
+ \mu(A) - \mu(C)
+ &= \mu(A \setminus C)
+ \leq \mu\left( \bigcup_{k \in \N} A_k \setminus C_k \right) \\
+ &\leq \sum_{k \in \N} \mu(A_k \setminus C_k)
+ \leq \sum_{k \in \N} \frac{\varepsilon}{2^{k+1}}
+ = \varepsilon,
+\end{align*}
+also $\mu(A) \leq \mu(C) + \varepsilon$. Wegen der Beliebigkeit von $\varepsilon > 0$ erfüllt $A$ daher (iv), also auch (ii), ist also in $\A$ enthalten.
+
+Trivialerweise erfüllt jede offene Menge Bedingung (ii), und damit auch (iv). Also sind alle offenen Mengen in $\A$ enthalten. Da $\mc{B}(\R^n)$ die kleinste $\sigma$-Algebra mit dieser Eigenschaft ist, muss $\mc{B}(\R^n) \subseteq \A$. Da nach Definition $\A \subseteq \mc{B}(\R^n)$ ist daher $\mc{B}(\R^n) = \A$. Es erfüllen also alle $A \in \mc{B}(\R^n)$ die Bedingungen (ii) und (iv), also auch (iii). Da Bedingung (i) direkt aus der Endlichkeit von $\mu$ folgt, ist $\mu$ daher regulär.
+
+
+
+
+
+
+
+
+
 
 
 
