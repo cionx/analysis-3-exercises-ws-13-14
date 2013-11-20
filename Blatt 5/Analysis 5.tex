@@ -116,18 +116,75 @@ Sei $A \in \mc{A}_0$. Es gibt es $B \in \mc{A}$ und $N \subseteq \mc{P}(\R^2)$ m
 
 
 
-
-
 \section{(Fast stetige Funktionen)}
+
+
+\subsection{}
+Sei $t \in \R$ beliebig aber fest. Da $N$ abzählbar ist, ist $N \in \mc{B}(\R^n)$. (Jede abzählbare Menge $A$ lässt sich als \[ A = \bigcup_{a \in A} [a-1,a]\cap[a,a+1] \] darstellen.) Es ist also auch $M := \R^n \setminus N \in \mc{B}(\R^n)$. Nach Definition von $N$ ist $f_{|M} : M \rightarrow \R^n$ stetig. Es ist daher
+\[
+ A := \{x \in M : f_{|M}(x) \leq t\} \in \mc{B}(\R^n),
+\]
+da stetige Funktionen immer messbar sind. Da $N$ abzählbar ist, ist es auch
+\[
+ N' := \{x \in N : f(x) \leq t\},
+\]
+also $N' \in \mc{B}(\R^n)$. Daher ist auch
+\[
+ \{x \in N : f(x) \leq t\} = A \cup N' \in \mc{B}(\R^n),
+\]
+also $f$ Borell-messbar.
+
+
+\subsection{}
+Sei $t \in \R$ beliebig aber fest, und $A := \{x \in \R: f(x) < t\}$. Ist $A = \R$, so ist $A$ Borell-messbar. Ansonsten ist $A$ ein Intervall der Form $(a,\infty)$ oder $[a,\infty)$ mit $a \in \R$. Auch in diesen Fällen ist $A$ Borell-messbar.
+
+
+\subsection{}
+Sei $t \in \R$ beliebig aber fest.
+Da $\lambda(N) = 0$ und das Lebesgue-Maß auf $(\R^n, \mc{M}_\lambda)$ vollständig ist, ist $N \in \mc{M}_\lambda$. Da $\R^n \in \mc{M}_\lambda$ ist daher auch $M = \R^n \setminus N \in \mc{M}_\lambda$. Nach Definition ist $f_{|M}$ stetig, also
+\[
+ A := \{x \in M : f_{|M}(x) \leq t\} \in \mc{M}_\lambda,
+\]
+Borell- und damit auch Lebesgue-messbar ist. Für
+\[
+ N' := \{x \in N : f(x) \leq t\}
+\]
+ist $N' \subseteq N$, wegen der Vollständigkeit des Lebesgue-Maßes also auch $\lambda(N') \in \mc{M}_\lambda$. Damit ist
+\[
+ \{x \in \R^n : f(x) \leq t\} = A \cup N' \in \mc{M}_\lambda,
+\]
+also $f$ Lebesgue-messbar.
+
+
+\subsection{}
+Es genügt zu zeigen, dass $\overline{A_{2 \varepsilon}} \subseteq A_\varepsilon$ für alle $\varepsilon > 0$. Denn dann ist
+\[
+ N
+ = \bigcup_{\substack{q \in \Q \\ q > 0}} A_q
+ \supseteq \bigcup_{\substack{q \in \Q \\ q > 0}} \overline{A_{2q}}
+ = \bigcup_{\substack{q \in \Q \\ q > 0}} \overline{A_q}
+ \supseteq \bigcup_{\substack{q \in \Q \\ q > 0}} A_q,
+ = N
+\]
+also
+\[
+ N = \bigcup_{\substack{q \in \Q \\ q > 0}} \overline{A_q} \in F_{\sigma}.
+\]
+
+Sei $\varepsilon > 0$ beliebig aber fest. Es ist klar, dass $A_{2 \varepsilon} \subseteq A_\varepsilon$. O.b.d.A sei $a \in \partial A_{2 \varepsilon}$ und $\delta := \limsup_{y \rightarrow a} |f(y)-f(a)|$ (gibt es kein solches $a$, so ist nichts mehr zu zeigen). Angenommen, es ist $\delta < \varepsilon$. Dann gibt es ein $\omega > 0$, so dass $|f(y)-f(a)| < \delta$ für alle $y \in \R^n$ mit $|a-y| < \omega$. Da $a \in \partial A_{2 \varepsilon}$ gibt es ein $x \in A_{2 \varepsilon}$ mit $|x-a| < \omega$. Es ist
+\[
+ \limsup_{y \rightarrow x} |f(y)-f(x)|
+ \leq \limsup_{y \rightarrow x} |f(y)-f(a)| + \limsup_{y \rightarrow x} |f(a)-f(x)|
+ < 2 \delta
+ < 2 \varepsilon,
+\]
+im Widerspuch zu $x \in A_{2 \varepsilon}$. Also muss $\delta \geq \varepsilon$, und somit $a \in A_{\varepsilon}$.
 
 
 
 
 
 \section{(Reguläre Maße)}
-
-
-
 
 
 
