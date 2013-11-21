@@ -52,6 +52,7 @@
 \newcommand{\Real}{\operatorname{Re}}
 \newcommand{\Imag}{\operatorname{Im}}
 \newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Vol}{\operatorname{Vol}}
 \newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
 \newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
@@ -88,6 +89,56 @@
 
 
 \section{(Transformationsregel des Lebesguemaßes)}
+
+
+\subsection{}
+Sei $N \subseteq \R^n$ eine Lebesgue-Nullmenge und $\varepsilon > 0$ beliebig aber fest.
+Aus der Definition des Lebesgue-Maßes folgt, dass es eine Folge $(I_k)_{k \in \N}$ von $n$-dimensionalen offenen Intervallen gibt, so dass $N \subseteq \bigcup_{k \in \N} I_k$ und $\lambda_n(N) \leq \sum_{k \in \N} \Vol(I_k)$. Dabei ist gerade $\Vol(I_k) = \lambda_n(I_k)$ für alle $k$.
+
+Da jedes der $I_k$ offen ist, gibt es, wie aus der Vorlesung bekannt, für alle $k \in \N$ eine disjunkte Familie halboffener Würfel $(C^k_l)_{l \in \N}$ mit $I_k = \bigcup_{l \in \N} C^k_l$ für alle $k$. (Im Skript ist dies \textbf{Lemma 1.32}; auch wenn dort im Satz nur von halboffenen Quadern gesprochen wird, handelt es sich bei den genutzten Quadern offenbar um Würfel.)
+
+Es ist also $(C^k_l)_{k,l \in \N}$ eine abzählbare Überdeckung von $N$ mit paarweise disjunkten, halboffenen Würfeln, wobei aufgrund der $\sigma$-Additivität von $\lambda_n$
+\[
+ \sum_{k,l \in \N} \Vol(C^k_l)
+ = \sum_{k \in \N} \sum_{l \in \N} \lambda_n(C^k_l)
+ = \sum_{k \in \N} \lambda_n \left(\bigcup_{l \in \N} C^k_l\right)
+ = \sum_{k \in \N} \lambda_n(I_n)
+ < \varepsilon.
+\]
+Das Umsortieren der Summanden ist deshalb möglich, da diese alle nicht-negativ sind.
+
+
+\subsection{}
+Ist $\alpha_i \geq 0$ für alle $i$, so ist offenbar
+\begin{equation}\label{eq: skalierter würfel}
+ T(Q) = T\left( [0,l)^n \right) = \prod_{i=1}^n [0,\alpha_i l),
+\end{equation}
+ein mehrdimensionales Intervall, also 
+\begin{equation}\label{eq: volumenänderung würfel}
+ \lambda_n(T(Q))
+ = \prod_{i=1}^n |\alpha_i| l
+ = \left(\prod_{i=1}^n |\alpha_i| \right) l^n
+ = \left(\prod_{i=1}^n |\alpha_i| \right) \lambda_n(Q).
+\end{equation}
+Ist $\alpha_i < 0$ für ein $i$, so muss man in \eqref{eq: skalierter würfel} das Intervall $[0,\alpha_i l)$ durch $(\alpha_i l, 0]$ ersetzen. Die Aussage \eqref{eq: volumenänderung würfel} bleibt jedoch unverändert, da das Volumen eines Quaders, da es sich um ein mehrdimensionales Intervall handelt, nur von dessen Seitenlängen abhängt.
+
+Es zu bemerken, dass aufgrund der Translationsinvarianz des Lebesgue-Maßes diese Gleichung \eqref{eq: volumenänderung würfel} für alle halboffenen Würfel, unabhängig von ihrer konkreten Position im $\R^n$ gilt.
+
+Sei nun $N \subseteq \R^n$ eine Lebesgue-Nullmenge und $\varepsilon > 0$ beliebig aber fest. Wie im vorherigen Aufgabenteil gezeigt, gibt es eine Familie $(Q_k)_{k \in \N}$ von halboffenen Würfeln mit $N \subseteq \bigcup_{k \in \N} Q_k$ und $\sum_{k \in \N} \lambda_n(Q_k) < \varepsilon$. Es ist also
+\begin{align*}
+ \lambda_n( T(N) )
+ &= \lambda_n\left( T\left( \bigcup_{k \in \N} Q_k \right) \right)
+ = \sum_{k \in \N} \lambda_n(T(Q_k)) \\
+ &= \sum_{k \in \N} \left(\prod_{i=1}^n |\alpha_i| \right) \lambda_n(Q_k)
+ = \left(\prod_{i=1}^n |\alpha_i| \right) \sum_{k \in \N} \lambda_n(Q_k) \\
+ &< \left(\prod_{i=1}^n |\alpha_i| \right) \varepsilon.
+\end{align*}
+Aus der Endlichkeit des Produkts $\prod_{i=1}^n |\alpha_i|$ und der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass $\lambda_n(T(N)) = 0$.
+
+
+
+
+
 
 
 
