@@ -15,9 +15,10 @@
 \g@addto@macro\th@definition{\thm@headpunct{:}}
 \makeatother
 \theoremstyle{definition}
-\newtheorem{lem}{Lemma}
-\newtheorem{beh}{Behauptung}
-\newtheorem{bem}{Bemerkung}
+\newcounter{saetze}
+\newtheorem{lem}[saetze]{Lemma}
+\newtheorem{beh}[saetze]{Behauptung}
+\newtheorem{bem}[saetze]{Bemerkung}
 \newtheorem*{ia}{Induktionsanfang}
 \newtheorem*{is}{Induktionsschritt}
 
@@ -83,6 +84,150 @@
 
 \begin{document}
 \maketitle
+
+
+
+
+
+\section{Lipschitz-Stetigkeit und ein Lemma von Sard}
+
+
+\addtocounter{subsection}{2}
+\subsection*{a) und b)}
+Für alle $a = \ltrans{(a_1, \ldots, a_n)} \in \R^n$ und $l \geq 0$ bezeichne
+\[
+ W_l(a) = \prod_{i=1}^n \left[a_i-\frac{l}{2}, a_i+\frac{l}{2}\right)
+\]
+den halboffenen Würfel mit Seitenlänge $l$ und Mittelpunkt $a$. Dieser ist bekanntermaßen Borell-, und damit auch Lebesgue-meßbar mit
+\[
+ \lambda_n( W_l(a) ) = l^n.
+\]
+Da jeder halboffene Würfel von dieser Form ist, gelten alle Aussagen, die im Folgenden für Würfel der form $W_l(a)$ gezeigt werden, für beliebige halboffene Würfel.
+
+Zunächst zeigen wir, dass für alle $l \geq 0$ und $a \in \R$
+\begin{equation}\label{eq: abschätzung würfel äußerem maß}
+ \lambda^*_n( f(W_l(a)) ) \leq n^{n/2} L^n l^n = n^{n/2} L^n \lambda_n( W_l(a) ).
+\end{equation}
+Hierfür bemerken wir zunächst, dass die Hauptdiagonale von $W_l(a)$ genau $\sqrt{n l^2} = \sqrt{n}\, l$ lang ist, und daher
+\[
+ W_l(a) \subseteq B_{\sqrt{n}l/2}(a).
+\]
+Wegen der Libschitz-Stetigkeit von $f$ ist damit
+\[
+ f( W_l(a) )
+ \subseteq f( B_{\sqrt{n}l/2}(a) )
+ \subseteq B_{\sqrt{n}Ll/2}(f(a))
+ \subseteq W_{\sqrt{n}Ll}(f(a)).
+\]
+Aus der Monotonie von $\lambda^*_n$ folgt damit
+\[
+ \lambda^*_n( f(W_l(a)) )
+ \leq \lambda^*_n\left(W_{\sqrt{n}Ll}(f(a))\right)
+ = n^{n/2} L^n l^n,
+\]
+was \eqref{eq: abschätzung würfel äußerem maß} zeigt.
+
+Wir zeigen nun, dass das Bild von Lebesgue-messbaren Mengen unter $f$ Lebesgue-messbar ist. Sei hierfür $A \subseteq \R^n$ eine Lebesgue-messbare Menge. Wie aus einem früheren Übungszettel bekannt, ist die Lebesgue-Messbarkeit von $A$ äuqivalent dazu, dass es Mengen $F \in F_\sigma$ und $N \subseteq \R^n$ mit $A = F \cup N$ gibt, so dass $\lambda_n(N) = 0$, also $N$ eine Lebesgue-Nullmenge ist (diese ist mit Sicherheit Lebesgue-messbar, da $\lambda_n$ vollständig ist). Inbesondere ist
+\[
+ f(A) = f(F \cup N) = f(F) \cup f(N).
+\]
+
+\begin{beh}
+ Es ist $f(F) \in F_\sigma$ sowie $\lambda^*_n(f(N)) = 0$. Insbesondere ist $f(N)$ wegen der Vollständigkeit des Lebesgue-Maßes $\lambda_n$ also Lebesgue-Nullmenge messbar.
+\end{beh}
+\begin{proof}
+ Zunächst zeigen wir, dass $f(F) \in F_\sigma$. Da $F \in F_\sigma$ gibt es eine Folge $(C_k)_{k \in \N}$ abgeschlossener Mengen, so dass $F = \bigcup_{k \in \N} C_k$. Für alle $k \in \N$ definieren wir eine Folge $(K^k_l)_{l \in \N}$ kompakter Mengen durch
+ \[
+  K^k_l := C_k \cap \overline{B_l(0)}.
+ \]
+ Es ist $C_k = \bigcup_{l \in \N} K^k_l$ und damit $F = \bigcup_{k,l \in \N} K^k_l$. Da $f$ stetig ist, ist das Bild kompakter Mengen unter $f$ wieder kompakt, und damit auch abgeschlossen. Insbesondere ist $f\left(K^k_l\right)$ für alle $k,l \in \N$ abgeschlossen. Es ist daher
+ \[
+  f(F)
+  = f\left( \bigcup_{k,l \in \N} K^k_l \right)
+  = \bigcup_{k,l \in \N} f\left(K^k_l\right) \in F_\sigma.
+ \]
+ Nun zeigen wir, dass $\lambda^*_n( f(N) )$. Sei hierfür $\varepsilon > 0$ beliebig aber fest. Da $N$ eine Lebesgue-Nullmenge ist, gibt es, wie aus einem dem früheren Übungsblätter bekannt, eine Folge $(Q_k)_{k \in \N}$ von halboffenen Würfeln in $\R^n$ so dass $N \subseteq \bigcup_{k \in \N} Q_k$ und $\sum_{k \in \N} \Vol(Q_k) \leq \varepsilon$. Es ist also auch
+ \[
+  f(N)
+  \subseteq f\left( \bigcup_{k \in \N} Q_k \right)
+  = \bigcup_{k \in \N} f(Q_k).
+ \]
+ Aus der Monotonie und Subadditivität von $\lambda^*_n$, sowie \eqref{eq: abschätzung würfel äußerem maß} folgt damit, dass
+ \begin{align*}
+  \lambda^*_n( f(N) )
+  &\leq \lambda^*_n\left( \bigcup_{k \in \N} f(Q_k) \right)
+  \leq \sum_{k \in \N} \mu(f(Q_k)) \\
+  &\leq \sum_{k \in \N} n^{n/2} L^n \mu(Q_k)
+  = n^{n/2} L^n \sum_{k \in \N} \mu(Q_k)
+  \leq n^{n/2} L^n \varepsilon.
+ \end{align*}
+ Mit der Beliebigkeit von $\varepsilon > 0$ ergibt dies, dass $\lambda^*_n(f(N)) = 0$.
+\end{proof}
+
+Aus dieser Behauptung folgt aufgrund der bereits oben genannten, zur Lebesgue-Messbarkeit äquivalenten, Bedingung nun direkt, dass $f(A) = f(F) \cup f(N)$ wieder Lebesgue-messbar ist.
+
+Insbesondere ergibt sich damit, dass die in \eqref{eq: abschätzung würfel äußerem maß} für das äußere Maß aufgestellte Ungleichung bereits für das Lebesgue-Maß selbst gilt, dass also
+\begin{equation}\label{eq: abschätzung würfel maß}
+ \lambda_n( f(W_l(a)) ) \leq n^{n/2} L^n l^n = n^{n/2} L^n \lambda_n( W_l(a) ).
+\end{equation}
+
+Die Abschätzung \eqref{eq: abschätzung würfel maß} lässt sich nun direkt auf beliebige offene Mengen übertragen: Sei $U \subseteq \R^n$ eine offene Menge. Wie aus der Vorlesung bekannt, gibt es eine Folge $(Q_k)_{k \in \N}$ paarweise disjunkter, halboffener Würfel mit
+\[
+ U = \bigdotcup_{k \in \N} Q_k.
+\]
+Insbesondere sind $U$, sowie alle $Q_k$ Lebesgue-messbar. Aufgrund der $\sigma$-Additivität von $\lambda_n$ ergibt nun aus \eqref{eq: abschätzung würfel maß}, dass
+\begin{align*}
+ \lambda_n( f(U) )
+ &= \lambda_n\left( f\left( \bigdotcup_{k \in \N} Q_k \right) \right)
+ = \lambda_n\left( \bigcup_{k \in \N} f(Q_k) \right) \\
+ &\leq \sum_{k \in \N} \lambda_n(f(Q_k))
+ \leq n^{n/2} L^n \sum_{k \in \N} \lambda_n(Q_k) \\
+ &= n^{n/2} L^n \lambda_n \left( \bigdotcup_{k \in \N} Q_k \right)
+ = n^{n/2} L^n \lambda_n(U).
+\end{align*}
+Es ist also auch für alle offenen Mengen $U \subseteq \R^n$
+\begin{equation}\label{eq: abschätzung offene menge}
+ \lambda_n(f(U)) \leq n^{n/2} L^n \lambda_n(U).
+\end{equation}
+
+Nun werden wir die Regularität des Lebesgue-Maßes nutzen, um diese Abschätzung für alle Lebesgue-messbaren Mengen zu zeigen. Sei hierfür $A \subseteq \R^n$ eine Lebesgue-messbare Menge und $\varepsilon > 0$ beliebig aber fest. Aus der Regularität des Lebesgue-Maßes folgt, dass es eine offene Menge $U \subseteq \R^n$ mit $A \subseteq U$ und $\lambda_n(U) \leq \lambda_n(A) + \varepsilon$ gibt. Es ist also wegen der Monotonie des Lebesgue-Maßes und \eqref{eq: abschätzung offene menge}
+\begin{align*}
+ \lambda_n(f(A))
+ &\leq \lambda_n(f(U))
+ \leq n^{n/2} L^n \lambda_n(U) \\
+ &\leq n^{n/2} L^n (\lambda_n(A) + \varepsilon)
+ = n^{n/2} L^n \lambda_n(A) + n^{n/2} L^n \varepsilon.
+\end{align*}
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit die Ungleichung
+\[
+ \lambda_n(f(A)) \leq n^{n/2} L^n \lambda_n(A).
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
