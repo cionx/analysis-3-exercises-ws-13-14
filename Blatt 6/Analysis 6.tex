@@ -206,10 +206,10 @@ Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit die Ungleichung
 \subsection{}
 
 \begin{lem}\label{lem: Lipschitz Ableitung}
- Seien $a,b \in \R$ mit $a < b$ und $f \in C^1((a,b),\R)$. Dann ist $f$ genau dann Lipschitz-stetig mit Konstante $L$, wenn $|f'(x)| \leq L$ für alle $x \in (a,b)$.
+ Seien $a,b \in \R$ mit $a < b$ und sei $f$ stetig auf $[a,b]$ und differenzierbar auf $(a,b)$. Dann ist $f$ auf $[a,b]$ genau dann Lipschitz-stetig mit Konstante $L$, wenn $|f'(x)| \leq L$ für alle $x \in (a,b)$.
 \end{lem}
 \begin{proof}
- Ist $f$ Lipschitz-stetig mit konstante $L$, so folgt wegen der Stetigkeits des Betrags für alle $x \in (a,b)$, dass
+ Ist $f$ Lipschitz-stetig mit Konstante $L$, so folgt wegen der Stetigkeits des Betrags, dass für alle $x \in (a,b)$
  \[
   |f'(x)|
   = \left|\limes{h}{0} \frac{f(x+h)-f(x)}{h}\right|
@@ -217,7 +217,7 @@ Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit die Ungleichung
   \leq \limes{h}{0} \frac{L |h|}{|h|}
   = L.
  \]
- Ist andererseits $f'(x) \leq L$ für alle $x \in (a,b)$, so folgt mit der Mittelwertabschätzung direkt dass für alle $x,y \in (a,b)$
+ Ist andererseits $f'(x) \leq L$ für alle $x \in (a,b)$, so folgt aus der Mittelwertabschätzung direkt, dass für alle $x,y \in (a,b)$
  \[
   |f(x)-f(y)| \leq L |x-y|.
  \]
@@ -231,6 +231,67 @@ Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit die Ungleichung
  
  Wir bemerken, dass es für jedes $I_k$ eine rationale Zahl $r_k \in I_k$ gibt. Aus der Disjunktheit der $I_k$ folgt direkt, dass die Zuordnung $I_k \mapsto r_k$ injektiv ist. Da es nur abzählbar viele $r_k$ gibt, gibt es damit auch nur abzählbar viele $I_k$.
 \end{proof}
+
+Es sei
+\[
+ N := \{x \in \R : f'(x) = 0\}
+\]
+und für $a,b \in \R$
+\[
+ N_{a,b} := \{x \in (a,b) : f'(x) = 0\}.
+\]
+Um zu zeigen, dass $f(N)$ Lebesgue-messbar mit $\lambda_n( f(N) ) = 0$ ist, genügt es zu zeigen, dass $f(N_{a,b})$ für alle $a,b \in \R$ Lebesgue-messbar mit Maß $\lambda_n( f(N_{a,b}) ) = 0$ ist. Dann ergibt sich, dass
+\[
+  f(N)
+  = f\left(\bigcup_{k \in \Z} N_{k/2, k/2 + 1} \right)
+   = \bigcup_{k \in \Z} f\left(N_{k/2, k/2 + 1}\right)
+\]
+als abzählbare Vereinigung von Lebesgue-messbaren Mengen Lebesgue-messbar ist, und
+\[
+ \lambda_n( f(N) )
+ = \lambda_n\left( \bigcup_{k \in \Z} f\left(N_{k/2, k/2 + 1}\right) \right)
+ \leq \sum_{k \in \Z} \lambda_n \left( f\left(N_{k/2, k/2 + 1}\right) \right)
+ = 0.
+\]
+
+Wir zeigen nun die entsprechende Aussage für die $N_{a,b}$. Seien hierfür $a,b \in \R$ beliebig aber fest. Wir betrachten nur den Fall $a < b$, da sonst $N_{a,b} = \emptyset$ und die Aussage trivialerweise stimmt.
+
+Zunächst zeigen wir, dass $f(N_{a,b})$ Lebesgue-messbar ist. Hierfür bemerken wir zum einen, dass $\tilde{f} := f_{|(a,b)}$ stetig differenzierbar ist, also $\tilde{f}' = f'_{|(a,b)}$ als stetige Funktion Borell-messbar. Daher ist
+\[
+ N_{a,b} = \{x \in (a,b) : \tilde{f}'(x) = 0\}
+\]
+Borell-, und damit auch Lebesgue-messbar. Zum anderen bemerken wir, dass die Einschränkung $\tilde{f}$ Lipschitz-stetig ist: Da $f'$ auf $[a,b]$ stetig ist, ist $f'$ auf $[a,b]$, und somit auch auf $(a,b)$, beschränkt. Aus Lemma \ref{lem: Lipschitz Ableitung} folgt damit, $f$ auf $[a,b]$ Lipschitz-stetig ist. Damit ist auch $\tilde{f}$ auf $(a,b)$ Lipschitz-stetig. Aus den vorherigen Aufgabenteilen folgt damit, dass $f(N_{a,b})$ als Bild einer Lebesgue-messbaren Menge unter einer Lipschitz-stetigen Funktion ebenfalls Lebesgue-messbar ist.
+
+Nun zeigen wir, dass $\lambda_n(f(N_{a,b})) = 0$. Sei hierfür $\varepsilon > 0$ beliebig aber fest. Wegen der Stetigkeit von $\tilde{f}'$ gibt es für alle $x \in N_{a,b}$ ein $\delta_x > 0$, so dass $|\tilde{f}'(y)| < \varepsilon$ für alle $y \in B_{\delta_x}(x)$. Da $(a,b)$ offen ist, kann dabei $\delta_x > 0$ so klein gewählt werden, dass $B_{\delta_x}(x) \subseteq (a,b)$. Es sei 
+\[
+ U := \bigcup_{x \in N_{a,b}} B_{\delta_x}(x).
+\]
+$U$ ist als Vereinigung offener Mengen offen, und es ist
+\[
+ N_{a,b} \subseteq U \subseteq (a,b).
+\]
+Es seien $U_k = (a_k, b_k)$ die Zusammenhangskomponenten von $U$. Nach Lemma \ref{lem: abzählbare Zusammenhangskomponenten} sind diese höchstens abzählbar viele. Für alle $k$ ist $U_k$ als offenes Intervall Borell- und damit auch Lebesgue-messbar, wegen der Lipschitz-Stetigkeit von $\tilde{f}$ ist also auch $\tilde{f}(U_k)$ für alle $k$ Lebesgue-messbar. Dabei folgt aus der Konstruktion von $U$, dass $\tilde{f}'(x) < \varepsilon$ für alle $x \in U \supseteq U_k$, aus Lemma \ref{lem: Lipschitz Ableitung} also, dass $\tilde{f}_{|U_k}$ für alle $k$ Lipschitz-stetig mit Konstante $\varepsilon$ ist. Aus den vorherigen Aufgabenteilen folgt damit, dass für alle $k$
+\[
+ \lambda_n(f(U_k)) \leq n^{n/2} \varepsilon^n \lambda_n(U_k).
+\]
+Wegen der Monotonie und $\sigma$-Additivität von $\lambda_n$ ergibt sich nun, dass
+\begin{align*}
+ \lambda_n( f(N_{a,b}) )
+ &\leq \lambda_n( f(U) )
+ = \lambda_n\left( f\left(\bigdotcup_k U_k\right) \right) 
+ = \sum_k \lambda_n( f(U_k) ) \\
+ &\leq n^{n/2} L^n \sum_k \lambda_n(U_k)
+ = n^{n/2} \varepsilon^n \lambda_n \left( \bigdotcup_k U_k \right) \\
+ &= n^{n/2} \varepsilon^n \lambda_n(U)
+ \leq n^{n/2} \varepsilon^n \lambda_n((a,b))
+ = n^{n/2} \varepsilon^n (b-a).
+\end{align*}
+Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass
+\[
+ \lambda_n( f(N_{a,b} ) = 0.
+\]
+
+
 
 
 
