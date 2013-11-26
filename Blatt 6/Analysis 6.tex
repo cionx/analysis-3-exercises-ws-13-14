@@ -295,6 +295,140 @@ Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass
 
 
 
+\section{Funktionen als Maße}
+
+
+
+
+
+\section{Positive Funktionen}
+
+
+
+
+
+\section{Konvergenz von Funktionen}
+
+
+\subsection{}
+Nach Definition ist $f_n \rightarrow f$ fast überall genau dann, wenn die Menge $N$ der Stellen, an denen $f_n$ nicht punktweise gegen $f$ konvergiert, eine $\mu$-Nullmenge ist. Für alle $\varepsilon > 0$ sei
+\begin{align*}
+ N_\varepsilon
+ &:= \{x \in X : \text{ für alle } n \geq \N \text{ gibt es } m \geq n : |f_m(x)-f(x)| \geq \varepsilon \} \\
+ &= \bigcap_{n \in \N} \bigcup_{m \geq n} \{x: |f_m(x) - f(x)| \geq \varepsilon \}.
+\end{align*}
+Wir bemerken, dass $N_\varepsilon \in \A$ für alle $\varepsilon > 0$: Aus der Messbarkeit von $f$ und der $f_m$ für alle $m \in \N$ folgt, dass auch $|f_m-f|$ für alle $m \in \N$ messbar ist. Daher ist
+\[
+ \{x : |f_m(x) - f(x)| \geq \varepsilon \} \in \A
+\]
+für alle $m \in \N$ und $\varepsilon > 0$. Die Messbarkeit von $N_\varepsilon$ ergibt sich daher aus der Abgeschlossenheit von $\A$ bezüglich abzählbarer Schnitte und Vereinigungen.
+
+$N$ lässt sich nun schreiben als
+\[
+ N = \bigcup_{\varepsilon > 0} N_\varepsilon = \bigcup_{\substack{q \in \Q \\ q > 0}} N_q.
+\]
+Da $N_\varepsilon \in \A$ für alle $\varepsilon > 0$ ist auch $N$ als abzählbare Vereinigung der $N_q$ in $\A$ enthalten.
+
+Es ist nun einfach zu sehen, dass $N$ genau dann eine $\mu$-Nullmenge ist, wenn jedes der $N_\varepsilon$ eine $\mu$-Nullmenge ist: Dies ergibt sich direkt aus der Monotonie von $\mu$ und daraus, dass für alle $\varepsilon > 0$
+\[
+ N_\varepsilon \subseteq N = \bigcup_{\substack{q \in \Q \\ q > 0}} N_q.
+\]
+
+
+\subsection{}
+Wie bereits im vorherigen Aufgabenteil erläutert ist für alle $m \in \N$ und $\varepsilon > 0$
+\[
+ \{x : |f_m(x) - f(x)| \geq \varepsilon \} \in \A.
+\]
+Wegen der Abgeschlossenheit von $\A$ bezüglich abzählbarer Vereinigungen ist daher für alle $\varepsilon > 0$
+\[
+ \left( \bigcup_{m \geq n} \{x : |f_m(x) - f(x)| \geq \varepsilon \}\right)_{n \in \N}
+\]
+eine monoton fallende Folge auf $\A$. Ist $\mu$ ein endlich Maß, so ergibt sich damit, dass
+\begin{align*}
+ &\mu\left( \bigcap_{n \in \N} \bigcup_{m \geq n} \{x: |f_m(x) - f(x)| \geq \varepsilon \} \right) \\
+ = \limes{n}{\infty} &\mu\left( \bigcup_{m \geq n} \{x: |f_m(x) - f(x)| \geq \varepsilon \} \right).
+\end{align*}
+Die zu zeigend Aussage ergibt sich daher direkt aus dem vorherigen Aufgabenteil.
+
+
+\subsection{}
+Es sei $f := 0$, und für alle $n \in \N$ sei $f_n := \chi_{[n,n+1]}$. Dann ist $\limes{n}{\infty} f_n(x) = f(x)$ für alle $x \in \R$, d.h. es ist $f_n \rightarrow f$ punktweise auf ganz $\R$. Für beliebiges $0 < \varepsilon \leq 1$ ist dann für alle $n \in \N$
+\[
+  \bigcup_{m \geq n} \{x : |f_m(x) - f(x)| \geq \varepsilon \} = [n,\infty),
+\]
+und damit insbesondere
+\[
+ \limes{n}{\infty} \lambda_1\left( \bigcup_{m \geq n} \{x : |f_m(x) - f(x)| \geq \varepsilon \} \right)
+ = \limes{n}{\infty} \lambda_1([n,\infty))
+ = \infty.
+\]
+
+
+\subsection{}
+Zunächst nehmen wir an, dass $f_n \rightarrow f$ fast überall. Für alle $n \in \N$ und $\delta > 0$ sei
+\[
+ A_{n,\delta} := \bigcup_{m \geq n} \{x : |f_m(x) - f(x)| \geq \delta \}.
+\]
+Man bemerke, dass $A_{n,\delta} \in \A$ für alle $n \in \N$ und $\delta > 0$, und dass
+\begin{equation}\label{eq: A^c gleichmäßig}
+ A^c_{n,\delta} = \{x : |f_m(x) - f(x)| < \delta \text{ für alle } m \geq n\}.
+\end{equation}
+
+Sei nun $\varepsilon > 0$ beliebig aber fest. Aus Aufgabenteil \textbf{b)} folgt, dass für alle $\delta > 0$
+\[
+ \limes{n}{\infty} \mu(A_{n,\delta}) = 0.
+\]
+Inbesondere gibt es für alle $k \in \N$ ein $N_k \in \N$ so dass
+\[
+ \mu(A_{N_k, \varepsilon/2^{k+1}}) < \frac{\varepsilon}{2^{k+1}}.
+\]
+Es sei
+\[
+ A := \bigcup_{k \in \N} A_{N_k, \varepsilon/2^{k+1}}.
+\]
+
+Wir bemerken nun, dass $A \in \A$, da $\A$ unter abzählbaren Vereinigungen abgeschlossen ist, und das wegen der Monotonie von $\mu$
+\[
+ \mu(A)
+ = \left( \bigcup_{k \in \N} A_{N_k, \varepsilon/2^{k+1}} \right)
+ \leq \sum_{k \in \N} \mu(A_{N_k, \varepsilon/2^{k+1}})
+ < \sum_{k \in \N} \frac{\varepsilon}{2^{k+1}}
+ = \varepsilon.
+\]
+Andererseits ist
+\[
+ X \setminus A
+ = A^c
+ = \left( \bigcup_{k \in \N} A_{N_k, \varepsilon/2^{k+1}} \right)^c
+ = \bigcap_{k \in \N} A^c_{N_k, \varepsilon/2^{k+1}}.
+\]
+Es folgt daher aus \eqref{eq: A^c gleichmäßig}, dass für alle $k \in \N$ und $m \geq N_k$
+\[
+ |f_m(x) - f(x)| < \frac{\varepsilon}{2^{k+1}} \text{ für alle } x \in X \setminus A.
+\]
+Dies zeigt, dass $f_n \rightarrow f$ gleichmäßig auf $X \setminus A$.
+
+Nun nehmen wir an, dass es für alle $\varepsilon > 0$ eine Menge $A_\varepsilon \in \A$ gibt, so dass $\mu(A_\varepsilon) < \varepsilon$ und $f_n \rightarrow f$ gleichmäßig auf $A^c_\varepsilon$. Wie zuvor bezeichne $N$ die Menge aller Stellen, an denen nicht $f_n \rightarrow f$ punktweise.
+Da $(f_n)_{n \in \N}$ für alle $\varepsilon > 0$ auf $A^c_\varepsilon$ gleichmäßig, und damit insbesondere punktweise gegen $f$ konvergiert, muss $N \subseteq A_\varepsilon$ für alle $\varepsilon > 0$. Also ist
+\[
+ N \subseteq \bigcap_{\substack{q \in \Q \\ q > 0}} A_q =: B.
+\]
+Dabei ist $B \in \A$, da $\A$ unter abzählbaren Schnitten abgeschlossen ist. Aus der Monotonie von $\mu$ ergibt sich auch, dass
+\[
+ \mu(B)
+ = \mu\left( \bigcap_{\substack{q \in \Q \\ q > 0}} A_q \right)
+ \leq \mu(A_q) = q
+\]
+für alle $q \in \Q$ mit $q > 0$. Also ist $\mu(B) = 0$. Dies zeigt, dass $N$ vernachlässigbar ist, also $f_n \rightarrow f$ punktweise fast überall.
+
+
+
+
+
+
+
+
 
 
 
