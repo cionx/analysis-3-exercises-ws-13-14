@@ -48,6 +48,8 @@
 \newcommand{\dy}{\,\text{d}y}
 \newcommand{\dt}{\,\text{d}t}
 \newcommand{\du}{\,\text{d}u}
+\newcommand{\dmu}{\,\text{d}\mu}
+\newcommand{\dlambda}{\,\text{d}\lambda}
 \newcommand{\Img}{\operatorname{Im}}
 \newcommand{\Real}{\operatorname{Re}}
 \newcommand{\Imag}{\operatorname{Im}}
@@ -296,12 +298,81 @@ Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass
 
 
 \section{Funktionen als Maße}
+Da $f$ nur nicht-negative Werte annimmt, ist $\nu(A)$ für alle $A \in \A$ wohldefiniert. Es ist
+\[
+ \nu(\emptyset)
+ = \int_\emptyset f \dmu
+ = \int f \chi_\emptyset \dmu
+ = \int 0 \dmu
+ = 0.
+\]
+Dies zeigt die Normiertheit von $\mu$. Für $A, B \in \A$ mit $A \subseteq B$ folgt aus $\chi_A \leq \chi_B$ und $f \geq 0$, dass $f \chi_A \leq f \chi_B$ und damit
+\[
+ \nu(A)
+ = \int_A f \dmu
+ = \int f \chi_A \dmu
+ \leq \int f \chi_B \dmu
+ = \int_B f \dmu
+ = \nu(B).
+\]
+Dies zeigt die Monotonie von $\nu$. Ist $(A_n)_{n \in \N}$ eine Folge disjunkter Mengen auf $\A$, so ist
+\[
+ f \chi_{\bigdotcup_{n \in \N} A_n} = \sum_{n=0}^\infty f\chi_{A_n},
+\]
+nach dem Satz von Beppo Levi also
+\begin{align*}
+ \nu\left( \bigdotcup_{n \in \N} A_n \right)
+ &= \int_{\bigdotcup_{n \in \N} A_n} f \dmu
+ = \int f \chi_{\bigdotcup_{n \in \N} A_n} \dmu
+ = \int \sum_{n=0}^\infty f \chi_{A_n} \dmu \\
+ &= \sum_{n=0}^\infty \int f \chi_{A_n} \dmu
+ = \sum_{n=0}^\infty \int_{A_n} f \dmu
+ = \sum_{n=0}^\infty \nu(A_n).
+\end{align*}
+Dies zeigt die $\sigma$-Additivität von $\nu$.
 
 
 
 
 
 \section{Positive Funktionen}
+Sei $0 < \beta < \alpha$ beliebig aber fest. Da $f$ messbar ist, ist die Menge
+\[
+ A_\varepsilon := \left\{ x \in [0,1] : f(x) < \varepsilon \right\}
+\]
+für alle $\varepsilon > 0$ Lebesgue-messbar. Da es sich bei $(A_{1/n})_{n \in \N}$ um eine fallende Folge mit
+\[
+ \lambda(A_1) \leq \lambda([0,1]) = 1 < \infty
+\]
+handelt, ist
+\begin{align*}
+ \limes{n}{\infty} \lambda(A_{1/n})
+ &= \lambda\left( \bigcap_{n \in \N} A_{1/n} \right)
+ = \lambda\left( \bigcap_{n \in \N} \left\{ x \in [0,1] : f(x) < \frac{1}{n} \right\} \right) \\
+ &= \lambda(\{x \in [0,1] : f(x) = 0\})
+ = \lambda(\emptyset)
+ = 0.
+\end{align*}
+Insbesondere gibt es wegen der Monotonie der $A_\varepsilon$ (es ist $A_\varepsilon \subseteq A_{\varepsilon'}$ für $0 < \varepsilon < \varepsilon'$) daher ein $\delta > 0$ mit
+\[
+ \lambda(A_\delta) < \beta.
+\]
+
+Sei nun $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$. Es ist $\mu(A_\delta \cap E) \leq \mu(A_\delta) < \beta$, also $\mu(E \setminus A_\delta) > \alpha - \beta$. Da $f(x) \geq \delta$ für alle $x \in E \setminus A_\delta$ ist daher
+\[
+ \int_E f \dlambda
+ \geq \int_{E \setminus A_\delta} f \dlambda
+ \geq \mu(E \setminus A) \inf_{x \in E \setminus A_\delta} f(x)
+ > (\alpha - \beta) \delta > 0.
+\]
+Aus der Beliebigkeit von $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$ folgt daher, dass auch
+\[
+ \inf\left\{ \int_E f \dlambda : E \subseteq [0,1] \text{ messbar mit } \lambda(E) > \alpha \right\} \geq (\alpha - \beta) \delta > 0.
+\]
+
+
+
+
 
 
 
