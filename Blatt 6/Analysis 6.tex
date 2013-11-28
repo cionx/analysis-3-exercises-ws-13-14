@@ -103,24 +103,24 @@ den halboffenen Würfel mit Seitenlänge $l$ und Mittelpunkt $a$. Dieser ist bek
 \[
  \lambda_n( W_l(a) ) = l^n.
 \]
-Da jeder halboffene Würfel von dieser Form ist, gelten alle Aussagen, die im Folgenden für Würfel der form $W_l(a)$ gezeigt werden, für beliebige halboffene Würfel.
+Da jeder halboffene Würfel von dieser Form ist, gelten alle Aussagen, die im Folgenden für Würfel der Form $W_l(a)$ gezeigt werden, für beliebige halboffene Würfel.
 
 Zunächst zeigen wir, dass für alle $l \geq 0$ und $a \in \R$
 \begin{equation}\label{eq: abschätzung würfel äußerem maß}
  \lambda^*_n( f(W_l(a)) ) \leq n^{n/2} L^n l^n = n^{n/2} L^n \lambda_n( W_l(a) ).
 \end{equation}
-Hierfür bemerken wir zunächst, dass die Hauptdiagonale von $W_l(a)$ genau $\sqrt{n l^2} = \sqrt{n}\, l$ lang ist, und daher
+Hierfür bemerken wir zunächst, dass die Diagonale von $W_l(a)$ genau $\sqrt{n l^2} = \sqrt{n}\, l$ lang ist, und deshalb
 \[
  W_l(a) \subseteq B_{\sqrt{n}l/2}(a).
 \]
-Wegen der Libschitz-Stetigkeit von $f$ ist damit
+Wegen der Libschitz-Stetigkeit von $f$ ist daher
 \[
  f( W_l(a) )
  \subseteq f( B_{\sqrt{n}l/2}(a) )
  \subseteq B_{\sqrt{n}Ll/2}(f(a))
  \subseteq W_{\sqrt{n}Ll}(f(a)).
 \]
-Aus der Monotonie von $\lambda^*_n$ folgt damit
+Aus der Monotonie von $\lambda^*_n$ folgt damit, dass
 \[
  \lambda^*_n( f(W_l(a)) )
  \leq \lambda^*_n\left(W_{\sqrt{n}Ll}(f(a))\right)
@@ -134,7 +134,7 @@ Wir zeigen nun, dass das Bild von Lebesgue-messbaren Mengen unter $f$ Lebesgue-m
 \]
 
 \begin{beh}
- Es ist $f(F) \in F_\sigma$ sowie $\lambda^*_n(f(N)) = 0$. Insbesondere ist $f(N)$ wegen der Vollständigkeit des Lebesgue-Maßes $\lambda_n$ also Lebesgue-Nullmenge messbar.
+ Es ist $f(F) \in F_\sigma$ sowie $\lambda^*_n(f(N)) = 0$. Insbesondere ist $f(N)$ wegen der Vollständigkeit des Lebesgue-Maßes $\lambda_n$ als Lebesgue-Nullmenge messbar.
 \end{beh}
 \begin{proof}
  Zunächst zeigen wir, dass $f(F) \in F_\sigma$. Da $F \in F_\sigma$ gibt es eine Folge $(C_k)_{k \in \N}$ abgeschlossener Mengen, so dass $F = \bigcup_{k \in \N} C_k$. Für alle $k \in \N$ definieren wir eine Folge $(K^k_l)_{l \in \N}$ kompakter Mengen durch
@@ -147,7 +147,7 @@ Wir zeigen nun, dass das Bild von Lebesgue-messbaren Mengen unter $f$ Lebesgue-m
   = f\left( \bigcup_{k,l \in \N} K^k_l \right)
   = \bigcup_{k,l \in \N} f\left(K^k_l\right) \in F_\sigma.
  \]
- Nun zeigen wir, dass $\lambda^*_n( f(N) )$. Sei hierfür $\varepsilon > 0$ beliebig aber fest. Da $N$ eine Lebesgue-Nullmenge ist, gibt es, wie aus einem dem früheren Übungsblätter bekannt, eine Folge $(Q_k)_{k \in \N}$ von halboffenen Würfeln in $\R^n$ so dass $N \subseteq \bigcup_{k \in \N} Q_k$ und $\sum_{k \in \N} \Vol(Q_k) \leq \varepsilon$. Es ist also auch
+ Nun zeigen wir, dass $\lambda^*_n( f(N) )$. Sei hierfür $\varepsilon > 0$ beliebig aber fest. Da $N$ eine Lebesgue-Nullmenge ist, gibt es, wie aus einem dem früheren Übungsblätter bekannt, eine Folge $(Q_k)_{k \in \N}$ von halboffenen Würfeln in $\R^n$ so dass $N \subseteq \bigcup_{k \in \N} Q_k$ und $\sum_{k \in \N} \Vol(Q_k) \leq \varepsilon$. Es ist
  \[
   f(N)
   \subseteq f\left( \bigcup_{k \in \N} Q_k \right)
@@ -176,7 +176,7 @@ Die Abschätzung \eqref{eq: abschätzung würfel maß} lässt sich nun direkt au
 \[
  U = \bigdotcup_{k \in \N} Q_k.
 \]
-Insbesondere sind $U$, sowie alle $Q_k$ Lebesgue-messbar. Aufgrund der $\sigma$-Additivität von $\lambda_n$ ergibt nun aus \eqref{eq: abschätzung würfel maß}, dass
+Insbesondere sind alle $Q_k$, sowie $U$ Lebesgue-messbar. Aufgrund der $\sigma$-Additivität von $\lambda_n$ ergibt nun aus \eqref{eq: abschätzung würfel maß}, dass
 \begin{align*}
  \lambda_n( f(U) )
  &= \lambda_n\left( f\left( \bigdotcup_{k \in \N} Q_k \right) \right)
@@ -200,9 +200,9 @@ Nun werden wir die Regularität des Lebesgue-Maßes nutzen, um diese Abschätzun
  = n^{n/2} L^n \lambda_n(A) + n^{n/2} L^n \varepsilon.
 \end{align*}
 Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit die Ungleichung
-\[
+\begin{equation}\label{eq: abschätzung alle mengen}
  \lambda_n(f(A)) \leq n^{n/2} L^n \lambda_n(A).
-\]
+\end{equation}
 
 
 \subsection{}
@@ -226,7 +226,7 @@ Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit die Ungleichung
 \end{proof}
 
 \begin{lem}\label{lem: abzählbare Zusammenhangskomponenten}
- Sei $U \subseteq \R$ offen. Dann gibt es eine höchstens abzählbare Familie $I_k$ von offenen, nichtleeren Intervallen, so dass $U = \bigdotcup_n I_k$.
+ Sei $U \subseteq \R$ offen. Dann gibt es eine höchstens abzählbare Familie $I_k$ von offenen, nichtleeren Intervallen, so dass $U = \bigdotcup_k I_k$.
 \end{lem}
 \begin{proof}
  Aus Analysis 2 bekannt, lässt sich eine offene Menge $V \subseteq \R^n$ in offene, nichtleere, disjunkte Zusammenhangskomponenten zerlegen lässt. Im Falle von $\R$ sind dies gerade offene Intervalle. Es muss also nur noch gezeigt werden, dass hierfür höchstens abzählbar viele Intervalle benötigt werden.
@@ -238,33 +238,33 @@ Es sei
 \[
  N := \{x \in \R : f'(x) = 0\}
 \]
-und für $a,b \in \R$
+und für $a,b \in \R$ sei
 \[
  N_{a,b} := \{x \in (a,b) : f'(x) = 0\}.
 \]
-Um zu zeigen, dass $f(N)$ Lebesgue-messbar mit $\lambda_n( f(N) ) = 0$ ist, genügt es zu zeigen, dass $f(N_{a,b})$ für alle $a,b \in \R$ Lebesgue-messbar mit Maß $\lambda_n( f(N_{a,b}) ) = 0$ ist. Dann ergibt sich, dass
+Um zu zeigen, dass $f(N)$ Lebesgue-messbar mit $\lambda_1( f(N) ) = 0$ ist, genügt es zu zeigen, dass $f(N_{a,b})$ für alle $a,b \in \R$ Lebesgue-messbar mit Maß $\lambda_1( f(N_{a,b}) ) = 0$ ist. Dann ergibt sich, dass
 \[
   f(N)
   = f\left(\bigcup_{k \in \Z} N_{k/2, k/2 + 1} \right)
    = \bigcup_{k \in \Z} f\left(N_{k/2, k/2 + 1}\right)
 \]
-als abzählbare Vereinigung von Lebesgue-messbaren Mengen Lebesgue-messbar ist, und
+als abzählbare Vereinigung von Lebesgue-messbaren Mengen Lebesgue-messbar ist, und dass
 \[
- \lambda_n( f(N) )
- = \lambda_n\left( \bigcup_{k \in \Z} f\left(N_{k/2, k/2 + 1}\right) \right)
- \leq \sum_{k \in \Z} \lambda_n \left( f\left(N_{k/2, k/2 + 1}\right) \right)
+ \lambda_1( f(N) )
+ = \lambda_1\left( \bigcup_{k \in \Z} f\left(N_{k/2, k/2 + 1}\right) \right)
+ \leq \sum_{k \in \Z} \lambda_1 \left( f\left(N_{k/2, k/2 + 1}\right) \right)
  = 0.
 \]
 
-Wir zeigen nun die entsprechende Aussage für die $N_{a,b}$. Seien hierfür $a,b \in \R$ beliebig aber fest. Wir betrachten nur den Fall $a < b$, da sonst $N_{a,b} = \emptyset$ und die Aussage trivialerweise stimmt.
+Wir zeigen nun die entsprechende Aussage für die $N_{a,b}$. Seien hierfür $a,b \in \R$ beliebig aber fest. Wir betrachten nur den Fall $a < b$, da sonst $N_{a,b} = \emptyset$ und die Aussage trivial ist.
 
 Zunächst zeigen wir, dass $f(N_{a,b})$ Lebesgue-messbar ist. Hierfür bemerken wir zum einen, dass $\tilde{f} := f_{|(a,b)}$ stetig differenzierbar ist, also $\tilde{f}' = f'_{|(a,b)}$ als stetige Funktion Borell-messbar. Daher ist
 \[
  N_{a,b} = \{x \in (a,b) : \tilde{f}'(x) = 0\}
 \]
-Borell-, und damit auch Lebesgue-messbar. Zum anderen bemerken wir, dass die Einschränkung $\tilde{f}$ Lipschitz-stetig ist: Da $f'$ auf $[a,b]$ stetig ist, ist $f'$ auf $[a,b]$, und somit auch auf $(a,b)$, beschränkt. Aus Lemma \ref{lem: Lipschitz Ableitung} folgt damit, $f$ auf $[a,b]$ Lipschitz-stetig ist. Damit ist auch $\tilde{f}$ auf $(a,b)$ Lipschitz-stetig. Aus den vorherigen Aufgabenteilen folgt damit, dass $f(N_{a,b})$ als Bild einer Lebesgue-messbaren Menge unter einer Lipschitz-stetigen Funktion ebenfalls Lebesgue-messbar ist.
+Borell-, und damit auch Lebesgue-messbar. Zum anderen bemerken wir, dass die Einschränkung $\tilde{f}$ Lipschitz-stetig ist: Da $f'$ auf $[a,b]$ stetig ist, ist $f'$ auf $[a,b]$, und somit auch auf $(a,b)$, beschränkt. Aus Lemma \ref{lem: Lipschitz Ableitung} folgt damit, $f$ auf $[a,b]$ Lipschitz-stetig ist. Damit ist auch $\tilde{f}$ Lipschitz-stetig. Aus den vorherigen Aufgabenteilen folgt damit, dass $f(N_{a,b}) = \tilde{f}(N_{a,b})$ als Bild einer Lebesgue-messbaren Menge unter einer Lipschitz-stetigen Funktion ebenfalls Lebesgue-messbar ist.
 
-Nun zeigen wir, dass $\lambda_n(f(N_{a,b})) = 0$. Sei hierfür $\varepsilon > 0$ beliebig aber fest. Wegen der Stetigkeit von $\tilde{f}'$ gibt es für alle $x \in N_{a,b}$ ein $\delta_x > 0$, so dass $|\tilde{f}'(y)| < \varepsilon$ für alle $y \in B_{\delta_x}(x)$. Da $(a,b)$ offen ist, kann dabei $\delta_x > 0$ so klein gewählt werden, dass $B_{\delta_x}(x) \subseteq (a,b)$. Es sei 
+Nun zeigen wir, dass $\lambda_1(\tilde{f}(N_{a,b})) = 0$. Sei hierfür $\varepsilon > 0$ beliebig aber fest. Wegen der Stetigkeit von $\tilde{f}'$ gibt es für alle $x \in N_{a,b}$ ein $\delta_x > 0$, so dass $|\tilde{f}'(y)| < \varepsilon$ für alle $y \in B_{\delta_x}(x)$. Da $(a,b)$ offen ist, kann dabei $\delta_x > 0$ so klein gewählt werden, dass $B_{\delta_x}(x) \subseteq (a,b)$. Es sei 
 \[
  U := \bigcup_{x \in N_{a,b}} B_{\delta_x}(x).
 \]
@@ -272,25 +272,26 @@ $U$ ist als Vereinigung offener Mengen offen, und es ist
 \[
  N_{a,b} \subseteq U \subseteq (a,b).
 \]
-Es seien $U_k = (a_k, b_k)$ die Zusammenhangskomponenten von $U$. Nach Lemma \ref{lem: abzählbare Zusammenhangskomponenten} sind diese höchstens abzählbar viele. Für alle $k$ ist $U_k$ als offenes Intervall Borell- und damit auch Lebesgue-messbar, wegen der Lipschitz-Stetigkeit von $\tilde{f}$ ist also auch $\tilde{f}(U_k)$ für alle $k$ Lebesgue-messbar. Dabei folgt aus der Konstruktion von $U$, dass $\tilde{f}'(x) < \varepsilon$ für alle $x \in U \supseteq U_k$, aus Lemma \ref{lem: Lipschitz Ableitung} also, dass $\tilde{f}_{|U_k}$ für alle $k$ Lipschitz-stetig mit Konstante $\varepsilon$ ist. Aus den vorherigen Aufgabenteilen folgt damit, dass für alle $k$
+
+Es seien $U_k = (a_k, b_k)$ die Zusammenhangskomponenten von $U$. Nach Lemma \ref{lem: abzählbare Zusammenhangskomponenten} sind dies höchstens abzählbar viele. Für alle $k$ ist $U_k$ als offenes Intervall Borell- und damit auch Lebesgue-messbar, wegen der Lipschitz-Stetigkeit von $\tilde{f}$ ist also auch $\tilde{f}(U_k)$ für alle $k$ Lebesgue-messbar. Dabei folgt aus der Konstruktion von $U$, dass $\tilde{f}'(x) < \varepsilon$ für alle $x \in U \supseteq U_k$, aus Lemma \ref{lem: Lipschitz Ableitung} also, dass $\tilde{f}_{|U_k}$ für alle $k$ Lipschitz-stetig mit Konstante $\varepsilon$ ist. Aus \eqref{eq: abschätzung alle mengen}, bzw. bereits \eqref{eq: abschätzung offene menge}, folgt damit, dass für alle $k$
 \[
- \lambda_n(f(U_k)) \leq n^{n/2} \varepsilon^n \lambda_n(U_k).
+ \lambda_1(f(U_k)) \leq \varepsilon \lambda_1(U_k).
 \]
-Wegen der Monotonie und $\sigma$-Additivität von $\lambda_n$ ergibt sich nun, dass
+Wegen der Monotonie und $\sigma$-Additivität von $\lambda_1$ ergibt sich nun, dass
 \begin{align*}
- \lambda_n( f(N_{a,b}) )
- &\leq \lambda_n( f(U) )
- = \lambda_n\left( f\left(\bigdotcup_k U_k\right) \right) 
- = \sum_k \lambda_n( f(U_k) ) \\
- &\leq n^{n/2} L^n \sum_k \lambda_n(U_k)
- = n^{n/2} \varepsilon^n \lambda_n \left( \bigdotcup_k U_k \right) \\
- &= n^{n/2} \varepsilon^n \lambda_n(U)
- \leq n^{n/2} \varepsilon^n \lambda_n((a,b))
- = n^{n/2} \varepsilon^n (b-a).
+ \lambda_1( f(N_{a,b}) )
+ &\leq \lambda_1( f(U) )
+ = \lambda_1\left( f\left(\bigdotcup_k U_k\right) \right) 
+ \leq \sum_k \lambda_1( f(U_k) ) \\
+ &\leq \varepsilon \sum_k \lambda_1(U_k)
+ = \varepsilon \lambda_1 \left( \bigdotcup_k U_k \right)
+ = \varepsilon \lambda_1(U) \\
+ &\leq \varepsilon \lambda_1((a,b))
+ = \varepsilon (b-a).
 \end{align*}
 Aus der Beliebigkeit von $\varepsilon > 0$ folgt damit, dass
 \[
- \lambda_n( f(N_{a,b} ) = 0.
+ \lambda_1( f(N_{a,b} ) = 0.
 \]
 
 
@@ -306,7 +307,7 @@ Da $f$ nur nicht-negative Werte annimmt, ist $\nu(A)$ für alle $A \in \A$ wohld
  = \int 0 \dmu
  = 0.
 \]
-Dies zeigt die Normiertheit von $\mu$. Für $A, B \in \A$ mit $A \subseteq B$ folgt aus $\chi_A \leq \chi_B$ und $f \geq 0$, dass $f \chi_A \leq f \chi_B$ und damit
+Dies zeigt die Normiertheit von $\mu$. (Zur Notation: Es ist $f \leq g$ genau dann wenn $f(x) \leq g(x)$ für alle $x \in X$.) Für $A, B \in \A$ mit $A \subseteq B$ folgt aus $\chi_A \leq \chi_B$ und $f \geq 0$, dass $f \chi_A \leq f \chi_B$ und damit
 \[
  \nu(A)
  = \int_A f \dmu
@@ -317,7 +318,9 @@ Dies zeigt die Normiertheit von $\mu$. Für $A, B \in \A$ mit $A \subseteq B$ fo
 \]
 Dies zeigt die Monotonie von $\nu$. Ist $(A_n)_{n \in \N}$ eine Folge disjunkter Mengen auf $\A$, so ist
 \[
- f \chi_{\bigdotcup_{n \in \N} A_n} = \sum_{n=0}^\infty f\chi_{A_n},
+ f \chi_{\bigdotcup_{n \in \N} A_n}
+ = f \sum_{n=0}^\infty \chi_{A_n}
+ = \sum_{n=0}^\infty f\chi_{A_n},
 \]
 nach dem Satz von Beppo Levi also
 \begin{align*}
@@ -327,9 +330,9 @@ nach dem Satz von Beppo Levi also
  = \int \sum_{n=0}^\infty f \chi_{A_n} \dmu \\
  &= \sum_{n=0}^\infty \int f \chi_{A_n} \dmu
  = \sum_{n=0}^\infty \int_{A_n} f \dmu
- = \sum_{n=0}^\infty \nu(A_n).
+ = \sum_{n=0}^\infty \nu(A_n),
 \end{align*}
-Dies zeigt die $\sigma$-Additivität von $\nu$.
+da $f \chi_{A_n} \geq 0$ für alle $n \in \N$. Dies zeigt die $\sigma$-Additivität von $\nu$.
 
 
 
@@ -358,11 +361,11 @@ Insbesondere gibt es wegen der Monotonie der $A_\varepsilon$ (es ist $A_\varepsi
  \lambda(A_\delta) < \beta.
 \]
 
-Sei nun $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$. Es ist $\mu(A_\delta \cap E) \leq \mu(A_\delta) < \beta$, also $\mu(E \setminus A_\delta) > \alpha - \beta$. Da $f(x) \geq \delta$ für alle $x \in E \setminus A_\delta$ ist daher
+Sei nun $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$. Es ist $\mu(A_\delta \cap E) \leq \mu(A_\delta) < \beta$, also $\mu(E \setminus A_\delta) > \alpha - \beta$. Da $f > 0$ und $f(x) \geq \delta$ für alle $x \in E \setminus A_\delta$ ist daher
 \[
  \int_E f \dlambda
  \geq \int_{E \setminus A_\delta} f \dlambda
- \geq \mu(E \setminus A) \inf_{x \in E \setminus A_\delta} f(x)
+ \geq \mu(E \setminus A_\delta) \inf_{x \in E \setminus A_\delta} f(x)
  > (\alpha - \beta) \delta > 0.
 \]
 Aus der Beliebigkeit von $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$ folgt daher, dass auch
@@ -374,15 +377,11 @@ Aus der Beliebigkeit von $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$ f
 
 
 
-
-
-
-
 \section{Konvergenz von Funktionen}
 
 
 \subsection{}
-Nach Definition ist $f_n \rightarrow f$ fast überall genau dann, wenn die Menge $N$ der Stellen, an denen $f_n$ nicht punktweise gegen $f$ konvergiert, eine $\mu$-Nullmenge ist. Für alle $\varepsilon > 0$ sei
+Nach Definition ist $f_n \rightarrow f$ fast überall genau dann, wenn die Menge $N$ der Stellen, an denen $f_n$ nicht punktweise gegen $f$ konvergiert, in einer $\mu$-Nullmenge enthalten ist, insbesondere also, wenn $N$ selber eine $\mu$-Nullmenge ist. Für alle $\varepsilon > 0$ sei
 \begin{align*}
  N_\varepsilon
  &:= \{x \in X : \text{ für alle } n \geq \N \text{ gibt es } m \geq n : |f_m(x)-f(x)| \geq \varepsilon \} \\
@@ -398,9 +397,9 @@ $N$ lässt sich nun schreiben als
 \[
  N = \bigcup_{\varepsilon > 0} N_\varepsilon = \bigcup_{\substack{q \in \Q \\ q > 0}} N_q.
 \]
-Da $N_\varepsilon \in \A$ für alle $\varepsilon > 0$ ist auch $N$ als abzählbare Vereinigung der $N_q$ in $\A$ enthalten.
+Da $N_\varepsilon \in \A$ für alle $\varepsilon > 0$ ist auch $N$ als abzählbare Vereinigung der $N_q$ in $\A$ enthalten. Es ist also $N$ genau dann in einer $\mu$-Nullmenge enthalten, wenn $N$ selber eine $\mu$-Nullmenge ist.
 
-Es ist nun einfach zu sehen, dass $N$ genau dann eine $\mu$-Nullmenge ist, wenn jedes der $N_\varepsilon$ eine $\mu$-Nullmenge ist: Dies ergibt sich direkt aus der Monotonie von $\mu$ und daraus, dass für alle $\varepsilon > 0$
+Es ist nun einfach zu sehen, dass $N$ genau eine $\mu$-Nullmenge ist, wenn jedes der $N_\varepsilon$ eine $\mu$-Nullmenge ist: Dies ergibt sich direkt aus der Monotonie von $\mu$ und daraus, dass für alle $\varepsilon > 0$
 \[
  N_\varepsilon \subseteq N = \bigcup_{\substack{q \in \Q \\ q > 0}} N_q.
 \]
@@ -424,7 +423,7 @@ Die zu zeigend Aussage ergibt sich daher direkt aus dem vorherigen Aufgabenteil.
 
 
 \subsection{}
-Es sei $f := 0$, und für alle $n \in \N$ sei $f_n := \chi_{[n,n+1]}$. Dann ist $\limes{n}{\infty} f_n(x) = f(x)$ für alle $x \in \R$, d.h. es ist $f_n \rightarrow f$ punktweise auf ganz $\R$. Für beliebiges $0 < \varepsilon \leq 1$ ist dann für alle $n \in \N$
+Es sei $f := 0$, und für alle $n \in \N$ sei $f_n := \chi_{[n,n+1]}$. Dann ist $\limes{n}{\infty} f_n(x) = f(x)$ für alle $x \in \R$, d.h. es ist $f_n \rightarrow f$ punktweise auf ganz $\R$. Für beliebiges $0 < \varepsilon \leq 1$ ist jedoch für alle $n \in \N$
 \[
   \bigcup_{m \geq n} \{x : |f_m(x) - f(x)| \geq \varepsilon \} = [n,\infty),
 \]
