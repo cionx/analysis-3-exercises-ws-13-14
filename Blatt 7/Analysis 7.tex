@@ -1,0 +1,132 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage{xltxtra}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{enumerate}
+\usepackage{leftidx}
+
+\makeatletter
+\g@addto@macro\th@definition{\thm@headpunct{:}}
+\makeatother
+\newcounter{saetze}
+\newtheorem{lem}[saetze]{Lemma}
+\newtheorem{beh}[saetze]{Behauptung}
+\newtheorem{bem}[saetze]{Bemerkung}
+\newtheorem*{ia}{Induktionsanfang}
+\newtheorem*{is}{Induktionsschritt}
+
+\renewcommand{\thesection}{Aufgabe \arabic{section}.}
+\renewcommand{\thesubsection}{\alph{subsection})}
+\renewcommand{\thesubsubsection}{(\roman{subsubsection})}
+
+\makeatletter
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+   \baselineskip\z@skip \lineskiplimit-\maxdimen
+   \ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+    #1{\ifx#1\mathop\vphantom{#2}\fi
+        \mathpalette\mov@rlay{#2\cr#3}
+      }
+    \ifx#1\mathop\expandafter\displaylimits\fi}
+\makeatother
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\La}{\mathcal{L}}
+\newcommand{\dx}{\,\text{d}x}
+\newcommand{\dy}{\,\text{d}y}
+\newcommand{\dt}{\,\text{d}t}
+\newcommand{\du}{\,\text{d}u}
+\newcommand{\dmu}{\,\text{d}\mu}
+\newcommand{\dlambda}{\,\text{d}\lambda}
+\newcommand{\Img}{\operatorname{Im}}
+\newcommand{\Real}{\operatorname{Re}}
+\newcommand{\Imag}{\operatorname{Im}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
+\newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\limes}[2]{\lim_{#1 \rightarrow #2}}
+\newcommand{\limessup}[1]{\limsup_{#1 \rightarrow \infty}}
+\newcommand{\limesinf}[1]{\liminf_{#1 \rightarrow \infty}}
+\newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\partd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\op}[1]{\left\|#1\right\|_{\text{op}}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+\parindent 0pt
+
+\title{\sc Analysis III \\ \Large 7. Aufgabenblatt}
+\author{Jendrik Stelzner}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
