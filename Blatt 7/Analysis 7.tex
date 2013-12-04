@@ -93,12 +93,40 @@
 \section{(Eine Integralformel)}
 
 
+\subsection{}
+Aus der Monotonie von $\mu$ folgt, dass für $a,b \in [0,\infty)$ mit $a \leq b$
+\[
+ g(a)
+ = \mu(\{x \in X : f(x) \geq a\})
+ \geq \mu(\{x \in X : f(x) \geq b\})
+ = g(b).
+\]
+$g$ ist also monoton fallend und somit bekanntermaßen Borel-messbar.
+
+
+\subsection{}
+Zunächst zeigen wir die Aussage für einfache Funktionen: Sei $f$ eine einfache Funktion mit Werten $0 \leq \alpha_1 < \alpha_2 < \ldots, < \alpha_n$, die auf Mengen $A_1, \ldots, A_n$ angenommen werden; wir setzen $\alpha_0 := 0$.
+
+Ist $\int_X f \dmu = \infty$, so gibt es $1 \leq i \leq n$ mit $\alpha_i \neq 0$ und $\mu(A_i) = \infty$. Es ist daher $g(t) = \mu\{x \in X: f(x) \geq t\} = \infty$ für alle $t \in [0,\alpha_i]$, und somit auch $\int_{[0,\infty)} g = \infty$.
+
+Ansonsten nimmt $g$ für $i=1,\ldots,n$ auf dem Intervall $(\alpha_{i-1},\alpha_i]$ den konstanten Wert $\sum_{j=1}^n \mu(A_j)$, und auf $(\alpha_n, \infty)$ den Wert $0$ an. Es ist dann
+\begin{align*}
+ \int_{[0,\infty)} g \dlambda
+ &= \int_{(0,\infty)} g \dlambda
+ = \sum_{i=1}^n \lambda((\alpha_{i-1},\alpha_i) \sum_{j=i}^n \mu(A_j) \\
+ &= \sum_{i=1}^n (\alpha_i - \alpha_{i-1})\sum_{j=i}^n \mu(A_j)
+ = \sum_{i=1}^n \sum_{j=i}^n (\alpha_i - \alpha_{i-1}) \mu(A_j) \\
+ &= \sum_{j=1}^n \sum_{i=1}^j (\alpha_j - \alpha_{j-1}) \mu(A_j)
+ = \sum_{j=1}^n (\alpha_j - \alpha_0) \mu(A_j) \\
+ &= \sum_{j=1}^n \alpha_j \mu(A_j)
+ = \int_X f \dmu.
+\end{align*}
+
+
 
 
 
 \section{(Funktionen mit verschwindendem Integral auf Anfangsstücken)}
-
-\subsection{}
 Wir zeigen, dass $\int_U f \dlambda = 0$ für alle offenen Mengen $U \subseteq (a,b)$. Zunächst bemerken wir, dass für alle $x \in (a,b)$
 \[
  0
@@ -191,8 +219,6 @@ und daher $\limes{n}{\infty} \int_X |f_n-f| \dmu = 0$.
 
 
 
-
-
 \section{(Gegenbeispiele)}
 
 
@@ -220,13 +246,6 @@ Es ist offenbar
  \int_\R f_n \dlambda \rightarrow 0 = \int_\R f \dlambda,
 \]
 aber $f_n \not\rightarrow f$ auf ganz $[0,1]$.
-
-
-
-
-
-
-
 
 
 
