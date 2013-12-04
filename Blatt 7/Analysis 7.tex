@@ -154,10 +154,40 @@ Es ist0also $\int_{E_+} f \dlambda = \int_U f \dlambda = 0$. Da $f_{|E_+} > 0$ i
 
 
 
-
-
-
 \section{(Ein Konvergenzresultat)}
+Wir können o.B.d.A. davon ausgehen, dass $f_n \rightarrow f$ auf ganz $X$, da die Menge $\{x \in X : f_n \not\rightarrow f\}$ eine $\mu$-Nullmenge ist, also für das Integral $\int_X |f_n-f| \dmu$ nicht von Bedeutung ist. Wegen $f_n \geq 0$ für alle $n$ folgt damit insbesondere, dass $f \geq 0$.
+
+Da $f$ und $f_n$ für alle $n$ integrierbar sind, ist es auch $f-f_n$ und daher auch $|f-f_n|$ für alle $n$. Nach der Dreiecksungleichung ist dabei $|f_n-f| \leq f+f_n$ für alle $n$, also $0 \leq f_n + f - |f_n - f|$ für alle $n$. Daher ist nach dem Lemma von Fatou
+\begin{equation}\label{eq: lemma von fatou}
+ \int_X \limesinf{n} f_n+f-|f_n-f| \dmu
+ \leq \limesinf{n} \int_X f_n+f-|f_n-f| \dmu.
+\end{equation}
+Dabei ist
+\[
+ \int_X \limesinf{n} f_n+f-|f_n-f| \dmu
+ = \int_X \limesinf{n} 2f \dmu
+ = 2 \int_X f \dmu
+\]
+und
+\begin{align*}
+  &\,\limesinf{n} \int_X f_n+f-|f_n-f| \dmu \\
+ =&\, \limesinf{n} \int_X f_n \dmu + \limesinf{n} \int f \dmu + \limesinf{n} -\int_X |f_n-f| \dmu \\
+ =&\, 2 \int_X f \dmu - \limessup{n} \int_X |f_n-f| \dmu.
+\end{align*}
+Aus \eqref{eq: lemma von fatou} ergibt sich damit, dass
+\[
+ 0 \leq - \limessup{n} \int_X |f_n-f| \dmu,
+\]
+also
+\[
+ 0
+ \geq \limessup{n} \int_X |f_n-f| \dmu
+ \geq \limesinf{n} \int_X |f_n-f| \dmu
+ \geq 0,
+\]
+und daher $\limes{n}{\infty} \int_X |f_n-f| \dmu = 0$.
+
+
 
 
 
