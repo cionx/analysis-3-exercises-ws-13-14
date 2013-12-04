@@ -90,6 +90,65 @@
 
 
 
+\section{(Eine Integralformel)}
+
+
+
+
+
+\section{(Funktionen mit verschwindendem Integral auf Anfangsstücken)}
+
+\subsection{}
+Wir zeigen, dass $\int_U f \dlambda = 0$ für alle offenen Mengen $U \subseteq (a,b)$. Zunächst bemerken wir, dass für alle $x \in (a,b)$
+\[
+ 0
+ = \int_{(a,b)} f \dlambda
+ = \int_{(a,x)} f \dlambda + \int_{(x,b)} f \dlambda
+ = \int_{(x,b)} f \dlambda,
+\]
+also für alle $x,y \in (a,b)$ mit $x < y$
+\[
+ 0
+ = \int_{(a,b)} f \dlambda
+ = \int_{(a,x)} f \dlambda + \int_{(x,y)} f \dlambda + \int_{(y,b)} f \dlambda
+ = \int_{(x,y)} f \dlambda.
+\]
+
+Sei nun $U \subseteq (a,b)$ offen. Wie bereits letzte Woche gezeigt können wir $U$ schreiben als $U = \bigdotcup_{n \in \N} U_n$, wobei $U_n = \emptyset$ oder $U_n$ ein offenes Intervall ist für alle $n \in \N$. Für $g_n = \sum_{k=1}^n f \chi_{U_k}$ und $g = f\chi_U$ ist $g_n \rightarrow g$ punktweise auf ganz $(a,b)$. Da $f$ integrierbar ist, ist es auch $|f|$, und wegen $|g_n| \leq |f|$ für alle $n \in \N$ nach dem Satz über dominierte Konvergenz daher
+\begin{align*}
+ \int_U f \dlambda
+ &= \int_{(a,b)} f \chi_U \dlambda
+ = \limes{n}{\infty} \int_{(a,b)} \sum_{k=0}^n f \chi_{U_k} \dlambda \\
+ &= \sum_{k=0}^\infty \int_{(a,b)} f \chi_{U_k} \dlambda
+ = \sum_{k=0}^\infty \int_{U_k} f\dlambda
+ = 0.
+\end{align*}
+
+Es sei nun $E_+ := \{x \in (a,b) : f(x) > 0\}$ mit $\lambda(E_+) \leq b-a < \infty$. Wegen der Regularität des Lebesgue-Maßes und da $\lambda_(E_+) < \infty$ finden wir eine Folge $(U_n)_{n \in \N}$ offener Mengen mit $E_+ \subseteq U_n$ und $\lambda(U_n \setminus E_+) \leq \frac{1}{n}$ für alle $n$. Wir können o.B.d.A. davon ausgehen, dass die Folge $(U_n)_{n \in \N}$ fallend ist, da wir sonst die Folge $\left( \bigcap_{k=1}^n U_k \right)_{n \in \N}$ betrachten. Es sei $U := \bigcap_{n \in \N} U_n$.
+
+Es ist $\int_U f \dlambda$: Es ist $f\chi_{U_n} \rightarrow f \chi_U$ punktweise auf ganz $(a,b)$ und $|f\chi_{U_n}| \leq |f|$ für alle $n \in \N$, nach dem Satz über dominierte Konvergenz also
+\[
+ \int_U f \dlambda
+ = \int_{(a,b)} f \chi_U \dlambda
+ = \limes{n}{\infty} \int_{(a,b)} f \chi_{U_n} \dlambda
+ = \limes{n}{\infty} \int_{U_n} f \dlambda
+ = 0.
+\]
+
+Es ist $E_+ \subseteq U$ und, da $\mu(U_0) < \infty$ und die Folge $(U_n)_{n \in \N}$ fallend ist, 
+\begin{align*}
+ \mu(U \setminus E_+)
+ &= \mu\left( \left( \bigcap_{n \in \N} U_n \right) \setminus E_+\right)
+ = \mu\left( \bigcap_{n \in \N} (U_n \setminus E_+) \right) \\
+ &= \limes{n}{\infty} \mu(U_n \setminus E_+)
+ = \limes{n}{\infty} \frac{1}{n}
+ = 0.
+\end{align*}
+
+Es ist0also $\int_{E_+} f \dlambda = \int_U f \dlambda = 0$. Da $f_{|E_+} > 0$ ist daher, wie aus der Vorlesung bekannt, $f(x) = 0$ für $\lambda$-fast alle $x \in E_+$. Nach der Definition von $E_+$ muss daher $\lambda(E_+) = 0$. Analog ergibt sich für $E_- := \{x \in (a,b) : f(x) < 0\}$, dass auch $\lambda(E_-) = 0$. Also ist
+\[
+ \lambda(\{x \in (a,b) : f(x) \neq 0\}) = \lambda(E_-\ \dotcup\ E_+) = \lambda(E_-) + \lambda(E_+) = 0.
+\]
 
 
 
@@ -98,26 +157,13 @@
 
 
 
+\section{(Ein Konvergenzresultat)}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\section{(Gegenbeispiele)}
 
 
 
