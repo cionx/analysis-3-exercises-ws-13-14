@@ -196,6 +196,33 @@ und daher $\limes{n}{\infty} \int_X |f_n-f| \dmu = 0$.
 \section{(Gegenbeispiele)}
 
 
+\subsection{}
+Es sei $f = 0$ und $f_n = \frac{1}{n} \chi_{[-n,n]}$ für alle $n \geq 1$. Dann ist $f_n \rightarrow f$ gleichmäßig auf $\R$, aber für alle $n \geq 1$
+\[
+ \int_\R f_n \dlambda = 2 \neq 0 = \int_\R f \dlambda.
+\]
+Inbesondere konvergiert $\int_\R f_n \dlambda$ nicht gegen $\int_\R f \lambda$.
+
+
+\subsection{}
+Diese Aussage ist totaler Blödsinn: Aus ihr folgt insbesondere, dass zwei Funktionen genau dann das gleich Integral haben, wenn sie fast überall gleich sind. Ein einfaches und offensichtliches Gegenbeispiel ist $f_n = \chi_{[-1,0]}$ unabhängig von $n \in \N$ und $f = \chi_{[0,1]}$.
+
+
+\subsection{}
+Man betrachte $f=0$ und die Funktionenfolge $(f_n)_{n \in \N}$ definiert als
+\[
+ f_{2^n-1+k} := \chi_{\left[k/2^n,(k+1)/2^n\right]}
+\]
+für alle $n \in \N$ und $k=0,\ldots,n-1$, d.h. $f_0 = \chi_{[0,1]}$, $f_1 = \chi_{[0,1/2]}$, $f_2 = \chi_{[1/2,1]}$, $f_{3+k} = \chi_{[k/4,(k+1)/4]}$ für $k=0,\ldots,3$, usw.
+
+Es ist offenbar
+\[
+ \int_\R f_n \dlambda \rightarrow 0 = \int_\R f \dlambda,
+\]
+aber $f_n \not\rightarrow f$ auf ganz $[0,1]$.
+
+
+
 
 
 
