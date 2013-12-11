@@ -94,7 +94,11 @@
 
 
 \subsection{}
-Aus der Monotonie von $\mu$ folgt, dass für $a,b \in [0,\infty)$ mit $a \leq b$
+Für $a,b \in [0,\infty)$ mit $a \leq b$ ist
+\[
+ \{x \in X : f(x) \geq a\} \supseteq \{x \in X : f(x) \geq b\},
+\]
+also wegen der Monotonie des Maßes $\mu$
 \[
  g(a)
  = \mu(\{x \in X : f(x) \geq a\})
@@ -105,22 +109,56 @@ $g$ ist also monoton fallend und somit bekanntermaßen Borel-messbar.
 
 
 \subsection{}
-Zunächst zeigen wir die Aussage für einfache Funktionen: Sei $f$ eine einfache Funktion mit Werten $0 \leq \alpha_1 < \alpha_2 < \ldots, < \alpha_n$, die auf Mengen $A_1, \ldots, A_n$ angenommen werden; wir setzen $\alpha_0 := 0$.
+Wir zeigen die Aussage zunächst für einfache Funktionen: Sei $f$ eine einfache Funktion mit Werten $0 \leq \alpha_1 < \alpha_2 < \ldots < \alpha_n$, die auf Mengen $A_1, \ldots, A_n$ angenommen werden; wir setzen $\alpha_0 := 0$.
 
-Ist $\int_X f \dmu = \infty$, so gibt es $1 \leq i \leq n$ mit $\alpha_i \neq 0$ und $\mu(A_i) = \infty$. Es ist daher $g(t) = \mu\{x \in X: f(x) \geq t\} = \infty$ für alle $t \in [0,\alpha_i]$, und somit auch $\int_{[0,\infty)} g = \infty$.
+Es ist $\int_X f \dmu = \infty$ genau dann, wenn es ein $1 \leq i \leq n$ mit $\alpha_i \neq 0$ und $\mu(A_i) = \infty$ gibt. Es ist daher $g(t) = \mu\{x \in X: f(x) \geq t\} = \infty$ für alle $t \in [0,\alpha_i]$, und somit auch $\int_{[0,\infty)} g = \infty$.
 
-Ansonsten nimmt $g$ für $i=1,\ldots,n$ auf dem Intervall $(\alpha_{i-1},\alpha_i]$ den konstanten Wert $\sum_{j=1}^n \mu(A_j)$, und auf $(\alpha_n, \infty)$ den Wert $0$ an. Es ist dann
+Ansonsten nimmt $g$ für $i=1,\ldots,n$ auf dem Intervall $(\alpha_{i-1},\alpha_i]$ den konstanten Wert $\sum_{j=i}^n \mu(A_j) < \infty$, und auf $(\alpha_n, \infty)$ den Wert $0$ an. Es ist dann
 \begin{align*}
  \int_{[0,\infty)} g \dlambda
  &= \int_{(0,\infty)} g \dlambda
  = \sum_{i=1}^n \lambda((\alpha_{i-1},\alpha_i) \sum_{j=i}^n \mu(A_j) \\
  &= \sum_{i=1}^n (\alpha_i - \alpha_{i-1})\sum_{j=i}^n \mu(A_j)
  = \sum_{i=1}^n \sum_{j=i}^n (\alpha_i - \alpha_{i-1}) \mu(A_j) \\
- &= \sum_{j=1}^n \sum_{i=1}^j (\alpha_j - \alpha_{j-1}) \mu(A_j)
+ &= \sum_{j=1}^n \sum_{i=1}^j (\alpha_i - \alpha_{i-1}) \mu(A_j)
  = \sum_{j=1}^n (\alpha_j - \alpha_0) \mu(A_j) \\
  &= \sum_{j=1}^n \alpha_j \mu(A_j)
  = \int_X f \dmu.
 \end{align*}
+
+Eine Vereinfachung auf allgemeine Funktionen ist mir leider nicht gelungen, hier jedoch mein Ansatz:
+Da $f \geq 0$ messbar ist, gibt es eine Folge einfacher Funktionen $(f_n)_{n \in \N}$ mit $f_n \leq f_{n+1}$ für alle $n$ und $f_n \rightarrow f$ punktweise auf ganz $X$. Für jedes $n$ definiere man die fallende Umordnung von $f_n$,
+\[
+ g_n : [0,\infty) \rightarrow [0,\infty], t \mapsto \mu(\{x \in X : f_n(x) \geq t\}).
+\]
+Wir wissen aus der Vorlesung, dass
+\[
+ \int_X f \dmu = \limes{n}{\infty} \int_X f_n \dmu.
+\]
+Wie gerade gezeigt ist für alle $n$
+\[
+ \int_X f_n \dmu = \int_{[0,\infty)} g_n \dlambda.
+\]
+Also ist
+\[
+ \int_X f \dmu = \limes{n}{\infty} \int_{[0,\infty)} g_n \dlambda.
+\]
+
+Es ist nun leider nicht klar, dass
+\[
+ \limes{n}{\infty} \int_{[0,\infty)} g_n \dlambda = \int_{[0,\infty)} g \dlambda.
+\]
+Aus der Monotonie der $f_n$ folgt zwar leicht dass auch die $g_n$ monoton sind, dass also $g_n \leq g_{n+1}$ für alle $n$, und dass $g_n \leq g$ für alle $n$, wie man sich jedoch an einfachen Beispielen (etwa für konstantes $f$) klarmachen kann, konvergiert $g_n$ nicht auf ganz $[0,\infty)$ gegen $g$, so dass eine Anwendung der Konvergenzsätze nicht ohne Weiteres möglich ist. Das Lebesgue-Maß der Stellen zu ermitteln, an denen $g_n \not\rightarrow g$ stellte sich dabei als problematischer heraus als ich vermutet hatte. Daher kann ich derzeit höchstens schlussfolgern, dass
+\[
+ \int_X f \dmu
+ = \limes{n}{\infty} \int_{[0,\infty)} g_n \dlambda
+ \leq \limes{n}{\infty} \int_{[0,\infty)} g \dlambda
+ = \int_{[0,\infty)} g \dlambda.
+\]
+Nur in dem Sonderfall, dass $\int_X f \dmu = \infty$ ergibt sich auch daraus schon die zu zeigende Gleichheit.
+
+
+
 
 
 
@@ -142,7 +180,7 @@ also für alle $x,y \in (a,b)$ mit $x < y$
  = \int_{(x,y)} f \dlambda.
 \]
 
-Sei nun $U \subseteq (a,b)$ offen. Wie bereits letzte Woche gezeigt können wir $U$ schreiben als $U = \bigdotcup_{n \in \N} U_n$, wobei $U_n = \emptyset$ oder $U_n$ ein offenes Intervall ist für alle $n \in \N$. Für $g_n = \sum_{k=1}^n f \chi_{U_k}$ und $g = f\chi_U$ ist $g_n \rightarrow g$ punktweise auf ganz $(a,b)$. Da $f$ integrierbar ist, ist es auch $|f|$, und wegen $|g_n| \leq |f|$ für alle $n \in \N$ nach dem Satz über dominierte Konvergenz daher
+Sei nun $U \subseteq (a,b)$ offen. Wie bereits letzte Woche gezeigt können wir $U$ schreiben als $U = \bigdotcup_{n \in \N} U_n$, wobei $U_n = \emptyset$ oder $U_n$ ein offenes Intervall ist für alle $n \in \N$. Für $g_n = \sum_{k=1}^n f \chi_{U_k}$ und $g = f\chi_U$ ist $g_n \rightarrow g$ punktweise auf ganz $(a,b)$. Da $f$ integrierbar ist, ist es auch $|f|$, und wegen $|g_n| \leq |f|$ für alle $n \in \N$ ist nach dem Satz über dominierte Konvergenz
 \begin{align*}
  \int_U f \dlambda
  &= \int_{(a,b)} f \chi_U \dlambda
@@ -152,9 +190,9 @@ Sei nun $U \subseteq (a,b)$ offen. Wie bereits letzte Woche gezeigt können wir 
  = 0.
 \end{align*}
 
-Es sei nun $E_+ := \{x \in (a,b) : f(x) > 0\}$ mit $\lambda(E_+) \leq b-a < \infty$. Wegen der Regularität des Lebesgue-Maßes und da $\lambda_(E_+) < \infty$ finden wir eine Folge $(U_n)_{n \in \N}$ offener Mengen mit $E_+ \subseteq U_n$ und $\lambda(U_n \setminus E_+) \leq \frac{1}{n}$ für alle $n$. Wir können o.B.d.A. davon ausgehen, dass die Folge $(U_n)_{n \in \N}$ fallend ist, da wir sonst die Folge $\left( \bigcap_{k=1}^n U_k \right)_{n \in \N}$ betrachten. Es sei $U := \bigcap_{n \in \N} U_n$.
+Es sei nun $E_+ := \{x \in (a,b) : f(x) > 0\}$ mit $\lambda(E_+) \leq b-a < \infty$. Wegen der Regularität des Lebesgue-Maßes und da $\lambda(E_+) < \infty$ finden wir eine Folge $(U_n)_{n \in \N}$ offener Mengen mit $E_+ \subseteq U_n$ und $\lambda(U_n \setminus E_+) \leq \frac{1}{n}$ für alle $n$. Wir können o.B.d.A. davon ausgehen, dass $(U_n)_{n \in \N}$ eine fallende Folge auf $(a,b)$ ist, da wir sonst die Folge $\left( (a,b) \cap \bigcap_{k=1}^n U_k \right)_{n \in \N}$ betrachten. Es sei $U := \bigcap_{n \in \N} U_n$.
 
-Es ist $\int_U f \dlambda$: Es ist $f\chi_{U_n} \rightarrow f \chi_U$ punktweise auf ganz $(a,b)$ und $|f\chi_{U_n}| \leq |f|$ für alle $n \in \N$, nach dem Satz über dominierte Konvergenz also
+Es ist $\int_U f \dlambda = 0$: Es ist $f\chi_{U_n} \rightarrow f \chi_U$ punktweise auf ganz $(a,b)$ und $|f\chi_{U_n}| \leq |f|$ für alle $n \in \N$, nach dem Satz über dominierte Konvergenz also
 \[
  \int_U f \dlambda
  = \int_{(a,b)} f \chi_U \dlambda
@@ -163,17 +201,17 @@ Es ist $\int_U f \dlambda$: Es ist $f\chi_{U_n} \rightarrow f \chi_U$ punktweise
  = 0.
 \]
 
-Es ist $E_+ \subseteq U$ und, da $\mu(U_0) < \infty$ und die Folge $(U_n)_{n \in \N}$ fallend ist, 
+Es ist $E_+ \subseteq U$ und, da $\lambda(U_0) \leq \lambda((a,b)) = b-a < \infty$ und die Folge $(U_n)_{n \in \N}$ fallend ist, 
 \begin{align*}
- \mu(U \setminus E_+)
- &= \mu\left( \left( \bigcap_{n \in \N} U_n \right) \setminus E_+\right)
- = \mu\left( \bigcap_{n \in \N} (U_n \setminus E_+) \right) \\
- &= \limes{n}{\infty} \mu(U_n \setminus E_+)
+ \lambda(U \setminus E_+)
+ &= \lambda\left( \left( \bigcap_{n \in \N} U_n \right) \setminus E_+\right)
+ = \lambda\left( \bigcap_{n \in \N} (U_n \setminus E_+) \right) \\
+ &= \limes{n}{\infty} \lambda(U_n \setminus E_+)
  = \limes{n}{\infty} \frac{1}{n}
  = 0.
 \end{align*}
 
-Es ist0also $\int_{E_+} f \dlambda = \int_U f \dlambda = 0$. Da $f_{|E_+} > 0$ ist daher, wie aus der Vorlesung bekannt, $f(x) = 0$ für $\lambda$-fast alle $x \in E_+$. Nach der Definition von $E_+$ muss daher $\lambda(E_+) = 0$. Analog ergibt sich für $E_- := \{x \in (a,b) : f(x) < 0\}$, dass auch $\lambda(E_-) = 0$. Also ist
+Es ist also $\int_{E_+} f \dlambda = \int_U f \dlambda = 0$. Da $f_{|E_+} > 0$ ist daher, wie aus der Vorlesung bekannt, $f(x) = 0$ für $\lambda$-fast alle $x \in E_+$. Nach der Definition von $E_+$ muss daher $\lambda(E_+) = 0$. Analog ergibt sich für $E_- := \{x \in (a,b) : f(x) < 0\}$, dass auch $\lambda(E_-) = 0$. Also ist
 \[
  \lambda(\{x \in (a,b) : f(x) \neq 0\}) = \lambda(E_-\ \dotcup\ E_+) = \lambda(E_-) + \lambda(E_+) = 0.
 \]
@@ -183,26 +221,26 @@ Es ist0also $\int_{E_+} f \dlambda = \int_U f \dlambda = 0$. Da $f_{|E_+} > 0$ i
 
 
 \section{(Ein Konvergenzresultat)}
-Wir können o.B.d.A. davon ausgehen, dass $f_n \rightarrow f$ auf ganz $X$, da die Menge $\{x \in X : f_n \not\rightarrow f\}$ eine $\mu$-Nullmenge ist, also für das Integral $\int_X |f_n-f| \dmu$ nicht von Bedeutung ist. Wegen $f_n \geq 0$ für alle $n$ folgt damit insbesondere, dass $f \geq 0$.
+Wir können o.B.d.A. davon ausgehen, dass $f_n \rightarrow f$ auf ganz $X$, da die Menge $\{x \in X : f_n \not\rightarrow f\}$ eine $\mu$-Nullmenge ist, also für das Integral $\int_X |f_n-f| \dmu$ nicht von Bedeutung ist.
 
-Da $f$ und $f_n$ für alle $n$ integrierbar sind, ist es auch $f-f_n$ und daher auch $|f-f_n|$ für alle $n$. Nach der Dreiecksungleichung ist dabei $|f_n-f| \leq f+f_n$ für alle $n$, also $0 \leq f_n + f - |f_n - f|$ für alle $n$. Daher ist nach dem Lemma von Fatou
+Wegen $f_n \geq 0$ für alle $n$ folgt aus $f_n \rightarrow f$ punktweise auf ganz $X$, dass $f \geq 0$. Da $f$ und $f_n$ für alle $n$ integrierbar sind, ist es auch $f-f_n$ und daher auch $|f-f_n|$ für alle $n$. Nach der Dreiecksungleichung ist dabei $|f_n-f| \leq f+f_n$ für alle $n$, also $0 \leq f_n + f - |f_n - f|$ für alle $n$. Daher ist nach dem Lemma von Fatou
 \begin{equation}\label{eq: lemma von fatou}
- \int_X \limesinf{n} f_n+f-|f_n-f| \dmu
+ \int_X \limesinf{n} \left( f_n+f-|f_n-f| \right) \dmu
  \leq \limesinf{n} \int_X f_n+f-|f_n-f| \dmu.
 \end{equation}
 Dabei ist
 \[
- \int_X \limesinf{n} f_n+f-|f_n-f| \dmu
- = \int_X \limesinf{n} 2f \dmu
- = 2 \int_X f \dmu
+ \int_X \limesinf{n} \left( f_n+f-|f_n-f| \right) \dmu
+ = \int_X 2f \dmu
+ = 2 \int_X f \dmu,
 \]
-und
+da $f_n \rightarrow f$ punktweise auf ganz $X$, und
 \begin{align*}
   &\,\limesinf{n} \int_X f_n+f-|f_n-f| \dmu \\
  =&\, \limesinf{n} \int_X f_n \dmu + \limesinf{n} \int f \dmu + \limesinf{n} -\int_X |f_n-f| \dmu \\
- =&\, 2 \int_X f \dmu - \limessup{n} \int_X |f_n-f| \dmu.
+ =&\, 2 \int_X f \dmu - \limessup{n} \int_X |f_n-f| \dmu,
 \end{align*}
-Aus \eqref{eq: lemma von fatou} ergibt sich damit, dass
+da $\limes{n}{\infty} \int_X f_n \dmu = \int_X f \dmu$. Aus \eqref{eq: lemma von fatou} ergibt sich damit, dass
 \[
  0 \leq - \limessup{n} \int_X |f_n-f| \dmu,
 \]
@@ -223,15 +261,15 @@ und daher $\limes{n}{\infty} \int_X |f_n-f| \dmu = 0$.
 
 
 \subsection{}
-Es sei $f = 0$ und $f_n = \frac{1}{n} \chi_{[-n,n]}$ für alle $n \geq 1$. Dann ist $f_n \rightarrow f$ gleichmäßig auf $\R$, aber für alle $n \geq 1$
+Es sei $f = 0$ und $f_n = \frac{1}{n} \chi_{[-n,n]}$ für alle $n \geq 1$. Dann ist $f_n \rightarrow f$ gleichmäßig auf ganz $\R$, aber für alle $n \geq 1$ ist
 \[
  \int_\R f_n \dlambda = 2 \neq 0 = \int_\R f \dlambda.
 \]
-Inbesondere konvergiert $\int_\R f_n \dlambda$ nicht gegen $\int_\R f \lambda$.
+Inbesondere konvergiert $\int_\R f_n \dlambda$ für $n \rightarrow \infty$ nicht gegen $\int_\R f \lambda$.
 
 
 \subsection{}
-Diese Aussage ist totaler Blödsinn: Aus ihr folgt insbesondere, dass zwei Funktionen genau dann das gleich Integral haben, wenn sie fast überall gleich sind. Ein einfaches und offensichtliches Gegenbeispiel ist $f_n = \chi_{[-1,0]}$ unabhängig von $n \in \N$ und $f = \chi_{[0,1]}$.
+Diese Aussage ist totaler Blödsinn: Aus ihr folgt insbesondere, dass zwei integrierbare Funktionen genau dann das gleich Lebesgue-Integral haben, wenn sie fast überall gleich sind. Ein einfaches und offensichtliches Gegenbeispiel ist $f_n = \chi_{[-1,0]}$ unabhängig von $n \in \N$ und $f = \chi_{[0,1]}$.
 
 
 \subsection{}
@@ -239,11 +277,14 @@ Man betrachte $f=0$ und die Funktionenfolge $(f_n)_{n \in \N}$ definiert als
 \[
  f_{2^n-1+k} := \chi_{\left[k/2^n,(k+1)/2^n\right]}
 \]
-für alle $n \in \N$ und $k=0,\ldots,n-1$, d.h. $f_0 = \chi_{[0,1]}$, $f_1 = \chi_{[0,1/2]}$, $f_2 = \chi_{[1/2,1]}$, $f_{3+k} = \chi_{[k/4,(k+1)/4]}$ für $k=0,\ldots,3$, usw.
+für alle $n \in \N$ und $k=0,\ldots,2^n-1$, d.h. $f_0 = \chi_{[0,1]}$, $f_1 = \chi_{[0,1/2]}$, $f_2 = \chi_{[1/2,1]}$, $f_{3+k} = \chi_{[k/4,(k+1)/4]}$ für $k=0,\ldots,3$, usw.
 
 Es ist offenbar
 \[
- \int_\R f_n \dlambda \rightarrow 0 = \int_\R f \dlambda,
+ \limes{n}{\infty} \int_\R f_n \dlambda
+ = \limes{n}{\infty} \frac{1}{2^n}
+ = 0
+ = \int_\R f \dlambda,
 \]
 aber $f_n \not\rightarrow f$ auf ganz $[0,1]$.
 
