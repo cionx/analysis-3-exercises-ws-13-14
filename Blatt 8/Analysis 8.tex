@@ -90,6 +90,140 @@
 
 
 
+\section{Vertauschung von Integralen}
+
+\subsection{}
+Für alle $x \in \R$ ist
+\[
+ \int_\R f(x,y) \dmu(y)
+ = \int_\R \delta_{x,y} \dmu(y)
+ = \mu(\{x\}) \cdot 1
+ = 1,
+\]
+also
+\[
+ \int_\R \int_\R f(x,y) \dmu(y) \dlambda(x)
+ = \int_\R 1 \dlambda
+ = \infty.
+\]
+Andererseits ist für alle $y \in \R$
+\[
+ \int_\R f(x,y) \lambda(x)
+ = \int_\R \delta_{x,y} \dlambda(x)
+ = \lambda(\{y\}) \cdot 1
+ = 0,
+\]
+also
+\[
+ \int_\R \int_\R f(x,y) \dlambda(x) \dmu(y)
+ = \int_\R 0 \dmu
+ = 0.
+\]
+Insbesondere sind die beiden Doppelintegrale verschieden.
+
+\subsection{}
+Es ist für alle $1 \in (0,1)$
+\begin{equation*}
+ \int_{(0,1)} g(x,y) \dlambda(y)
+ = \int_0^1 \frac{x^2-y^2}{(x^2+y^2)^2} \dy,
+\end{equation*}
+da $g(x,y)$ für festes $x \in (0,1)$ auf $[0,1]$ stetig ist, also Lebesgue- und Riemannintegral übereinstimmen. Für obiges Integral ergibt sich
+\begin{equation}\label{eq: integral auseinender}
+ \begin{aligned}
+  \int_0^1 \frac{x^2-y^2}{(x^2+y^2)^2} \dy
+  &= \int_0^1 \frac{x^2+y^2-2y^2}{(x^2+y^2)^2} \dy \\
+  &= \int_0^1 \frac{1}{x^2+y^2} \dy - \int_0^1 \frac{2y^2}{(x^2+y^2)^2} \dy.
+ \end{aligned}
+\end{equation}
+Das Auseinanderziehen der Integrale ist möglich, da beide existieren, da die entsprechenden Funktionen auf $[0,1]$ stets stetig und beschränkt sind. Durch partielle Integration ergibt sich, dass
+\begin{align*}
+  \int_0^1 \frac{2y^2}{(x^2+y^2)^2} \dy
+  &= \int_0^1 y \cdot \frac{2y}{(x^2+y^2)^2} \dy
+  = \left. -y \frac{1}{x^2+y^2} \right|_{y=0}^1 + \int_0^1 \frac{1}{x^2+y^2} \\
+  &= -\frac{1}{1+x^2} + \int_0^1 \frac{1}{x^2+y^2}.
+\end{align*}
+Zusammen mit \eqref{eq: integral auseinender} ergibt sich damit, dass
+\[
+ \int_{(0,1)} g(x,y) \dlambda(y)
+ = \frac{1}{1+x^2}
+\]
+für alle $x \in (0,1)$.
+Da $\frac{1}{1+x^2}$ auf $[0,1]$ stetig und beschränkt, und damit Riemann-integrierbar ist, gilt
+\begin{align*}
+ \int_{(0,1)} \int_{(0,1)} g(x,y) \dlambda(y) \dlambda(x)
+ &= \int_{(0,1)} \frac{1}{1+x^2} \dlambda(x)
+ = \int_0^1 \frac{1}{1+x^2} \dx \\
+ &= \left. \arctan(x) \right|_{x=0}^1
+ = \arctan(1) - \arctan(0)
+ = \frac{\pi}{4}.
+\end{align*}
+
+Für das andere Doppelintegral ergibt sich, da $g(x,y) = -g(y,x)$ für alle $x,y \in (0,1)$, aus dem gerade berechneten Integral, dass
+\[
+ \int_{(0,1)} \int_{(0,1)} g(x,y) \dlambda(x) \dlambda(y)
+ = -\int_{(0,1)} \int_{(0,1)} g(y,x) \dlambda(x) \dlambda(y)
+ = -\frac{\pi}{4}.
+\]
+Insbesondere sind die beiden Integrale verschieden.
+
+Um $\int_{(0,1)^2} |g| \dlambda_2$ zu bestimmen, bemerken wir, dass $|g| \geq 0$ auf $(0,1)^2$ stetig, also  Borell-messbar ist. Wäre $\int_{(0,1)^2} |g| \dlambda_2 < \infty$, so wäre $|g|$ und damit auch $g$ auf $(0,1)^2$ bezüglich $\lambda_2$ integrierbar. Da $(0,1)^2 = (0,1) \times (0,1)$ und $\lambda_2 = \lambda \times \lambda$ wären dann die beiden oben berechneten Integrale nach dem Satz von Fubini gleich. Da dies nicht der Fall ist, muss $\int_{(0,1)^2} |g| \dlambda_2 = \infty$.
+
+Dies lässt sich auch nachrechnen: Es lässt sich auf $\int_{(0,1)^2} |g| \dlambda_2$ der Satz von Tonelli anwenden, weshalb
+\[
+ \int_{(0,1)^2} |g| \dlambda_2
+ = \int_{(0,1)} \int_{(0,1)} |g(x,y)| \dlambda(y) \dlambda(x).
+\]
+Wir bemerken, dass, da $|g|$ stetig auf $[0,1] \setminus \{(0,0)\}$ ist, für alle $x \in (0,1)$
+\[
+ \int_{(0,1)} |g(x,y)| \dlambda(y)
+ = \int_0^1 \frac{|x^2-y^2|}{(x^2+y^2)^2} \dy
+ \geq \int_0^x \frac{x^2-y^2}{(x^2+y^2)^2} \dy.
+\]
+Analog zu den vorherigen Berechnungen ergibt sich, dass
+\[
+ \int_0^x \frac{x^2-y^2}{(x^2+y^2)^2} \dy
+ = \left. y\frac{1}{x^2+y^2} \right|_{y=0}^x
+ = \frac{1}{2x}.
+\]
+Da $\frac{1}{2x}$ auf $(0,1)$ stetig ist, und auf jedem kompakten Teilintervall von $(0,1)$ Riemann-integrierbar, ergibt sich damit zusammengefasst
+\[
+ \int_{(0,1)^2} |g| \dlambda_2
+ \geq \int_{(0,1)} \frac{1}{2x} \dlambda
+ = \int_0^1 \frac{1}{2x} \dx
+ = \infty.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
