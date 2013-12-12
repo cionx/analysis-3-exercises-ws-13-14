@@ -197,6 +197,102 @@ Da $\frac{1}{2x}$ auf $(0,1)$ stetig ist, und auf jedem kompakten Teilintervall 
 
 
 
+\section{Fast überall differenzierbar}
+
+
+\subsection{}
+Es sei
+\[
+ N = \{x \in [0,1] : f \text{ ist nicht differenzierbar an } x\}.
+\]
+Da $f$ fast überall differenzierbar ist, ist $\lambda(N) = 0$ und $f$ auf $N^C \subseteq (0,1)$ differenzierbar. Wir zeigen zunächst, dass $g_k(x) \rightarrow f'(x)$ für $k \rightarrow \infty$ punktweise auf $N^C$. Hierfür unterscheiden wir zwischen zwei Fällen:
+
+Ist $x = j/2^n$ für ein $n \in \N$ und $j \in \{0,1,\ldots,2^n-1\}$, so ist
+\[
+ g_k(x) = \frac{f(x+2^{-k})-f(x)}{2^{-k}} \text{ für alle } k \geq n,
+\]
+und daher, da $f$ an der Stelle $x$ differenzierbar ist,
+\[
+ \limes{k}{\infty} g_k(x)
+ = \limes{k}{\infty} \frac{f(x+2^{-k})-f(x)}{2^{-k}}
+ = f'(x).
+\]
+
+Andernfalls bezeichne für alle $k \in \N$ das Paar $x_k^L < x < x_k^R$ mit $x_k^R - x_k^L = 2^{-k}$ die Randpunkte des Intervalls, auf dem $g_k$ als konstant definiert ist. Es ergibt sich, dass für alle $k \in \N$
+\begin{align*}
+ g_k(x)
+ &= \frac{f\left(x_k^R\right)-f\left(x_k^L\right)}{2^{-k}}
+ = \frac{f\left(x_k^R\right)-f(x)}{2^{-k}} + \frac{f(x)-f\left(x_k^L\right)}{2^{-k}} \\
+ &= \frac{f\left(x_k^R\right)-f(x)}{x_k^R-x}\frac{x_k^R-x}{2^{-k}}
+    + \frac{f(x)-f\left(x_k^L\right)}{x-x_k^L}\frac{x-x_k^L}{2^{-k}},
+\end{align*}
+sowie
+\begin{align*}
+ f'(x)
+ &= 1 \cdot f'(x)
+ = \left(\frac{x_k^R-x}{2^{-k}}+\frac{x-x_k^L}{2^{-k}}\right)f'(x) \\
+ &= \frac{x_k^R-x}{2^{-k}}f'(x) + \frac{x-x_k^L}{2^{-k}}f'(x),
+\end{align*}
+also für alle $k \in \N$
+\begin{align*}
+  &\, g_k(x)-f'(x) \\
+ =&\, \left(\frac{f\left(x_k^R\right)-f(x)}{x_k^R-x}-f'(x)\right)\frac{x_k^R-x}{2^{-k}}
+    + \left(\frac{f(x)-f\left(x_k^L\right)}{x-x_k^L}-f'(x)\right)\frac{x-x_k^L}{2^{-k}}.
+\end{align*}
+Durch die Dreiecksungleichung ergibt sich für alle $k \in \N$
+\begin{equation}\label{eq: abschätzung lang}
+ \begin{aligned}
+      &\, |g_k(x)-f'(x)| \\
+  \leq&\, \left|\frac{f\left(x_k^R\right)-f(x)}{x_k^R-x}-f'(x)\right|\frac{x_k^R-x}{2^{-k}}
+          + \left|\frac{f(x)-f\left(x_k^L\right)}{x-x_k^L}-f'(x)\right|\frac{x-x_k^L}{2^{-k}}.
+ \end{aligned}
+\end{equation}
+Sei nun $\varepsilon > 0$ beliebig aber fest. Da $\limes{k}{\infty} x_k^L = x = \limes{k}{\infty} x_k^R$ und $f$ an der Stelle $x$ differenzierbar ist, gibt es $n_L, n_R \in \N$ mit
+\begin{align*}
+ \left|\frac{f\left(x_k^R\right)-f(x)}{x_k^R-x}-f'(x)\right| &< \varepsilon \text{ für alle } k \geq n_L \text{ und} \\
+ \left|\frac{f(x)-f\left(x_k^L\right)}{x-x_k^L}-f'(x)\right| &< \varepsilon \text{ für alle } k \geq n_R.
+\end{align*}
+Es ergibt sich damit aus \eqref{eq: abschätzung lang}, dass für alle $k \geq \max \{n_L, n_R\}$
+\begin{align*}
+ |g_k(x) - f'(x)|
+ < \varepsilon \frac{x_k^R-x}{2^{-k}} + \varepsilon \frac{x-x_k^L}{2^{-k}}
+ = \varepsilon \left(\frac{x_k^R-x}{2^{-k}}+\frac{x-x_k^L}{2^{-k}}\right)
+ = \varepsilon.
+\end{align*}
+Wegen der Beliebigkeit von $\varepsilon > 0$ zeigt dies, dass $g_k(x) \rightarrow f'(x)$ für $k \rightarrow \infty$.
+
+Da $f' : [0,1] \rightarrow \R$ nach Definition Lebesgue-messbar ist, und $g = f'$ auf $N^C$, folgt, da $N$ eine Lebesgue-Nullmenge und das Lebesgue-Maß vollständig ist, dass auch $g : [0,1) \rightarrow \R$ Lebesgue-messbar ist. (Vergleiche Satz 2.10.) Da $f$ streng monoton steigend ist, ist $g = f' \geq 0$ auf $N^c$. Das Integral $\int_{(0,1)} f' \dlambda = \int_{N^c} f' \dlambda$ ist daher wohldefiniert. Aus der Definition von $g_k$ ergibt sich auch direkt, dass für alle $k \in \N$.
+\[
+ \int_{N^c} g_k(x) \dlambda
+ = \sum_{j=0}^{2^k-1} f\left((j+1)2^{-k}\right)-f\left(j2^{-k}\right) 
+ = f(1)-f(0).
+\]
+Nach dem Lemma von Fatou ist daher
+\[
+ \int_{(0,1)} f' \dlambda
+ = \int_{N^c} f' \dlambda
+ = \int_{N^c} \limesinf{k} g_k \dlambda
+ \leq \limesinf{k} \int_{N^c} g_k \dlambda
+ = f(1)-f(0).
+\]
+Insbesondere ist $\int_{(0,1)} f' \dlambda < \infty$, also $f'$ über $(0,1)$ integrierbar bezüglich $\lambda$.
+
+
+\subsection{}
+Man betrachte die Kantormenge $C \subseteq [0,1]$ und die Kantorfunktion $f: [0,1] \rightarrow [0,1]$. Es ist bekannt, dass $f$ stetig und monoton steigend ist. $f$ ist auch $\lambda$-fast überall differenzierbar: Für alle $x \in [0,1] \setminus C$ gibt es ein $\varepsilon > 0$ mit $B_\varepsilon(x) \subseteq [0,1] \setminus C$. $f$ ist auf nach $B_\varepsilon(x)$ konstant, weshalb $f$ an $x$ differenzierbar mit $f'(x) = 0$ ist. Mit $\lambda(K) = 0$ ergibt sich die Behauptung.
+
+Es ist insbesondere $\int_{(0,1)} f'(x) \dlambda = 0$, aber $f(1) - f(0) = 1 - 0 = 1$.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
