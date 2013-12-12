@@ -90,7 +90,7 @@
 
 
 
-\section{Vertauschung von Integralen}
+\section{(Vertauschung von Integralen)}
 
 \subsection{}
 Für alle $x \in \R$ ist
@@ -197,13 +197,13 @@ Da $\frac{1}{2x}$ auf $(0,1)$ stetig ist, und auf jedem kompakten Teilintervall 
 
 
 
-\section{Fast überall differenzierbar}
+\section{(Fast überall differenzierbar)}
 
 
 \subsection{}
 Es sei
 \[
- N = \{x \in [0,1] : f \text{ ist nicht differenzierbar an } x\}.
+ N := \{x \in [0,1] : f \text{ ist nicht differenzierbar an } x\}.
 \]
 Da $f$ fast überall differenzierbar ist, ist $\lambda(N) = 0$ und $f$ auf $N^C \subseteq (0,1)$ differenzierbar. Wir zeigen zunächst, dass $g_k(x) \rightarrow f'(x)$ für $k \rightarrow \infty$ punktweise auf $N^C$. Hierfür unterscheiden wir zwischen zwei Fällen:
 
@@ -282,6 +282,103 @@ Insbesondere ist $\int_{(0,1)} f' \dlambda < \infty$, also $f'$ über $(0,1)$ in
 Man betrachte die Kantormenge $C \subseteq [0,1]$ und die Kantorfunktion $f: [0,1] \rightarrow [0,1]$. Es ist bekannt, dass $f$ stetig und monoton steigend ist. $f$ ist auch $\lambda$-fast überall differenzierbar: Für alle $x \in [0,1] \setminus C$ gibt es ein $\varepsilon > 0$ mit $B_\varepsilon(x) \subseteq [0,1] \setminus C$. $f$ ist auf nach $B_\varepsilon(x)$ konstant, weshalb $f$ an $x$ differenzierbar mit $f'(x) = 0$ ist. Mit $\lambda(K) = 0$ ergibt sich die Behauptung.
 
 Es ist insbesondere $\int_{(0,1)} f'(x) \dlambda = 0$, aber $f(1) - f(0) = 1 - 0 = 1$.
+
+
+
+
+
+\section{(Integralberechnung)}
+
+
+\subsection{}
+Für alle $k \in \geq 1$ definieren wir $g_k : (0,\infty) \rightarrow \R$ als
+\[
+ g^1_k(x) := xe^{-kx} \text{ für alle } x > 0.
+\]
+Für alle $k \geq 1$ gilt: $g^1_k$ ist auf $(0,\infty)$ stetig und beschränkt (denn $\limes{x}{0} g_k(x) = 0$ und $\limes{x}{\infty} g^1_k(x) = 0$), und auf jedem kompakten Teilintervall von $(0,\infty)$ Riemann-integrierbar. $|g^1_k| = g^1_k$ ist auf $(0,\infty)$ auch uneigentlich Riemann-integrierbar, da
+\begin{align*}
+ \int_0^\infty x e^{-kx} \dx
+ &= \limes{s}{\infty} \int_0^s x e^{-kx} \dx
+ = \limes{s}{\infty} \left. -\frac{1}{k} x e^{-kx} \right|_{x=0}^s + \frac{1}{k} \int_0^s e^{-ikx} \dx \\
+ &= \limes{s}{\infty} \left. -\frac{1}{k} x e^{-kx} - \frac{1}{k^2} e^{-kx} \right|_{x=0}^s
+ = \limes{s}{\infty} -\frac{1}{k}se^{-ks}-\frac{1}{k^2}e^{-ks}+\frac{1}{k^2} \\
+ &= \frac{1}{k^2}.
+\end{align*}
+Insbesondere ist daher $g^1_k$ auf $(0,\infty)$ auch Lebesgue-integrierbar mit
+\[
+ \int_{(0,\infty)} g^1_k \dlambda
+ = \int_0^\infty g^1_k(x) \dx
+ = \frac{1}{k^2}.
+\]
+
+Wir bemerken nun, dass für alle $x > 0$
+\[
+ \sum_{k \geq 1} e^{-kx} = \frac{e^{-x}}{1-e^{-x}} = \frac{1}{e^x-1},
+\]
+da es sich um eine geometrische Reihe handelt. Es ist daher $f_1(x) = \sum_{k \geq 1} g^1_k(x)$ für alle $x \in (0,\infty)$. Da $f_1$ nur eine Unstetigkeitsstelle besitzt, ist $f_1$ Borell-messbar, und für das Integral $\int_\R f_1 \dlambda$ ergibt sich nun wegen $|g^1_k| \geq 0$ für alle $k \geq 1$ nach dem Satz von Beppo Levi das
+\[
+ \int_\R f_1 \dlambda
+ = \int_{(0,\infty)} f_1 \dlambda
+ = \int_{(0,\infty)} \sum_{k \geq 1} g^1_k \dlambda
+ = \sum_{k \geq 1} \int_{(0,\infty)} g^1_k \dlambda
+ = \sum_{k \geq 1} \frac{1}{k^2}.
+\]
+
+
+\subsection{}
+Da $0 \leq f_2 \leq f_1$, und $f_1$ über $\R$ integrierbar ist, ist es auch $f_2$.
+Für alle $k \geq 1$ definieren wir die Funktion $g^2_k : (0, \infty) \rightarrow \R$ als
+\[
+ g^2_k(x) := (-1)^{k+1} xe^{-kx} = (-1)^{k+1} g^1_k(x) \text{ für alle } x > 0.
+\]
+Für alle $k \geq 0$ ist $g_k$ auf $(0,\infty)$ uneigentlich Riemann-integrierbar, da
+\[
+ \int_0^\infty g^2_k(x) \dx
+ = (-1)^{k+1} \int_0^\infty g^1_k(x) \dx
+ = (-1)^{k+1} \frac{1}{k^2}.
+\]
+Da $|g^2_k| = g^1_k$ über $(0,\infty)$ uneigentlich Riemann-integrierbar ist, ist $g^2_k$ über $(0,\infty)$  auch Lebesgue-integrierbar mit
+\[
+ \int_{(0,\infty)} g^2_k \dlambda = \int_0^\infty g^2_k(x) \dx = (-1)^{k+1} \frac{1}{k^2}.
+\]
+Für alle $k \geq 1$ definieren wir nun $h_k : (0,\infty) \rightarrow \R$ als
+\[
+ h_j = \sum_{j=1}^k g^2_k.
+\]
+Wir bemerken, dass für alle $x \geq 0$
+\[
+ \sum_{k \geq 1} (-1)^k e^{-kx}
+ = \sum_{k \geq 1} (-e^{-x})^k
+ = \frac{-e^{-x}}{1+e^{-x}}
+ = -\frac{1}{e^x+1}
+\]
+Also ist für alle $x > 0$
+\[
+ f_2(x)
+ = \frac{x}{e^x-1}
+ = \sum_{k \geq 1} g_k(x)
+ = \limes{k}{\infty} h_k(x).
+\]
+Da für alle $k \geq 1$ auch
+\[
+ |h_k| \leq \sum_{j=1}^k |g^2_k| = \sum_{j=1}^k g^1_k \leq f_1,
+\]
+und $f_1$ über $(0,\infty)$ bezüglich $\lambda$ integrierbar ist, ergibt sich mit dem Satz von der dominierten Konvergenz, dass
+\begin{align*}
+ \int_\R f_2 \dlambda
+ &= \int_{(0,\infty)} f_2 \dlambda
+ = \int_{(0,\infty)} \limes{k}{\infty} h_k \dlambda \\
+ &= \limes{k}{\infty} \int_{(0,\infty)} h_k \dlambda
+ = \limes{k}{\infty} \int_{(0,\infty)} \sum_{j=1}^k g^2_j \dlambda \\
+ &= \sum_{j \geq 1} \int_{(0,\infty)} g^2_j \dlambda
+ = \sum_{j \geq 1} (-1)^{j+1}\frac{1}{j^2}.
+\end{align*}
+
+
+
+
+
+
 
 
 
