@@ -108,7 +108,7 @@ also
 \]
 Andererseits ist für alle $y \in \R$
 \[
- \int_\R f(x,y) \lambda(x)
+ \int_\R f(x,y) \dlambda(x)
  = \int_\R \delta_{x,y} \dlambda(x)
  = \lambda(\{y\}) \cdot 1
  = 0,
@@ -122,12 +122,12 @@ also
 Insbesondere sind die beiden Doppelintegrale verschieden.
 
 \subsection{}
-Es ist für alle $1 \in (0,1)$
+Es ist für alle $x \in (0,1)$
 \begin{equation*}
  \int_{(0,1)} g(x,y) \dlambda(y)
  = \int_0^1 \frac{x^2-y^2}{(x^2+y^2)^2} \dy,
 \end{equation*}
-da $g(x,y)$ für festes $x \in (0,1)$ auf $[0,1]$ stetig ist, also Lebesgue- und Riemannintegral übereinstimmen. Für obiges Integral ergibt sich
+da $g(x,y)$ für festes $x \in (0,1)$ auf $[0,1]$ stetig und beschränkt ist, also Lebesgue- und Riemann-integral übereinstimmen. Für obiges Integral ergibt sich
 \begin{equation}\label{eq: integral auseinender}
  \begin{aligned}
   \int_0^1 \frac{x^2-y^2}{(x^2+y^2)^2} \dy
@@ -135,11 +135,11 @@ da $g(x,y)$ für festes $x \in (0,1)$ auf $[0,1]$ stetig ist, also Lebesgue- und
   &= \int_0^1 \frac{1}{x^2+y^2} \dy - \int_0^1 \frac{2y^2}{(x^2+y^2)^2} \dy.
  \end{aligned}
 \end{equation}
-Das Auseinanderziehen der Integrale ist möglich, da beide existieren, da die entsprechenden Funktionen auf $[0,1]$ stets stetig und beschränkt sind. Durch partielle Integration ergibt sich, dass
+Das Auseinanderziehen der Integrale ist möglich, da beide Integrale einzeln existieren, da die entsprechenden Funktionen auf $[0,1]$ für alle $x \in (0,1)$ stetig und beschränkt sind. Durch partielle Integration ergibt sich, dass
 \begin{align*}
   \int_0^1 \frac{2y^2}{(x^2+y^2)^2} \dy
   &= \int_0^1 y \cdot \frac{2y}{(x^2+y^2)^2} \dy
-  = \left. -y \frac{1}{x^2+y^2} \right|_{y=0}^1 + \int_0^1 \frac{1}{x^2+y^2} \\
+  = \left. -y \frac{1}{x^2+y^2} \right|_{y=0}^1 + \int_0^1 \frac{1}{x^2+y^2} \dy\\
   &= -\frac{1}{1+x^2} + \int_0^1 \frac{1}{x^2+y^2}.
 \end{align*}
 Zusammen mit \eqref{eq: integral auseinender} ergibt sich damit, dass
@@ -158,7 +158,7 @@ Da $\frac{1}{1+x^2}$ auf $[0,1]$ stetig und beschränkt, und damit Riemann-integ
  = \frac{\pi}{4}.
 \end{align*}
 
-Für das andere Doppelintegral ergibt sich, da $g(x,y) = -g(y,x)$ für alle $x,y \in (0,1)$, aus dem gerade berechneten Integral, dass
+Für das andere Doppelintegral ergibt sich, da $g(x,y) = -g(y,x)$ für alle $x,y \in (0,1)$ damit auch direkt, dass
 \[
  \int_{(0,1)} \int_{(0,1)} g(x,y) \dlambda(x) \dlambda(y)
  = -\int_{(0,1)} \int_{(0,1)} g(y,x) \dlambda(x) \dlambda(y)
@@ -173,7 +173,7 @@ Dies lässt sich auch nachrechnen: Es lässt sich auf $\int_{(0,1)^2} |g| \dlamb
  \int_{(0,1)^2} |g| \dlambda_2
  = \int_{(0,1)} \int_{(0,1)} |g(x,y)| \dlambda(y) \dlambda(x).
 \]
-Wir bemerken, dass, da $|g|$ stetig auf $[0,1] \setminus \{(0,0)\}$ ist, für alle $x \in (0,1)$
+Wir bemerken, dass, da $|g|$ stetig auf $[0,1]^2 \setminus \{(0,0)\}$ ist, für alle $x \in (0,1)$
 \[
  \int_{(0,1)} |g(x,y)| \dlambda(y)
  = \int_0^1 \frac{|x^2-y^2|}{(x^2+y^2)^2} \dy
@@ -185,7 +185,7 @@ Analog zu den vorherigen Berechnungen ergibt sich, dass
  = \left. y\frac{1}{x^2+y^2} \right|_{y=0}^x
  = \frac{1}{2x}.
 \]
-Da $\frac{1}{2x}$ auf $(0,1)$ stetig ist, und auf jedem kompakten Teilintervall von $(0,1)$ Riemann-integrierbar, ergibt sich damit zusammengefasst
+Da $1/(2x)$ auf dem Intervall $(0,1)$ stetig ist, und auf jedem kompakten Teilintervall von $(0,1)$ Riemann-integrierbar, ergibt sich damit zusammengefasst
 \[
  \int_{(0,1)^2} |g| \dlambda_2
  \geq \int_{(0,1)} \frac{1}{2x} \dlambda
@@ -203,7 +203,7 @@ Da $\frac{1}{2x}$ auf $(0,1)$ stetig ist, und auf jedem kompakten Teilintervall 
 \subsection{}
 Es sei
 \[
- N := \{x \in [0,1] : f \text{ ist nicht differenzierbar an } x\}.
+ N := \{x \in [0,1] : f \text{ ist nicht differenzierbar an der Stelle } x\}.
 \]
 Da $f$ fast überall differenzierbar ist, ist $\lambda(N) = 0$ und $f$ auf $N^C \subseteq (0,1)$ differenzierbar. Wir zeigen zunächst, dass $g_k(x) \rightarrow f'(x)$ für $k \rightarrow \infty$ punktweise auf $N^C$. Hierfür unterscheiden wir zwischen zwei Fällen:
 
@@ -218,7 +218,7 @@ und daher, da $f$ an der Stelle $x$ differenzierbar ist,
  = f'(x).
 \]
 
-Andernfalls bezeichne für alle $k \in \N$ das Paar $x_k^L < x < x_k^R$ mit $x_k^R - x_k^L = 2^{-k}$ die Randpunkte des Intervalls, auf dem $g_k$ als konstant definiert ist. Es ergibt sich, dass für alle $k \in \N$
+Andernfalls bezeichne für alle $k \in \N$ das Paar $x_k^L < x < x_k^R$ mit $x_k^R - x_k^L = 2^{-k}$ die Randpunkte des Intervalls, auf dem $g_k$ als konstant definiert ist, und das $x$ enthält. Es ergibt sich, dass für alle $k \in \N$
 \begin{align*}
  g_k(x)
  &= \frac{f\left(x_k^R\right)-f\left(x_k^L\right)}{2^{-k}}
@@ -249,8 +249,8 @@ Durch die Dreiecksungleichung ergibt sich für alle $k \in \N$
 \end{equation}
 Sei nun $\varepsilon > 0$ beliebig aber fest. Da $\limes{k}{\infty} x_k^L = x = \limes{k}{\infty} x_k^R$ und $f$ an der Stelle $x$ differenzierbar ist, gibt es $n_L, n_R \in \N$ mit
 \begin{align*}
- \left|\frac{f\left(x_k^R\right)-f(x)}{x_k^R-x}-f'(x)\right| &< \varepsilon \text{ für alle } k \geq n_L \text{ und} \\
- \left|\frac{f(x)-f\left(x_k^L\right)}{x-x_k^L}-f'(x)\right| &< \varepsilon \text{ für alle } k \geq n_R.
+ \left|\frac{f\left(x_k^R\right)-f(x)}{x_k^R-x}-f'(x)\right| &< \varepsilon \text{ für alle } k \geq n_R \text{ und} \\
+ \left|\frac{f(x)-f\left(x_k^L\right)}{x-x_k^L}-f'(x)\right| &< \varepsilon \text{ für alle } k \geq n_L.
 \end{align*}
 Es ergibt sich damit aus \eqref{eq: abschätzung lang}, dass für alle $k \geq \max \{n_L, n_R\}$
 \begin{align*}
@@ -275,11 +275,11 @@ Nach dem Lemma von Fatou ist daher
  \leq \limesinf{k} \int_{N^c} g_k \dlambda
  = f(1)-f(0).
 \]
-Insbesondere ist $\int_{(0,1)} f' \dlambda < \infty$, also $f'$ über $(0,1)$ integrierbar bezüglich $\lambda$.
+Insbesondere ist $0 \leq \int_{(0,1)} f' \dlambda < \infty$, also $f'$ über $(0,1)$ integrierbar bezüglich $\lambda$.
 
 
 \subsection{}
-Man betrachte die Kantormenge $C \subseteq [0,1]$ und die Kantorfunktion $f: [0,1] \rightarrow [0,1]$. Es ist bekannt, dass $f$ stetig und monoton steigend ist. $f$ ist auch $\lambda$-fast überall differenzierbar: Für alle $x \in [0,1] \setminus C$ gibt es ein $\varepsilon > 0$ mit $B_\varepsilon(x) \subseteq [0,1] \setminus C$. $f$ ist auf nach $B_\varepsilon(x)$ konstant, weshalb $f$ an $x$ differenzierbar mit $f'(x) = 0$ ist. Mit $\lambda(K) = 0$ ergibt sich die Behauptung.
+Man betrachte die Kantormenge $C \subseteq [0,1]$ und die Kantorfunktion $f: [0,1] \rightarrow [0,1]$. Es ist bekannt, dass $f$ stetig und monoton steigend ist. $f$ ist auch $\lambda$-fast überall differenzierbar: Für alle $x \in [0,1] \setminus C$ gibt es ein $\varepsilon > 0$ mit $B_\varepsilon(x) \subseteq [0,1] \setminus C$. $f$ ist auf $B_\varepsilon(x)$ konstant, weshalb $f$ an der Stelle $x$ differenzierbar mit $f'(x) = 0$ ist. Mit $\lambda(K) = 0$ ergibt sich die Behauptung.
 
 Es ist insbesondere $\int_{(0,1)} f'(x) \dlambda = 0$, aber $f(1) - f(0) = 1 - 0 = 1$.
 
@@ -291,7 +291,7 @@ Es ist insbesondere $\int_{(0,1)} f'(x) \dlambda = 0$, aber $f(1) - f(0) = 1 - 0
 
 
 \subsection{}
-Für alle $k \in \geq 1$ definieren wir $g_k : (0,\infty) \rightarrow \R$ als
+Für alle $k \geq 1$ definieren wir $g^1_k : (0,\infty) \rightarrow \R$ als
 \[
  g^1_k(x) := xe^{-kx} \text{ für alle } x > 0.
 \]
@@ -299,7 +299,7 @@ Für alle $k \geq 1$ gilt: $g^1_k$ ist auf $(0,\infty)$ stetig und beschränkt (
 \begin{align*}
  \int_0^\infty x e^{-kx} \dx
  &= \limes{s}{\infty} \int_0^s x e^{-kx} \dx
- = \limes{s}{\infty} \left. -\frac{1}{k} x e^{-kx} \right|_{x=0}^s + \frac{1}{k} \int_0^s e^{-ikx} \dx \\
+ = \limes{s}{\infty} \left. -\frac{1}{k} x e^{-kx} \right|_{x=0}^s + \frac{1}{k} \int_0^s e^{-kx} \dx \\
  &= \limes{s}{\infty} \left. -\frac{1}{k} x e^{-kx} - \frac{1}{k^2} e^{-kx} \right|_{x=0}^s
  = \limes{s}{\infty} -\frac{1}{k}se^{-ks}-\frac{1}{k^2}e^{-ks}+\frac{1}{k^2} \\
  &= \frac{1}{k^2}.
