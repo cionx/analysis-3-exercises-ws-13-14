@@ -90,6 +90,204 @@
 
 
 
+\section{Riemann vs. Lebesgue}
+
+
+Wir gehen im Folgenden davon aus, dass $f$, bzw. der Ausdruck $\sin(x)/x$, an der Stelle $x = 0$ als $f(0) = 1$ definiert ist. Aus Analysis 1 ist bekannt, dass $f$ dann auf ganz $\R$ stetig differenzierbar ist.
+
+
+\subsection{}
+Für alle $n \in \N$ ist
+\[
+ \int_{(0,\infty)} |f| d\lambda
+ \geq \int_{[0,n\pi]} |f| d\lambda
+ = \int_0^{n\pi} |f(x)| \dx
+ = \int_0^{n\pi} \frac{|\sin(x)|}{x} \dx
+\]
+Wir dürfen das Lebesgue- mit dem Riemann-Integral vertauschen, da $|f|$ auf $[0,n\pi]$ beschränkt und stetig ist. Da für alle $n \in \N$
+\begin{align*}
+ \int_0^{n\pi} \frac{|\sin(x)|}{x} \dx
+ &= \sum_{k=1}^n \int_{(k-1)\pi}^{k\pi} \frac{|\sin(x)|}{x} \dx
+ \geq \sum_{k=1}^n \frac{1}{k\pi} \int_{(k-1)\pi}^{k\pi} |\sin(x)| \dx \\
+ &= \sum_{k=1}^n \frac{1}{k\pi} \int_0^\pi \sin(x) \dx
+ = \sum_{k=1} ^n \frac{2}{k\pi}
+\end{align*}
+ist für alle $n \in \N$
+\[
+ \int_{(0,\infty)} |f| \dlambda
+ \geq \frac{2}{\pi} \sum_{k=1}^n \frac{1}{k},
+\]
+also
+\[
+ \int_{(0,\infty)} |f| \dlambda
+ \geq \frac{2}{\pi} \sum_{k=1}^\infty \frac{1}{k}
+ = \infty.
+\]
+Es ist also $\int_{(0\infty)} |f| \dlambda = \infty$. Daher ist $|f|$ auf $(0,\infty)$ nicht Lebesgue-integrierbar, also auch $f$ nicht.
+
+
+\subsection*{b) und c)}
+Sei $R \geq 0$ beliebig aber fest. Wir betrachten die Funktion
+\[
+ g : [0,R] \times [0,\infty) \rightarrow [-1,1], (x,t) \mapsto \sin(x) e^{-xt}.
+\]
+Diese ist stetig, also Borell-messbar. Wir zeigen zunächst, dass $g$ integrierbar ist. Für $|g|$ lässt sich der Satz von Tonelli anwenden, weshalb
+\begin{align*}
+ \int_{[0,R] \times [0,\infty)} |g| \dlambda_2
+ &= \int_{[0,R]} \int_{[0,\infty)} |g(x,t)| \dlambda(t) \dlambda(x) \\
+ &= \int_{[0,R]} \int_{[0,\infty)} |\sin(x)|e^{-xt} \dlambda(t) \dlambda(x).
+\end{align*}
+Da $|\sin(x)|e^{-xt}$ für alle $x \in [0,R]$ auf jedem kompakten Teilintervall von $[0,\infty)$ Riemann-integrierbar ist, und auf $[0,\infty)$ uneigentlich Riemann-Integrierbar mit
+\[
+ \int_0^\infty |\sin(x)|e^{-xt} \dt
+ = |\sin(x)| \int_0^\infty e^{-xt} \dt
+ = \frac{|\sin(x)|}{x},
+\]
+ist für alle $x \in [0,\R]$
+\[
+ \int_{[0,\infty)} |\sin(x)|e^{-xt} \dlambda(t)
+ = \int_0^\infty |\sin(x)|e^{-xt} \dt
+ = \frac{|\sin(x)|}{x}.
+\]
+Daher ist
+\[
+ \int_{[0,R] \times [0,\infty)} |g| \dlambda_2
+ = \int_{[0,R]} \frac{|\sin(x)|}{x} \dlambda(x)
+ < \infty,
+\]
+da $\lambda([0,R]) = R < \infty$ und $0 \leq |\sin(x)|/x \leq 1$. Es ist also $|g|$ integrierbar, und damit auch $g$.
+
+Da $g$ integrierbar ist, lässt sich für $\int_{[0,R] \times [0,\infty)} g \dlambda_2$ der Satz von Fubini anwenden. Wir bemerken aber zunächst analog zur obigen Argumentation, dass für alle $x \in [0,R]$
+\begin{align*}
+ \int_{[0,\infty)} g(x,t) \dlambda(t)
+ &= \int_{[0,\infty)} \sin(x) e^{-xt} \dlambda(t) \\
+ &= \sin(x) \int_{[0,\infty)} e^{-xt} \dlambda(t)
+ = \frac{\sin(x)}{x}.
+\end{align*}
+Daher ergibt sich mit dem Satz von Fubini zum einen, dass
+\begin{align*}
+ \int_{[0,R] \times [0,\infty)} g \dlambda_2
+ &= \int_{[0,R]} \int_{[0,\infty)} g(x,t) \dlambda(t) \dlambda(x)
+ = \int_{[0,R]} \frac{\sin(x)}{x} \dlambda(x) \\
+ &= \int_{[0,R]} f(x) \dlambda(x)
+ = \int_0^R f(x) \dx.
+\end{align*}
+Dabei haben wir im letzten Schritt genutzt, dass $f$ auf $[0,R]$ beschränkt und stetig ist, also Riemann- und Lebesgue-Integral übereinstimmen.
+
+Um das andere, aus dem Satz von Fubini folgende, Integral zu bestimmen, bemerken wir, dass für alle $t \in [0,\infty)$
+\[
+ \int_{[0,R]} g(x,t) \dlambda(x)
+ = \int_{[0,R]} \sin(x) e^{-xt} \dlambda(x)
+ = \int_0^R \sin(x) e^{-xt} \dx.
+\]
+Dabei haben wir genutzt, dass $g(x,t)$ für alle $t \in [0,\infty)$ auf $[0,R]$ beschränkt und stetig ist, also Riemann- und Lebesgue-Integral übereinstimmen. Es ergibt sich für alle $t \in (0,\infty)$ durch partielle Integration, dass
+\begin{align*}
+ &\, \int_0^R \sin(x) e^{-xt} \dx
+ = \left. -\frac{1}{t} \sin(x) e^{-xt} \right|_{x=0}^5 + \frac{1}{t} \int_0^R \cos(x) e^{-xt} \dx \\
+ =&\, \left.\left( -\frac{1}{t} \sin(x) e^{-xt} - \frac{1}{t^2} \cos(x) e^{-xt} \right)\right|_{x=0}^R - \frac{1}{t^2} \int_0^R \sin(x) e^{-xt} \dx,
+\end{align*}
+also
+\begin{align*}
+ \underbrace{\left(1+\frac{1}{t^2}\right)}_{=\frac{1+t^2}{t^2}} \int_0^R \sin(x) e^{-xt} \dx
+ &= \left.\left( -\frac{1}{t} \sin(x) e^{-xt} - \frac{1}{t^2} \cos(x) e^{-xt} \right)\right|_{x=0}^R \\
+ &= -\frac{1}{t} \sin(R) e^{-Rt} - \frac{1}{t^2} \cos(R) e^{-Rt} + \frac{1}{t^2},
+\end{align*}
+und daher für alle $t \in (0,\infty)$
+\[
+ \int_0^R \sin(x) e^{-xt} \dx
+ = -\frac{t \sin(R) e^{-Rt}}{1+t^2} - \frac{\cos(R) e^{-Rt}}{1+t^2} + \frac{1}{1+t^2}.
+\]
+Man bemerke, dass diese Gleichung auch für $t=0$ gilt, da
+\[
+ \int_0^R \sin(x) \dx
+ = \left. -\cos(x) \right|_{x=0}^R
+ = -\cos(R) + 1.
+\]
+Nach dem Satz von Fubini gilt also auch
+\begin{align*}
+ \int_{[0,R] \times [0,\infty)} g \dlambda_2
+ &= \int_{[0,\infty)} \int_{[0,R]} g(x,t) \dlambda(x) \dlambda(t) \\
+ &= \int_{[0,\infty)} -\frac{t \sin(R) e^{-Rt}}{1+t^2} - \frac{\cos(R) e^{-Rt}}{1+t^2} + \frac{1}{1+t^2} \dlambda(t),
+\end{align*}
+wobei aus dem Satz auch folgt, dass dieses hässliche Integral existiert.
+Zusammengefasst ergibt sich also aus dem Satz von Fubini
+\[
+ \int_0^R f(x) \dx
+ = \int_{[0,\infty)} -\frac{t \sin(R) e^{-Rt}}{1+t^2} - \frac{\cos(R) e^{-Rt}}{1+t^2} + \frac{1}{1+t^2} \dlambda(t),
+\]
+
+Sei nun $(R_n)_{n \in \N}$ eine Folge auf $(0,\infty)$ mit $\limes{n}{\infty} R_n = \infty$. Um den Grenzwert $\limes{n}{\infty} \int_0^{R_n} f(x) \dx$ zu bestimmen (und ob dieser überhaupt existiert), betrachten wir
+\[
+ \limes{n}{\infty} \int_{[0,\infty)} -\frac{t \sin(R_n) e^{-{R_n}t}}{1+t^2} - \frac{\cos(R_n) e^{-{R_n}t}}{1+t^2} + \frac{1}{1+t^2} \dlambda(t).
+\]
+Wir wollen den Grenzwert und das Integral mithilfe des Satzes über dominierte Konvergenz vertauschen. Offenbar ist für alle $t \in [0,\infty)$
+\[
+ \limes{n}{\infty} -\frac{t \sin(R_n) e^{-{R_n}t}}{1+t^2} - \frac{\cos(R_n) e^{-{R_n}t}}{1+t^2} + \frac{1}{1+t^2}
+ = \frac{1}{1+t^2}.
+\]
+Auch ist für alle $n \in \N$ für alle $t \in [0,\infty)$
+\begin{align*}
+ &\, \left| -\frac{t \sin(R_n) e^{-{R_n}t}}{1+t^2} - \frac{\cos(R_n) e^{-{R_n}t}}{1+t^2} + \frac{1}{1+t^2} \right| \\
+ \leq&\, \frac{t |\sin(R_n)| e^{-{R_n}t}}{1+t^2} + \frac{|\cos(R_n)| e^{-{R_n}t}}{1+t^2} + \frac{1}{1+t^2} \\
+ \leq&\, 2e^{-R_n t} + \frac{1}{1+t^2}.
+\end{align*}
+Diese Funktion ist auf $[0,\infty)$ Lebesgue-integrierbar: Sie ist auf jedem kompakten Teilintervall von $[0,\infty)$ Riemann-integrierbar, nichtnegativ, und das uneigentliche Riemanintegral
+\begin{align*}
+ \int_0^\infty 2e^{-R_n t} + \frac{1}{1+t^2} \dt
+ &= \limes{s}{\infty} \int_0^s 2e^{-R_n t} + \frac{1}{1+t^2} \dt \\
+ &= \limes{s}{\infty} \left.\left( -\frac{2}{R_n} e^{-R_n t} + \arctan(t) \right)\right|_{t=0}^s \\
+ &= \limes{s}{\infty} -\frac{2}{R_n} e^{-R_n s} + \arctan(s) + \frac{2}{R_n}
+ = \frac{\pi}{2} + \frac{2}{R_n}
+\end{align*}
+existiert. Daher ist die Funktion auf $[0,\infty)$ auch Lebesgue-integrierbar.
+
+Wir können also den Satz über dominierte Konvergenz anwenden, und erhalten, dass
+\begin{align*}
+ &\, \limes{n}{\infty} \int_{[0,\infty)} -\frac{t \sin(R_n) e^{-{R_n}t}}{1+t^2} - \frac{\cos(R_n) e^{-{R_n}t}}{1+t^2} + \frac{1}{1+t^2} \dlambda(t) \\
+ =&\, \int_{[0,\infty)} \limes{n}{\infty}  -\frac{t \sin(R_n) e^{-{R_n}t}}{1+t^2} - \frac{\cos(R_n) e^{-{R_n}t}}{1+t^2} + \frac{1}{1+t^2} \dlambda(t) \\
+ =&\, \int_{[0,\infty)} \frac{1}{1+t^2} \dlambda(t).
+\end{align*}
+Die Funktion $1/(1+t^2)$ auf jedem kompakten Teilintervall von $[0,\infty)$ Riemann-integrierbar ist, nichtnegativ und auf $[0,\infty)$ uneigentlich Riemann-integrierbar mit
+\[
+ \int_0^\infty \frac{1}{1+t^2} \dt
+ = \limes{s}{\infty} \int_0^s \frac{1}{1+t^2} \dt
+ = \limes{s}{\infty} \left. \arctan(t) \right|_{t=0}^s
+ = \limes{s}{\infty} \arctan(s)
+ = \frac{\pi}{2}.
+\]
+Daher ist
+\[
+ \int_{[0,\infty)} \frac{1}{1+t^2} \dlambda(t) = \frac{\pi}{2}.
+\]
+Es ist also
+\[
+ \limes{n}{\infty} \int_0^{R_n} f(x) \dx
+ = \frac{\pi}{2}.
+\]
+Aus der Beliebigkeit der Folge $R_n$ auf $(0,\infty)$ mit $\limes{n}{\infty} R_n = \infty$ folgt, dass bereits
+\[
+ \int_0^\infty f(x) \dx
+ = \limes{R}{\infty} \int_0^R f(x) \dx
+ = \frac{\pi}{2}.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
