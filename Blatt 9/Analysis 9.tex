@@ -44,16 +44,19 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\La}{\mathcal{L}}
-\newcommand{\dx}{\,\text{d}x}
-\newcommand{\dy}{\,\text{d}y}
+\newcommand{\dr}{\,\text{d}r}
 \newcommand{\dt}{\,\text{d}t}
 \newcommand{\du}{\,\text{d}u}
+\newcommand{\dx}{\,\text{d}x}
+\newcommand{\dy}{\,\text{d}y}
 \newcommand{\dmu}{\,\text{d}\mu}
 \newcommand{\dlambda}{\,\text{d}\lambda}
+\newcommand{\dvarphi}{\,\text{d}\varphi}
 \newcommand{\Img}{\operatorname{Im}}
 \newcommand{\Real}{\operatorname{Re}}
 \newcommand{\Imag}{\operatorname{Im}}
 \newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\diag}{\operatorname{diag}}
 \newcommand{\Vol}{\operatorname{Vol}}
 \newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
@@ -90,7 +93,7 @@
 
 
 
-\section{Riemann vs. Lebesgue}
+\section{(Riemann vs. Lebesgue)}
 
 
 Wir gehen im Folgenden davon aus, dass $f$, bzw. der Ausdruck $\sin(x)/x$, an der Stelle $x = 0$ als $f(0) = 1$ definiert ist. Aus Analysis 1 ist bekannt, dass $f$ dann auf ganz $\R$ stetig differenzierbar ist.
@@ -269,6 +272,73 @@ Aus der Beliebigkeit der Folge $R_n$ auf $(0,\infty)$ mit $\limes{n}{\infty} R_n
  \int_0^\infty f(x) \dx
  = \limes{R}{\infty} \int_0^R f(x) \dx
  = \frac{\pi}{2}.
+\]
+
+
+
+
+
+\addtocounter{section}{2}
+
+
+
+
+
+\section{(Kugeln)}
+Für alle $N \geq 1$ und $R \geq 0$ ist
+\[
+ \lambda_N\left( B_R^N \right) = R^N \alpha_N,
+\]
+denn für die Diagonalmatrix $T = \diag(R, \ldots, R) \in \R^{N \times N}$ gilt
+\[
+ \lambda_N\left( B_R^N \right)
+ = \lambda_N\left( T(B_R^1) \right)
+ = |\det(T)|\ \lambda_N(B_R^1)
+ = R^N \alpha_N.
+\]
+Sei nun $N \geq 3$ beliebig aber fest. Für alle $(x_1, x_) \in \R^2$ ist
+\begin{align*}
+ \left( B_1^N \right)_{(x_1, x_2)}
+ &= \left\{ (x_3, \ldots, x_N) \in \R^{N-2} : \sum_{i=1}^{N-2} x^2_i \leq 1 \right\} \\
+ &= \left\{ (x_3, \ldots, x_N) \in \R^{N-2} : \sum_{i=3}^{N-2} x^2_i \leq 1-(x_1^2+x_2^2) \right\} \\
+ &= B_{1-\sqrt{1-(x_1^2+x_2^2)}}^{N-2}.
+\end{align*}
+
+Da $\mc{B}\left(\R^N\right) = \mc{B}\left(\R^2\right) \times \mc{B}\left(\R^{N-2}\right)$ und $\lambda_N = \lambda_2 \times \lambda_{N-2}$ ergibt sich aus der Definition des Produktmaßes, dass
+\begin{align*}
+ \alpha_N = \lambda_N\left(B_1^N\right)
+ &= \int_{\R^2} \lambda_{N-2}\left(\left(B_1^N\right)_{(x,y)}\right) \dlambda_2(x,y) \\
+ &= \int_A \lambda_{N-2}\left( B_{\sqrt{1-(x^2+y^2)}}^{N-2} \right) \dlambda_2(x,y) \\
+ &= \alpha_{N-2} \int_A \sqrt{1-(x^2+y^2)}^{N-2} \dlambda_2(x,y)
+\end{align*}
+wobei
+\[
+ A = \{ (x,y) \in \R^2 : x^2 + y^2 \leq 1 \}.
+\]
+Umwandeln in Polarkoordinaten ergibt, dass
+\begin{align*}
+  &\,\int_A \sqrt{1-(x^2+y^2)}^{N-2} \dlambda_2(x,y) \\
+ =&\, \int_{(0,1) \times (0,2\pi)} r \sqrt{1 - ((r \cos \varphi)^2 + (r \sin \varphi)^2}^{N-2} \dlambda_2(r,\varphi) \\
+ =&\, \int_{(0,1) \times (0,2\pi)} r\sqrt{1-r^2}^{N-2} \dlambda_2(r,\varphi).
+\end{align*}
+Anwenden des Satzes von Tonelli ergibt, dass
+\begin{align*}
+ \int_{(0,1) \times (0,2\pi)} r\sqrt{1-r^2}^{N-2} \dlambda_2(r,\varphi)
+ &= \int_{(0,1)} \int_{(0,2\pi)} r\sqrt{1-r^2}^{N-2} \dvarphi \dr \\
+ &= 2 \pi \int_{(0,1)} r \sqrt{1-r^2}^{N-2} \dr.
+\end{align*}
+Da die Funktion $r\sqrt{1-r^2}^{N-2}$ auf $(0,1)$ beschränkt und stetig ist, entspricht das Lebesgue-Integral dem Riemann-Integral. Dabei ergibt sich mit den Substitutionen $r = \sin t$, $\dr = \cos t \dt$ und $\cos t = x$ und $-\sin t = \dx$, dass
+\begin{align*}
+ \int_0^1 r \sqrt{1-r^2} \dr
+ &= \int_0^{\pi/2} \sin(t) \cos^{N-1}(t) \dt
+ = -\int_1^0 x^{N-1} \dx \\
+ &= \int_0^1 x^{N-1} \dx
+ = \left. \frac{x^N}{N} \right|_{x=0}^1
+ = \frac{1}{N}.
+\end{align*}
+Zusammengefasst ergibt sich damit, dass
+\[
+ \alpha_N = 2 \pi N^{-1} \alpha_{N-2}.
 \]
 
 
