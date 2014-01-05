@@ -10,6 +10,7 @@
 \usepackage{nicefrac}
 \usepackage{enumerate}
 \usepackage{leftidx}
+\usepackage{stmaryrd} % for \longarrownot
 
 \makeatletter
 \g@addto@macro\th@definition{\thm@headpunct{:}}
@@ -60,12 +61,13 @@
 \newcommand{\Vol}{\operatorname{Vol}}
 \newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
+\newcommand{\nlongrightarrow}{\longarrownot\longrightarrow}
 \newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
 \newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
 \newcommand{\mc}[1]{\mathcal{#1}}
-\newcommand{\limes}[2]{\lim_{#1 \rightarrow #2}}
-\newcommand{\limessup}[1]{\limsup_{#1 \rightarrow \infty}}
-\newcommand{\limesinf}[1]{\liminf_{#1 \rightarrow \infty}}
+\newcommand{\limes}[2]{\lim_{#1 \to #2}}
+\newcommand{\limessup}[1]{\limsup_{#1 \to \infty}}
+\newcommand{\limesinf}[1]{\liminf_{#1 \to \infty}}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\partd}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\op}[1]{\left\|#1\right\|_{\text{op}}}
@@ -93,11 +95,11 @@
 
 
 
-\section{Gegenbeispiele}
+\section{(Gegenbeispiele)}
 
 
 \subsection{}
-Wir betrachten die Funktion $f : (0,1) \rightarrow \R, x \mapsto 1/\sqrt{x}$. Diese ist auf auf jedem kompakten Teilintervall von $(0,1)$ Riemann-integrierbar und $f = |f|$ ist auf $(0,1)$ uneigentlich Riemann-integrierbar mit
+Wir betrachten die Funktion $f : (0,1) \to \R, x \mapsto 1/\sqrt{x}$. Diese ist auf auf jedem kompakten Teilintervall von $(0,1)$ Riemann-integrierbar und $f = |f|$ ist auf $(0,1)$ uneigentlich Riemann-integrierbar mit
 \[
  \int_0^1 f(x) \dx
  = \int_0^1 \frac{1}{\sqrt{x}} \dx
@@ -121,7 +123,7 @@ gilt auf $(0,1)$ überall $h_n \leq h_{n+1}$ für alle $n \in \N$ und $\limes{n}
 
 
 \subsection{}
-Wir betrachten die Funktion $f : \R \rightarrow \R, x \mapsto 1/(x+1)$. Es ist $f \not\in \La(\R)$: Für die Funktionenfolge
+Wir betrachten die Funktion $f : \R \to \R, x \mapsto 1/(x+1)$. Es ist $f \not\in \La(\R)$: Für die Funktionenfolge
 \[
  f_n := \chi_{[-n,n]} f
 \]
@@ -150,6 +152,96 @@ ist auf $\R$ überall $h_n \leq h_{n+1}$ für alle $n \in \N$ und $\limes{n}{\in
  &= 2 \int_1^\infty \frac{1}{x^2}
  < \infty.
 \end{align*}
+
+
+
+
+
+\section{(Noch mehr Konvergenz)}
+
+
+\subsection{}
+Angenommen, es ist $f_n \longrightarrow f$ im Maß. Dann ist offenbar auch $f_{n_j} \longrightarrow f$ im Maß für jede Teilfolge $n_j$. Daher gibt es für jede Teilfolge $n_j$ eine Teilfolge $j_k$ so dass $f_{n_{j_k}} \longrightarrow f$ punktweise für $\mu$-fast alle $x \in \Omega$.
+
+
+Die zu zeigende Umkehrung gilt im Allgemeinen nicht: Man betrachte etwa den Maßraum $(\R, \mc{B}(\R),\lambda)$ und die Funktionenfolge $f_n = \chi_{[n,\infty)}$ auf $\R$. Es ist $f_n \longrightarrow 0$ punktweise, also ist auch $f_{n_{j_k}} \longrightarrow 0$ punktweise für alle Teilfolgeen $n_j$ und $j_k$. Es ist jedoch nicht $f_n \longrightarrow f$ im Maß. Die Implikation gilt jedoch für endliche Maßräume, weshalb wir die Implikation unter der zusätzlichen Annahme $\mu(\Omega) < \infty$ zeigen.
+
+Angenommen, es ist nicht $f_n \longrightarrow f$ im Maß. Dann gibt es ein $\delta > 0$, so dass
+\[
+ \mu(\{ x \in \Omega : |f_n(x)-f(x)| \geq \delta \}) \nlongrightarrow 0 \text{ für } n \longrightarrow \infty.
+\]
+Also gibt es ein $\varepsilon > 0$ und Teilfolge $n_j$ so dass
+\begin{equation}\label{eq: größer epsilon}
+ \mu(\{x \in \Omega : |f_{n_j}(x) - f(x)| \geq \delta\}) \geq \varepsilon \text{ für alle } j \in \N.
+\end{equation}
+Es gibt daher keine Teilfolge $j_k$ mit $f_{n_{j_k}} \longrightarrow f$ punktweise fast überall: Sonst gebe es wegen $\mu(\Omega) < \infty$ nämlich eine Teilfolge $k_l$ mit $f_{n_{j_{k_l}}} \longrightarrow f$ im Maß, also insbesondere
+\[
+ \limes{l}{\infty} \mu\left(\left\{x \in \Omega: \left|f_{n_{j_{k_l}}} - f(x)\right| \geq \delta \right\}\right) = 0,
+\]
+was im Widerspruch zu \eqref{eq: größer epsilon} steht.
+
+
+\subsection{}
+Es sei
+\[
+ A := \{x \in \Omega : f_n(x) \nlongrightarrow f(x) \text{ für } n \to \infty\}
+\]
+und für alle $\varepsilon > 0$ und $k \in \N$ sei
+\begin{align*}
+ A_{\varepsilon, k} := \{ x \in \Omega : |f_k(x)-f(x)| \geq \varepsilon \}.
+\end{align*}
+Offenbar ist $A_{\varepsilon, k}\in \A$ für alle $k \in \N$ und $\varepsilon > 0$. Daher ist auch
+\begin{align*}
+ A
+ &= \{x \in \Omega: \text{ es gibt } \varepsilon > 0 \text{ mit } |f_n(x) - f(x)| \geq \varepsilon \text{ für unendlich viele } n \in \N\} \\
+ &= \bigcup_{n \geq 1} \bigcap_{m \in \N} \bigcup_{k \geq m} A_{1/n,k} \in \A.
+\end{align*}
+Für alle $\varepsilon > 0$ und $k \in \N$ ist nach der Tschebyschow-Ungleichung
+\[
+ \mu(A_{\varepsilon, k})
+ = \mu(\{x \in \Omega : |f_k(x)-f(x)| \geq \varepsilon\})
+ \leq \frac{1}{\varepsilon} \int_\Omega |f_k(x)-f(x)| \dmu.
+\]
+Daher ist für alle $\varepsilon > 0$ und $m \in \N$
+\begin{equation}\label{eq: Tschebyschow}
+ \mu\left( \bigcup_{k \geq m} A_{\varepsilon, k}\right)
+ \leq \sum_{k \geq m} \mu(A_{\varepsilon, k})
+ \leq \sum_{k \geq m} \int_\Omega |f_k(x)-f(x)| \dmu.
+\end{equation}
+Da
+\[
+ \sum_{n \in \N} \int_\Omega |f_n-f| \dmu < \infty.
+\]
+ist für alle $m \in \N$
+\[
+ \limes{m}{\infty} \sum_{k \geq m} \int_\Omega |f_k-f| \dmu = 0.
+\]
+Zusammen mit \eqref{eq: Tschebyschow} folgt damit, dass für alle $\varepsilon > 0$
+\[
+ \mu\left( \bigcap_{m=0}^\infty \bigcup_{k \geq m} A_{\varepsilon,k} \right)
+ = \limes{m}{\infty} \mu\left( \bigcup_{k \geq m} A_{\varepsilon,k} \right)
+ = 0,
+\]
+denn es ist klar, dass es sich bei $(\bigcup_{k \geq m} A_{\varepsilon, k})_{m \in \N}$ um eine fallende Folge handelt, und es ist $\mu(\bigcup_{k \geq m} A_{\varepsilon, k}) < \infty$ für $m$ groß genug. Also ist
+\[
+ \mu(A)
+ = \mu\left( \bigcup_{n \geq 1} \bigcap_{m=0}^\infty \bigcup_{k \geq m} A_{1/n,k} \right)
+ \leq \sum_{n \geq 1} \mu\left( \bigcap_{m=0}^\infty \bigcup_{k \geq m} A_{1/n,k} \right)
+ = \sum_{n \geq 1} 0
+ = 0.
+\]
+Daher ist $\mu(A) = 0$. Da nach Definition $f_n(x) \longrightarrow f(x)$ für alle $x \in A^c$ konvergiert also $f_n \rightarrow f$ punktweise $\mu$-fast überall.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
