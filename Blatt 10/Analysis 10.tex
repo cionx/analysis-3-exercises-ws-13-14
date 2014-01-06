@@ -236,6 +236,97 @@ Daher ist $\mu(A) = 0$. Da nach Definition $f_n(x) \longrightarrow f(x)$ für al
 
 
 
+\section{($\|f\|_\infty$ als Grenzwert von $\|f\|_p$)}
+Angenommen, es ist $f \in \La^\infty(\Omega,\A,\mu)$. Dann ist für alle $p \in [1,\infty)$
+\[
+ \int_\Omega |f|^p \dmu
+ \leq \int_\Omega \|f\|_\infty^p = \mu(\Omega) \|f\|_\infty^p < \infty,
+\]
+da $|f(x)| \leq \|f\|_\infty$ für $\mu$-fast alle $x \in \Omega$, und damit $f \in \La^p(\Omega,\A,\mu)$. Da für alle $p \in [1,\infty)$
+\begin{equation}\label{eq: p leq inf}
+ \|f\|_p
+ = \left( \int_\Omega |f|^p \dmu \right)^{1/p}
+ \leq \mu(\Omega)^{1/p} \|f\|_{\infty}
+ \leq \max\{1,\mu(\Omega)\} \|f\|_{\infty}
+\end{equation}
+ist
+\[
+ \sup_{p \in [1,\infty)} \|f\|_p \leq \max\{1,\mu(\Omega)\} \|f\|_{\infty} < \infty.
+\]
+
+Angenommen, es ist $f \in \La^p(\Omega,\A,\mu)$ für alle $p \in [1,\infty)$ und $\sup_{p \in [1,\infty)} \|f\|_p < \infty$. Für $M := \sup_{p \in [1,\infty)} \|f\|_p$ ist wegen der Tschebyschow-Ungleichung für alle $p \in [1,\infty)$
+\begin{align*}
+ &\, \mu(\{ x \in \Omega : |f(x)| \geq M+1 \})
+ = \mu(\{ x \in \Omega : |f(x)|^p \geq (M+1)^p \}) \\
+ \leq&\, \frac{1}{(M+1)^p} \int_\Omega |f|^p \dmu
+ = \left(\frac{\|f\|_p}{M+1}\right)^p
+ \leq \left(\frac{M}{M+1}\right)^p.
+\end{align*}
+Da $0 \leq M/(M+1) < 1$ folgt damit, dass
+\[
+ \mu(\{ x \in \Omega : |f(x)| \geq M+1 \})
+ \leq \limes{p}{\infty} \left(\frac{M}{M+1}\right)^p
+ = 0,
+\]
+also
+\[
+ \mu(\{ x \in \Omega : |f(x)| \geq M + 1 \}) = 0.
+\]
+Es ist daher $f \in \La^\infty(\Omega,\A,\mu)$.
+
+Wir zeigen nun, dass unter den obigen Bedingungen
+\[
+ \limes{p}{\infty} \|f\|_p = \|f\|_\infty.
+\]
+Ist $f(x) = 0$ für $\mu$-fast alle $x \in \Omega$, also $\|f\|_p = 0$ für ein $p \in [1,\infty]$, und damit auch $\|f\|_p = 0$ für alle $p \in [1,\infty]$, so ist nichts weiter zu zeigen. Es wird daher im Folgenden davon ausgegangen, dass nicht $f(x) = 0$ für $\mu$-fast alle $x \in \Omega$. Insbesondere ist dann auch $\mu(\Omega) > 0$.
+
+Aus diesen Annahmen folgt, dass $\|f\|_\infty > 0$. Sei $\|f\|_\infty > \varepsilon > 0$ beliebig aber fest, und
+\[
+ A := \{x \in \Omega : |f(x)| \geq \|f\|_\infty-\varepsilon\}.
+\]
+Nach Definition von $\|f\|_\infty$ und $\varepsilon$ ist $\mu(A) > 0$. Für alle $p \in [1,\infty)$ ist
+\begin{align*}
+ \|f\|_p
+ &= \left( \int_\Omega |f|^p \dmu \right)^{1/p}
+ \geq \left( \int_A |f|^p \dmu \right)^{1/p} \\
+ &\geq \left( \int_A (\|f\|_\infty-\varepsilon)^p \dmu \right)^{1/p}
+ = \mu(A)^{1/p} (\|f\|_\infty - \varepsilon),
+\end{align*}
+und deshalb
+\[
+ \liminf_{p \to \infty} \|f\|_p
+ \geq \liminf_{p \to \infty} \mu(A)^{1/p} (\|f\|_\infty - \varepsilon)
+ = \|f\|_\infty - \varepsilon.
+\]
+Aus der Beliebigkeit von $0 < \varepsilon < \|f\|_\infty$ folgt damit, dass
+\[
+ \liminf_{p \to \infty} \|f\|_p \geq \|f\|_\infty.
+\]
+Andererseits folgt aus \eqref{eq: p leq inf}, dass
+\[
+ \limsup_{p \to \infty} \|f\|_p \leq \limsup_{p \to \infty} \mu(\Omega)^{1/p} \|f\|_\infty = \|f\|_\infty.
+\]
+Es ist also
+\[
+ \|f\|_\infty \leq \liminf_{p \to \infty} \|f\|_p \leq \limsup_{p \to \infty} \|f\|_p \leq \|f\|_\infty,
+\]
+und deshalb
+\[
+ \limes{p}{\infty} \|f\|_p = \|f\|_\infty.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
