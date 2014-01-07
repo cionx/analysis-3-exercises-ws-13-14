@@ -163,7 +163,6 @@ ist auf $\R$ überall $h_n \leq h_{n+1}$ für alle $n \in \N$ und $\limes{n}{\in
 \subsection{}
 Angenommen, es ist $f_n \longrightarrow f$ im Maß. Dann ist offenbar auch $f_{n_j} \longrightarrow f$ im Maß für jede Teilfolge $n_j$. Daher gibt es für jede Teilfolge $n_j$ eine Teilfolge $j_k$ so dass $f_{n_{j_k}} \longrightarrow f$ punktweise für $\mu$-fast alle $x \in \Omega$.
 
-
 Die zu zeigende Umkehrung gilt im Allgemeinen nicht: Man betrachte etwa den Maßraum $(\R, \mc{B}(\R),\lambda)$ und die Funktionenfolge $f_n = \chi_{[n,\infty)}$ auf $\R$. Es ist $f_n \longrightarrow 0$ punktweise, also ist auch $f_{n_{j_k}} \longrightarrow 0$ punktweise für alle Teilfolgeen $n_j$ und $j_k$. Es ist jedoch nicht $f_n \longrightarrow f$ im Maß. Die Implikation gilt jedoch für endliche Maßräume, weshalb wir die Implikation unter der zusätzlichen Annahme $\mu(\Omega) < \infty$ zeigen.
 
 Angenommen, es ist nicht $f_n \longrightarrow f$ im Maß. Dann gibt es ein $\delta > 0$, so dass
@@ -315,7 +314,8 @@ und deshalb
 
 
 
-\section{}
+\section{(Die Ordnung der $\La^p$-Räume)}
+
 
 \begin{lem}\label{lem: Lp trick}
  Sei $(\Omega, \A, \mu)$ ein Maßraum und $f \in \La^p(\Omega, \A, \mu)$ für $p \in [1,\infty]$. Für alle $\alpha \in [1,p]$, mit $\alpha \neq \infty$ falls $p = \infty$, ist $|f|^\alpha \in \La^{p/\alpha}(\Omega, \A, \mu)$ mit $\| |f|^\alpha \|_{p/\alpha} = \|f\|_p^\alpha$.
@@ -340,8 +340,6 @@ und deshalb
   = \|f\|_p^\alpha.
  \]
 \end{proof}
-
-
 
 
 \subsection{}
@@ -417,35 +415,6 @@ Es ist also $f \in \La^r(\Omega, \A, \mu)$ mit
  = \left( \int_\Omega |f|^r \right)^{1/r}
  \leq \|f\|_p^{1-\theta} \|f\|_q^\theta.
 \]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
