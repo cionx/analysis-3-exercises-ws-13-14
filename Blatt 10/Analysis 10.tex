@@ -319,6 +319,60 @@ und deshalb
 
 
 
+\section{}
+
+
+\subsection{}
+Für $p=q$ ist nichts zu zeigen, weshalb im Folgenden nur der Fall $p < q$ betrachtet wird. Ist $q = \infty$, so ergeben sich die Aussagen direkt aus \textbf{Aufgabe 3}, und aus \eqref{eq: p leq inf} insbesondere die Ungleichung $\|f\|_p \leq C\|f\|_q$ mit $C = \max \{\mu(\Omega), 1\}$. Daher wird im Folgenden nur der Fall $p < q < \infty$ betrachtet.
+
+Sei $f \in \La^q(\Omega, \A, \mu)$. Es ist $|f|^p \in \La^{q/p}(\Omega, \A, \mu)$, denn
+\begin{gather*}
+ \int_\Omega (|f|^p)^{q/p} \dmu = \int_\Omega |f|^q \dmu < \infty,
+\shortintertext{mit}
+ \big\| |f|^p \big\|_{q/p}
+ = \left( \int_\Omega (|f|^p)^{q/p} \right)^{p/q}
+ = \left( \int_\Omega |f|^q \right)^{p/q}
+ = \|f\|_q^p.
+\end{gather*}
+Da $\mu(\Omega) < \infty$ ist $1 \in \La^{1/(1-p/q)}(\Omega, \A, \mu)$ mit
+\[
+ \|1\|_{1/(1-p/q)}
+ = \left( \int_\Omega 1^{1/(1-p/q)} \dmu \right)^{1-p/q}
+ = \left( \int_\Omega 1 \dmu \right)^{1-p/q}
+ = \mu(\Omega)^{1-p/q}
+\]
+Nach der Hölder-Ungleichung ist daher
+\[
+ \int_\Omega |f|^p \dmu
+ = \int_\Omega 1 \cdot |f|^p
+ \leq \|1\|_{1/(1-p/q)} \big\| |f|^p \big\|_{q/p}
+ = \mu(\Omega)^{1-p/q} \|f\|_q^p.
+\]
+Also ist $f \in \La^p(\Omega, \A, \mu)$ mit
+\[
+ \|f\|_p
+ \leq \mu(\Omega)^{1/p-1/q} \|f\|_q.
+\]
+
+
+\subsection{}
+Sei $f \in \La^1(\Omega, \A, \mu) \cap \La^\infty(\Omega, \A, \mu)$ und $p \in [1,\infty)$ beliebig aber fest. Für den Fall $p = 1$ ist nichts zu zeigen, weshalb im Folgenden nur der Fall $1 < p$ betrachtet wird.
+Da $f \in \La^\infty(\Omega, \A, \mu)$ ist offenbar auch $|f|^{p-1} \in \La^\infty(\Omega, \A, \mu)$ mit $\|f^{p-1}\|_\infty = \|f\|_\infty^{p-1}$. Da auch $f \in \La^1(\Omega, \A, \mu)$ ist daher nach der Hölder-Ungleichung
+\[
+ \int_\Omega |f|^p \dmu
+ = \int_\Omega |f| \cdot |f|^{p-1} \dmu
+ \leq \|f\|_1 \|f^{p-1}\|_\infty
+ = \|f\|_1 \|f\|_\infty^{p-1}.
+\]
+Es ist daher $f \in \La^p(\Omega, \A, \mu)$ und
+\[
+ \|f\|_p
+ = \left( \int_\Omega |f|^p \dmu \right)^{1/p}
+ \leq \|f\|_1^{1/p} \|f\|_\infty^{(p-1)/p}.
+\]
+
+
+
 
 
 
