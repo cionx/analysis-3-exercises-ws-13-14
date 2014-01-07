@@ -317,20 +317,37 @@ und deshalb
 
 \section{}
 
+\begin{lem}\label{lem: Lp trick}
+ Sei $(\Omega, \A, \mu)$ ein Maßraum und $f \in \La^p(\Omega, \A, \mu)$ für $p \in [1,\infty]$. Für alle $\alpha \in [1,p]$, mit $\alpha \neq \infty$ falls $p = \infty$, ist $|f|^\alpha \in \La^{p/\alpha}(\Omega, \A, \mu)$ mit $\| |f|^\alpha \|_{p/\alpha} = \|f\|_p^\alpha$.
+\end{lem}
+\begin{proof}
+ Ist $p = \infty$, so ist für alle $M \geq 0$
+ \[
+  \{x \in \Omega : |f(x)| \leq M\}
+  = \{x \in \Omega : |f(x)|^\alpha \leq M^\alpha\}.
+ \]
+ Daher ist auch $|f|^\alpha \in \La^\infty(\Omega, \A, \mu)$ und $\||f|^\alpha\|_\infty = \|f\|_\infty^\alpha$. Ist $p < \infty$, so ist
+ \[
+  \int_\Omega \left( |f|^\alpha \right)^{p/\alpha} \dmu
+  = \int_\Omega |f|^\alpha \dmu
+  < \infty,
+ \]
+ also $|f|^\alpha \in \La^{p/\alpha}(\Omega, \A, \mu)$, und
+ \[
+  \| |f|^\alpha \|_{p/\alpha}
+  = \left( \int_\Omega \left( |f|^\alpha \right)^{p/\alpha} \dmu \right)^{\alpha/p}
+  = \left( \int_\Omega |f|^p \dmu \right)^{\alpha/p}
+  = \|f\|_p^\alpha.
+ \]
+\end{proof}
+
+
+
 
 \subsection{}
 Für $p=q$ ist nichts zu zeigen, weshalb im Folgenden nur der Fall $p < q$ betrachtet wird. Ist $q = \infty$, so ergeben sich die Aussagen direkt aus \textbf{Aufgabe 3}, und aus \eqref{eq: p leq inf} insbesondere die Ungleichung $\|f\|_p \leq C\|f\|_q$ mit $C = \max \{\mu(\Omega), 1\}$. Daher wird im Folgenden nur der Fall $p < q < \infty$ betrachtet.
 
-Sei $f \in \La^q(\Omega, \A, \mu)$. Es ist $|f|^p \in \La^{q/p}(\Omega, \A, \mu)$, denn
-\begin{gather*}
- \int_\Omega (|f|^p)^{q/p} \dmu = \int_\Omega |f|^q \dmu < \infty,
-\shortintertext{mit}
- \big\| |f|^p \big\|_{q/p}
- = \left( \int_\Omega (|f|^p)^{q/p} \right)^{p/q}
- = \left( \int_\Omega |f|^q \right)^{p/q}
- = \|f\|_q^p.
-\end{gather*}
-Da $\mu(\Omega) < \infty$ ist $1 \in \La^{1/(1-p/q)}(\Omega, \A, \mu)$ mit
+Sei $f \in \La^q(\Omega, \A, \mu)$. Nach Lemma \ref{lem: Lp trick} ist $|f|^p \in \La^{q/p}(\Omega, \A, \mu)$ mit $\| |f|^p \|_{q/p} = \|f\|_q^p$. Da $\mu(\Omega) < \infty$ ist $1 \in \La^{1/(1-p/q)}(\Omega, \A, \mu)$ mit
 \[
  \|1\|_{1/(1-p/q)}
  = \left( \int_\Omega 1^{1/(1-p/q)} \dmu \right)^{1-p/q}
@@ -353,7 +370,7 @@ Also ist $f \in \La^p(\Omega, \A, \mu)$ mit
 
 \subsection{}
 Sei $f \in \La^1(\Omega, \A, \mu) \cap \La^\infty(\Omega, \A, \mu)$ und $p \in [1,\infty)$ beliebig aber fest. Für den Fall $p = 1$ ist nichts zu zeigen, weshalb im Folgenden nur der Fall $1 < p$ betrachtet wird.
-Da $f \in \La^\infty(\Omega, \A, \mu)$ ist offenbar auch $|f|^{p-1} \in \La^\infty(\Omega, \A, \mu)$ mit $\|f^{p-1}\|_\infty = \|f\|_\infty^{p-1}$. Da auch $f \in \La^1(\Omega, \A, \mu)$ ist daher nach der Hölder-Ungleichung
+Da $f \in \La^\infty(\Omega, \A, \mu)$ ist nach Lemma \ref{lem: Lp trick} auch $|f|^{p-1} \in \La^\infty(\Omega, \A, \mu)$ mit $\|f^{p-1}\|_\infty = \|f\|_\infty^{p-1}$. Da  $f \in \La^1(\Omega, \A, \mu)$ ist daher nach der Hölder-Ungleichung
 \[
  \int_\Omega |f|^p \dmu
  = \int_\Omega |f| \cdot |f|^{p-1} \dmu
@@ -367,6 +384,39 @@ Es ist daher $f \in \La^p(\Omega, \A, \mu)$ und
  \leq \|f\|_1^{1/p} \|f\|_\infty^{(p-1)/p}.
 \]
 
+
+\subsection{}
+Ist $p = q$, so ist zwangsweise auch $r = p = q$ und die Aussagen gelten offenbar; auch wenn $p < q$ und $r = p$ oder $r = q$ sind sie offensichtlich. Es wird daher im Folgenden nur der Fall $p < r < q$ betrachtet.
+
+Wir bemerken direkt, dass es in diesem Fall ein eindeutiges $\theta \in [0,1]$ mit $1/r = (1-\theta)/p + \theta/q$ gibt, wobei $\theta \in (0,1)$, da die Abbildung $[0,1] \rightarrow [1/q, 1/p], \theta \mapsto (1-\theta)/p + \theta/q$ eine Bijektion ist.
+
+Da $f \in \La^p(\Omega, \A, \mu)$ und $f \in \La^q(\Omega,\A,\mu)$ ist nach Lemma \ref{lem: Lp trick} sowohl
+\[
+ |f|^{r(1-\theta)} \in \La^{p/(r(1-\theta))}(\Omega, \A, \mu) \text{ mit }
+ \||f|^{r(1-\theta)}\|_{p/(r(1-\theta))} = \|f\|_p^{r(1-\theta)}
+\]
+als auch
+\[
+ |f|^{r\theta} \in \La^{q/(r\theta)}(\Omega, \A, \mu) \text{ mit }
+ \|f^{r\theta}\|_{q/(r\theta)} = \|f\|_q^{r\theta}.
+\]
+Da
+\[
+ \frac{r(1-\theta)}{p} + \frac{r\theta}{q} = r\left(\frac{1-\theta}{p} + \frac{\theta}{q}\right) = 1
+\]
+ist nach der Hölderungleichung
+\begin{align*}
+ \int_\Omega |f|^r \dmu
+ = \int_\Omega |f|^{r(1-\theta)} |f|^{r\theta} \dmu
+ &\leq \||f|^{r(1-\theta)}\|_{p/(r(1-\theta))} \|f^{r\theta}\|_{q/(r\theta)} \\
+ &= \|f\|_p^{r(1-\theta)} \|f\|_q^{r\theta}.
+\end{align*}
+Es ist also $f \in \La^r(\Omega, \A, \mu)$ mit
+\[
+ \|f\|_r
+ = \left( \int_\Omega |f|^r \right)^{1/r}
+ \leq \|f\|_p^{1-\theta} \|f\|_q^\theta.
+\]
 
 
 
