@@ -200,19 +200,15 @@ Für alle $\varepsilon > 0$ und $k \in \N$ ist nach der Tschebyschow-Ungleichung
 \[
  \mu(A_{\varepsilon, k})
  = \mu(\{x \in \Omega : |f_k(x)-f(x)| \geq \varepsilon\})
- \leq \frac{1}{\varepsilon} \int_\Omega |f_k(x)-f(x)| \dmu.
+ \leq \frac{1}{\varepsilon} \int_\Omega |f_k-f| \dmu.
 \]
 Daher ist für alle $\varepsilon > 0$ und $m \in \N$
 \begin{equation}\label{eq: Tschebyschow}
  \mu\left( \bigcup_{k \geq m} A_{\varepsilon, k}\right)
  \leq \sum_{k \geq m} \mu(A_{\varepsilon, k})
- \leq \sum_{k \geq m} \int_\Omega |f_k(x)-f(x)| \dmu.
+ \leq \frac{1}{\varepsilon} \sum_{k \geq m} \int_\Omega |f_k-f| \dmu.
 \end{equation}
-Da
-\[
- \sum_{n \in \N} \int_\Omega |f_n-f| \dmu < \infty.
-\]
-ist für alle $m \in \N$
+Da $\sum_{n \in \N} \int_\Omega |f_n-f| \dmu < \infty$ ist
 \[
  \limes{m}{\infty} \sum_{k \geq m} \int_\Omega |f_k-f| \dmu = 0.
 \]
