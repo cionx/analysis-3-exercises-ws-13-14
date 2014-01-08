@@ -108,7 +108,7 @@ Wir betrachten die Funktion $f : (0,1) \to \R, x \mapsto 1/\sqrt{x}$. Diese ist 
  = \lim_{s \downarrow 0} 2 - 2\sqrt{s}
  = 2.
 \]
-Also ist $f$ auf $(0,1)$ auch Lebesgue-integrierbar, weshalb $f \in \La((0,1))$. Es ist jedoch $f^2 \not\in \La^2((0,1))$: Für alle $x \in (0,1)$ ist $|f(x)^2| = f(x)^2 = 1/x$. Für die Funktionenfolge
+Also ist $f$ auf $(0,1)$ auch Lebesgue-integrierbar, weshalb $f \in \La^1((0,1))$. Es ist jedoch $f^2 \not\in \La^2((0,1))$: Für alle $x \in (0,1)$ ist $|f(x)^2| = f(x)^2 = 1/x$. Für die Funktionenfolge
 \[
  h_n := \chi_{[1/n,1)} f^2
 \]
@@ -123,7 +123,7 @@ gilt auf $(0,1)$ überall $h_n \leq h_{n+1}$ für alle $n \in \N$ und $\limes{n}
 
 
 \subsection{}
-Wir betrachten die Funktion $f : \R \to \R, x \mapsto 1/(x+1)$. Es ist $f \not\in \La(\R)$: Für die Funktionenfolge
+Wir betrachten die Funktion $f : \R \to \R, x \mapsto 1/(x+1)$. Es ist $f \not\in \La^1(\R)$: Für die Funktionenfolge
 \[
  f_n := \chi_{[-n,n]} f
 \]
@@ -161,9 +161,9 @@ ist auf $\R$ überall $h_n \leq h_{n+1}$ für alle $n \in \N$ und $\limes{n}{\in
 
 
 \subsection{}
-Angenommen, es ist $f_n \longrightarrow f$ im Maß. Dann ist offenbar auch $f_{n_j} \longrightarrow f$ im Maß für jede Teilfolge $n_j$. Daher gibt es für jede Teilfolge $n_j$ eine Teilfolge $j_k$ so dass $f_{n_{j_k}} \longrightarrow f$ punktweise für $\mu$-fast alle $x \in \Omega$.
+Angenommen, es ist $f_n \longrightarrow f$ im Maß. Dann ist offenbar auch $f_{n_j} \longrightarrow f$ im Maß für jede Teilfolge $n_j$. Daher gibt es für jede Teilfolge $n_j$ eine Teilfolge $j_k$ so dass $f_{n_{j_k}}(x) \longrightarrow f(x)$ punktweise für $\mu$-fast alle $x \in \Omega$.
 
-Die zu zeigende Umkehrung gilt im Allgemeinen nicht: Man betrachte etwa den Maßraum $(\R, \mc{B}(\R),\lambda)$ und die Funktionenfolge $f_n = \chi_{[n,\infty)}$ auf $\R$. Es ist $f_n \longrightarrow 0$ punktweise, also ist auch $f_{n_{j_k}} \longrightarrow 0$ punktweise für alle Teilfolgeen $n_j$ und $j_k$. Es ist jedoch nicht $f_n \longrightarrow f$ im Maß. Die Implikation gilt jedoch für endliche Maßräume, weshalb wir die Implikation unter der zusätzlichen Annahme $\mu(\Omega) < \infty$ zeigen.
+Die zu zeigende Umkehrung gilt im Allgemeinen nicht: Man betrachte etwa den Maßraum $(\R, \mc{B}(\R),\lambda)$ und die Funktionenfolge $f_n = \chi_{[n,\infty)}$ auf $\R$. Es ist $f_n \longrightarrow 0$ punktweise, also ist auch $f_{n_{j_k}} \longrightarrow 0$ punktweise für alle Teilfolgen $n_j$ und $j_k$. Es ist jedoch nicht $f_n \longrightarrow f$ im Maß. Die Implikation gilt jedoch für endliche Maßräume, weshalb wir die Implikation unter der zusätzlichen Annahme $\mu(\Omega) < \infty$ zeigen.
 
 Angenommen, es ist nicht $f_n \longrightarrow f$ im Maß. Dann gibt es ein $\delta > 0$, so dass
 \[
@@ -175,7 +175,7 @@ Also gibt es ein $\varepsilon > 0$ und Teilfolge $n_j$ so dass
 \end{equation}
 Es gibt daher keine Teilfolge $j_k$ mit $f_{n_{j_k}} \longrightarrow f$ punktweise fast überall: Sonst gebe es wegen $\mu(\Omega) < \infty$ nämlich eine Teilfolge $k_l$ mit $f_{n_{j_{k_l}}} \longrightarrow f$ im Maß, also insbesondere
 \[
- \limes{l}{\infty} \mu\left(\left\{x \in \Omega: \left|f_{n_{j_{k_l}}} - f(x)\right| \geq \delta \right\}\right) = 0,
+ \limes{l}{\infty} \mu\left(\left\{x \in \Omega: \left|f_{n_{j_{k_l}}}(x) - f(x)\right| \geq \delta \right\}\right) = 0,
 \]
 was im Widerspruch zu \eqref{eq: größer epsilon} steht.
 
@@ -275,7 +275,7 @@ Wir zeigen nun, dass unter den obigen Bedingungen
 \]
 Ist $f(x) = 0$ für $\mu$-fast alle $x \in \Omega$, also $\|f\|_p = 0$ für ein $p \in [1,\infty]$, und damit auch $\|f\|_p = 0$ für alle $p \in [1,\infty]$, so ist nichts weiter zu zeigen. Es wird daher im Folgenden davon ausgegangen, dass nicht $f(x) = 0$ für $\mu$-fast alle $x \in \Omega$. Insbesondere ist dann auch $\mu(\Omega) > 0$.
 
-Aus diesen Annahmen folgt, dass $\|f\|_\infty > 0$. Sei $\|f\|_\infty > \varepsilon > 0$ beliebig aber fest, und
+Aus diesen Annahmen folgt, dass $\|f\|_\infty > 0$. Sei $\|f\|_\infty \geq \varepsilon > 0$ beliebig aber fest, und
 \[
  A := \{x \in \Omega : |f(x)| \geq \|f\|_\infty-\varepsilon\}.
 \]
@@ -293,7 +293,7 @@ und deshalb
  \geq \liminf_{p \to \infty} \mu(A)^{1/p} (\|f\|_\infty - \varepsilon)
  = \|f\|_\infty - \varepsilon.
 \]
-Aus der Beliebigkeit von $0 < \varepsilon < \|f\|_\infty$ folgt damit, dass
+Aus der Beliebigkeit von $0 < \varepsilon \leq \|f\|_\infty$ folgt damit, dass
 \[
  \liminf_{p \to \infty} \|f\|_p \geq \|f\|_\infty.
 \]
@@ -329,10 +329,10 @@ und deshalb
  Daher ist auch $|f|^\alpha \in \La^\infty(\Omega, \A, \mu)$ und $\||f|^\alpha\|_\infty = \|f\|_\infty^\alpha$. Ist $p < \infty$, so ist
  \[
   \int_\Omega \left( |f|^\alpha \right)^{p/\alpha} \dmu
-  = \int_\Omega |f|^\alpha \dmu
+  = \int_\Omega |f|^p \dmu
   < \infty,
  \]
- also $|f|^\alpha \in \La^{p/\alpha}(\Omega, \A, \mu)$, und
+ also $|f|^\alpha \in \La^{p/\alpha}(\Omega, \A, \mu)$, und es ist
  \[
   \| |f|^\alpha \|_{p/\alpha}
   = \left( \int_\Omega \left( |f|^\alpha \right)^{p/\alpha} \dmu \right)^{\alpha/p}
@@ -362,6 +362,7 @@ Nach der Hölder-Ungleichung ist daher
 Also ist $f \in \La^p(\Omega, \A, \mu)$ mit
 \[
  \|f\|_p
+ = \left( \int_\Omega |f|^p \dmu \right)^{1/p}
  \leq \mu(\Omega)^{1/p-1/q} \|f\|_q.
 \]
 
@@ -372,7 +373,7 @@ Da $f \in \La^\infty(\Omega, \A, \mu)$ ist nach Lemma \ref{lem: Lp trick} auch $
 \[
  \int_\Omega |f|^p \dmu
  = \int_\Omega |f| \cdot |f|^{p-1} \dmu
- \leq \|f\|_1 \|f^{p-1}\|_\infty
+ \leq \|f\|_1 \||f|^{p-1}\|_\infty
  = \|f\|_1 \|f\|_\infty^{p-1}.
 \]
 Es ist daher $f \in \La^p(\Omega, \A, \mu)$ und
@@ -398,6 +399,7 @@ als auch
  |f|^{r\theta} \in \La^{q/(r\theta)}(\Omega, \A, \mu) \text{ mit }
  \|f^{r\theta}\|_{q/(r\theta)} = \|f\|_q^{r\theta}.
 \]
+Dabei ist $p/(r(1-\theta)), q/(r\theta) > 1$, da $(1-\theta)/p, \theta/q < 1$.
 Da
 \[
  \frac{r(1-\theta)}{p} + \frac{r\theta}{q} = r\left(\frac{1-\theta}{p} + \frac{\theta}{q}\right) = 1
@@ -412,7 +414,7 @@ ist nach der Hölderungleichung
 Es ist also $f \in \La^r(\Omega, \A, \mu)$ mit
 \[
  \|f\|_r
- = \left( \int_\Omega |f|^r \right)^{1/r}
+ = \left( \int_\Omega |f|^r \dmu \right)^{1/r}
  \leq \|f\|_p^{1-\theta} \|f\|_q^\theta.
 \]
 
