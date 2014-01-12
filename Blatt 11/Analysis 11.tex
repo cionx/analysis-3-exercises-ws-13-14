@@ -95,7 +95,39 @@
 
 
 
-\addtocounter{section}{2}
+\addtocounter{section}{1}
+
+
+
+
+
+\section{(Die Hölder-Ungleichung)}
+
+
+\subsection{}
+Ist $r = \infty$, so ist auch $p = q = \infty$. Für $f,g \in \La^\infty(\Omega)$ ist dann
+\[
+ |f(x)g(x)| = |f(x)| |g(x)| \leq \|f\|_\infty \|g\|_\infty \text{ für $\mu$-fast alle } x \in \Omega.
+\]
+Das zeigt, dass $fg \in \La^\infty(\Omega)$ und die geforderte Ungleichung gilt.
+
+Ist $r \in [1,\infty)$, so folgt aus $f \in \La^p(\Omega)$, dass $|f|^r \in \La^{p/r}(\Omega)$ mit $\||f|^r\|_{p/r} = \|f\|_p^r$, und aus $g \in \La^q(\Omega)$, dass $|g|^r \in \La^{q/r}(\Omega)$ mit $\||g|^r\|_{q/r} = \|f\|_q^r$. Da
+\[
+ \frac{r}{p} + \frac{r}{q} = r\left(\frac{1}{p} + \frac{1}{q}\right) = r\,\frac{1}{r} = 1
+\]
+ist nach der Hölder-Ungleichung
+\[
+ \int_\Omega |fg|^r \dmu
+ = \int_\Omega |f|^r |g|^r \dmu
+ \leq \||f|^r\|_{p/r} \||g|^r\|_{q/r}
+ = \|f\|_p^r \|g\|_q^r.
+\]
+Dass die rechte Seite der Gleichung endlich ist, zeigt, dass $fg \in \La^r(\Omega)$. Außerdem folgt, dass
+\[
+ \|fg\|_r
+ = \left( \int_\Omega |fg|^r \dmu \right)^{1/r}
+ \leq \|f\|_p \|g\|_q.
+\]
 
 
 
