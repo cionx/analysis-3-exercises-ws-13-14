@@ -95,4 +95,133 @@
 
 
 
+\addtocounter{section}{2}
+
+
+
+
+
+\section{(Die Dichtheit von einfachen Funktionen in $L^p$)}
+
+\begin{bem}\label{bem: abschätzung}
+ Für $p \in [1,\infty)$ und $x, y \geq 0$ mit $x \leq y$ ist
+ \[
+  (x+y)^p \geq x^p + y^p
+ \]
+ und
+ \[
+  (y-x)^p \leq y^p - x^p.
+ \]
+\end{bem}
+\begin{proof}
+ Wir betrachten die Funktion $\psi : [0,\infty) \to [0,\infty)$ mit
+ \[
+  \psi(t) = (x+t)^p -x^p -t^p \text{ für alle } t \in [0,\infty).
+ \]
+ Es ist $\psi \in C^1([0,\infty))$ mit
+ \[
+  \psi'(t) = p(x+t)^{p-1} -pt^{p-1} = p( (x+t)^{p-1} - t^{p-1} ).
+ \]
+ Es ist $\psi(0) = 0$ und $\psi'(t) \geq 0$ für alle $t \in (0,\infty)$. Also ist $\psi(t) \geq 0$ für alle $t \in [0,\infty)$. Insbesondere ist
+ \[
+  (x+y)^p -x^p -y^p = \psi(y) \geq 0,
+ \]
+ was die erste Gleichung zeigt. Da $y-x \geq 0$ ist
+ \[
+  y^p = (y-x+x)^p \geq (y-x)^p + x^p,
+ \]
+ was die zweite Gleichung zeigt.
+\end{proof}
+
+Wir betrachten die beiden Fälle $p \in [0,\infty)$ und $p = \infty$ getrennt. Zunächst betrachten wir den Fall $p \in [0,\infty)$.
+
+Sei zunächst $f \in \La^p(\Omega)$ mit $f \geq 0$. Wie wir wissen gibt es eine Folge $(f_n)_{n \in \N}$ einfacher, messbarer Funktionen mit $f_n \geq 0$ und $f_n \leq f_{n+1}$ für alle $n \in \N$, sowie $\limes{n}{\infty} f_n(x) = f(x)$ für alle $x \in \Omega$. Aufgrund von Monotonie ist $0 \leq f^p$, sowie $0 \leq f_n^p$ und $f_n^p \leq f_{n+1}^p$ für alle $n \in \N$, und aufgrund von Stetigkeit ist
+\[
+ \limes{n}{\infty} f_n(x)^p = f(x)^p \text{ für alle } x \in \Omega.
+\]
+Nach dem Satz über monotone Konvergenz ist daher
+\[
+ \limes{n}{\infty} \int_\Omega f_n^p \dmu = \int_\Omega f^p \dmu.
+\]
+Da $f \in \La^p(\Omega)$ und $f \geq 0$ ist die rechte Seite der Gleichung endlich, wegen der Monotonie von $(f^p_n)_{n \in \N}$ also auch auch die linke für alle $n \in \N$. Es ist daher $(f_n)_{n \in \N}$ eine Folge einfacher Funktionen auf $\La^p(\Omega)$ mit
+\[
+ \limes{n}{\infty} \int_\Omega f^p - f_n^p \dmu
+ = \int_\Omega f^p \dmu - \limes{n}{\infty} \int_\Omega f_n^p \dmu
+ = 0.
+\]
+Nach Bemerkung \ref{bem: abschätzung} ist daher
+\[
+ 0 \leq \limes{n}{\infty} \int_\Omega (f - f_n)^p \dmu \leq \limes{n}{\infty} f^p - f_n^p \dmu = 0,
+\]
+also
+\[
+ \limes{n}{\infty} \int_\Omega (f - f_n)^p \dmu = 0
+\]
+und damit $\limes{n}{\infty} \|f-f_n\|_p = 0$.
+
+Sei nun $f \in \La^p(\Omega)$ beliebig. Es ist auch $|f| \in \La^p(\Omega)$, und es gibt eine Folge einfacher Funktionen $(f'_n)_{n \in \N}$ auf $\La^p(\Omega)$ mit $\limes{n}{\infty} \||f|-f'_n\|_p = 0$. Wir definieren die Folge einfacher Funktionen $(f_n)_{n \in \N}$ auf $\La^p(\Omega)$ als
+\[
+ f_n := \sgn(f)f'_n \text{ für alle } n \in \N.
+\]
+Dass $f_n \in \La^p(\Omega)$ für alle $n \in \N$ folgt direkt daraus, dass $|f'_n| = |f_n|$. Auch ist
+\[
+ |f(x)-f_n(x)| \geq ||f(x)|-f'_n(x)| \text{ für alle } x \in \Omega \text{ für alle } n \in \N.
+\]
+Es ist daher
+\[
+ \|f-f_n\|_p
+ = \left( \int_\Omega |f-f_n|^p \dmu \right)^{1/p}
+ \leq \left( \int_\Omega ||f|-f'_n|^p \right)^{1/p}
+ = \||f|-f'_n\|_p
+\]
+für alle $n \in \N$. Aus $\limes{n}{\infty} \||f|-f'_n\|_p = 0$ folgt daher, dass $\limes{n}{\infty} \|f-f_n\|_p = 0$.
+
+Sei nun $p = \infty$. Sei zunächst $f \in \La^\infty(\Omega)$ mit $f \geq 0$. Für $n \in \N$ definieren wir die Folge einfacher Funktionen $(f_n)_{n \geq 1}$ auf $\La^\infty(\Omega)$ als
+\[
+ f_n(x) := \sup \left\{ \frac{k}{n} \leq f(x) : k \in \N \right\}.
+\]
+Dass $n \in \N$ $f_n \in \La^\infty(\Omega)$ und $f_n$ einfach ist, folgt für alle $n \in \N$ direkt daraus, dass \mbox{$f \in \La^\infty(\Omega)$}. Es ist auch klar, dass
+\[
+ \sup_{x \in \Omega} |f(x) - f_n(x)| < \frac{1}{n} \text{ für alle } n \geq 1.
+\]
+Es ist daher $\|f-f_n\|_\infty \leq 1/n$ für alle $n \geq 1$, also  $\limes{n}{\infty} \|f-f_n\|_\infty = 0$.
+
+Sei nun $f \in \La^\infty(\Omega)$ beliebig. Offenbar ist auch $|f| \in \La^\infty(\Omega)$, und wir finden eine Folge einfacher Funktionen $(f'_n)_{n \in \N}$ auf $\La^\infty(\Omega)$ mit $\limes{n}{\infty} \||f|-f'_n\|_\infty = 0$. Wir definieren die Folge $(f_n)_{n \in \N}$ einfacher Funktionen auf $\La^\infty(\Omega)$ als
+\[
+ f_n := \sgn(f)f'_n.
+\]
+Dass $f_n \in \La^\infty(\Omega)$ für alle $n \in \N$ folgt direkt daraus, dass $|f_n| = |f'_n|$ für alle $n \in \N$. Da
+\[
+ |f(x)-f_n(x)| \leq ||f(x)|-f'_n(x)| \text{ für alle } x \in \Omega \text{ für alle } n \in \N
+\]
+ist $\|f-f_n\|_\infty \leq \||f|-f'\|_\infty$ für alle $n \in \N$. Aus $\limes{n}{\infty} \||f|-f'_n\|_\infty = 0$ folgt daher, dass $\limes{n}{\infty} \|f-f_n\|_\infty = 0$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
