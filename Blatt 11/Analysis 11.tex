@@ -19,6 +19,7 @@
 \newtheorem{lem}[saetze]{Lemma}
 \newtheorem{beh}[saetze]{Behauptung}
 \newtheorem{bem}[saetze]{Bemerkung}
+\theoremstyle{definition}
 \newtheorem*{ia}{Induktionsanfang}
 \newtheorem*{is}{Induktionsschritt}
 
@@ -128,6 +129,61 @@ Dass die rechte Seite der Gleichung endlich ist, zeigt, dass $fg \in \La^r(\Omeg
  = \left( \int_\Omega |fg|^r \dmu \right)^{1/r}
  \leq \|f\|_p \|g\|_q.
 \]
+
+
+\subsection{}
+Wir zeigen die Aussage per Induktion über $k \geq 1$.
+\begin{ia}
+ Für $k=1$ ist nichts zu zeigen, und für $k=2$ handelt es sich um die Hölder-Ungleichung.
+\qed\end{ia}
+\begin{is}
+ Es sei nun $k \geq 3$ und es gelte die Aussage für $k-1$ und $2$. Wegen $\sum_{i=1}^k 1/p_i = 1/r$ ist
+ \[
+  \sum_{i=1}^{k-1} 1/p_i = 1/r - 1/p_k.
+ \]
+ 
+ Ist $1/r - 1/p_k = 0$, so ist $r = p_k$ und $p_1 = \ldots = p_{k-1} = \infty$. Für $1 \leq r < \infty$ ist
+ \[
+  \int_\Omega \left|\prod_{i=1}^k f_i\right|^r \dmu
+  = \int_\Omega \prod_{i=1}^k |f_i|^r \dmu
+  \leq \prod_{i=1}^{k-1} \|f_i\|_\infty^r \int_\Omega |f_k|^r \dmu
+  = \prod_{i=1}^{k} \|f_i\|_{p_i}^r,
+ \]
+ also $\prod_{i=1}^k f_i \in \La^r(\Omega)$ mit $\|\prod_{i=1}^k f_i\| \leq \prod_{i=1}^k \|f_i\|_{p_i}$.
+ Für $r = \infty$ ist
+ \[
+  \left| \prod_{i=1}^k f_i \right|
+  = \prod_{i=1}^k \left| f_i \right|
+  \leq \prod_{i=1}^k \|f_i\|_\infty
+  \text{ $\mu$-fast überall},
+ \]
+ also $\prod_{i=1}^k f_i \in \La^\infty(\Omega) = \La^r(\Omega)$ mit der entsprechenden Ungleichung.
+ 
+ Ist $1/r - 1/p_k > 0$, so ist $1/r - 1/p_k \leq 1/r$ und daher
+ \[
+  s := \frac{1}{\frac{1}{r} - \frac{1}{p_k}} \geq r \geq 1.
+ \]
+ Da $\sum_{i=1}^{k-1} 1/p_i = 1/s$ ist nach der Induktionsvoraussetzung $\prod_{i=1}^{k-1} f_i \in \La^s(\Omega)$ mit
+ \[
+  \left\| \prod_{i=1}^{k-1} f_i \right\|_s \leq \prod_{i=1}^{k-1} \|f_i\|_{p_i}.
+ \]
+ Da $p_k, r, s \in [1,\infty]$ mit $1/p_k + 1/s = 1/r$ ist wegen $\La^{p_k}(\Omega)$ und $\prod_{i=1}^{k-1} f_i \in \La^s(\Omega)$ nach Induktionsvoraussetzung
+ \begin{gather*}
+  \prod_{i=1}^k f_i
+  = \left( \prod_{i=1}^{k-1} f_i \right) f_k \in \La^r(\Omega)
+ \shortintertext{mit}
+  \left\| \prod_{i=1}^k f_i \right\|_r
+  \leq \left\| \prod_{i=1}^{k-1} f_i \right\|_s \|f_k\|_{p_k}
+  \leq \prod_{i=1}^k \|f_i\|_{p_i}.
+ \end{gather*}
+\qed\end{is}
+
+
+
+
+
+
+
 
 
 
