@@ -45,7 +45,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\A}{\mathcal{A}}
-\newcommand{\La}{\mathcal{L}}
+\newcommand{\cL}{\mathcal{L}}
 \newcommand{\dr}{\,\text{d}r}
 \newcommand{\dt}{\,\text{d}t}
 \newcommand{\du}{\,\text{d}u}
@@ -96,7 +96,121 @@
 
 
 
-\addtocounter{section}{1}
+\section{(Dualität)}
+Für den Fall, dass $f \in \cL^p(\Omega)$ ist die Aussage bereits aus der Vorlesung bekannt. Es ist nämlich bekannt, dass die Abbildung
+\[
+ \psi : L^p(\Omega) \to \left(L^{p'}(\Omega)\right)^* \text{ mit }
+ \psi(f)(g) = \int_\Omega f g \dmu \text{ für alle } g \in L^{p*}(\Omega)
+\]
+wegen der $\sigma$-Endlichkeit des Maßraums $(\Omega, \A, \mu)$ für alle $p \in [1,\infty]$ eine Isometrie ist, dass also
+\begin{align*}
+ \|f\|_p
+ = \|\psi(f)\|
+ &= \sup \left\{ |\psi(f)(g)| : g \in L^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
+ &= \sup \left\{ \int_\Omega f g \dmu : g \in L^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\}.
+\end{align*}
+
+Sei nun $f : \Omega \to [-\infty, \infty]$ messbar und $p \in [0,\infty]$ mit $f \not\in \cL^p(\Omega)$. Wir unterscheiden zwischen den drei Fällen $p = 1$, $p = \infty$ und $1 < p < \infty$.
+
+Ist $p = 1$, so lässt sich für alle $M \in \N$ die Testfunktion $g_M = \sgn(f)$ wählen. Es ist klar, dass $g_M \in \cL^\infty(\Omega)$ mit $\|g_M\|_\infty = 1$, da $f \not\in \cL^1(\Omega)$ ist
+\[
+ \int_\Omega f g_M \dmu
+ = \int_\Omega |f| \dmu
+ = \infty \geq M.
+\]
+
+Ist $p = \infty$ so setzen wir für beliebiges aber festes $M \in \N$
+\[
+ A := \{x \in \Omega : |f(x)| \geq M\}.
+\]
+Offenbar ist $A \in \A$, und da $f \not\in \cL^\infty(\Omega)$ ist $\mu(A) > 0$. Wegen der $\sigma$-Endlichkeit des Maßraums $(\Omega, \A, \mu)$ gibt es eine Menge $B \subseteq A$ mit $0 < \mu(B) < \infty$. Für die Funktion
+\[
+ g_M := \frac{\chi_B}{\mu(B)} \sgn(f)
+\]
+ist $g_M \in \cL^1(\Omega)$ mit $\|g_M\|_1 = 1$, da
+\[
+ \int_\Omega |g_M| \dmu
+ = \frac{1}{\mu(B)} \int_B 1 \dmu
+ = 1.
+\]
+Es ist
+\[
+ \int_\Omega f g \dmu
+ = \frac{1}{\mu(B)} \int_B |f| \dmu
+ \geq \frac{1}{\mu(B)} \int_B M \dmu
+ = M.
+\]
+
+Sei nun $1 < p < \infty$. Wegen der $\sigma$-Endlichkeit des Maßraumes $(\Omega, \A, \mu)$ gibt es eine Folge $(B_n)_{n \in \N}$ auf $\A$ mit $\Omega = \bigcup_{n \in \N} B_n$, so dass $B_n \subseteq B_{n+1}$ und $\mu(B_n) < \infty$ für alle $n \in \N$.
+
+Da $|f| : \Omega \to [0,\infty]$ messbar ist gibt es eine Folge $(f_k)_{k \in \N}$ einfacher, messbarer Funktionen mit $f_k \geq 0$, $f_k \leq f_{k+1}$ für alle $k \in \N$ und $\limes{k}{\infty} f_k = |f|$ punktweise. Aufgrund von Monotonie und Stetigkeit ist auch $(f_k^p)_{k \in N}$ eine Folge einfacher, messbarer Funktionen mit $f_k^p \geq 0$, $f_k^p \leq f_{k+1}^p$ für alle $k \in \N$ und $\limes{k}{\infty} f_k^p = |f|^p$.
+
+Mehrfache Anwendung des Satzes über Monotone Konvergenz ergibt, dass
+\[
+ \infty
+ = \int_\Omega |f|^p \dmu
+ = \limes{n}{\infty} \int_{B_n} |f|^p \dmu
+ = \limes{n}{\infty} \limes{k}{\infty} \int_{B_n} f_k^p \dmu.
+\]
+Es gibt daher $N \in \N$ mit
+\[
+ \limes{k}{\infty} \int_{B_N} f_k^p \dmu \geq (M+1)^p + 1,
+\]
+also ein $K \in \N$
+\[
+ \int_{B_N} f_K^p \dmu \geq (M+1)^p.
+\]
+Wir definieren
+\[
+ h := \chi_{B_N} f_K
+\]
+und bemerken direkt, dass $|f| \geq h \geq 0$.
+
+
+Da $f_K^p$ als einfache Funktion beschränkt ist, und $\mu(B_N) < \infty$, ist
+\[
+ \int_\Omega |h|^p \dmu
+ = \int_{B_N} f_K^p \dmu
+ < \infty.
+\]
+Daher ist $h \in \cL^p(\Omega)$ mit
+\[
+ \|h\|_p
+ = \left( \int_\Omega |h|^p \dmu \right)^{1/p}
+ = \left( \int_{B_N} f_K^p \dmu \right)^{1/p}
+ \geq M+1.
+\]
+
+Da $h \in \cL^p(\Omega)$ ist
+\[
+ \|h\|_p
+ = \sup \left\{ \int_\Omega h g \dmu : g \in \cL^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\}.
+\]
+Es gibt also ein $g \in \cL^{p'}(\Omega)$ mit
+\[
+ \int_\Omega h g \dmu \geq \|h\|_p -1 \geq M.
+\]
+Für $g_M = \sgn(f) |g|$ ist $g_M \in \cL^{p'}(\Omega)$ mit $\|g_M\|_{p'} = 1$, da $|g_M| = |g|$. Da $|f| \geq h \geq 0$ ist
+\[
+ \int_\Omega f g_M \dmu
+ = \int_\Omega |f| |g| \dmu
+ \geq \int_\Omega h |g| \dmu
+ \geq \int_\Omega h g \dmu
+ \geq M.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -106,13 +220,13 @@
 
 
 \subsection{}
-Ist $r = \infty$, so ist auch $p = q = \infty$. Für $f,g \in \La^\infty(\Omega)$ ist dann
+Ist $r = \infty$, so ist auch $p = q = \infty$. Für $f,g \in \cL^\infty(\Omega)$ ist dann
 \[
  |f(x)g(x)| = |f(x)| |g(x)| \leq \|f\|_\infty \|g\|_\infty \text{ für $\mu$-fast alle } x \in \Omega.
 \]
-Das zeigt, dass $fg \in \La^\infty(\Omega)$ und die geforderte Ungleichung gilt.
+Das zeigt, dass $fg \in \cL^\infty(\Omega)$ und die geforderte Ungleichung gilt.
 
-Ist $r \in [1,\infty)$, so folgt aus $f \in \La^p(\Omega)$, dass $|f|^r \in \La^{p/r}(\Omega)$ mit $\||f|^r\|_{p/r} = \|f\|_p^r$, und aus $g \in \La^q(\Omega)$, dass $|g|^r \in \La^{q/r}(\Omega)$ mit $\||g|^r\|_{q/r} = \|f\|_q^r$. Da
+Ist $r \in [1,\infty)$, so folgt aus $f \in \cL^p(\Omega)$, dass $|f|^r \in \cL^{p/r}(\Omega)$ mit $\||f|^r\|_{p/r} = \|f\|_p^r$, und aus $g \in \cL^q(\Omega)$, dass $|g|^r \in \cL^{q/r}(\Omega)$ mit $\||g|^r\|_{q/r} = \|f\|_q^r$. Da
 \[
  \frac{r}{p} + \frac{r}{q} = r\left(\frac{1}{p} + \frac{1}{q}\right) = r\,\frac{1}{r} = 1
 \]
@@ -123,7 +237,7 @@ ist nach der Hölder-Ungleichung
  \leq \||f|^r\|_{p/r} \||g|^r\|_{q/r}
  = \|f\|_p^r \|g\|_q^r.
 \]
-Dass die rechte Seite der Gleichung endlich ist, zeigt, dass $fg \in \La^r(\Omega)$. Außerdem folgt, dass
+Dass die rechte Seite der Gleichung endlich ist, zeigt, dass $fg \in \cL^r(\Omega)$. Außerdem folgt, dass
 \[
  \|fg\|_r
  = \left( \int_\Omega |fg|^r \dmu \right)^{1/r}
@@ -149,7 +263,7 @@ Wir zeigen die Aussage per Induktion über $k \geq 1$.
   \leq \prod_{i=1}^{k-1} \|f_i\|_\infty^r \int_\Omega |f_k|^r \dmu
   = \prod_{i=1}^{k} \|f_i\|_{p_i}^r,
  \]
- also $\prod_{i=1}^k f_i \in \La^r(\Omega)$ mit $\|\prod_{i=1}^k f_i\| \leq \prod_{i=1}^k \|f_i\|_{p_i}$.
+ also $\prod_{i=1}^k f_i \in \cL^r(\Omega)$ mit $\|\prod_{i=1}^k f_i\| \leq \prod_{i=1}^k \|f_i\|_{p_i}$.
  Für $r = \infty$ ist
  \[
   \left| \prod_{i=1}^k f_i \right|
@@ -157,20 +271,20 @@ Wir zeigen die Aussage per Induktion über $k \geq 1$.
   \leq \prod_{i=1}^k \|f_i\|_\infty
   \text{ $\mu$-fast überall},
  \]
- also $\prod_{i=1}^k f_i \in \La^\infty(\Omega) = \La^r(\Omega)$ mit der entsprechenden Ungleichung.
+ also $\prod_{i=1}^k f_i \in \cL^\infty(\Omega) = \cL^r(\Omega)$ mit der entsprechenden Ungleichung.
  
  Ist $1/r - 1/p_k > 0$, so ist $1/r - 1/p_k \leq 1/r$ und daher
  \[
   s := \frac{1}{\frac{1}{r} - \frac{1}{p_k}} \geq r \geq 1.
  \]
- Da $\sum_{i=1}^{k-1} 1/p_i = 1/s$ ist nach der Induktionsvoraussetzung $\prod_{i=1}^{k-1} f_i \in \La^s(\Omega)$ mit
+ Da $\sum_{i=1}^{k-1} 1/p_i = 1/s$ ist nach der Induktionsvoraussetzung $\prod_{i=1}^{k-1} f_i \in \cL^s(\Omega)$ mit
  \[
   \left\| \prod_{i=1}^{k-1} f_i \right\|_s \leq \prod_{i=1}^{k-1} \|f_i\|_{p_i}.
  \]
- Da $p_k, r, s \in [1,\infty]$ mit $1/p_k + 1/s = 1/r$ ist wegen $\La^{p_k}(\Omega)$ und $\prod_{i=1}^{k-1} f_i \in \La^s(\Omega)$ nach Induktionsvoraussetzung
+ Da $p_k, r, s \in [1,\infty]$ mit $1/p_k + 1/s = 1/r$ ist wegen $\cL^{p_k}(\Omega)$ und $\prod_{i=1}^{k-1} f_i \in \cL^s(\Omega)$ nach Induktionsvoraussetzung
  \begin{gather*}
   \prod_{i=1}^k f_i
-  = \left( \prod_{i=1}^{k-1} f_i \right) f_k \in \La^r(\Omega)
+  = \left( \prod_{i=1}^{k-1} f_i \right) f_k \in \cL^r(\Omega)
  \shortintertext{mit}
   \left\| \prod_{i=1}^k f_i \right\|_r
   \leq \left\| \prod_{i=1}^{k-1} f_i \right\|_s \|f_k\|_{p_k}
@@ -223,7 +337,7 @@ Wir zeigen die Aussage per Induktion über $k \geq 1$.
 
 Wir betrachten die beiden Fälle $p \in [0,\infty)$ und $p = \infty$ getrennt. Zunächst betrachten wir den Fall $p \in [0,\infty)$.
 
-Sei zunächst $f \in \La^p(\Omega)$ mit $f \geq 0$. Wie wir wissen gibt es eine Folge $(f_n)_{n \in \N}$ einfacher, messbarer Funktionen mit $f_n \geq 0$ und $f_n \leq f_{n+1}$ für alle $n \in \N$, sowie $\limes{n}{\infty} f_n(x) = f(x)$ für alle $x \in \Omega$. Aufgrund von Monotonie ist $0 \leq f^p$, sowie $0 \leq f_n^p$ und $f_n^p \leq f_{n+1}^p$ für alle $n \in \N$, und aufgrund von Stetigkeit ist
+Sei zunächst $f \in \cL^p(\Omega)$ mit $f \geq 0$. Wie wir wissen gibt es eine Folge $(f_n)_{n \in \N}$ einfacher, messbarer Funktionen mit $f_n \geq 0$ und $f_n \leq f_{n+1}$ für alle $n \in \N$, sowie $\limes{n}{\infty} f_n(x) = f(x)$ für alle $x \in \Omega$. Aufgrund von Monotonie ist $0 \leq f^p$, sowie $0 \leq f_n^p$ und $f_n^p \leq f_{n+1}^p$ für alle $n \in \N$, und aufgrund von Stetigkeit ist
 \[
  \limes{n}{\infty} f_n(x)^p = f(x)^p \text{ für alle } x \in \Omega.
 \]
@@ -231,7 +345,7 @@ Nach dem Satz über monotone Konvergenz ist daher
 \[
  \limes{n}{\infty} \int_\Omega f_n^p \dmu = \int_\Omega f^p \dmu.
 \]
-Da $f \in \La^p(\Omega)$ und $f \geq 0$ ist die rechte Seite der Gleichung endlich, wegen der Monotonie von $(f^p_n)_{n \in \N}$ also auch auch die linke für alle $n \in \N$. Es ist daher $(f_n)_{n \in \N}$ eine Folge einfacher Funktionen auf $\La^p(\Omega)$ mit
+Da $f \in \cL^p(\Omega)$ und $f \geq 0$ ist die rechte Seite der Gleichung endlich, wegen der Monotonie von $(f^p_n)_{n \in \N}$ also auch auch die linke für alle $n \in \N$. Es ist daher $(f_n)_{n \in \N}$ eine Folge einfacher Funktionen auf $\cL^p(\Omega)$ mit
 \[
  \limes{n}{\infty} \int_\Omega f^p - f_n^p \dmu
  = \int_\Omega f^p \dmu - \limes{n}{\infty} \int_\Omega f_n^p \dmu
@@ -247,11 +361,11 @@ also
 \]
 und damit $\limes{n}{\infty} \|f-f_n\|_p = 0$.
 
-Sei nun $f \in \La^p(\Omega)$ beliebig. Es ist auch $|f| \in \La^p(\Omega)$, und es gibt eine Folge einfacher Funktionen $(f'_n)_{n \in \N}$ auf $\La^p(\Omega)$ mit $\limes{n}{\infty} \||f|-f'_n\|_p = 0$. Wir definieren die Folge einfacher Funktionen $(f_n)_{n \in \N}$ auf $\La^p(\Omega)$ als
+Sei nun $f \in \cL^p(\Omega)$ beliebig. Es ist auch $|f| \in \cL^p(\Omega)$, und es gibt eine Folge einfacher Funktionen $(f'_n)_{n \in \N}$ auf $\cL^p(\Omega)$ mit $\limes{n}{\infty} \||f|-f'_n\|_p = 0$. Wir definieren die Folge einfacher Funktionen $(f_n)_{n \in \N}$ auf $\cL^p(\Omega)$ als
 \[
  f_n := \sgn(f)f'_n \text{ für alle } n \in \N.
 \]
-Dass $f_n \in \La^p(\Omega)$ für alle $n \in \N$ folgt direkt daraus, dass $|f'_n| = |f_n|$. Auch ist
+Dass $f_n \in \cL^p(\Omega)$ für alle $n \in \N$ folgt direkt daraus, dass $|f'_n| = |f_n|$. Auch ist
 \[
  |f(x)-f_n(x)| \geq ||f(x)|-f'_n(x)| \text{ für alle } x \in \Omega \text{ für alle } n \in \N.
 \]
@@ -264,21 +378,21 @@ Es ist daher
 \]
 für alle $n \in \N$. Aus $\limes{n}{\infty} \||f|-f'_n\|_p = 0$ folgt daher, dass $\limes{n}{\infty} \|f-f_n\|_p = 0$.
 
-Sei nun $p = \infty$. Sei zunächst $f \in \La^\infty(\Omega)$ mit $f \geq 0$. Für $n \in \N$ definieren wir die Folge einfacher Funktionen $(f_n)_{n \geq 1}$ auf $\La^\infty(\Omega)$ als
+Sei nun $p = \infty$. Sei zunächst $f \in \cL^\infty(\Omega)$ mit $f \geq 0$. Für $n \in \N$ definieren wir die Folge einfacher Funktionen $(f_n)_{n \geq 1}$ auf $\cL^\infty(\Omega)$ als
 \[
  f_n(x) := \sup \left\{ \frac{k}{n} \leq f(x) : k \in \N \right\}.
 \]
-Dass $n \in \N$ $f_n \in \La^\infty(\Omega)$ und $f_n$ einfach ist, folgt für alle $n \in \N$ direkt daraus, dass \mbox{$f \in \La^\infty(\Omega)$}. Es ist auch klar, dass
+Dass $n \in \N$ $f_n \in \cL^\infty(\Omega)$ und $f_n$ einfach ist, folgt für alle $n \in \N$ direkt daraus, dass \mbox{$f \in \cL^\infty(\Omega)$}. Es ist auch klar, dass
 \[
  \sup_{x \in \Omega} |f(x) - f_n(x)| < \frac{1}{n} \text{ für alle } n \geq 1.
 \]
 Es ist daher $\|f-f_n\|_\infty \leq 1/n$ für alle $n \geq 1$, also  $\limes{n}{\infty} \|f-f_n\|_\infty = 0$.
 
-Sei nun $f \in \La^\infty(\Omega)$ beliebig. Offenbar ist auch $|f| \in \La^\infty(\Omega)$, und wir finden eine Folge einfacher Funktionen $(f'_n)_{n \in \N}$ auf $\La^\infty(\Omega)$ mit $\limes{n}{\infty} \||f|-f'_n\|_\infty = 0$. Wir definieren die Folge $(f_n)_{n \in \N}$ einfacher Funktionen auf $\La^\infty(\Omega)$ als
+Sei nun $f \in \cL^\infty(\Omega)$ beliebig. Offenbar ist auch $|f| \in \cL^\infty(\Omega)$, und wir finden eine Folge einfacher Funktionen $(f'_n)_{n \in \N}$ auf $\cL^\infty(\Omega)$ mit $\limes{n}{\infty} \||f|-f'_n\|_\infty = 0$. Wir definieren die Folge $(f_n)_{n \in \N}$ einfacher Funktionen auf $\cL^\infty(\Omega)$ als
 \[
  f_n := \sgn(f)f'_n.
 \]
-Dass $f_n \in \La^\infty(\Omega)$ für alle $n \in \N$ folgt direkt daraus, dass $|f_n| = |f'_n|$ für alle $n \in \N$. Da
+Dass $f_n \in \cL^\infty(\Omega)$ für alle $n \in \N$ folgt direkt daraus, dass $|f_n| = |f'_n|$ für alle $n \in \N$. Da
 \[
  |f(x)-f_n(x)| \leq ||f(x)|-f'_n(x)| \text{ für alle } x \in \Omega \text{ für alle } n \in \N
 \]
@@ -292,7 +406,7 @@ ist $\|f-f_n\|_\infty \leq \||f|-f'\|_\infty$ für alle $n \in \N$. Aus $\limes{
 
 
 \subsection{}
-Sei $g \in \La^{p'}(\Omega)$ beliebig aber fest. Da $f, f_k \in \La^p(\Omega)$ für alle $k \in \N$ ist nach der Hölder-Ungleichung $f g, f_k g \in \La^1(\Omega)$ für alle $k \in \N$. Es ist daher
+Sei $g \in \cL^{p'}(\Omega)$ beliebig aber fest. Da $f, f_k \in \cL^p(\Omega)$ für alle $k \in \N$ ist nach der Hölder-Ungleichung $f g, f_k g \in \cL^1(\Omega)$ für alle $k \in \N$. Es ist daher
 \[
  \limes{k}{\infty} \int_\Omega f_k g \dmu = \int_\Omega f g \dmu
 \]
@@ -302,7 +416,7 @@ genau dann, wenn
  = \limes{k}{\infty} \int_\Omega f_k g \dmu - \int_\Omega f g \dmu
  = \limes{k}{\infty} \int_\Omega (f_k - f)g \dmu.
 \]
-Da auch $f_k - f \in \La^p(\Omega)$ folgt mithilfe der Hölder-Ungleichung, dass für alle $k \in \N$
+Da auch $f_k - f \in \cL^p(\Omega)$ folgt mithilfe der Hölder-Ungleichung, dass für alle $k \in \N$
 \[
  \left| \int_\Omega (f_k -f)g \right|
  \leq \int_\Omega |f_k -f| |g| \dmu
@@ -316,18 +430,18 @@ Da $f_k \longrightarrow f$ in $L^p(\Omega)$ ist $\limes{k}{\infty} \|f_k -f\|p =
 
 
 \subsection{}
-Aus der Eindeutigkeit des Grenzwertes auf $\R$ folgt aus $f_k \rightharpoonup f$ und $f_k \rightharpoonup h$, dass für alle $g \in \La^{p'}(\Omega)$
+Aus der Eindeutigkeit des Grenzwertes auf $\R$ folgt aus $f_k \rightharpoonup f$ und $f_k \rightharpoonup h$, dass für alle $g \in \cL^{p'}(\Omega)$
 \[
  \int_\Omega f g \dmu = \limes{k}{\infty} \int_\Omega f_k g \dmu = \int_\Omega h g \dmu.
 \]
 Da nach der Hölder-Ungleichung beide Seiten der Gleichung endlich sind, folgt, dass
 \[
- \int_\Omega (f-h) g \dmu = 0 \text{ für alle } g \in \La^{p'}(\Omega).
+ \int_\Omega (f-h) g \dmu = 0 \text{ für alle } g \in \cL^{p'}(\Omega).
 \]
 Daher ergibt sich aus \textbf{Aufgabe 1} wegen der $\sigma$-Endlichkeit des Maßraumes, und da $f-h \in L^p(\Omega)$, dass
 \[
  \|f-h\|_p
- = \sup\left\{ \int_\Omega (f-h) g \dmu : g \in \La^{p'}(\Omega) \text{ mit } \|g\|_{p'} \leq 1 \right\}
+ = \sup\left\{ \int_\Omega (f-h) g \dmu : g \in \cL^{p'}(\Omega) \text{ mit } \|g\|_{p'} \leq 1 \right\}
  = 0.
 \]
 Also ist $f = h$ in $L^p(\Omega)$, da $\|\cdot\|_p$ eine Norm auf $L^p$ ist.
@@ -359,9 +473,9 @@ Also ist $f = h$ in $L^p(\Omega)$, da $\|\cdot\|_p$ eine Norm auf $L^p$ ist.
 Zusammenfügen von \textbf{Aufgabe 1} und Bemerkung \ref{bem: liminf sup vertauschen} ergibt, dass
 \begin{align*}
  \|f\|_p
- &= \sup \left\{ \int_\Omega f g \dmu : g \in \La^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
- &= \sup \left\{ \limesinf{k} \int_\Omega f_k g \dmu : g \in \La^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
- &\leq \limesinf{k} \sup \left\{ \int_\Omega f_k g \dmu : g \in \La^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\}
+ &= \sup \left\{ \int_\Omega f g \dmu : g \in \cL^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
+ &= \sup \left\{ \limesinf{k} \int_\Omega f_k g \dmu : g \in \cL^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
+ &\leq \limesinf{k} \sup \left\{ \int_\Omega f_k g \dmu : g \in \cL^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\}
  = \limesinf{k} \|f_k\|_p.
 \end{align*}
 
