@@ -277,8 +277,37 @@ Daher ergibt sich aus \textbf{Aufgabe 1} wegen der $\sigma$-Endlichkeit des Maß
 Also ist $f = h$ in $L^p(\Omega)$, da $\|\cdot\|_p$ eine Norm auf $L^p$ ist.
 
 
+\subsection{}
+\begin{bem} \label{bem: liminf sup vertauschen}
+ Sei $I$ eine Indexmenge und für alle $i \in I$ sei $(a_n^i)_{n \in \N}$ eine Folge auf $\R$. Dann ist
+ \[
+  \sup_{i \in I} \limesinf{n} a_n^i
+  \leq \limesinf{n} \sup_{i \in I} a_n^i.
+ \]
+\end{bem}
+\begin{proof}
+ Für alle $j \in I$ und $n \in \N$ ist
+ \[
+  a_n^j \leq \sup_{i \in I} a_n^i.
+ \]
+ Also ist für alle $j \in I$
+ \[
+  \limesinf{n} a_n^j \leq \limesinf{n} \sup_{i \in I} a_n^i
+ \]
+ und deshalb auch
+ \[
+  \sup_{j \in I} \limesinf{n} a_n^j \leq \limesinf{n} \sup_{i \in I} a_n^i.
+ \]
+\end{proof}
 
-
+Zusammenfügen von \textbf{Aufgabe 1} und Bemerkung \ref{bem: liminf sup vertauschen} ergibt, dass
+\begin{align*}
+ \|f\|_p
+ &= \sup \left\{ \int_\Omega f g \dmu : g \in \La^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
+ &= \sup \left\{ \limesinf{k} \int_\Omega f_k g \dmu : g \in \La^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
+ &\leq \limesinf{k} \sup \left\{ \int_\Omega f_k g \dmu : g \in \La^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\}
+ = \limesinf{k} \|f_k\|_p.
+\end{align*}
 
 
 
