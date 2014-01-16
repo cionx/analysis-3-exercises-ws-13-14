@@ -280,6 +280,81 @@ Wir zeigen die Aussage per Induktion über $k \geq 1$.
 \qed\end{is}
 
 
+\subsection{}
+Wir betrachten zunächst den Fall, dass $p = \infty$, $q = \infty$ oder $r = \infty$. Ist etwa $p = \infty$, so muss $q = r = 1$. Es ist dann
+\begin{align*}
+     &\, \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_2(x,y) \\
+ \leq&\, \|f\|_\infty \int_{\R^n \times \R^n} |g(y-x) h(y)| \dlambda_2(x,y) \\
+ \underset{(*)}=&\, \|f\|_\infty \int_{\R^n} \int_{\R^n} |g(y-x) h(y)| \dlambda_n(x) \dlambda_n(y) \\
+    =&\, \|f\|_\infty \int_{\R^n} |h(y)| \int_{\R^n} |g(y-x)| \dlambda_n(x) \dlambda_n(y) \\
+    =&\, \|f\|_\infty \|g\|_1 \int_{\R^n} |h(y)| \dlambda_n(y)
+    =    \|f\|_\infty \|g\|_1 \|h\|_1.
+\end{align*}
+Dabei wird bei $(*)$ Tonelli genutzt. Die Fälle $q = \infty$ und $r = \infty$ lassen sich analog abhandeln.
+
+Als nächstes betrachten wir den Fall, dass $p = 1$, $q = 1$ oder $r = 1$. Ist etwa $p = 1$, so ist $1/q + 1/r = 1$ und daher
+\begin{align*}
+     &\, \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_2(x,y) \\
+     \underset{(*)}=&\, \int_{\R^n} \int_{\R^n} |f(x) g(y-x) h(y)| \dlambda_n(y) \dlambda_n(x) \\
+     =&\, \int_{\R^n} |f(x)| \int_{\R^n} |g(y-x) h(y)| \dlambda_n(y) \dlambda_n(x) \\
+     \underset{(**)}\leq&\, \|g\|_q \|h\|_r \int_{\R^n} |f(x)| \dlambda_n(x)
+     = \|f\|_1 \|g\|_q \|h\|_r.
+\end{align*}
+Dabei wird bei $(*)$ Tonelli und bei $(**)$ die Hölder-Ungleichung genutzt. Die Fälle $q = 1$ und $r = 1$ lassen sich analog abhandeln.
+
+Zuletzt betrachten wir Fall, dass $1 < p,q,r < \infty$. Es ist dann auch \mbox{$1 < p', q', r' < \infty$}. Da
+\[
+ 3
+ = \frac{1}{p} + \frac{1}{p'} + \frac{1}{q} + \frac{1}{q'} + \frac{1}{r} + \frac{1}{r'}
+ = 2 + \frac{1}{p'} + \frac{1}{q'} + \frac{1}{r'}
+\]
+ist
+\[
+ \frac{1}{p'} + \frac{1}{q'} + \frac{1}{r'} = 1.
+\]
+
+Wir betrachten die Hilfsfunktionen $\alpha, \beta, \gamma : \R^n \times \R^n \to [0,\infty]$ mit
+\begin{align*}
+ \alpha(x,y) &:= |g(y-x)|^{q/p'} |h(y)|^{r/p'}, \\
+  \beta(x,y) &:= |f(x)|^{p/q'} |h(y)|^{r/q'} \text{ und} \\
+ \gamma(x,y) &:= |f(x)|^{p/r'} |g(y-x)|^{q/r'}.
+\end{align*}
+
+Es ist $\alpha \in \cL^{p'}(\R^n \times \R^n)$ mit $\|\alpha\|_{p'} = \|g\|_q^{q/p'} \|h\|_r^{r/p'}$, denn
+\begin{align*}
+ &\, \int_{\R^n \times \R^n} |\alpha(x,y)|^{p'} \dlambda_{2n}(x,y) \\
+ =&\, \int_{\R^n \times \R^n} |g(y-x)|^q |h(y)|^r \dlambda_{2n}(x,y) \\
+ \underset{(*)}=&\, \int_{\R^n} \int_{\R^n} |g(y-x)|^q |h(y)|^r \dlambda_n(x) \dlambda_n(y) \\
+ =&\, \int_{\R^n} |h(y)|^r \int_{\R^n} |g(y-x)|^q \dlambda_n(x) \dlambda_n(y) \\
+ =&\, \|g\|_q^q \int_{\R^n} |h(y)|^r \dlambda_n(y)
+ = \|g\|_q^q \|h\|_r^r.
+\end{align*}
+Dabei wird bei $(*)$ überraschenderweise Tonelli genutzt.
+Analog ergibt sich auch, dass $\beta \in \cL^{q'}(\R^n \times \R^n)$ mit $\|\beta\|_{q'} = \|f\|_p^{p/q'} \|h\|_r^{r/q'}$, und dass $\gamma \in \cL^{r'}(\R^n \times \R^n)$ mit $\|\gamma\|_{r'} = \|f\|_p^{p/r'} \|g\|_q^{q/r'}$.
+
+Es ist
+\begin{gather*}
+ \frac{p}{q'} + \frac{p}{r'}
+ = p\left( \frac{1}{q'} + \frac{1}{r'} \right)
+ = p\left( 1-\frac{1}{p'} \right)
+ = p \, \frac{1}{p}
+ = 1, \text{ sowie} \\
+ \frac{q}{p'} + \frac{q}{r'}
+ = 1 \text{ und }
+ \frac{r}{p'} + \frac{r}{q'}
+ = 1.
+\end{gather*}
+
+
+Damit ergibt sich aus dem vorherigen Aufgabenteil, dass
+\begin{align*}
+ &\, \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_{2n}(x,y) 
+   = \int_{\R^n \times \R^n} |\alpha \beta \gamma| \dlambda_{2n} \\
+ \leq&\, \|\alpha\|_{p'} \|\beta\|_{q'} \|\gamma\|_{r'}
+ = \|f\|_p^{p/q' + p/r'} \|g\|_q^{q/p' + q/r'} \|h\|_r^{r/p' + r/q'} \\
+ =&\, \|f\|_p \|g\|_q \|h\|_r.
+\end{align*}
+
 
 
 
