@@ -301,7 +301,7 @@ Aufgrund der Subadditivität von $\lambda^*_1$ genügt es hierfür zu zeigen, da
  \geq \lambda^*_1(A \cap \pi(B)) + \lambda^*_1(A \cap \pi(B)^c).
 \]
 
-Wer bemerken zunächst, dass $\mu(B)^c \subseteq \mu(B^c)$: Für $y \in \mu(B)^c$ ist $y \not\in \mu(B)$. Aus der Surjektivität von $\pi$ folgt, dass es $x \in \R^2$ mit $\pi(x) = y$ gibt. Da $y \not\in \pi(B)$ ist $x \not\in B$. Also ist $x \in B^c$ und daher $y \in \mu(B^c)$.
+Wer bemerken zunächst, dass $\pi(B)^c \subseteq \pi(B^c)$: Für $y \in \pi(B)^c$ ist $y \not\in \pi(B)$. Aus der Surjektivität von $\pi$ folgt, dass es $x \in \R^2$ mit $\pi(x) = y$ gibt. Da $y \not\in \pi(B)$ ist $x \not\in B$. Also ist $x \in B^c$ und daher $y \in \pi(B^c)$.
 
 Auch ist für alle $C \in \R^2$
 \begin{equation}\label{eq:schnitt pi vertauschen}
@@ -319,17 +319,17 @@ da
 Zusammen ergibt sich damit, dass
 \begin{align*}
  &\, \lambda_1^*(A \cap \pi(B)) + \lambda_1^*(A \cap \pi(B)^c)
- \underset{\mu \text{ monoton}}{\leq} \lambda_1^*(A \cap \pi(B)) + \lambda_1^*(A \cap \pi(B^c)) \\
+ \underset{\lambda_1^* \text{ monoton}}{\leq} \lambda_1^*(A \cap \pi(B)) + \lambda_1^*(A \cap \pi(B^c)) \\
  =&\, \lambda_1^*( \pi((A\times\R)\cap B) ) + \lambda_1^*( \pi((A\times\R)\cap B^c) ) \\
  =&\, \mu^*( (A\times\R) \cap B) + \mu^*( (A\times\R) \cap B^c )
  \underset{B\, \mu^*-\text{messbar}}{=} \mu^*(A \times \R) \\
  =&\, \lambda_1^*(\pi(A \times \R))
  = \lambda_1^*(A).
 \end{align*}
-Dies zeigt, dass $\mu(B)$ $\lambda_1^*$-messbar ist.
+Dies zeigt, dass $\pi(B)$ $\lambda_1^*$-messbar ist.
 
 \subsubsection*{$\eqref{item:pi(B) lambda messbar} \Rightarrow \eqref{item:es gibt b0 b1}$}
-Da $\pi(B)$ $\lambda_1^*$-messbar ist, folgt aus \textbf{Aufgabe 3}, dass es $A_1 \in F_\sigma$ und $A_2 \subseteq \R$ mit $\lambda_1^*(A_2) = 0$ gibt, so dass $\pi(B) = A_1 \cup A_2$. $A_1$ ist messbar: Nach Definition ist $A_1 = \bigcup_{n \in \N} K_n$ für eine Familie $(K_n)_{n \in \N}$ abgeschlossener Mengen auf $\R$. Da alle $K_n$ als abgeschlossene Mengen $\lambda_1^*$-messbar sind, und $\mc{M}_{\lambda_1^*}$ eine $\sigma$-Algebra ist, ist wegen der $\sigma$-Additivität von $\mc{M}_{\lambda_1^*}$ damit auch $A_1$ $\lambda_1^*$-messbar.
+Da $\pi(B)$ $\lambda_1^*$-messbar ist, folgt aus \textbf{Aufgabe 3}, dass es $A_1 \in F_\sigma$ und $A_2 \subseteq \R$ mit $\lambda_1^*(A_2) = 0$ gibt, so dass $\pi(B) = A_1 \cup A_2$. $A_1$ ist messbar: Nach Definition ist $A_1 = \bigcup_{n \in \N} K_n$ für eine Familie $(K_n)_{n \in \N}$ abgeschlossener Mengen auf $\R$. Da alle $K_n$ als abgeschlossene Mengen $\lambda_1^*$-messbar sind, und $\mc{M}_{\lambda_1^*}$ eine $\sigma$-Algebra ist, ist wegen der „$\sigma$-Additivität“ von $\mc{M}_{\lambda_1^*}$ damit auch $A_1$ $\lambda_1^*$-messbar.
 
 Sei nun $B_0 := A_1$ und $B_1 := A_1 \cup A_2 = \pi(B)$. $B_0$ und $B_1$ sind $\lambda_1^*$-messbar, und wegen der Monotonie von $\lambda_1^*$ ist
 \[
