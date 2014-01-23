@@ -152,7 +152,7 @@ Da $|\sin(x)|e^{-xt}$ für alle $x \in [0,R]$ auf jedem kompakten Teilintervall 
  = |\sin(x)| \int_0^\infty e^{-xt} \dt
  = \frac{|\sin(x)|}{x},
 \]
-ist für alle $x \in [0,\R]$
+ist für alle $x \in [0,R]$
 \[
  \int_{[0,\infty)} |\sin(x)|e^{-xt} \dlambda(t)
  = \int_0^\infty |\sin(x)|e^{-xt} \dt
@@ -192,7 +192,7 @@ Um das andere, aus dem Satz von Fubini folgende, Integral zu bestimmen, bemerken
 Dabei haben wir genutzt, dass $g(x,t)$ für alle $t \in [0,\infty)$ auf $[0,R]$ beschränkt und stetig ist, also Riemann- und Lebesgue-Integral übereinstimmen. Es ergibt sich für alle $t \in (0,\infty)$ durch partielle Integration, dass
 \begin{align*}
  &\, \int_0^R \sin(x) e^{-xt} \dx
- = \left. -\frac{1}{t} \sin(x) e^{-xt} \right|_{x=0}^5 + \frac{1}{t} \int_0^R \cos(x) e^{-xt} \dx \\
+ = \left. -\frac{1}{t} \sin(x) e^{-xt} \right|_{x=0}^R + \frac{1}{t} \int_0^R \cos(x) e^{-xt} \dx \\
  =&\, \left.\left( -\frac{1}{t} \sin(x) e^{-xt} - \frac{1}{t^2} \cos(x) e^{-xt} \right)\right|_{x=0}^R - \frac{1}{t^2} \int_0^R \sin(x) e^{-xt} \dx,
 \end{align*}
 also
