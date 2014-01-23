@@ -108,7 +108,7 @@ Wir betrachten die Funktion $f : (0,1) \to \R, x \mapsto 1/\sqrt{x}$. Diese ist 
  = \lim_{s \downarrow 0} 2 - 2\sqrt{s}
  = 2.
 \]
-Also ist $f$ auf $(0,1)$ auch Lebesgue-integrierbar, weshalb $f \in \La^1((0,1))$. Es ist jedoch $f^2 \not\in \La^2((0,1))$: Für alle $x \in (0,1)$ ist $|f(x)^2| = f(x)^2 = 1/x$. Für die Funktionenfolge
+Also ist $f$ auf $(0,1)$ auch Lebesgue-integrierbar, weshalb $f \in \La^1((0,1))$. Es ist jedoch $f \not\in \La^2((0,1))$: Für alle $x \in (0,1)$ ist $|f(x)^2| = f(x)^2 = 1/x$. Für die Funktionenfolge
 \[
  h_n := \chi_{[1/n,1)} f^2
 \]
@@ -123,7 +123,7 @@ gilt auf $(0,1)$ überall $h_n \leq h_{n+1}$ für alle $n \in \N$ und $\limes{n}
 
 
 \subsection{}
-Wir betrachten die Funktion $f : \R \to \R, x \mapsto 1/(x+1)$. Es ist $f \not\in \La^1(\R)$: Für die Funktionenfolge
+Wir betrachten die Funktion $f : \R \to \R, x \mapsto 1/(|x|+1)$. Es ist $f \not\in \La^1(\R)$: Für die Funktionenfolge
 \[
  f_n := \chi_{[-n,n]} f
 \]
@@ -132,7 +132,7 @@ ist auf $\R$ überall $f_n \leq f_{n+1}$ für alle $n \in \N$ und $\limes{n}{\in
  \int_\R |f| \dlambda
  &= \limes{n}{\infty} \int_\R f_n \dlambda
  = \limes{n}{\infty} \int_{[-n,n]} f_n \dlambda \\
- &= \limes{n}{\infty} \int_{-n}^n \frac{1}{x+1} \dx
+ &= \limes{n}{\infty} \int_{-n}^n \frac{1}{|x|+1} \dx
  = 2 \limes{n}{\infty} \int_1^{n+1} \frac{1}{x} \dx \\
  &= 2 \int_1^\infty \frac{1}{x} \dx
  = \infty.
@@ -147,7 +147,7 @@ ist auf $\R$ überall $h_n \leq h_{n+1}$ für alle $n \in \N$ und $\limes{n}{\in
  \int_\R f^2 \dlambda
  &= \limes{n}{\infty} \int_\R h_n \dlambda
  = \limes{n}{\infty} \int_{[-n,n]} f^2 \dlambda \\
- &= \limes{n}{\infty} \int_{-n}^n \frac{1}{(x+1)^2} \dx
+ &= \limes{n}{\infty} \int_{-n}^n \frac{1}{(|x|+1)^2} \dx
  = 2 \limes{n}{\infty} \int_1^{n+1} \frac{1}{x^2} \dx \\
  &= 2 \int_1^\infty \frac{1}{x^2}
  < \infty.
@@ -267,7 +267,7 @@ also
 \[
  \mu(\{ x \in \Omega : |f(x)| \geq M + 1 \}) = 0.
 \]
-Es ist daher $f \in \La^\infty(\Omega,\A,\mu)$.
+Es ist daher $f \in \La^\infty(\Omega,\A,\mu)$. (\emph{Bemerkung: Statt mit $M+1$ kann man auch mit $M+\varepsilon$ arbeiten, und erhält so sogar $\|f\|_\infty \leq M$.})
 
 Wir zeigen nun, dass unter den obigen Bedingungen
 \[
