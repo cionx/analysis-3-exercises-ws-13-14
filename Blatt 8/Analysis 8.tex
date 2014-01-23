@@ -279,7 +279,7 @@ Insbesondere ist $0 \leq \int_{(0,1)} f' \dlambda < \infty$, also $f'$ über $(0
 
 
 \subsection{}
-Man betrachte die Kantormenge $C \subseteq [0,1]$ und die Kantorfunktion $f: [0,1] \rightarrow [0,1]$. Es ist bekannt, dass $f$ stetig und monoton steigend ist. $f$ ist auch $\lambda$-fast überall differenzierbar: Für alle $x \in [0,1] \setminus C$ gibt es ein $\varepsilon > 0$ mit $B_\varepsilon(x) \subseteq [0,1] \setminus C$. $f$ ist auf $B_\varepsilon(x)$ konstant, weshalb $f$ an der Stelle $x$ differenzierbar mit $f'(x) = 0$ ist. Mit $\lambda(K) = 0$ ergibt sich die Behauptung.
+Man betrachte die Cantormenge $C \subseteq [0,1]$ und die Cantorfunktion $f: [0,1] \rightarrow [0,1]$. Es ist bekannt, dass $f$ stetig und monoton steigend ist. $f$ ist auch $\lambda$-fast überall differenzierbar: Für alle $x \in [0,1] \setminus C$ gibt es ein $\varepsilon > 0$ mit $B_\varepsilon(x) \subseteq [0,1] \setminus C$. $f$ ist auf $B_\varepsilon(x)$ konstant, weshalb $f$ an der Stelle $x$ differenzierbar mit $f'(x) = 0$ ist. Mit $\lambda(C) = 0$ ergibt sich die Behauptung.
 
 Es ist insbesondere $\int_{(0,1)} f'(x) \dlambda = 0$, aber $f(1) - f(0) = 1 - 0 = 1$.
 
@@ -326,12 +326,12 @@ da es sich um eine geometrische Reihe handelt. Es ist daher $f_1(x) = \sum_{k \g
 
 
 \subsection{}
-Da $0 \leq f_2 \leq f_1$, und $f_1$ über $\R$ integrierbar ist, ist es auch $f_2$.
+Die Messbarkeit von $f_2$ ergibt sich analog zu der von $f_2$, und da $0 \leq f_2 \leq f_1$, und $f_1$ über $\R$ Lebesgue-integrierbar ist, ist es auch $f_2$.
 Für alle $k \geq 1$ definieren wir die Funktion $g^2_k : (0, \infty) \rightarrow \R$ als
 \[
  g^2_k(x) := (-1)^{k+1} xe^{-kx} = (-1)^{k+1} g^1_k(x) \text{ für alle } x > 0.
 \]
-Für alle $k \geq 0$ ist $g_k$ auf $(0,\infty)$ uneigentlich Riemann-integrierbar, da
+Für alle $k \geq 1$ ist $g_k$ auf $(0,\infty)$ uneigentlich Riemann-integrierbar, da
 \[
  \int_0^\infty g^2_k(x) \dx
  = (-1)^{k+1} \int_0^\infty g^1_k(x) \dx
@@ -345,7 +345,7 @@ Für alle $k \geq 1$ definieren wir nun $h_k : (0,\infty) \rightarrow \R$ als
 \[
  h_j = \sum_{j=1}^k g^2_k.
 \]
-Wir bemerken, dass für alle $x \geq 0$
+Wir bemerken, dass für alle $x > 0$
 \[
  \sum_{k \geq 1} (-1)^k e^{-kx}
  = \sum_{k \geq 1} (-e^{-x})^k
@@ -356,7 +356,7 @@ Also ist für alle $x > 0$
 \[
  f_2(x)
  = \frac{x}{e^x-1}
- = \sum_{k \geq 1} g_k(x)
+ = \sum_{k \geq 1} g^2_k(x)
  = \limes{k}{\infty} h_k(x).
 \]
 Da für alle $k \geq 1$ auch
