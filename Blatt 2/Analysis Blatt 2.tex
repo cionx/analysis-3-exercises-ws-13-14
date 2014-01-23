@@ -89,9 +89,9 @@ Ist andererseits $\A$ eine $\sigma$-Algebra, so ist $\A$ auch eine Algebra, da j
 \subsection{}
 Wie aus der Vorlesung bekannt ist jede $\sigma$-Algebra eine monotone Klasse. Damit ist $\sigma(\A)$ eine monotone Klasse, die $\A$ enthält. Da $m(\A)$ die kleinste monotone Klasse ist, die $\A$ enthält, ist daher $m(\A) \subseteq \sigma(\A)$.
 
-Um zu zeigen, dass auch $m(\A) \subseteq \sigma(\A)$, genügt es zu zeigen, dass $m(\A)$ eine $\sigma$-Algebra ist: Da $\sigma(\A)$ die kleinste $\sigma$-Algebra ist, die $\A$ enthält, ist dann $m(\A) \subseteq \sigma(\A)$. Da $m(\A)$ eine monotone Klasse ist, genügt es nach \textbf{Aufgabenteil a)} zu zeigen, dass $m(\A)$ eine Algebra ist.
+Um zu zeigen, dass auch $m(\A) \supseteq \sigma(\A)$, genügt es zu zeigen, dass $m(\A)$ eine $\sigma$-Algebra ist: Da $\sigma(\A)$ die kleinste $\sigma$-Algebra ist, die $\A$ enthält, ist dann $m(\A) \supseteq \sigma(\A)$. Da $m(\A)$ eine monotone Klasse ist, genügt es nach \textbf{Aufgabenteil a)} zu zeigen, dass $m(\A)$ eine Algebra ist.
 
-Es ist $\Omega \in \A \subseteq m(\A)$, da $\A$ eine Algebra ist. Es muss noch die Abgeschlossenheit von $\A$ unter Komplementbildung und endlichen Vereinigungen gezeigt werden.
+Es ist $X \in \A \subseteq m(\A)$, da $\A$ eine Algebra ist. Es muss noch die Abgeschlossenheit von $\A$ unter Komplementbildung und endlichen Vereinigungen gezeigt werden.
 
 Es sei $\mc{K} := \{M \in \mc{P}(X) : M^c \in m(\A)\}$. $\mc{K}$ ist eine monotone Klasse: Ist $(K_n)_{n \in \N}$ ein wachsende Folge in $\mc{K}$, so ist $(K_n^c)_{n \in \N}$ eine fallende Folge in $m(\A)$, und somit
 \[
@@ -105,7 +105,7 @@ Ist $(L_n)_{n \in \N}$ eine fallende Folge in $\mc{K}$, so ist $(L_n^c)_{n \in \
 \]
 da $m(\A)$ eine monotone Klasse ist, also $\bigcap_{n \in \N} L_n \in \mc{K}$. Dies zeigt, dass $\mc{K}$ eine monotone Klasse ist.
 
-Da $\A$ eine Algebra ist, ist $A^c \in \A \subseteq m(\A)$ für alle $A \in \A$, also $\A \subseteq \mc{K}$. Da $\mc{K}$ eine monotone Klasse ist, die $\A$ enthält, ist daher $m(\A) \subseteq \mc{K}$. Also ist $A^c \in m(\A)$ für alle $A \in m(\A)$. Dies zeigt die Abgeschlossenheit von $\mc{A}$ unter Komplementbildung.
+Da $\A$ eine Algebra ist, ist $A^c \in \A \subseteq m(\A)$ für alle $A \in \A$, also $\A \subseteq \mc{K}$. Da $\mc{K}$ eine monotone Klasse ist, die $\A$ enthält, ist $m(\A) \subseteq \mc{K}$. Also ist $A^c \in m(\A)$ für alle $A \in m(\A)$. Dies zeigt die Abgeschlossenheit von $\mc{A}$ unter Komplementbildung.
 
 Für $D \in m(\A)$ sei $\mc{V}_D := \{M \in P(X) : D \cup M \in m(\A)\}$. Auch $\mc{V}_D$ ist eine monotone Klasse: Ist $(V_n)_{n \in \N}$ eine wachsende Folge auf $\mc{V}_D$, so ist $(V_n \cup D)_{n \in \N}$ ein wachsende Folge auf $m(\A)$, und somit
 \[
@@ -129,10 +129,10 @@ Sei $A \in \A$. Für $B \in \A$ ist $A \cup B \in \A \subseteq m(\A)$, da $\A$ e
 
 
 \section{(Ein Zugang zur Borelschen $\sigma$-Algebra)}
-
+\emph{Korrektur: Aufgabenteil a) ist viel zu umständlich und Aufgabenteil b) ist falsch.}
 
 \subsection{}
-Sei $U \subseteq \R^n$ offen beliebig aber fest. Es gilt zu zeigen, dass $U \in F_\sigma$, d.h. dass es eine abzählbar unendliche Familie $(K_n)_{n \in \N}$ gibt, so dass $U = \bigcup_{n \in \N} K_n$.
+Sei $U \subseteq \R^n$ offen beliebig aber fest. Es gilt zu zeigen, dass $U \in F_\sigma$, d.h. dass es eine abzählbar unendliche Familie $(K_n)_{n \in \N}$, mit $K_n \subseteq \R^n$ abgeschlossen für alle $n \in \N$, gibt, so dass $U = \bigcup_{n \in \N} K_n$.
 
 Sei $x \in U$. Da $U$ offen ist, gibt es ein $\varepsilon > 0$, so dass $B_\varepsilon(x) \subseteq U$. Es sei $r(x) \in \Q$ mit $0 < r(x) < \frac{\varepsilon}{3}$ und $q(x) \in \Q^n$ mit $q(x) \in B_{r(x)}(x)$ (solche $r(x)$ und $q(x)$ existieren, dass $\Q$ dicht in $\R$, bzw. $\Q^n$ dicht in $\R^n$ liegt). Aufgrund der Symmetrie einer Metrik ist nun $x \in \overline{B_{r(x)}(q(x))}$. Auch ist $\overline{B_{r(x)}(q(x))} \subseteq U$, denn für alle $y \in \overline{B_{r(x)}(q(x))}$ ist nach der Dreiecksungleichung
 \[
@@ -142,9 +142,10 @@ also $y \in B_\varepsilon(x) \subseteq U$.
 
 Da nun
 \[
- \{ B_{r(x)}(q(x)) : x \in U \} \subseteq \{B_r(q) : r \in \Q, r > 0, q \in \Q^n\}
+ \{ \overline{B_{r(x)}(q(x))} : x \in U \}
+ \subseteq \{ \overline{B_r(q)} : r \in \Q, r > 0, q \in \Q^n\}
 \]
-abzählbar ist, gibt es eine Folge $(x_n)_{n \in \N}$ so dass
+abzählbar ist, gibt es eine Folge $(x_n)_{n \in \N}$ auf $U$ so dass
 \[
  V := \bigcup_{n \in \N} \overline{B_{r(x_n)}(q(x_n))} = \bigcup_{x \in U} \overline{B_{r(x)}(q(x))}.
 \]
@@ -211,11 +212,11 @@ Dass $\mc{G}_n \subseteq F_\sigma \cap G_\delta$ folgt daraus, dass für alle $U
 \subsection{}
 Sei $X = (0,1)$. Wie aus der Vorlesung bekannt ist
 \[
- \mu: \mc{P}(X)
+ \mu: \mc{P}(X) \rightarrow [0,\infty] \text{ mit }
  \mu(A) =
  \begin{cases}
-  0      & \text{falls } A = \emptyset \\
-  \infty & \text{sonst}
+  0      & \text{falls } A = \emptyset, \\
+  \infty & \text{sonst},
  \end{cases}
 \]
 ein Maß auf $(X,\mc{P}(X))$. Für die fallende Folge $(A_n)_{n \geq 1}$ mit $A_n := \left(0,\frac{1}{n}\right)$ ist jedoch
@@ -297,7 +298,7 @@ $|\mu|$ also nicht endlich additiv ist.
 $\mu$ ist wohldefiniert:
 Für alle $A \in \A$ ist die Folge $(\mu_n(A))_{n \in \N}$ monoton steigend, und wie aus Analysis I bekannt ist eine monoton steigend Folge entweder beschränkt, und damit konvergent, oder divergent gegen $\infty$.
 
-Für paarweise dijunkte $A_1, \ldots, A_N \in \A$ ist
+Für paarweise disjunkte $A_1, \ldots, A_N \in \A$ ist
 \begin{align*}
  \mu\left( \bigcup_{k=1}^N A_k \right)
  &= \limes{n}{\infty} \mu_n\left( \bigcup_{k=1}^N A_k \right)
