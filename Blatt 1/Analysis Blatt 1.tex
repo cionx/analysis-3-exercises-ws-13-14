@@ -97,7 +97,7 @@ $f_*[\mc{B}]$ erfüllt also alle Axiome einer $\sigma$-Algebra.
 
 
 \subsection{}
-Wie in \textbf{Aufgabe 3} gezeigt handelt es sich bei $\mc{A}_1 = \{\emptyset, \{1\}, \{2,3\}, \{1,2,3\}\}$ und $\mc{A}_2 = \{\emptyset, \{2\}, \{1,3\}, \{1,2,3\}\}$ um $\sigma$-Algebren auf $\{1,2,3\}$, während $\mc{A}_2 \cup \mc{A}_2$ keine $\sigma$-Algebra auf $\{1,2,3\}$ ist.
+Wie in \textbf{Aufgabe 3} gezeigt handelt es sich bei $\mc{A}_1 = \{\emptyset, \{1\}, \{2,3\}, \{1,2,3\}\}$ und $\mc{A}_2 = \{\emptyset, \{2\}, \{1,3\}, \{1,2,3\}\}$ um $\sigma$-Algebren auf $\{1,2,3\}$, während $\mc{A}_1 \cup \mc{A}_2$ keine $\sigma$-Algebra auf $\{1,2,3\}$ ist.
 
 
 \subsection{}
@@ -196,7 +196,7 @@ also ist $A$ ein Gruppenhomomorphismus. $A$ ist injektiv, denn für $p,q \in \Q$
 \]
 Da die Abbildung $[0,2\pi) \rightarrow \C, \varphi \mapsto e^{i\varphi}$ bijektiv ist, und erweitert auf $\R$ $(2\pi)$-periodisch ist, muss $p-q = 2n\pi$ für ein $n \in \Z$; wäre $n \neq 0$, so wäre $\pi = \frac{p-q}{2n} \in \Q$, was bekanntermaßen nicht gilt. Also muss $n = 0$ und damit $p = q$.
 
-Da $A$ ein Gruppenmonomorphismus ist, ist
+Da $A$ ein Gruppenmonomorphismus ist, und $\Q$ abzählbar unendlich, ist
 \[
  G := \Img A =
  \left\{
@@ -222,7 +222,7 @@ Die Relation ist transitiv, denn ist $x \sim y$ und $y \sim z$, so gibt es $R, S
 \subsection{}
 Da ich die bisher definierte Äquivalenzrelation $\sim$ nicht mag, betrachte ich eine leicht abgeänderte Version; ich nenne diese ebenfalls $\sim$, da ich die Äquivalenzrelation aus \textbf{Aufgabenteil b)} nicht mehr nutzen werde, und $\sim$ der praktischste Name ist:
 
-Durch $x \sim y :\Leftrightarrow \text{ es existiert } R \in G : x = Ry$ wird auf $B_1(0) \setminus \{0\}$ eine Äquivalenzrelation definiert. Der Beweis hierfür verläuft komplett analog zu \textbf{Aufgabenteil b)}. Dabei ist $Rx \in B_{1}(0)\setminus\{0\}$ für alle $R \in SO(2)$ und $x \in B_{1}(0)$, denn es ist $\op{R} \leq \|R\| = 1$ für alle $R \in G$ und damit $\|Rx\| \leq \|x\| \leq 1$ für alle $x \in B_1(0)\setminus\{0\}$, sowie $Ry = 0 \Leftrightarrow y=0$ für alle $R \in G$ und $y \in B_1(0)\setminus\{0\}$, da $R$ einen Vektorraumautomorphismus beschreibt, also $R (B_1(0)\setminus\{0\}) \subseteq B_1(0)\setminus\{0\}$. Insbesondere ist daher $\bigcup_{R \in G} RA \subset B_1(0)\setminus\{0\}$ für alle $A \subseteq B_1(0)\setminus\{0\}$.
+Durch $x \sim y :\Leftrightarrow \text{ es existiert } R \in G : x = Ry$ wird auf $B_1(0) \setminus \{0\}$ eine Äquivalenzrelation definiert. Der Beweis hierfür verläuft komplett analog zu \textbf{Aufgabenteil b)}. Dabei ist $Rx \in B_{1}(0)\setminus\{0\}$ für alle $R \in SO(2)$ und $x \in B_{1}(0)$, denn es ist $\op{R} \leq \|R\| = 1$ für alle $R \in G$ und damit $\|Rx\| \leq \|x\| \leq 1$ für alle $x \in B_1(0)\setminus\{0\}$, sowie $Ry = 0 \Leftrightarrow y=0$ für alle $R \in G$ und $y \in \R^2$, da $R$ einen Vektorraumautomorphismus beschreibt, also $R (B_1(0)\setminus\{0\}) \subseteq B_1(0)\setminus\{0\}$. Insbesondere ist daher $\bigcup_{R \in G} RA \subseteq B_1(0)\setminus\{0\}$ für alle $A \subseteq B_1(0)\setminus\{0\}$.
 
 Sei nun $M \subseteq B_1(0)\setminus\{0\}$ ein Repräsentantensystem der Äquivalenzklassen von $\sim$, d.h. es gibt für jedes $y \in B_1(0)\setminus\{0\}$ genau ein $x \in M$ mit $x \sim y$ (um die Existenz einer solchen Menge zu garantieren wird das Auswahlaxiom genutzt). Für alle $R \in G$ sei $M_R = RM = \{Rx : x \in M\}$. Es ist dann $B_1(0)\setminus\{0\} = \dot{\bigcup}_{R \in G} M_R$:
 
@@ -246,7 +246,7 @@ was in jedem Fall ein Widerspruch ist. Es kann also keine solche Funktion $\mu$ 
 
 
 \subsection{}
-Es sei für alle $B \in B_1(0)$
+Es sei für alle $B \subseteq \R^2$
 \[
  \mu(B) =
  \begin{cases}
@@ -258,7 +258,7 @@ Es sind dann alle geforderten Eigenschaften erfüllt:
 
 Es ist $\mu(B_1(0)) = 1$, da $0 \in B_1(0)$.
 
-Für jede Folge disjunkter Mengen $(A_n)_{n \in \N}$ auf $B_1(0)$ gilt: Ist $0 \not \in A_n$ für alle $n \in \N$, so ist $\mu(A_n) = 0$ für alle $n \in \N$ sowie auch $0 \not \in \bigcup_{n \in \N} A_n$, also \[\mu\left(\bigcup_{n \in \N} A_n\right) = 0 = \sum_{n \in \N} \mu(A_n).\]
+Für jede Folge disjunkter Mengen $(A_n)_{n \in \N}$ auf $\R^2$ gilt: Ist $0 \not \in A_n$ für alle $n \in \N$, so ist $\mu(A_n) = 0$ für alle $n \in \N$ sowie auch $0 \not \in \bigcup_{n \in \N} A_n$, also \[\mu\left(\bigcup_{n \in \N} A_n\right) = 0 = \sum_{n \in \N} \mu(A_n).\]
 Gibt es hingegen ein $m \in \N$ mit $0 \in A_m$, so folgt aus der Disjunktheit der $A_n$, dass $0 \not \in A_n$ für alle $n \in \N, n \neq m$; es ist jedoch $0 \in \bigcup_{n \in \N} A_n$, und damit \[\mu\left(\bigcup_{n \in \N} A_n\right) = 1 = \sum_{n \in \N} \mu(A_n).\]
 $\mu$ erfüllt also die geforderte $\sigma$-Additivität.
 
