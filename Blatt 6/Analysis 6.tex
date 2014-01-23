@@ -307,16 +307,7 @@ Da $f$ nur nicht-negative Werte annimmt, ist $\nu(A)$ für alle $A \in \A$ wohld
  = \int 0 \dmu
  = 0.
 \]
-Dies zeigt die Normiertheit von $\mu$. (Zur Notation: Es ist $f \leq g$ genau dann wenn $f(x) \leq g(x)$ für alle $x \in X$.) Für $A, B \in \A$ mit $A \subseteq B$ folgt aus $\chi_A \leq \chi_B$ und $f \geq 0$, dass $f \chi_A \leq f \chi_B$ und damit
-\[
- \nu(A)
- = \int_A f \dmu
- = \int f \chi_A \dmu
- \leq \int f \chi_B \dmu
- = \int_B f \dmu
- = \nu(B).
-\]
-Dies zeigt die Monotonie von $\nu$. Ist $(A_n)_{n \in \N}$ eine Folge disjunkter Mengen auf $\A$, so ist
+Dies zeigt die Normiertheit von $\mu$. Ist $(A_n)_{n \in \N}$ eine Folge disjunkter Mengen auf $\A$, so ist
 \[
  f \chi_{\bigdotcup_{n \in \N} A_n}
  = f \sum_{n=0}^\infty \chi_{A_n}
@@ -339,7 +330,7 @@ da $f \chi_{A_n} \geq 0$ für alle $n \in \N$. Dies zeigt die $\sigma$-Additivit
 
 
 \section{Positive Funktionen}
-Sei $0 < \beta < \alpha$ beliebig aber fest. Da $f$ messbar ist, ist die Menge
+Da $f$ messbar ist, ist die Menge
 \[
  A_\varepsilon := \left\{ x \in [0,1] : f(x) < \varepsilon \right\}
 \]
@@ -356,21 +347,21 @@ handelt, ist
  = \lambda(\emptyset)
  = 0.
 \end{align*}
-Insbesondere gibt es wegen der Monotonie der $A_\varepsilon$ (es ist $A_\varepsilon \subseteq A_{\varepsilon'}$ für $0 < \varepsilon < \varepsilon'$) daher ein $\delta > 0$ mit
+Insbesondere gibt es wegen der Monotonie der $A_\varepsilon$ (es ist $A_\varepsilon \subseteq A_{\varepsilon'}$ für $0 < \varepsilon \leq \varepsilon'$) daher ein $\delta > 0$ mit
 \[
- \lambda(A_\delta) < \beta.
+ \lambda(A_\delta) < \frac{\alpha}{2}.
 \]
 
-Sei nun $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$. Es ist $\mu(A_\delta \cap E) \leq \mu(A_\delta) < \beta$, also $\mu(E \setminus A_\delta) > \alpha - \beta$. Da $f > 0$ und $f(x) \geq \delta$ für alle $x \in E \setminus A_\delta$ ist daher
+Sei nun $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$. Es ist $\mu(A_\delta \cap E) \leq \mu(A_\delta) < \alpha/2$, also $\mu(E \setminus A_\delta) > \alpha/2$. Da $f > 0$ und $f(x) \geq \delta$ für alle $x \in E \setminus A_\delta$ ist daher
 \[
  \int_E f \dlambda
  \geq \int_{E \setminus A_\delta} f \dlambda
  \geq \mu(E \setminus A_\delta) \inf_{x \in E \setminus A_\delta} f(x)
- > (\alpha - \beta) \delta > 0.
+ > \frac{\alpha \delta}{2} > 0.
 \]
 Aus der Beliebigkeit von $E \subseteq [0,1]$ messbar mit $\lambda(E) > \alpha$ folgt daher, dass auch
 \[
- \inf\left\{ \int_E f \dlambda : E \subseteq [0,1] \text{ messbar mit } \lambda(E) > \alpha \right\} \geq (\alpha - \beta) \delta > 0.
+ \inf\left\{ \int_E f \dlambda : E \subseteq [0,1] \text{ messbar mit } \lambda(E) > \alpha \right\} \geq \frac{\alpha \delta}{2} > 0.
 \]
 
 
