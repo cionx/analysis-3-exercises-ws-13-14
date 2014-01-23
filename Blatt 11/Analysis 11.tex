@@ -418,7 +418,7 @@ Damit ergibt sich aus dem vorherigen Aufgabenteil, dass
  was die zweite Gleichung zeigt.
 \end{proof}
 
-Wir betrachten die beiden Fälle $p \in [0,\infty)$ und $p = \infty$ getrennt. Zunächst betrachten wir den Fall $p \in [0,\infty)$.
+Wir betrachten die beiden Fälle $1 \leq p < \infty$ und $p = \infty$ getrennt. Zunächst betrachten wir den Fall $1 \leq p < \infty$.
 
 Sei zunächst $f \in \cL^p(\Omega)$ mit $f \geq 0$. Wie wir wissen gibt es eine Folge $(f_n)_{n \in \N}$ einfacher, messbarer Funktionen mit $f_n \geq 0$ und $f_n \leq f_{n+1}$ für alle $n \in \N$, sowie $\limes{n}{\infty} f_n(x) = f(x)$ für alle $x \in \Omega$. Aufgrund von Monotonie ist $0 \leq f^p$, sowie $0 \leq f_n^p$ und $f_n^p \leq f_{n+1}^p$ für alle $n \in \N$, und aufgrund von Stetigkeit ist
 \[
@@ -511,7 +511,7 @@ Da auch $f_k - f \in \cL^p(\Omega)$ folgt mithilfe der Hölder-Ungleichung, dass
  \leq \int_\Omega |(f_k -f)g| \dmu
  \leq \|f_k-f\|_p \|g\|_{p'}.
 \]
-Da $f_k \longrightarrow f$ in $L^p(\Omega)$ ist $\limes{k}{\infty} \|f_k -f\|p = 0$, also auch
+Da $f_k \longrightarrow f$ in $L^p(\Omega)$ ist $\limes{k}{\infty} \|f_k -f\|_p = 0$, also auch
 \[
  \limes{k}{\infty} \int_\Omega (f_k -f)g \dmu = 0.
 \]
