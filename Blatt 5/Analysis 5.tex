@@ -93,16 +93,22 @@
 
 \subsection{}
 Sei $N \subseteq \R^n$ eine Lebesgue-Nullmenge und $\varepsilon > 0$ beliebig aber fest.
-Aus der Definition des Lebesgue-Maßes folgt, dass es eine Folge $(I_k)_{k \in \N}$ von $n$-dimensionalen offenen Intervallen gibt, so dass $N \subseteq \bigcup_{k \in \N} I_k$ und $\lambda_n(N) \leq \sum_{k \in \N} \Vol(I_k)$. Dabei ist gerade $\Vol(I_k) = \lambda_n(I_k)$ für alle $k$.
+Aus der Definition des Lebesgue-Maßes folgt, dass es eine Folge $(I_k)_{k \in \N}$ von $n$-dimensionalen offenen Intervallen gibt, so dass $N \subseteq \bigcup_{k \in \N} I_k$ und
+\[
+ \lambda_n(N)
+ \leq \sum_{k \in \N} \Vol(I_k)
+ = \sum_{k \in \N} \lambda_n(I_k)
+ < \varepsilon.
+\]
 
-Da jedes der $I_k$ offen ist, gibt es, wie aus der Vorlesung bekannt, für alle $k \in \N$ eine disjunkte Familie halboffener Würfel $(C^k_l)_{l \in \N}$ mit $I_k = \bigcup_{l \in \N} C^k_l$ für alle $k$. (Im Skript ist dies \textbf{Lemma 1.32}; auch wenn dort im Satz nur von halboffenen Quadern gesprochen wird, handelt es sich bei den genutzten Quadern offenbar um Würfel.)
+Da jedes der $I_k$ offen ist, gibt es, wie aus der Vorlesung bekannt, für alle $k \in \N$ eine disjunkte Familie halboffener Würfel $(C^k_l)_{l \in \N}$ mit $I_k = \bigdotcup_{l \in \N} C^k_l$ für alle $k$. (Im Skript ist dies \textbf{Lemma 1.32}; auch wenn dort im Satz nur von halboffenen Quadern gesprochen wird, handelt es sich bei den genutzten Quadern offenbar um Würfel.)
 
 Es ist also $(C^k_l)_{k,l \in \N}$ eine abzählbare Überdeckung von $N$ mit paarweise disjunkten, halboffenen Würfeln, wobei aufgrund der $\sigma$-Additivität von $\lambda_n$
 \[
  \sum_{k,l \in \N} \Vol(C^k_l)
  = \sum_{k \in \N} \sum_{l \in \N} \lambda_n(C^k_l)
  = \sum_{k \in \N} \lambda_n \left(\bigcup_{l \in \N} C^k_l\right)
- = \sum_{k \in \N} \lambda_n(I_n)
+ = \sum_{k \in \N} \lambda_n(I_k)
  < \varepsilon.
 \]
 Das Umsortieren der Summanden ist deshalb möglich, da diese alle nicht-negativ sind.
@@ -116,7 +122,7 @@ Ist $\alpha_i \geq 0$ für alle $i$, so ist offenbar
 ein mehrdimensionales Intervall, also 
 \begin{equation}\label{eq: volumenänderung würfel}
  \lambda_n(T(Q))
- = \prod_{i=1}^n |\alpha_i| l
+ = \prod_{i=1}^n \left( |\alpha_i| l \right)
  = \left(\prod_{i=1}^n |\alpha_i| \right) l^n
  = \left(\prod_{i=1}^n |\alpha_i| \right) \lambda_n(Q).
 \end{equation}
@@ -128,7 +134,7 @@ Sei nun $N \subseteq \R^n$ eine Lebesgue-Nullmenge und $\varepsilon > 0$ beliebi
 \begin{align*}
  \lambda_n( T(N) )
  &= \lambda_n\left( T\left( \bigcup_{k \in \N} Q_k \right) \right)
- = \sum_{k \in \N} \lambda_n(T(Q_k)) \\
+ \leq \sum_{k \in \N} \lambda_n(T(Q_k)) \\
  &= \sum_{k \in \N} \left(\prod_{i=1}^n |\alpha_i| \right) \lambda_n(Q_k)
  = \left(\prod_{i=1}^n |\alpha_i| \right) \sum_{k \in \N} \lambda_n(Q_k) \\
  &< \left(\prod_{i=1}^n |\alpha_i| \right) \varepsilon.
@@ -148,7 +154,7 @@ Aus der Endlichkeit des Produkts $\prod_{i=1}^n |\alpha_i|$ und der Beliebigkeit
 
 
 \subsection{}
-Man bemerke, dass $\R^n \setminus \{0\} \in \mc{B}(\R^n)$ bezüglich $\mu$ eine Nullmenge ist. Da es für jedes $A \subseteq \R^n$ ein $B \subseteq \R^n \setminus \{0\}$ mit $A = \emptyset \cup B$ oder $A = \{0\} \cup \R^n \setminus\{0\}$ gibt, ist $\A_0 = \mc{P}(\R^n)$, denn $\emptyset, \{0\} \in \mc{B}(\R^n)$.
+Man bemerke, dass $\R^n \setminus \{0\} \in \mc{B}(\R^n)$ bezüglich $\mu$ eine Nullmenge ist. Da es für jedes $A \subseteq \R^n$ ein $B \subseteq \R^n \setminus \{0\}$ mit $A = \emptyset \cup B$ oder $A = \{0\} \cup B$ gibt, ist $\A_0 = \mc{P}(\R^n)$, denn $\emptyset, \{0\} \in \mc{B}(\R^n)$.
 
 
 \subsection{}
@@ -157,11 +163,11 @@ Es sei
  \tilde{\A}_0
  :=& \bigcup_{A \subseteq \R^2} \left\{A \cup (0 \times \R), A \setminus (0 \times \R)\right\}.
 \end{align*}
-$\tilde{\A}_0$ enthält genau die Teilmengen von $\R^2$, die $0 \times \R$ ganz oder gar nicht beinhalten. Es gilt $\tilde{\A}_0 = \A$.
+$\tilde{\A}_0$ enthält genau die Teilmengen von $\R^2$, die $0 \times \R$ ganz oder gar nicht beinhalten. Es gilt $\tilde{\A}_0 = \A_0$:
 
 Sei $A \in \tilde{\A}_0$. Ist $(0,0) \not\in A$, so ist $A = \emptyset \cup A$, wobei $\emptyset \in \A$ und $A$ in der Nullmenge $\R^2 \setminus (0 \times \R) = (\R \setminus 0) \times \R \in \A$ enthalten ist, also $A \in \A_0$. Ist $(0,0) \in A$, so ist  $A = (0 \times \R) \cup (A \setminus (0 \times \R))$ analog in $\A_0$ enthalten. Also ist $\tilde{\A}_0 \subseteq \A_0$. 
 
-Sei $A \in \A_0$. Es gibt es $B \in \A$ und $N \subseteq \mc{P}(\R^2)$ mit $N \subseteq M$ für eine Nullmenge $M \in \A$ sodass $A = B \cup N$. Da $M$ ein Nullmenge ist, ist $(0,0) \not\in M$, also $(0 \times \R) \cap M = \emptyset$. Daher ist $(0,0) \in A$ genau dann wenn $(0,0) \in B$. Dies gilt genau dann, wenn $(0 \times \R) \subseteq B$, und genau dann nicht, wenn $(0 \times \R) \cap B = \emptyset$. Es ist also $(0 \times \R)$ entweder ganz oder gar nicht in $A$, und daher $A \in \tilde{\A}_0$. Es ist also $\A_0 \subseteq \tilde{\A}_0$.
+Sei $A \in \A_0$. Es gibt $B \in \A$ und $N \subseteq \R^2$ mit $N \subseteq M$ für eine Nullmenge $M \in \A$ sodass $A = B \cup N$. Da $M$ ein Nullmenge ist, ist $(0,0) \not\in M$, also $(0 \times \R) \cap M = \emptyset$. Daher ist $(0,0) \in A$ genau dann wenn $(0,0) \in B$. Dies gilt genau dann, wenn $(0 \times \R) \subseteq B$, und genau dann nicht, wenn $(0 \times \R) \cap B = \emptyset$. Es ist also $(0 \times \R)$ entweder ganz oder gar nicht in $A$, und daher $A \in \tilde{\A}_0$. Es ist also $\A_0 \subseteq \tilde{\A}_0$.
 
 
 
@@ -171,7 +177,7 @@ Sei $A \in \A_0$. Es gibt es $B \in \A$ und $N \subseteq \mc{P}(\R^2)$ mit $N \s
 
 
 \subsection{}
-Sei $t \in \R$ beliebig aber fest. Da $N$ abzählbar ist, ist $N \in \mc{B}(\R^n)$. (Jede abzählbare Menge $A$ lässt sich als \[ A = \bigcup_{a \in A} [a-1,a]\cap[a,a+1] \] darstellen.) Es ist also auch $M := \R^n \setminus N \in \mc{B}(\R^n)$. Nach Definition von $N$ ist $f_{|M} : M \rightarrow \R^n$ stetig. Es ist daher
+Sei $t \in \R$ beliebig aber fest. Da $N$ abzählbar ist, ist $N \in \mc{B}(\R^n)$. Es ist also auch $M := \R^n \setminus N \in \mc{B}(\R^n)$. Nach Definition von $N$ ist $f_{|M} : M \rightarrow \R^n$ stetig. Es ist daher
 \[
  A := \{x \in M : f_{|M}(x) \leq t\} \in \mc{B}(\R^n),
 \]
@@ -181,13 +187,13 @@ da stetige Funktionen immer messbar sind. Da $N$ abzählbar ist, ist es auch
 \]
 also $N' \in \mc{B}(\R^n)$. Daher ist auch
 \[
- \{x \in N : f(x) \leq t\} = A \cup N' \in \mc{B}(\R^n),
+ \{x \in \R^n : f(x) \leq t\} = A \cup N' \in \mc{B}(\R^n),
 \]
 also $f$ Borell-messbar.
 
 
 \subsection{}
-Sei $t \in \R$ beliebig aber fest, und $A := \{x \in \R: f(x) < t\}$. Ist $A = \R$, so ist $A$ Borell-messbar. Ansonsten ist $A$ ein Intervall der Form $(a,\infty)$ oder $[a,\infty)$ mit $a \in \R$. Auch in diesen Fällen ist $A$ Borell-messbar.
+Sei $t \in \R$ beliebig aber fest, und $A := \{x \in \R: f(x) < t\}$. Ist $A = \R$, so ist $A$ Borell-messbar. Ansonsten ist $A$ ein Intervall der Form $(-\infty,a)$ oder $(-\infty,a]$ mit $a \in \R$. Auch in diesen Fällen ist $A$ Borell-messbar.
 
 
 \subsection{}
@@ -196,7 +202,7 @@ Da $\lambda(N) = 0$ und das Lebesgue-Maß auf $(\R^n, \mc{M}_\lambda)$ vollstän
 \[
  A := \{x \in M : f_{|M}(x) \leq t\} \in \mc{M}_\lambda,
 \]
-Borell- und damit auch Lebesgue-messbar ist. Für
+Borell- und damit auch Lebesgue-messbar. Für
 \[
  N' := \{x \in N : f(x) \leq t\}
 \]
@@ -226,7 +232,6 @@ Sei $\varepsilon > 0$ beliebig aber fest. Es ist klar, dass $A_{2 \varepsilon} \
 \[
  \limsup_{y \rightarrow x} |f(y)-f(x)|
  \leq \limsup_{y \rightarrow x} |f(y)-f(a)| + \limsup_{y \rightarrow x} |f(a)-f(x)|
- < 2 \delta
  < 2 \varepsilon,
 \]
 im Widerspuch zu $x \in A_{2 \varepsilon}$. Also muss $\delta \geq \varepsilon$, und somit $a \in A_{\varepsilon}$.
@@ -239,7 +244,7 @@ im Widerspuch zu $x \in A_{2 \varepsilon}$. Also muss $\delta \geq \varepsilon$,
 
 
 \subsection{}
-Sei $A \in B(\R^n)$ und $\varepsilon > 0$ beliebig aber fest. 
+Sei $A \in \mc{B}(\R^n)$ und $\varepsilon > 0$ beliebig aber fest. 
 
 \subsubsection*{(ii) $\Rightarrow$ (iv)}
 Es gibt eine offene Menge $U \subseteq \R^n$ mit $A^c \subseteq U$ und
@@ -252,7 +257,7 @@ Es ergibt sich wegen der Endlichkeit von $\mu$, dass
 \]
 Da $U^c \subseteq A$ abgeschlossen ist, und $\varepsilon > 0$ beliebig, zeigt dies (iv).
 
-\subsection*{(iv) $\Rightarrow$ (ii)}
+\subsubsection*{(iv) $\Rightarrow$ (ii)}
 Sei $C \subseteq A^c$ abgeschlossen mit
 \[
  \mu(C) \geq \mu(A^c) - \varepsilon.
@@ -261,7 +266,7 @@ Es ist dann wegen der Endlichkeit von $\mu$
 \[
  \mu(C^c) = \mu(\R^n) - \mu(C) \leq \mu(\R^n) - \mu(A^c) + \varepsilon = \mu(A) + \varepsilon.
 \]
-Da $C^c \supseteq A$ offen ist, und $\varepsilon > 0$, zeigt dies (ii).
+Da $C^c \supseteq A$ offen ist, und $\varepsilon > 0$ beliebig, zeigt dies (ii).
 
 \subsubsection*{(iii) $\Rightarrow$ (iv)}
 Da jede kompakte Menge $K \subseteq \R^n$ auch abgeschlossen ist, gilt
@@ -293,6 +298,7 @@ und $C_N \subseteq C \subseteq A$ abgeschlossen und beschränkt, also kompakt, i
 
 
 \subsection{}
+\emph{Korrektur: Hier ist fast alles Blödsinn, und ich habe Lust die richtige Lösung abzutippen.}
 Es sei
 \[
  \A := \{A \in \mc{B}(\R^n): \text{(ii) und (iv) gelten für $A$}\}.
