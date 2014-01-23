@@ -97,53 +97,54 @@
 
 
 \section{(Dualität)}
-Für den Fall, dass $f \in \cL^p(\Omega)$ ist die Aussage bereits aus der Vorlesung bekannt. Es ist nämlich bekannt, dass die Abbildung
+Für den Fall $f \in \cL^p(\Omega)$, mit $p \in [1,\infty]$, ist die Aussage bereits aus der Vorlesung bekannt. Es ist nämlich bekannt, dass die Abbildung
 \[
  \psi : L^p(\Omega) \to \left(L^{p'}(\Omega)\right)^* \text{ mit }
- \psi(f)(g) = \int_\Omega f g \dmu \text{ für alle } g \in L^{p*}(\Omega)
+ \psi(f)(g) = \int_\Omega f g \dmu \text{ für alle } g \in L^{p'}(\Omega)
 \]
 wegen der $\sigma$-Endlichkeit des Maßraums $(\Omega, \A, \mu)$ für alle $p \in [1,\infty]$ eine Isometrie ist, dass also
 \begin{align*}
  \|f\|_p
  = \|\psi(f)\|
  &= \sup \left\{ |\psi(f)(g)| : g \in L^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
+ &= \sup \left\{ \left|\int_\Omega f g \dmu\right| : g \in L^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\} \\
  &= \sup \left\{ \int_\Omega f g \dmu : g \in L^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\}.
 \end{align*}
 
-Sei nun $f : \Omega \to [-\infty, \infty]$ messbar und $p \in [0,\infty]$ mit $f \not\in \cL^p(\Omega)$. Wir unterscheiden zwischen den drei Fällen $p = 1$, $p = \infty$ und $1 < p < \infty$.
+Sei nun $f : \Omega \to [-\infty, \infty]$ messbar und $p \in [1,\infty]$ mit $f \not\in \cL^p(\Omega)$. Wir unterscheiden zwischen den drei Fällen $p = 1$, $p = \infty$ und $1 < p < \infty$.
 
-Ist $p = 1$, so lässt sich für alle $M \in \N$ die Testfunktion $g_M = \sgn(f)$ wählen. Es ist klar, dass $g_M \in \cL^\infty(\Omega)$ mit $\|g_M\|_\infty = 1$, da $f \not\in \cL^1(\Omega)$ ist
+Im Fall $p = 1$ lässt sich unabhängig von $M \in \N$ die Testfunktion $g_M = \sgn(f)$ wählen. Es ist klar, dass $g_M \in \cL^\infty(\Omega)$ mit $\|g_M\|_\infty = 1$. Da $f \not\in \cL^1(\Omega)$ ist
 \[
  \int_\Omega f g_M \dmu
  = \int_\Omega |f| \dmu
  = \infty \geq M.
 \]
 
-Ist $p = \infty$ so setzen wir für beliebiges aber festes $M \in \N$
+Ist $p = \infty$ so setzen wir für $M \in \N$
 \[
- A := \{x \in \Omega : |f(x)| \geq M\}.
+ A_M := \{x \in \Omega : |f(x)| \geq M\}.
 \]
-Offenbar ist $A \in \A$, und da $f \not\in \cL^\infty(\Omega)$ ist $\mu(A) > 0$. Wegen der $\sigma$-Endlichkeit des Maßraums $(\Omega, \A, \mu)$ gibt es eine Menge $B \subseteq A$ mit $0 < \mu(B) < \infty$. Für die Funktion
+Offenbar ist $A_M \in \A$, und da $f \not\in \cL^\infty(\Omega)$ ist $\mu(A_M) > 0$. Wegen der $\sigma$-Endlichkeit des Maßraums $(\Omega, \A, \mu)$ gibt es eine Menge $B_M \subseteq A_M$ mit $0 < \mu(B_M) < \infty$. Für die Funktion
 \[
- g_M := \frac{\chi_B}{\mu(B)} \sgn(f)
+ g_M := \frac{\chi_{B_M}}{\mu(B_M)} \sgn(f)
 \]
 ist $g_M \in \cL^1(\Omega)$ mit $\|g_M\|_1 = 1$, da
 \[
  \int_\Omega |g_M| \dmu
- = \frac{1}{\mu(B)} \int_B 1 \dmu
+ = \frac{1}{\mu(B_M)} \int_{B_M} 1 \dmu
  = 1.
 \]
-Es ist
+Auch ist
 \[
  \int_\Omega f g \dmu
- = \frac{1}{\mu(B)} \int_B |f| \dmu
- \geq \frac{1}{\mu(B)} \int_B M \dmu
+ = \frac{1}{\mu(B_M)} \int_{B_M} |f| \dmu
+ \geq \frac{1}{\mu(B_M)} \int_{B_M} M \dmu
  = M.
 \]
 
 Sei nun $1 < p < \infty$. Wegen der $\sigma$-Endlichkeit des Maßraumes $(\Omega, \A, \mu)$ gibt es eine Folge $(B_n)_{n \in \N}$ auf $\A$ mit $\Omega = \bigcup_{n \in \N} B_n$, so dass $B_n \subseteq B_{n+1}$ und $\mu(B_n) < \infty$ für alle $n \in \N$.
 
-Da $|f| : \Omega \to [0,\infty]$ messbar ist gibt es eine Folge $(f_k)_{k \in \N}$ einfacher, messbarer Funktionen mit $f_k \geq 0$, $f_k \leq f_{k+1}$ für alle $k \in \N$ und $\limes{k}{\infty} f_k = |f|$ punktweise. Aufgrund von Monotonie und Stetigkeit ist auch $(f_k^p)_{k \in N}$ eine Folge einfacher, messbarer Funktionen mit $f_k^p \geq 0$, $f_k^p \leq f_{k+1}^p$ für alle $k \in \N$ und $\limes{k}{\infty} f_k^p = |f|^p$.
+Da $|f| : \Omega \to [0,\infty]$ messbar ist gibt es eine Folge $(f_k)_{k \in \N}$ einfacher, messbarer Funktionen mit $f_k \geq 0$ und $f_k \leq f_{k+1}$ für alle $k \in \N$ und $\limes{k}{\infty} f_k = |f|$ punktweise überall. Aufgrund von Monotonie und Stetigkeit ist auch $(f_k^p)_{k \in N}$ eine Folge einfacher, messbarer Funktionen mit $f_k^p \geq 0$, $f_k^p \leq f_{k+1}^p$ für alle $k \in \N$ und $\limes{k}{\infty} f_k^p = |f|^p$.
 
 Mehrfache Anwendung des Satzes über Monotone Konvergenz ergibt, dass
 \[
@@ -156,24 +157,24 @@ Es gibt daher $N \in \N$ mit
 \[
  \limes{k}{\infty} \int_{B_N} f_k^p \dmu \geq (M+1)^p + 1,
 \]
-also ein $K \in \N$
+also ein $K \in \N$ mit
 \[
  \int_{B_N} f_K^p \dmu \geq (M+1)^p.
 \]
-Wir definieren
+Wir setzen
 \[
  h := \chi_{B_N} f_K
 \]
-und bemerken direkt, dass $|f| \geq h \geq 0$.
+und bemerken auch direkt, dass $|f| \geq h \geq 0$.
 
 
-Da $f_K^p$ als einfache Funktion beschränkt ist, und $\mu(B_N) < \infty$, ist
+Da $\mu(B_N) < \infty$ und $f_K^p$ als einfache Funktion beschränkt ist, ist
 \[
  \int_\Omega |h|^p \dmu
  = \int_{B_N} f_K^p \dmu
  < \infty.
 \]
-Daher ist $h \in \cL^p(\Omega)$ mit
+Es ist also $h \in \cL^p(\Omega)$ mit
 \[
  \|h\|_p
  = \left( \int_\Omega |h|^p \dmu \right)^{1/p}
@@ -186,11 +187,11 @@ Da $h \in \cL^p(\Omega)$ ist
  \|h\|_p
  = \sup \left\{ \int_\Omega h g \dmu : g \in \cL^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\}.
 \]
-Es gibt also ein $g \in \cL^{p'}(\Omega)$ mit
+Es gibt also ein $g \in \cL^{p'}(\Omega)$ mit $\|g\|_{p'} \leq 1$, so dass
 \[
  \int_\Omega h g \dmu \geq \|h\|_p -1 \geq M.
 \]
-Für $g_M = \sgn(f) |g|$ ist $g_M \in \cL^{p'}(\Omega)$ mit $\|g_M\|_{p'} = 1$, da $|g_M| = |g|$. Da $|f| \geq h \geq 0$ ist
+Für $g_M = \sgn(f) |g|$ ist $|g_M| = |g|$ und deshalb $g_M \in \cL^{p'}(\Omega)$ mit $\|g_M\|_{p'} = 1$. Da $|f| \geq h \geq 0$ ist schließlich
 \[
  \int_\Omega f g_M \dmu
  = \int_\Omega |f| |g| \dmu
@@ -207,15 +208,25 @@ Für $g_M = \sgn(f) |g|$ ist $g_M \in \cL^{p'}(\Omega)$ mit $\|g_M\|_{p'} = 1$, 
 
 
 \subsection{}
-Ist $r = \infty$, so ist auch $p = q = \infty$. Für $f,g \in \cL^\infty(\Omega)$ ist dann
+Wir betrachten zunächst den Fall $r = \infty$. Da
+\[
+ \frac{1}{p} + \frac{1}{q} = \frac{1}{r} = 0
+\]
+ist $p = q = \infty$. Es ist klar, dass für alle $f,g \in \cL^\infty(\Omega)$
 \[
  |f(x)g(x)| = |f(x)| |g(x)| \leq \|f\|_\infty \|g\|_\infty \text{ für $\mu$-fast alle } x \in \Omega.
 \]
-Das zeigt, dass $fg \in \cL^\infty(\Omega)$ und die geforderte Ungleichung gilt.
+Das zeigt, dass $fg \in \cL^\infty(\Omega)$ und die Ungleichung gilt.
 
-Ist $r \in [1,\infty)$, so folgt aus $f \in \cL^p(\Omega)$, dass $|f|^r \in \cL^{p/r}(\Omega)$ mit $\||f|^r\|_{p/r} = \|f\|_p^r$, und aus $g \in \cL^q(\Omega)$, dass $|g|^r \in \cL^{q/r}(\Omega)$ mit $\||g|^r\|_{q/r} = \|f\|_q^r$. Da
+Ist $r \in [1,\infty)$, so folgt aus $f \in \cL^p(\Omega)$, dass $|f|^r \in \cL^{p/r}(\Omega)$ mit $\||f|^r\|_{p/r} = \|f\|_p^r$, und aus $g \in \cL^q(\Omega)$, dass $|g|^r \in \cL^{q/r}(\Omega)$ mit $\||g|^r\|_{q/r} = \|f\|_q^r$. Dass dabei $p/r, q/r \geq 1$ folgt daraus, dass $1/p, 1/q \leq 1/r$, also $p,q \geq r$.
+
+Da
 \[
- \frac{r}{p} + \frac{r}{q} = r\left(\frac{1}{p} + \frac{1}{q}\right) = r\,\frac{1}{r} = 1
+ \frac{1}{p/r} + \frac{1}{q/r}
+ = \frac{r}{p} + \frac{r}{q}
+ = r\left(\frac{1}{p} + \frac{1}{q}\right)
+ = r\,\frac{1}{r}
+ = 1
 \]
 ist nach der Hölder-Ungleichung
 \[
@@ -235,22 +246,22 @@ Dass die rechte Seite der Gleichung endlich ist, zeigt, dass $fg \in \cL^r(\Omeg
 \subsection{}
 Wir zeigen die Aussage per Induktion über $k \geq 1$.
 \begin{ia}
- Für $k=1$ ist nichts zu zeigen, und für $k=2$ handelt es sich um den vorherigen Aufgabenteil.
+ Für $k=1$ ist nichts zu zeigen, und für $k=2$ handelt es sich um die Aussage des vorherigen Aufgabenteils.
 \qed\end{ia}
 \begin{is}
  Es sei nun $k \geq 3$ und es gelte die Aussage für $k-1$ und $2$. Wegen $\sum_{i=1}^k 1/p_i = 1/r$ ist
  \[
-  \sum_{i=1}^{k-1} 1/p_i = 1/r - 1/p_k.
+  \sum_{i=1}^{k-1} \frac{1}{p_i} = \frac{1}{r} - \frac{1}{p_k}.
  \]
  
- Ist $1/r - 1/p_k = 0$, so ist $r = p_k$ und $p_1 = \ldots = p_{k-1} = \infty$. Für $1 \leq r < \infty$ ist
+ Ist $1/r - 1/p_k = 0$, so ist $r = p_k$ und $p_1 = \ldots = p_{k-1} = \infty$. Für $1 \leq r < \infty$ ist dann
  \[
   \int_\Omega \left|\prod_{i=1}^k f_i\right|^r \dmu
   = \int_\Omega \prod_{i=1}^k |f_i|^r \dmu
   \leq \prod_{i=1}^{k-1} \|f_i\|_\infty^r \int_\Omega |f_k|^r \dmu
   = \prod_{i=1}^{k} \|f_i\|_{p_i}^r,
  \]
- also $\prod_{i=1}^k f_i \in \cL^r(\Omega)$ mit $\|\prod_{i=1}^k f_i\| \leq \prod_{i=1}^k \|f_i\|_{p_i}$.
+ also $\prod_{i=1}^k f_i \in \cL^r(\Omega)$ mit $\|\prod_{i=1}^k f_i\|_r \leq \prod_{i=1}^k \|f_i\|_{p_i}$.
  Für $r = \infty$ ist
  \[
   \left| \prod_{i=1}^k f_i \right|
@@ -258,9 +269,9 @@ Wir zeigen die Aussage per Induktion über $k \geq 1$.
   \leq \prod_{i=1}^k \|f_i\|_\infty
   \text{ $\mu$-fast überall},
  \]
- also $\prod_{i=1}^k f_i \in \cL^\infty(\Omega) = \cL^r(\Omega)$ mit der entsprechenden Ungleichung.
+ also $\prod_{i=1}^k f_i \in \cL^\infty(\Omega) = \cL^r(\Omega)$ mit $\|\prod_{i=1}^k f_i\|_\infty \leq \prod_{i=1}^k \|f_i\|_\infty = \prod_{i=1}^k \|f_i\|_{p_i}$.
  
- Ist $1/r - 1/p_k > 0$, so ist $1/r - 1/p_k \leq 1/r$ und daher
+ Im Fall $1/r - 1/p_k > 0$ ist, da $1/r - 1/p_k \leq 1/r$,
  \[
   s := \frac{1}{\frac{1}{r} - \frac{1}{p_k}} \geq r \geq 1.
  \]
@@ -268,7 +279,7 @@ Wir zeigen die Aussage per Induktion über $k \geq 1$.
  \[
   \left\| \prod_{i=1}^{k-1} f_i \right\|_s \leq \prod_{i=1}^{k-1} \|f_i\|_{p_i}.
  \]
- Da $p_k, r, s \in [1,\infty]$ mit $1/p_k + 1/s = 1/r$ ist wegen $\cL^{p_k}(\Omega)$ und $\prod_{i=1}^{k-1} f_i \in \cL^s(\Omega)$ nach Induktionsvoraussetzung
+ Da $p_k, r, s \in [1,\infty]$ mit $1/p_k + 1/s = 1/r$, und $f_k \in \cL^{p_k}(\Omega)$ und $\prod_{i=1}^{k-1} f_i \in \cL^s(\Omega)$, ist nach Induktionsvoraussetzung
  \begin{gather*}
   \prod_{i=1}^k f_i
   = \left( \prod_{i=1}^{k-1} f_i \right) f_k \in \cL^r(\Omega)
@@ -281,26 +292,41 @@ Wir zeigen die Aussage per Induktion über $k \geq 1$.
 
 
 \subsection{}
+Im Folgenden wird häufig der Satz von Tonelli genutzt. Die entsprechenden Umformungen werden mit $(T)$ markiert.
+
 Wir betrachten zunächst den Fall, dass $p = \infty$, $q = \infty$ oder $r = \infty$. Ist etwa $p = \infty$, so muss $q = r = 1$. Es ist dann
 \begin{align*}
-     &\, \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_2(x,y) \\
- \leq&\, \|f\|_\infty \int_{\R^n \times \R^n} |g(y-x) h(y)| \dlambda_2(x,y) \\
- \underset{(*)}=&\, \|f\|_\infty \int_{\R^n} \int_{\R^n} |g(y-x) h(y)| \dlambda_n(x) \dlambda_n(y) \\
+     &\, \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_{2n}(x,y) \\
+ \leq&\, \|f\|_\infty \int_{\R^n \times \R^n} |g(y-x) h(y)| \dlambda_{2n}(x,y) \\
+ \underset{(T)}=&\, \|f\|_\infty \int_{\R^n} \int_{\R^n} |g(y-x) h(y)| \dlambda_n(x) \dlambda_n(y) \\
     =&\, \|f\|_\infty \int_{\R^n} |h(y)| \int_{\R^n} |g(y-x)| \dlambda_n(x) \dlambda_n(y) \\
     =&\, \|f\|_\infty \|g\|_1 \int_{\R^n} |h(y)| \dlambda_n(y)
     =    \|f\|_\infty \|g\|_1 \|h\|_1.
 \end{align*}
-Dabei wird bei $(*)$ Tonelli genutzt. Die Fälle $q = \infty$ und $r = \infty$ lassen sich analog abhandeln.
+Die Fälle $q = \infty$ und $r = \infty$ lassen sich analog abhandeln.
 
-Als nächstes betrachten wir den Fall, dass $p = 1$, $q = 1$ oder $r = 1$. Ist etwa $p = 1$, so ist $1/q + 1/r = 1$ und daher
+Als Nächstes betrachten wir den Fall, dass $p = 1$, $q = 1$ oder $r = 1$. Ist etwa $p = 1$, so ist $1/q + 1/r = 1$ und daher
 \begin{align*}
-     &\, \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_2(x,y) \\
-     \underset{(*)}=&\, \int_{\R^n} \int_{\R^n} |f(x) g(y-x) h(y)| \dlambda_n(y) \dlambda_n(x) \\
+     &\, \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_{2n}(x,y) \\
+     \underset{(T)}=&\, \int_{\R^n} \int_{\R^n} |f(x) g(y-x) h(y)| \dlambda_n(y) \dlambda_n(x) \\
      =&\, \int_{\R^n} |f(x)| \int_{\R^n} |g(y-x) h(y)| \dlambda_n(y) \dlambda_n(x) \\
-     \underset{(**)}\leq&\, \|g\|_q \|h\|_r \int_{\R^n} |f(x)| \dlambda_n(x)
+     \underset{(*)}\leq&\, \|g\|_q \|h\|_r \int_{\R^n} |f(x)| \dlambda_n(x)
      = \|f\|_1 \|g\|_q \|h\|_r.
 \end{align*}
-Dabei wird bei $(*)$ Tonelli und bei $(**)$ die Hölder-Ungleichung genutzt. Die Fälle $q = 1$ und $r = 1$ lassen sich analog abhandeln.
+Dabei wird bei $(*)$ die Hölder-Ungleichung genutzt. Die Fälle $q = 1$ und $r = 1$ lassen sich analog abhandeln. Dabei muss man im Fale $q = 1$ allerdings den Transformationssatz nutzen: Es ist dann $1/p + 1/r = 1$, und es ergibt sich, dass
+\begin{align*}
+ &\, \int_{\R^n \times \R^n} |f(x)g(y-x)h(y)| \dlambda_{2n}(x,y) \\
+ \underset{(T)}=&\, \int_{\R^n} \int_{\R^n} |f(x)g(y-x)h(y)| \dlambda_n(y) \dlambda_n(x) \\
+ =&\, \int_{\R^n} |f(x)| \int_{\R^n} |g(y-x)h(y)| \dlambda_n(y) \dlambda_n(x) \\
+ \underset{(*)}=&\, \int_{\R^n} |f(x)| \int_{\R^n} |g(y)h(y+x)| \dlambda_n(y) \dlambda_n(x) \\
+ =&\, \int_{\R^n} \int_{\R^n} |f(x)g(y)h(y+x)| \dlambda_n(y) \dlambda_n(x) \\
+ \underset{(T)}=&\, \int_{\R^n} \int_{\R^n} |f(x)g(y)h(y+x)| \dlambda_n(x) \dlambda_n(y) \\
+ =&\, \int_{\R^n} |g(y)|\int_{\R^n} |f(x)h(y+x)| \dlambda_n(x) \dlambda_n(y) \\
+ \underset{(**)}\leq&\, \|f\|_p \|h\|_r \int_{\R^n} |g(y)| \dlambda_n(y)
+ = \|f\|_p \|g\|_1 \|h\|_r.
+\end{align*}
+Dabei wird bei $(*)$ der Transformationssatz genutzt (bezüglich des Diffeomorphismus \mbox{$\varphi_x: \R^n \to \R^n, y \mapsto y+x$}) und bei $(**)$ die Hölder-Ungleichung.
+
 
 Zuletzt betrachten wir Fall, dass $1 < p,q,r < \infty$. Es ist dann auch \mbox{$1 < p', q', r' < \infty$}. Da
 \[
@@ -319,20 +345,20 @@ Wir betrachten die Hilfsfunktionen $\alpha, \beta, \gamma : \R^n \times \R^n \to
   \beta(x,y) &:= |f(x)|^{p/q'} |h(y)|^{r/q'} \text{ und} \\
  \gamma(x,y) &:= |f(x)|^{p/r'} |g(y-x)|^{q/r'}.
 \end{align*}
+Offenbar sind $\alpha$, $\beta$ und $\gamma$ messbar.
 
 Es ist $\alpha \in \cL^{p'}(\R^n \times \R^n)$ mit $\|\alpha\|_{p'} = \|g\|_q^{q/p'} \|h\|_r^{r/p'}$, denn
 \begin{align*}
  &\, \int_{\R^n \times \R^n} |\alpha(x,y)|^{p'} \dlambda_{2n}(x,y) \\
  =&\, \int_{\R^n \times \R^n} |g(y-x)|^q |h(y)|^r \dlambda_{2n}(x,y) \\
- \underset{(*)}=&\, \int_{\R^n} \int_{\R^n} |g(y-x)|^q |h(y)|^r \dlambda_n(x) \dlambda_n(y) \\
+ \underset{(T)}=&\, \int_{\R^n} \int_{\R^n} |g(y-x)|^q |h(y)|^r \dlambda_n(x) \dlambda_n(y) \\
  =&\, \int_{\R^n} |h(y)|^r \int_{\R^n} |g(y-x)|^q \dlambda_n(x) \dlambda_n(y) \\
  =&\, \|g\|_q^q \int_{\R^n} |h(y)|^r \dlambda_n(y)
  = \|g\|_q^q \|h\|_r^r.
 \end{align*}
-Dabei wird bei $(*)$ überraschenderweise Tonelli genutzt.
 Analog ergibt sich auch, dass $\beta \in \cL^{q'}(\R^n \times \R^n)$ mit $\|\beta\|_{q'} = \|f\|_p^{p/q'} \|h\|_r^{r/q'}$, und dass $\gamma \in \cL^{r'}(\R^n \times \R^n)$ mit $\|\gamma\|_{r'} = \|f\|_p^{p/r'} \|g\|_q^{q/r'}$.
 
-Es ist
+Wir bemerken nun, dass
 \begin{gather*}
  \frac{p}{q'} + \frac{p}{r'}
  = p\left( \frac{1}{q'} + \frac{1}{r'} \right)
@@ -348,17 +374,13 @@ Es ist
 
 Damit ergibt sich aus dem vorherigen Aufgabenteil, dass
 \begin{align*}
- &\, \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_{2n}(x,y) 
-   = \int_{\R^n \times \R^n} |\alpha \beta \gamma| \dlambda_{2n} \\
- \leq&\, \|\alpha\|_{p'} \|\beta\|_{q'} \|\gamma\|_{r'}
- = \|f\|_p^{p/q' + p/r'} \|g\|_q^{q/p' + q/r'} \|h\|_r^{r/p' + r/q'} \\
- =&\, \|f\|_p \|g\|_q \|h\|_r.
+ &\,     \int_{\R^n \times \R^n} |f(x) g(y-x) h(y)| \dlambda_{2n}(x,y) \\
+ =&\,    \int_{\R^n \times \R^n} |f(x)|^{p/q'+p/r'} |g(y-x)|^{q/p'+q/r'} |h(y)|^{r/p'+r/q'} \dlambda_{2n}(x,y) \\
+ =&\     \int_{\R^n \times \R^n} |\alpha \beta \gamma| \dlambda_{2n}
+ \leq \|\alpha\|_{p'} \|\beta\|_{q'} \|\gamma\|_{r'} \\
+ =&\,    \|f\|_p^{p/q' + p/r'} \|g\|_q^{q/p' + q/r'} \|h\|_r^{r/p' + r/q'}
+ =    \|f\|_p \|g\|_q \|h\|_r.
 \end{align*}
-
-
-
-
-
 
 
 
@@ -377,7 +399,7 @@ Damit ergibt sich aus dem vorherigen Aufgabenteil, dass
  \]
 \end{bem}
 \begin{proof}
- Wir betrachten die Funktion $\psi : [0,\infty) \to [0,\infty)$ mit
+ Wir betrachten die Funktion $\psi : [0,\infty) \to \R$ mit
  \[
   \psi(t) = (x+t)^p -x^p -t^p \text{ für alle } t \in [0,\infty).
  \]
@@ -414,7 +436,9 @@ Da $f \in \cL^p(\Omega)$ und $f \geq 0$ ist die rechte Seite der Gleichung endli
 \]
 Nach Bemerkung \ref{bem: abschätzung} ist daher
 \[
- 0 \leq \limes{n}{\infty} \int_\Omega (f - f_n)^p \dmu \leq \limes{n}{\infty} f^p - f_n^p \dmu = 0,
+ 0
+ \leq \limes{n}{\infty} \int_\Omega (f - f_n)^p \dmu
+ \leq \limes{n}{\infty} \int_\Omega f^p - f_n^p \dmu = 0,
 \]
 also
 \[
@@ -428,7 +452,7 @@ Sei nun $f \in \cL^p(\Omega)$ beliebig. Es ist auch $|f| \in \cL^p(\Omega)$, und
 \]
 Dass $f_n \in \cL^p(\Omega)$ für alle $n \in \N$ folgt direkt daraus, dass $|f'_n| = |f_n|$. Auch ist
 \[
- |f(x)-f_n(x)| \geq ||f(x)|-f'_n(x)| \text{ für alle } x \in \Omega \text{ für alle } n \in \N.
+ |f(x)-f_n(x)| \leq ||f(x)|-f'_n(x)| \text{ für alle } x \in \Omega, n \in \N.
 \]
 Es ist daher
 \[
@@ -437,13 +461,17 @@ Es ist daher
  \leq \left( \int_\Omega ||f|-f'_n|^p \right)^{1/p}
  = \||f|-f'_n\|_p
 \]
-für alle $n \in \N$. Aus $\limes{n}{\infty} \||f|-f'_n\|_p = 0$ folgt daher, dass $\limes{n}{\infty} \|f-f_n\|_p = 0$.
-
-Sei nun $p = \infty$. Sei zunächst $f \in \cL^\infty(\Omega)$ mit $f \geq 0$. Für $n \in \N$ definieren wir die Folge einfacher Funktionen $(f_n)_{n \geq 1}$ auf $\cL^\infty(\Omega)$ als
+für alle $n \in \N$. Aus $\limes{n}{\infty} \||f|-f'_n\|_p = 0$ folgt daher, dass
 \[
- f_n(x) := \sup \left\{ \frac{k}{n} \leq f(x) : k \in \N \right\}.
+ \limes{n}{\infty} \|f-f_n\|_p = 0.
 \]
-Dass $n \in \N$ $f_n \in \cL^\infty(\Omega)$ und $f_n$ einfach ist, folgt für alle $n \in \N$ direkt daraus, dass \mbox{$f \in \cL^\infty(\Omega)$}. Es ist auch klar, dass
+
+Sei nun $p = \infty$. Sei zunächst $f \in \cL^\infty(\Omega)$ mit $f \geq 0$. Wir definieren die Folge einfacher Funktionen $(f_n)_{n \geq 1}$ auf $\cL^\infty(\Omega)$ als
+\[
+ f_n(x) := \sup \left\{ \frac{k}{n} \leq f(x) : k \in \N \right\} \text{ für alle } x \in \
+ \Omega, n \geq 1.
+\]
+Dass $f_n$ für alle $n \in \N$ eine einfache Funktion ist, und damit inbesondere $f_n \in \cL^\infty(\Omega)$ für alle $n \in \N$, folgt direkt daraus, dass \mbox{$f \in \cL^\infty(\Omega)$}. Es ist auch klar, dass
 \[
  \sup_{x \in \Omega} |f(x) - f_n(x)| < \frac{1}{n} \text{ für alle } n \geq 1.
 \]
@@ -453,11 +481,11 @@ Sei nun $f \in \cL^\infty(\Omega)$ beliebig. Offenbar ist auch $|f| \in \cL^\inf
 \[
  f_n := \sgn(f)f'_n.
 \]
-Dass $f_n \in \cL^\infty(\Omega)$ für alle $n \in \N$ folgt direkt daraus, dass $|f_n| = |f'_n|$ für alle $n \in \N$. Da
+Für alle $n \in \N$ folgt $f_n \in \cL^\infty(\Omega)$ direkt daraus, dass $|f_n| = |f'_n|$. Da
 \[
- |f(x)-f_n(x)| \leq ||f(x)|-f'_n(x)| \text{ für alle } x \in \Omega \text{ für alle } n \in \N
+ |f(x)-f_n(x)| \leq ||f(x)|-f'_n(x)| \text{ für alle } x \in \Omega, n \in \N
 \]
-ist $\|f-f_n\|_\infty \leq \||f|-f'\|_\infty$ für alle $n \in \N$. Aus $\limes{n}{\infty} \||f|-f'_n\|_\infty = 0$ folgt daher, dass $\limes{n}{\infty} \|f-f_n\|_\infty = 0$.
+ist $\|f-f_n\|_\infty \leq \||f|-f'_n\|_\infty$ für alle $n \in \N$. Aus $\limes{n}{\infty} \||f|-f'_n\|_\infty = 0$ folgt daher, dass $\limes{n}{\infty} \|f-f_n\|_\infty = 0$.
 
 
 
@@ -480,9 +508,8 @@ genau dann, wenn
 Da auch $f_k - f \in \cL^p(\Omega)$ folgt mithilfe der Hölder-Ungleichung, dass für alle $k \in \N$
 \[
  \left| \int_\Omega (f_k -f)g \right|
- \leq \int_\Omega |f_k -f| |g| \dmu
- \leq \||f_k-f|\|_p \||g|\|_{p'}
- = \|f_k-f\|_p \|g\|_{p'}.
+ \leq \int_\Omega |(f_k -f)g| \dmu
+ \leq \|f_k-f\|_p \|g\|_{p'}.
 \]
 Da $f_k \longrightarrow f$ in $L^p(\Omega)$ ist $\limes{k}{\infty} \|f_k -f\|p = 0$, also auch
 \[
@@ -499,10 +526,10 @@ Da nach der Hölder-Ungleichung beide Seiten der Gleichung endlich sind, folgt, 
 \[
  \int_\Omega (f-h) g \dmu = 0 \text{ für alle } g \in \cL^{p'}(\Omega).
 \]
-Daher ergibt sich aus \textbf{Aufgabe 1} wegen der $\sigma$-Endlichkeit des Maßraumes, und da $f-h \in L^p(\Omega)$, dass
+Daher ergibt sich aus \textbf{Aufgabe 1} wegen der $\sigma$-Endlichkeit des Maßraumes, und da $f-h \in \cL^p(\Omega)$, dass
 \[
  \|f-h\|_p
- = \sup\left\{ \int_\Omega (f-h) g \dmu : g \in \cL^{p'}(\Omega) \text{ mit } \|g\|_{p'} \leq 1 \right\}
+ = \sup\left\{ \int_\Omega (f-h) g \dmu : g \in \cL^{p'}(\Omega), \|g\|_{p'} \leq 1 \right\}
  = 0.
 \]
 Also ist $f = h$ in $L^p(\Omega)$, da $\|\cdot\|_p$ eine Norm auf $L^p$ ist.
